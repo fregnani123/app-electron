@@ -7,21 +7,80 @@
     <title>Gestão Lite</title>
     <link rel="stylesheet" href="./style/home.css">
 </head>
-<header>
-    <nav>
-        <ul id="ul-Menu">
-            <li class="logo"><img id="logo-img" src="./img/logo-menu.png" alt=""></li>
-        </ul>
-    </nav>
-</header>
+
 <body>
-    <div id="container-body"></div>
-    <nav>
-        <ul id="container-menu">
-           
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <ul id="ul-Menu">
+                <li class="logo"><img id="logo-img" src="./img/logo-menu.png" alt=""></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="container-sales">
+        <div class="container-table">
+            <h3>Bem-vindo à nossa loja!</h3>
+            <table>
+                <tr>
+                    <th class="codigo">Código</th>
+                    <th class="produto">Produto</th>
+                    <th class="preco">Preço</th>
+                    <th class="estoque">Estoque Disponível</th>
+                    <th>Quantidade</th>
+                    
+                </tr>
+                <tr>
+                    <td>000000000001</td>
+                    <td>Arroz</td>
+                    <td>R$ 0,00</td>
+                    <td>50</td>
+                    <td><input id="input-qtd" type="number" min="0" max="50" value="0"></td>
+                </tr>
+                <tr>
+                <th colspan="2th">Buscar Produto</th>
+                <th colspan="3">Ação</th>
+                </tr>
+                <tr>
+                <td colspan="2th"><input id="input-EAN" type="number"><button>Limpar EAN</button></td>
+                <td colspan="3"><button>Adicionar Produto</button></td>
+                </tr>
+            </table>
+            <table id="table-carrinho">
+                <tr>
+                    <th colspan="2" id="carrinho">Carrinho de Compras</th>
+                    <th colspan="2" id="carrinho1">Finalizar venda</th>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <ul id="carrinho-add">
+                            <!-- Itens do carrinho serão adicionados aqui -->
+                        </ul>
+                    </td>
+                    <td colspan="2">
+                        <div>
+                            <label for="forma-pagamento">Escolha a forma de pagamento:</label>
+                            <select id="forma-pagamento">
+                                <option value="dinheiro">Dinheiro</option>
+                                <option value="cartao">Cartão</option>
+                                <option value="pix">PIX</option>
+                            </select>
+                            <label for="buscar-cliente">Buscar Cliente:</label>
+                            <input type="text" id="buscar-cliente">
+                            <!-- <label for="troco">Troco:</label>
+                            <input type="text" id="troco"> -->
+                            <label for="dinheiro-recebido">Dinheiro Recebido:</label>
+                            <input type="text" id="dinheiro-recebido">
+                            <p>Total: R$ <span id="total">0.00</span></p>
+                            <button type="button" id="finalizarCompra">Finalizar Compra</button>
+                            <button type="button" id="cancelarCompra">Cancelar Compra</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="./controllers/home.js"></script>
 </body>
-<script src="./controllers/home.js"></script>
 
 </html>
