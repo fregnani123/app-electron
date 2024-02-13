@@ -1,4 +1,30 @@
-/* #menu-painel{
+
+.div-menuPainel {
+    justify-content: center;
     display: flex;
-    background-color: rgba(255, 0, 0, 0.829);
-} */
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(247, 247, 247);
+}
+
+#menu-painel1 li,
+#menu-painel2 li {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 10px;
+}
+
+#menu-painel1 img,
+#menu-painel2 img {
+    margin-right: 10px;
+    width: 70px;
+    height: auto;
+}
+
+#menu-painel1 a,
+#menu-painel2 a {
+    text-decoration: none;
+    color: black;
+}

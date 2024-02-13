@@ -1,30 +1,31 @@
-  {"name": "gestaolite",
+{
+  "name": "gestaolite",
   "version": "1.0.0",
   "description": "sistema de gestao de estoque.",
   "main": "main.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "electron": "^28.2.2",
+    "electron-builder": "^24.9.1"
+  },
   "scripts": {
     "start": "electron .",
     "build": "electron-builder"
   },
   "author": "Fabiano Fregnani",
   "license": "ISC",
-    "dependencies": {
-      "electron": "^28.2.2"
-    },
-    "build": {
-      "appId": "com.gestaolite",
-      "directories": {
-        "output": "dist"
-      },
-      "win": {
-        "icon": "./img/logo.ico"
-      },
-      "mac": {
-        "icon": "./img/logo.icns"
-      },
-      "linux": {
-        "icon": "./img/logo.png"
-      }
-    }
+ "build": {
+  "appId": "com.gestaolite",
+  "directories": {
+    "output": "dist"
+  },
+  "win": {
+    "icon": "./img/logo.ico"
+  },
+  "mac": {
+    "icon": "./img/logo.icns"
+  },
+  "linux": {
+    "icon": "./img/logo.png"
+  }
+}
 }
