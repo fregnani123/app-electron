@@ -20,18 +20,20 @@ const containerMenu = document.querySelector("#container-menu");
 function criaLi(texto, id, src, to) {
     const a = document.createElement('a');
     const li = document.createElement('li');
+    a.textContent = texto;
+    a.href = to;
+    
     if (src && typeof src === 'string' && src.trim() !== ''){
         const img = document.createElement('img')
         img.src = src; 
-        li.appendChild(img)
+        a.appendChild(img);
     }
-    a.textContent = texto;
-    a.href = to;
+   
     li.classList.add('menu-item-' + id);
+    a.classList.add('a-menu')
     li.appendChild(a);
     return li;
 }
-
 
 menuItens.map(item => {
     const li = criaLi(item.texto,item.id,item.src,item.to ); 

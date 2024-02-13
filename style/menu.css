@@ -25,7 +25,7 @@ nav {
     height: 100%;
 }
 
-li {
+li{
     height: 3%;
     padding: 5px;
     margin: 3px;
@@ -35,15 +35,15 @@ li {
     border-radius: 2px;
     background-color: rgb(247, 247, 247);
     color: black;
-    cursor: pointer;
 }
+
 
 li:hover {
     border: 1px solid rgb(0, 38, 87);
     background-color: rgb(221, 221, 221);
 }
 
-.menu-item-li-Exit {
+.menu-item-li-Exit{
     bottom: 7px;
     list-style: none;
     width: auto;
@@ -55,6 +55,7 @@ li:hover {
     bottom: 0;
     right: 5px;
     position: absolute;
+
 }
 
 .menu-item-li-Exit:hover {
