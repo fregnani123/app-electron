@@ -15,10 +15,16 @@
     "build": {
       "appId": "com.gestaolite",
       "directories": {
-        "output": "dist" 
+        "output": "dist"
       },
       "win": {
-        "icon": "./img/logo.ico" 
+        "icon": "./img/logo.ico"
+      },
+      "mac": {
+        "icon": "./img/logo.icns"
+      },
+      "linux": {
+        "icon": "./img/logo.png"
       }
     }
 }
