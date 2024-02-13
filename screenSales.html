@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão Lite</title>
-    <link rel="stylesheet" href="./style/home.css">
+    <link rel="stylesheet" href="./style/body.css">
+    <link rel="stylesheet" href="./style/menu.css">
 </head>
 
 <body>
@@ -16,7 +17,6 @@
             </ul>
         </nav>
     </header>
-
     <div id="container-sales">
         <div class="container-table">
             <h3>Bem-vindo à nossa loja!</h3>
@@ -27,22 +27,19 @@
                     <th class="preco">Preço</th>
                     <th class="estoque">Estoque Disponível</th>
                     <th>Quantidade</th>
-                    
                 </tr>
                 <tr>
-                    <td>000000000001</td>
-                    <td>Arroz</td>
+                    <td></td>
+                    <td></td>
                     <td>R$ 0,00</td>
                     <td>50</td>
                     <td><input id="input-qtd" type="number" min="0" max="50" value="0"></td>
                 </tr>
                 <tr>
-                <th colspan="2th">Buscar Produto</th>
-                <th colspan="3">Ação</th>
+                <th colspan="5th">Buscar Produto</th>
                 </tr>
                 <tr>
-                <td colspan="2th"><input id="input-EAN" type="number"><button>Limpar EAN</button></td>
-                <td colspan="3"><button>Adicionar Produto</button></td>
+                <td colspan="5th"><input id="input-EAN" type="number"><button>Limpar EAN</button><button>Adicionar Produto</button></td>
                 </tr>
             </table>
             <table id="table-carrinho">
@@ -51,9 +48,17 @@
                     <th colspan="2" id="carrinho1">Finalizar venda</th>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td class="tr-carrinho" colspan="2">
                         <ul id="carrinho-add">
-                            <!-- Itens do carrinho serão adicionados aqui -->
+                            <!-- <li id="li-carrinho">fsdfdsfsdf</li>
+                            <li id="li-carrinho">fsdfdsfsdf</li>
+                            <li id="li-carrinho">fsdfdsfsdf</li>
+                            <li id="li-carrinho">fsdfdsfsdf</li>
+                            <li id="li-carrinho">fsdfdsfsdf</li>
+                            <li id="li-carrinho">fsdfdsfsdf</li>
+                            <li id="li-carrinho">fsdfdsfsdf</li>
+                            <li id="li-carrinho">fsdfdsfsdf</li>
+                            <li id="li-carrinho">fsdfdsfsdf</li> -->
                         </ul>
                     </td>
                     <td colspan="2">
@@ -80,7 +85,7 @@
         </div>
     </div>
 
-    <script src="./controllers/home.js"></script>
+    <script src="./controllers/menu.js"></script>
 </body>
 
 </html>

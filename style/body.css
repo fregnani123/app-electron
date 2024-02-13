@@ -8,6 +8,11 @@ body {
     width: 100%;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 #container-body {
     background-color: rgb(0, 38, 87);
     width: 80%;
@@ -17,109 +22,6 @@ body {
     padding-bottom: 2px;
     left: 18.5%;
 }
-
-header {
-    background: rgb(0, 38, 87);
-    color: rgb(255, 255, 255);
-    height: 100%;
-    width: 18%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 5px;
-}
-
-nav {
-    position: relative;
-    height: 98%;
-
-}
-
-#ul-Menu {
-    text-align: center;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    box-sizing: border-box;
-    height: 100%;
-}
-
-li {
-    height: 3%;
-    padding: 5px;
-    margin: 3px;
-    margin-top: 3px;
-    list-style: none;
-    border: 1px solid rgb(184, 184, 184);
-    border-radius: 2px;
-    background-color: rgb(247, 247, 247);
-    color: black;
-    cursor: pointer;
-}
-
-li:hover {
-    border: 1px solid rgb(0, 38, 87);
-    background-color: rgb(221, 221, 221);
-}
-
-.menu-item-li-Exit {
-    bottom: 7px;
-    list-style: none;
-    width: auto;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 3%;
-    bottom: 0;
-    right: 5px;
-    position: absolute;
-}
-
-.menu-item-li-Exit:hover {
-    background-color: rgb(0, 38, 87);
-    border: 1px solid rgb(0, 38, 87);
-
-}
-
-img {
-    vertical-align: middle;
-    width: 30px;
-
-}
-
-.logo {
-    padding-top: 20%;
-    padding-bottom: 40%;
-    box-sizing: border-box;
-}
-
-.logo:hover {
-    border: 1px solid rgb(184, 184, 184);
-    background-color: rgb(247, 247, 247);
-    cursor: auto;
-}
-
-#logo-img {
-    top: 0;
-    width: 100%;
-}
-
-.menu-item-9 {
-    padding-top: 100%;
-    padding-bottom: 100%;
-}
-
-.menu-item-9:hover {
-    border: 1px solid rgb(184, 184, 184);
-    background-color: rgb(247, 247, 247);
-    cursor: auto;
-}
-
-
-
-/* 
-daqui para baixo body tela vendas */
 
 h3 {
     color: rgb(0, 38, 87);
@@ -141,7 +43,7 @@ h3 {
     width: 79%;
     height: 91.8%;
     background-color: rgb(247, 247, 247);
-    padding: 5px;
+    padding: 6px;
     padding-right: 15px;
     padding-top: 30px;
     position: fixed;
@@ -161,9 +63,11 @@ td {
     align-items: center;
     font-weight: normal;
 }
-.tr-EAN{
+
+.tr-buscar {
     text-align: left;
 }
+
 
 #label-EAN {
     background-color: rgb(0, 38, 87);
@@ -195,6 +99,11 @@ th {
     outline: none;
 }
 
+#input-qtd {
+    width: 90%;
+    font-size: 15px;
+}
+
 #carrinho {
     width: 40%;
     text-align: center;
@@ -204,13 +113,6 @@ th {
     width: 60%;
     text-align: center;
 }
-
-#carrinho-add {
-    margin-top: -5px;
-    height: 300px;
-    width: 90%;
-}
-
 
 label {
     display: block;
@@ -261,12 +163,36 @@ select {
     color: #333;
 }
 
-.codigo{
-    width: 10%;
+.codigo {
+    width: 11%;
 }
-.produto{
-    width: 35%;
+
+.produto {
+    width: 38%;
 }
-.preco{
-    width: 15%;
+
+.preco {
+    width: 18%;
+}
+
+.tr-carrinho {
+    background-image: url('../img/carrinho-de-compras.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+#carrinho-add {
+    margin-top: 1px;
+    height: 300px;
+    width: 90%;
+    background-color: rgba(247, 247, 247, 0.562);
+}
+
+#li-carrinho {
+    cursor: auto;
+    border: none;
+    margin: 0;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
 }

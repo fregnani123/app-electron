@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow, webContents } = require('electron');
 const path = require('path');
 
 let mainWindow; 
@@ -11,7 +11,6 @@ function createWindow() {
         webPreferences: {
             preload: path.join(__dirname, '/preload/preload.js')
         },
-        
         // fullscreen: true, // Define a janela para tela cheia
         // fullscreenable: true, // Permite que a janela seja colocada em tela cheia
         autoHideMenuBar: true, // Oculta a barra de menu
@@ -28,6 +27,7 @@ app.whenReady().then(() => {
 
     app.on('activate', function () {
         if (BrowserWindow.getAllWindows().length === 0) createWindow();
+        webContents.setMaxListeners(20); // Defina o número de ouvintes que você precisa
     });
 
     // Adicione um atalho de teclado para abrir as DevTools
