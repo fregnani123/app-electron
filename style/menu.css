@@ -26,7 +26,6 @@ nav {
 }
 
 li{
-    height: 3%;
     padding: 5px;
     margin: 3px;
     margin-top: 3px;
@@ -37,6 +36,12 @@ li{
     color: black;
 }
 
+a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: #333;
+}
 
 li:hover {
     border: 1px solid rgb(0, 38, 87);
@@ -67,18 +72,17 @@ li:hover {
 img {
     vertical-align: middle;
     width: 30px;
-
 }
 
 .logo {
     padding-top: 20%;
-    padding-bottom: 40%;
+    padding-bottom: 30%;
     box-sizing: border-box;
 }
 
 .logo:hover {
     border: 1px solid rgb(184, 184, 184);
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(94, 10, 10);
     cursor: auto;
 }
 

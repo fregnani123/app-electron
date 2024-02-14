@@ -1,6 +1,4 @@
 
-console.log('preload funcionando caralhooo');
-
 document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.getElementById('loginForm');
 

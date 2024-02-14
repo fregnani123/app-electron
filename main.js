@@ -1,6 +1,7 @@
 const { app, BrowserWindow, webContents } = require('electron');
 const path = require('path');
 
+
 let mainWindow; 
 
 function createWindow() {
@@ -8,9 +9,9 @@ function createWindow() {
         width: 1200,
         height: 800,
         icon: path.join(__dirname, './img/logo.ico'),
-        webPreferences: {
-            preload: path.join(__dirname, '/preload/preload.js')
-        },
+        // webPreferences: {
+        //     preload: path.join(__dirname, 'preload.js')
+        // },
         // fullscreen: true, // Define a janela para tela cheia
         // fullscreenable: true, // Permite que a janela seja colocada em tela cheia
         autoHideMenuBar: true, // Oculta a barra de menu

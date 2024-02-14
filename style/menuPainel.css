@@ -7,12 +7,32 @@
 }
 
 .div-menuPainel {
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     width: 99%;
     height: 99%;
     background-color: rgb(247, 247, 247);
+}
+
+#logo {
+    position: fixed;
+    top:0;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #00bcd4, #443b77);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#logoImg {
+    width: 30px;
+    margin-right: 10px;
+}
+
+ul{
+    margin-top: 40px;
 }
 
 #menu-painel1 li,
