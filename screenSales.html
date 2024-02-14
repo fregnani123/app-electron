@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="./style/menu.css">
     <link rel="stylesheet" href="./style/screenSales.css">
 </head>
-
 <body>
     <header>
         <nav>
@@ -34,13 +33,14 @@
                     <td id="produtoEncontrado"></td>
                     <td id="preco"></td>
                     <td id="estoque"></td>
-                    <td><input id="input-qtd" type="number" min="0" max="50" value="0"></td>
+                    <td><input type="number" id="input-qtd" min="1" value="1">
+</td>
                 </tr>
                 <tr>
                 <th colspan="5th">Buscar Produto</th>
                 </tr>
                 <tr>
-                <td colspan="5th"><input id="input-EAN" type="number"><button>Limpar EAN</button><button>Adicionar Produto</button></td>
+                <td colspan="5th"><input id="input-EAN" type="number"><button>Limpar EAN</button><button id="buttonAddCarrinho">Adicionar Produto</button></td>
                 </tr>
             </table>
             <table id="table-carrinho">
