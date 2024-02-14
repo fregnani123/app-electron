@@ -1,7 +1,9 @@
 h3 {
     color: rgb(0, 38, 87);
 }
-
+.logo:hover{
+background-color: rgb(247, 247, 247);
+}
 #container-sales {
     background-color: rgb(0, 38, 87);
     position: fixed;

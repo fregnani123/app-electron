@@ -1,7 +1,11 @@
 
 const url = 'http://204.216.187.179:3000/findProduto';
 const inputEAN = document.querySelector('#input-EAN');
-const produtoEncontrado = document.querySelector('#produtoEncontrado')
+const codigoEAN = document.querySelector('#codigo');
+const produtoEncontrado = document.querySelector('#produtoEncontrado');
+const preco = document.querySelector('#preco');
+const estoque = document.querySelector('#estoque');
+
 
 inputEAN.addEventListener('input', function () {
     const codigo = inputEAN.value.trim();
@@ -20,8 +24,11 @@ inputEAN.addEventListener('input', function () {
                 });
                 console.log(globalDataFiltrados)
 
-                for (let nome of globalDataFiltrados) {
-                     produtoEncontrado.innerHTML = nome.nome
+                for (let item of globalDataFiltrados) {
+                    codigoEAN.innerHTML = item.codigoDeBarras;
+                    produtoEncontrado.innerHTML = item.nome;
+                    preco.innerHTML = item.preco.toFixed(2);
+                    estoque.innerHTML = item.estoque;
                 }
             })
             .catch(error => {

@@ -99,7 +99,6 @@ li {
 #menu-painel1 a,
 #menu-painel2 a {
     text-decoration: none;
-    color: black;
     vertical-align: middle;
 }
 
@@ -119,8 +118,24 @@ li:hover {
 }
 
 img {
-
     vertical-align: middle;
     width: 30px;
     justify-content: right;
+}
+
+.menu-item-1 {
+    color: white;
+    border: none;
+    cursor: default;
+}
+.menu-item-1:hover {
+    color: white;
+    /* border: 1px solid rgb(184, 184, 184); */
+    border: none;
+    background-color: rgb(247, 247, 247);
+}
+.a1{
+    cursor:default;
+    font-size: 25px;
+    margin-left: -28px;
 }

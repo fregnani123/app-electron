@@ -19,13 +19,13 @@
       "output": "dist"
     },
     "win": {
-      "icon": "./img/logo.ico"
+      "icon": "./img/menu-aberto.png"
     },
     "mac": {
-      "icon": "./img/logo.icns"
+      "icon": "./img/menu-aberto.png"
     },
     "linux": {
-      "icon": "./img/logo.png"
+      "icon": "./img/menu-aberto.png"
     }
   },
   "dependencies": {
