@@ -24,7 +24,7 @@ function criaLi(texto, id, src, to) {
         img.src = src;
         li.appendChild(img);
     }
-    a.classList.add('a'+id)
+    a.classList.add('list-a'+id)
     li.classList.add('menu-item-' + id);
     li.appendChild(a);
     return li;

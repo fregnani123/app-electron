@@ -17,7 +17,7 @@
 
 #logo {
     position: fixed;
-    top:0;
+    top: 0;
     font-size: 40px;
     display: flex;
     align-items: center;
@@ -26,12 +26,13 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 #logoImg {
     width: 30px;
     margin-right: 10px;
 }
 
-ul{
+ul {
     margin-top: 40px;
 }
 
@@ -102,10 +103,6 @@ li {
     vertical-align: middle;
 }
 
-li:hover {
-    border: 1px solid rgb(0, 38, 87);
-    background-color: rgb(221, 221, 221);
-}
 
 img {
     vertical-align: middle;
@@ -113,8 +110,11 @@ img {
 }
 
 li:hover {
-    border: 1px solid rgb(0, 38, 87);
-    background-color: rgb(221, 221, 221);
+    background: linear-gradient(to right, #00bcd4, #443b77);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: white;
+    border: 1px solid #00bcd4;
 }
 
 img {
@@ -128,14 +128,33 @@ img {
     border: none;
     cursor: default;
 }
+
 .menu-item-1:hover {
     color: white;
     /* border: 1px solid rgb(184, 184, 184); */
     border: none;
     background-color: rgb(247, 247, 247);
 }
-.a1{
-    cursor:default;
+
+.list-a1 {
+    cursor: default;
     font-size: 25px;
     margin-left: -28px;
+    background: linear-gradient(to right, #00bcd4, #443b77);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: white;
+}
+.list-a1:hover {
+background: linear-gradient(to right, #00bcd4, #443b77);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: white;
+}
+
+.menu-item-2:hover {
+    background: linear-gradient(to right, #00bcd4, #443b77);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: white;
 }
