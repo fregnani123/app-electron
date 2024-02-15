@@ -15,7 +15,7 @@ let globalDataFiltrados = [];
 
 function criaListaCarrinho(produto, quantidade) {
     const li = document.createElement('li');
-    li.innerText = `${produto} (Quantidade: ${quantidade})`;
+    li.innerText = `${produto} x${quantidade}`;
     li.classList.add('lista-carrinho');
     return li;
 }
@@ -39,8 +39,7 @@ inputEAN.addEventListener('input', function () {
                         preco.innerHTML = item.preco.toFixed(2);
                         estoque.innerHTML = item.estoque;
                 };
-                
-                
+
             })
             .catch(error => {
                 console.error('Erro ao buscar dados:', error);
@@ -64,7 +63,7 @@ function addCarrinho(event) {
     // Adiciona os itens filtrados atualmente ao carrinho, de acordo com a quantidade especificada
     for (let i = 0; i < parseInt(inputQtd.value); i++) {
         for (let produto of globalDataFiltrados) {
-            itensCarrinho.push({ ...produto }); // Adiciona um novo objeto com as mesmas propriedades do produto
+            itensCarrinho.push({ ...produto}); // Adiciona um novo objeto com as mesmas propriedades do produto
         }
     }
     // Atualiza a exibição do carrinho
@@ -89,16 +88,19 @@ function atualizaCarrinho() {
     // Agrupa os itens no carrinho e conta quantas vezes cada um aparece
     const groupedItems = {};
     for (let produto of itensCarrinho) {
-        if (!groupedItems[produto.nome]) {
-            groupedItems[produto.nome] = 0;
+        const chave = `${produto.codigoDeBarras} ${produto.nome} R$${produto.preco.toFixed(2)}`;
+        if (!groupedItems[chave]) {
+            groupedItems[chave] = 0;
         }
-        groupedItems[produto.nome]++;
+        groupedItems[chave]++;
     }
+
 
     // Adiciona os itens agrupados ao carrinho
     for (let produto in groupedItems) {
         const li = criaListaCarrinho(produto, groupedItems[produto]);
         listaCarrinho.appendChild(li);
+    
     }
 
     const total = itensCarrinho.reduce((valores, item) => {

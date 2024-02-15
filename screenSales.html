@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./style/menu.css">
     <link rel="stylesheet" href="./style/screenSales.css">
 </head>
+
 <body>
     <header>
         <nav>
@@ -19,7 +20,7 @@
     </header>
     <div id="container-sales">
         <div class="container-table">
-            <h3>Bem-vindo à nossa loja!</h3>
+            <h3>Bem-vindo!</h3>
             <table>
                 <tr>
                     <th class="codigo">Código</th>
@@ -34,45 +35,76 @@
                     <td id="preco"></td>
                     <td id="estoque"></td>
                     <td><input type="number" id="input-qtd" min="0" value="1">
-</td>
+                    </td>
                 </tr>
                 <tr>
-                <th colspan="5th">Buscar Produto</th>
+                    <th colspan="5th">Buscar Produto</th>
                 </tr>
                 <tr>
-                <td colspan="5th"><input id="input-EAN" type="number"><button id="buttonAddCarrinho">Adicionar Produto</button><button id="button-clear">Limpar EAN</button></td>
+                    <td colspan="5th">Digite o Código do Produto: <input id="input-EAN" type="number"><button id="buttonAddCarrinho">Adicionar
+                            Produto</button><button id="button-clear">Limpar EAN</button></td>
                 </tr>
             </table>
             <table id="table-carrinho">
                 <tr>
                     <th colspan="2" id="carrinho">Carrinho de Compras</th>
-                    <th colspan="2" id="carrinho1">Finalizar venda</th>
+                    <th colspan="2" id="carrinho1">Finalizar Pedido</th>
                 </tr>
                 <tr>
                     <td class="tr-carrinho" colspan="2">
                         <ul id="carrinho-add">
-                          
+
                         </ul>
                     </td>
-                    <td colspan="2">
-                        <div>
-                            <label for="forma-pagamento">Escolha a forma de pagamento:</label>
-                            <select id="forma-pagamento">
-                                <option value="dinheiro">Dinheiro</option>
-                                <option value="cartao">Cartão</option>
-                                <option value="pix">PIX</option>
-                            </select>
-                            <label for="buscar-cliente">Buscar Cliente:</label>
-                            <input type="text" id="buscar-cliente">
-                            <!-- <label for="troco">Troco:</label>
-                            <input type="text" id="troco"> -->
-                            <label for="dinheiro-recebido">Dinheiro Recebido:</label>
-                            <input type="text" id="dinheiro-recebido">
-                            <p>Total: R$ <span id="total">0.00</span></p>
-                            <button type="button" id="finalizarCompra">Finalizar Compra</button>
-                            <button type="button" id="cancelarCompra">Cancelar Compra</button>
-                        </div>
+                    <td colspan="2" class="finalizar-pedido">
+                        <table class="pagamento-table">
+                            <tr class="tr-buscarCliente">
+                                <td colspan="4">Buscar Cliente</td>
+                            </tr>
+                            <tr >
+                                <td class="tr-cliente" colspan="3">Digite o CPF: <input type="number" id="buscar-cliente"></td>
+                                <td class="button-cliente"><button id="button-cliente">Adicionar Cliente ao Pedido</button></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="td">Cliente: <span>Consumidor</span>
+                                </td>
+                            </tr>
+                            <tr class="tr-pagamento">
+                                <td colspan="2">Escolha a forma de pagamento</th>
+                                <td colspan="3">Dinheiro Recebido</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <select id="forma-pagamento">
+                                        <option value="dinheiro">Dinheiro</option>
+                                        <option value="cartao">Cartão</option>
+                                        <option value="pix">PIX</option>
+                                    </select>
+                                </td>
+                                <td colspan="2">
+                                    <input id="dinheiro-recebido" type="number">
+                                </td>
+                            </tr>
+                            <tr>
+                            </tr>
+                            <tr class="tr-total">
+                                <td  colspan="3">Total</td>
+                                <td class="td-troco">Troco Cliente</td>
+                            </tr>
+                            <tr>
+                                <td class="total" colspan="3"><span id="total">0.00</span></td>
+                                <td class="troco"><span id="troco"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="buttonFinalizar" colspan="4">
+                                    <button type="button" id="finalizarCompra">Finalizar Venda</button>
+                                    <button type="button" id="cancelarCompra">Cancelar venda</button>
+                                </td>
+                            </tr>
+                        </table>
                     </td>
+
+
                 </tr>
             </table>
         </div>

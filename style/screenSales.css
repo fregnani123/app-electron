@@ -1,9 +1,11 @@
 h3 {
     color: rgb(0, 38, 87);
 }
-.logo:hover{
-background-color: rgb(247, 247, 247);
+
+.logo:hover {
+    background-color: rgb(247, 247, 247);
 }
+
 #container-sales {
     background-color: rgb(0, 38, 87);
     position: fixed;
@@ -39,6 +41,11 @@ td {
     text-align: center;
     align-items: center;
     font-weight: normal;
+    min-height: 20px;
+}
+
+.td {
+    height: 20px;
 }
 
 .tr-buscar {
@@ -69,11 +76,21 @@ th {
     -webkit-appearance: none;
     appearance: none;
 }
-
+#dinheiro-recebido[type=number]::-webkit-inner-spin-button,
+#dinheiro-recebido[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+#dinheiro-recebido{
+    outline: none;
+    height: 20px;
+}
 
 #input-qtd,
 #input-EAN {
+    text-align: center;
     outline: none;
+    height: 20px;
 }
 
 #input-qtd {
@@ -99,20 +116,20 @@ label {
 
 input[type="text"] {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
+    padding: 2px;
     box-sizing: border-box;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 2px;
+    outline: none;
+    
 }
-
 
 button {
     background-color: #4CAF50;
     color: white;
     padding: 5px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 2px;
     cursor: pointer;
     margin-left: 3px;
 }
@@ -125,20 +142,7 @@ button:hover {
     background-color: #45a049;
 }
 
-select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
 
-
-#total {
-    font-weight: bold;
-    color: #333;
-}
 
 .codigo {
     width: 11%;
@@ -160,7 +164,7 @@ select {
 }
 
 #carrinho-add {
-    margin-top: 1px;
+    margin-top: 5px;
     height: 300px;
     width: 90%;
     background-color: rgba(247, 247, 247, 0.562);
@@ -172,4 +176,80 @@ select {
     margin: 0;
     width: 100%;
     background-color: rgb(247, 247, 247);
+}
+
+.lista-carrinho {
+    border: none;
+    font-size: 15px;
+    padding: 0;
+
+    text-align: left;
+}
+
+.lista-carrinho:hover {
+    border: none;
+    background-color: rgb(247, 247, 247);
+}
+.finalizar-pedido{
+padding-left: 2px;
+}
+.pagamento-table{
+margin: 0px;
+}
+
+#forma-pagamento{
+    margin: 0;
+    text-align: center;
+    outline: none;
+    width: 70%;
+    padding: 12px;
+    height: 20px;
+    border-radius: 2px;
+    margin-top: 3px;
+}
+.tr-cliente{
+    text-align:right;
+}
+#buscar-cliente{
+    margin: 0;
+    
+    outline: none;
+    width: 50%;
+    padding: 2px;
+    height: 20px;
+    border-radius: 2px;
+    margin-top: 3px;
+    border: 1px solid gray;
+}
+#button-cliente{
+   margin-top: 2px;
+}
+.button-cliente{
+    text-align: left;
+}
+   
+.troco{
+    font-size: 25px;
+    padding-top: 15px;
+}
+#troco{
+    padding-top: 15px;
+    font-weight: bold;
+    color: #333;
+    font-size: 35px;}
+
+#total {
+    font-weight: bold;
+    color: #333;
+    font-size: 50px;
+}
+.total{
+    height:60px;
+    padding-top: 15px;
+}
+.tr-total,.tr-buscarCliente,.tr-pagamento{background-color:rgb(0, 38, 87);
+color: white;}
+
+.buttonFinalizar{
+    height: 80px;
 }
