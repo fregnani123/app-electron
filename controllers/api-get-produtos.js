@@ -5,6 +5,7 @@ const produtoEncontrado = document.querySelector('#produtoEncontrado');
 const preco = document.querySelector('#preco');
 const estoque = document.querySelector('#estoque');
 const buttonAddCarrinho = document.querySelector('#buttonAddCarrinho');
+const buttonClear = document.querySelector('#button-clear');
 const listaCarrinho = document.querySelector('#carrinho-add');
 const totalVenda = document.querySelector('#total');
 const inputQtd = document.querySelector('#input-qtd');
@@ -32,13 +33,14 @@ inputEAN.addEventListener('input', function () {
                     return Number(item.codigoDeBarras) === Number(codigo);
                 });
 
-                for (let item of globalDataFiltrados) {
-                    codigoEAN.innerHTML = item.codigoDeBarras;
-                    produtoEncontrado.innerHTML = item.nome;
-                    preco.innerHTML = item.preco.toFixed(2);
-                    estoque.innerHTML = item.estoque;
+                      for (let item of globalDataFiltrados) {
+                        codigoEAN.innerHTML = item.codigoDeBarras;
+                        produtoEncontrado.innerHTML = item.nome;
+                        preco.innerHTML = item.preco.toFixed(2);
+                        estoque.innerHTML = item.estoque;
                 };
-               
+                
+                
             })
             .catch(error => {
                 console.error('Erro ao buscar dados:', error);
@@ -46,11 +48,18 @@ inputEAN.addEventListener('input', function () {
     }
 });
 
-// Adiciona o ouvinte de evento 'click' fora do evento 'input'
 buttonAddCarrinho.addEventListener('click', addCarrinho);
 
 function addCarrinho(event) {
     event.preventDefault();
+    if (!inputEAN.value) {
+        alert('Campo EAN vazio ou produto não encontrado.');
+        return; // Retorna da função se o campo EAN estiver vazio
+    }
+    if (!inputQtd.value || inputQtd.value === 0) {
+        alert('Informe a quantidade de produtos.');
+        return; // Retorna da função se a quantidade não for informada
+    }
 
     // Adiciona os itens filtrados atualmente ao carrinho, de acordo com a quantidade especificada
     for (let i = 0; i < parseInt(inputQtd.value); i++) {
@@ -58,10 +67,21 @@ function addCarrinho(event) {
             itensCarrinho.push({ ...produto }); // Adiciona um novo objeto com as mesmas propriedades do produto
         }
     }
-
     // Atualiza a exibição do carrinho
     atualizaCarrinho();
 }
+
+
+buttonClear.addEventListener('click', clearCampoProdutos);
+function clearCampoProdutos() {
+    codigoEAN.innerHTML = '';
+    produtoEncontrado.innerHTML = '';
+    estoque.innerHTML = '';
+    preco.innerHTML = '';
+    inputEAN.value = '';
+    inputQtd.value = '';
+}
+
 
 function atualizaCarrinho() {
     listaCarrinho.innerHTML = '';
@@ -90,6 +110,7 @@ function atualizaCarrinho() {
     estoque.innerHTML = '';
     preco.innerHTML = '';
     inputEAN.value = '';
+    inputQtd.value = 1;
 
     totalVenda.innerText = total.toFixed(2);
 }

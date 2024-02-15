@@ -8,7 +8,7 @@ function createWindow() {
     mainWindow = new BrowserWindow({
         width: 1200,
         height: 800,
-        icon: path.join(__dirname, './img/logo.ico'),
+        icon: path.join(__dirname, './img/menu-aberto.png'),
         // webPreferences: {
         //     preload: path.join(__dirname, 'preload.js')
         // },
