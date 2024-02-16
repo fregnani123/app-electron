@@ -2,7 +2,7 @@
   "name": "gestaolite",
   "version": "1.0.0",
   "description": "sistema de gestao de estoque.",
-  "main": "main.js",
+  "main": "./public/main.js",
   "devDependencies": {
     "electron": "^28.2.2",
     "electron-builder": "^24.9.1"

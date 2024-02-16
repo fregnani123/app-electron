@@ -1,16 +1,16 @@
 const menuPainel1 = [
-    { id: '1', texto: 'Painel de controle', src: './img/painel-de-controle (1).png', to: './controllers.html' },
-    { id: '2', texto: 'Realizar venda', src: './img/carrinho-de-compras.png', to: './screenSales.html' },
-    { id: '3', texto: 'Detalhes de venda', src: './img/detalhes vendas.png', to: '/' },
-    { id: '4', texto: 'Cadastro de produto', src: './img/cadastro de produtos.png', to: '/' },
-    { id: '5', texto: 'Alterar Produto', src: './img/alterar.png', to: '/' },
+    { id: '1', texto: 'Painel de controle', src: '../img/painel-de-controle (1).png', to: './controllers.html' },
+    { id: '2', texto: 'Realizar venda', src: '../img/carrinho-de-compras.png', to: './screenSales.html' },
+    { id: '3', texto: 'Detalhes de venda', src: '../img/detalhes vendas.png', to: '/' },
+    { id: '4', texto: 'Cadastro de produto', src: '../img/cadastro de produtos.png', to: '/' },
+    { id: '5', texto: 'Alterar Produto', src: '../img/alterar.png', to: '/' },
 ];
 const menuPainel2 = [
-    { id: '6', texto: 'Excluir Produto', src: './img/remover.png', to: '/' },
-    { id: '7', texto: 'Cadastro de cliente', src: './img/cliente.png', to: '/' },
-    { id: '8', texto: 'Controle de entrada ', src: './img/caixa-de-entrada.png', to: '/' },
-    { id: '9', texto: 'Agendamento', src: './img/agendar.png', to: '/' },
-    { id: '11', texto: 'Suporte', src: './img/suporte.png', to: '/' },
+    { id: '6', texto: 'Excluir Produto', src: '../img/remover.png', to: '/' },
+    { id: '7', texto: 'Cadastro de cliente', src: '../img/cliente.png', to: '/' },
+    { id: '8', texto: 'Controle de entrada ', src: '../img/caixa-de-entrada.png', to: '/' },
+    { id: '9', texto: 'Agendamento', src: '../img/agendar.png', to: '/' },
+    { id: '11', texto: 'Suporte', src: '../img/suporte.png', to: '/' },
 ];
 
 function criaLi(texto, id, src, to) {

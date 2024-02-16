@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const password = document.getElementById('password').value;
 
         if (username === 'adm' && password === 'adm') {
-            window.location.href = './controllers.html'; // Redireciona para a página Home
+            window.location.href = '../public/controllers.html'; // Redireciona para a página Home
         } else {
             alert('Credenciais inválidas. Tente novamente.');
         }

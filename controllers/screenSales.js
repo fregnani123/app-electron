@@ -1,4 +1,4 @@
-const url = 'http://204.216.187.179:3000/findProduto';
+
 const inputEAN = document.querySelector('#input-EAN');
 const codigoEAN = document.querySelector('#codigo');
 const produtoEncontrado = document.querySelector('#produtoEncontrado');
@@ -23,7 +23,7 @@ inputEAN.addEventListener('input', function () {
     const codigo = inputEAN.value.trim();
     console.log(codigo);
     if (codigo !== '') {
-        fetch(url)
+        fetch(urlGetProduto)
             .then(response => {
                 return response.json();
             })
@@ -69,7 +69,6 @@ function addCarrinho(event) {
     // Atualiza a exibição do carrinho
     atualizaCarrinho();
 }
-
 
 buttonClear.addEventListener('click', clearCampoProdutos);
 function clearCampoProdutos() {
