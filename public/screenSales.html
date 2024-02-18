@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../style/menu.css">
     <link rel="stylesheet" href="../style/screenSales.css">
 </head>
+
 <body>
     <header>
         <nav>
@@ -20,12 +21,21 @@
     <div id="container-sales">
         <div class="container-table">
             <h3>Bem-vindo!</h3>
+            <div class="buscar-cliente"></div>
             <table>
+                <tr>
+                    <th colspan="5th">Buscar Produto</th>
+                </tr>
+                <tr>
+                    <td colspan="5th">Digite o Código do Produto: <input id="input-EAN" type="number"><button
+                            id="buttonAddCarrinho">Adicionar
+                            Produto</button><button id="button-clear">Limpar EAN</button></td>
+                </tr>
                 <tr>
                     <th class="codigo">Código</th>
                     <th class="produto">Produto</th>
                     <th class="preco">Preço</th>
-                    <th class="estoque">Estoque Disponível</th>
+                    <th class="estoque">Estoque</th>
                     <th>Quantidade</th>
                 </tr>
                 <tr>
@@ -35,13 +45,6 @@
                     <td id="estoque"></td>
                     <td><input type="number" id="input-qtd" min="0" value="1">
                     </td>
-                </tr>
-                <tr>
-                    <th colspan="5th">Buscar Produto</th>
-                </tr>
-                <tr>
-                    <td colspan="5th">Digite o Código do Produto: <input id="input-EAN" type="number"><button id="buttonAddCarrinho">Adicionar
-                            Produto</button><button id="button-clear">Limpar EAN</button></td>
                 </tr>
             </table>
             <table id="table-carrinho">
@@ -56,37 +59,45 @@
                     </td>
                     <td colspan="2" class="finalizar-pedido">
                         <table class="pagamento-table">
+                            <br />
                             <tr class="tr-buscarCliente">
                                 <td colspan="4">Buscar Cliente</td>
                             </tr>
-                            <tr >
-                                <td class="tr-cliente" colspan="3">Digite o CPF: <input type="number" id="buscar-cliente"></td>
-                                <td class="button-cliente"><button id="button-cliente">Adicionar Cliente ao Pedido</button></td>
+                            <th colspan="4" class="correcao"></th>
+                            <tr>
+                                <td class="tr-cliente" colspan="3">Digite o CPF: <input type="number"
+                                        id="buscar-cliente"></td>
+                                <td class="button-cliente"><button id="button-cliente">Buscar Cliente</button></td>
                             </tr>
                             <tr>
-                                <td colspan="4" class="td">Cliente: <span>Consumidor</span>
+                                <td colspan="4" class="td"><span id="spanCliente">Cliente: </span><input
+                                        id="cliente-add" type="text" value="Consumidor">
                                 </td>
                             </tr>
+                            <th colspan="4" class="correcao"></th>
                             <tr class="tr-pagamento">
                                 <td colspan="2">Escolha a forma de pagamento</th>
                                 <td colspan="3">Dinheiro Recebido</td>
                             </tr>
+                            <th colspan="4" class="correcao"></th>
                             <tr>
                                 <td colspan="2">
                                     <select id="forma-pagamento">
+                                        <option value="">Selecionar</option>
                                         <option value="dinheiro">Dinheiro</option>
                                         <option value="cartao">Cartão</option>
                                         <option value="pix">PIX</option>
                                     </select>
                                 </td>
                                 <td colspan="2">
-                                    <input id="dinheiro-recebido" type="number">
+                                    <input id="dinheiro-recebido" type="number" value="" oninput="calcularTroco()">
                                 </td>
                             </tr>
                             <tr>
+                                <th colspan="4" class="correcao"></th>
                             </tr>
                             <tr class="tr-total">
-                                <td  colspan="3">Total</td>
+                                <td colspan="3">Total</td>
                                 <td class="td-troco">Troco Cliente</td>
                             </tr>
                             <tr>
@@ -107,7 +118,6 @@
     </div>
     <script src="../controllers/menu.js"></script>
     <script src="../controllers/screenSales.js"></script>
-    <script src="../controllers/url-api.js"></script>
 </body>
 
 </html>

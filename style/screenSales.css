@@ -76,12 +76,20 @@ th {
     -webkit-appearance: none;
     appearance: none;
 }
+
 #dinheiro-recebido[type=number]::-webkit-inner-spin-button,
 #dinheiro-recebido[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     appearance: none;
 }
-#dinheiro-recebido{
+
+#buscar-cliente[type=number]::-webkit-inner-spin-button,
+#buscar-cliente[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+#dinheiro-recebido {
     outline: none;
     height: 20px;
 }
@@ -121,7 +129,7 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 2px;
     outline: none;
-    
+
 }
 
 button {
@@ -142,8 +150,6 @@ button:hover {
     background-color: #45a049;
 }
 
-
-
 .codigo {
     width: 11%;
 }
@@ -155,6 +161,9 @@ button:hover {
 .preco {
     width: 18%;
 }
+.estoque{
+    width: 15%;
+}
 
 .tr-carrinho {
     background-image: url('../img/carrinho-de-compras.png');
@@ -165,7 +174,7 @@ button:hover {
 
 #carrinho-add {
     margin-top: 5px;
-    height: 300px;
+    height: 340px;
     width: 90%;
     background-color: rgba(247, 247, 247, 0.562);
 }
@@ -182,7 +191,6 @@ button:hover {
     border: none;
     font-size: 15px;
     padding: 0;
-
     text-align: left;
 }
 
@@ -190,29 +198,35 @@ button:hover {
     border: none;
     background-color: rgb(247, 247, 247);
 }
-.finalizar-pedido{
-padding-left: 2px;
-}
-.pagamento-table{
-margin: 0px;
+
+.finalizar-pedido {
+    padding-left: 2px;
 }
 
-#forma-pagamento{
+.pagamento-table {
+    margin: 0px;
+}
+
+#forma-pagamento {
     margin: 0;
     text-align: center;
     outline: none;
     width: 70%;
-    padding: 12px;
-    height: 20px;
+    height: 26px;
     border-radius: 2px;
-    margin-top: 3px;
 }
-.tr-cliente{
-    text-align:right;
+
+option {
+    font-size: 17px;
+    height: 20px;
 }
-#buscar-cliente{
+
+.tr-cliente {
+    text-align: right;
+}
+
+#buscar-cliente {
     margin: 0;
-    
     outline: none;
     width: 50%;
     padding: 2px;
@@ -221,35 +235,68 @@ margin: 0px;
     margin-top: 3px;
     border: 1px solid gray;
 }
-#button-cliente{
-   margin-top: 2px;
+#cliente-add{
+     margin: 0;
+    outline: none;
+    width: 60%;
+    padding: 2px;
+    height: 25px;
+    border-radius: 2px;
+    margin-top: 3px;
+    border: 1px solid gray;
+    font-size: 16px;
 }
-.button-cliente{
+#button-cliente {
+    margin-top: 2px;
+}
+
+.button-cliente {
     text-align: left;
 }
-   
-.troco{
+
+.troco {
     font-size: 25px;
     padding-top: 15px;
 }
-#troco{
+
+#troco {
     padding-top: 15px;
     font-weight: bold;
     color: #333;
-    font-size: 35px;}
+    font-size: 35px;
+}
 
 #total {
     font-weight: bold;
     color: #333;
     font-size: 50px;
 }
-.total{
-    height:60px;
+
+.total {
+    height: 60px;
     padding-top: 15px;
 }
-.tr-total,.tr-buscarCliente,.tr-pagamento{background-color:rgb(0, 38, 87);
-color: white;}
 
-.buttonFinalizar{
+.tr-total,
+.tr-buscarCliente,
+.tr-pagamento {
+    background-color: rgb(0, 38, 87);
+    color: white;
+}
+
+.buttonFinalizar {
     height: 80px;
+}
+
+.buscar-cliente{
+    display: none;
+    position: absolute;
+    width: 500px;
+    height: 200px;
+    background-color: red;
+    bottom: 350px;
+    right: 10px;
+}
+.correcao{
+    background:rgba(255, 254, 254, 0);
 }
