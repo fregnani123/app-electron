@@ -1,5 +1,8 @@
 const urlGetProduto = 'http://204.216.187.179:3000/findProduto';
 const urlGetCliente = 'http://204.216.187.179:3000/clientes';
+const urlRelatorio = "http://204.216.187.179:3000/detalhesdevendaPost";
+
+
 const inputEAN = document.querySelector('#input-EAN');
 const codigoEAN = document.querySelector('#codigo');
 const codigoCPF = document.querySelector('#buscar-cliente');
@@ -19,7 +22,6 @@ const troco = document.querySelector('#troco');
 const dinheiroRecebido = document.querySelector('#dinheiro-recebido');
 const clienteAdd = document.querySelector('#cliente-add');
 
-
 function calcularTroco() {
     const valor = dinheiroRecebido.value;
 
@@ -36,12 +38,6 @@ function calcularTroco() {
     }
 }
 
-function criaListaCarrinho(produto, quantidade) {
-    const li = document.createElement('li');
-    li.innerText = `${produto} x${quantidade}`;
-    li.classList.add('lista-carrinho');
-    return li;
-}
 
 let resultadoFiltrado;
 
@@ -101,6 +97,8 @@ inputEAN.addEventListener('input', function () {
             });
     }
 });
+
+
 buttonAddCarrinho.addEventListener('click', addCarrinho);
 
 function addCarrinho(event) {
@@ -113,16 +111,21 @@ function addCarrinho(event) {
         alert('Informe a quantidade de produtos.');
         return;
     }
-
     // Adiciona os itens filtrados atualmente ao carrinho, de acordo com a quantidade especificada
     for (let i = 0; i < parseInt(inputQtd.value); i++) {
-        for (let produto of globalDataFiltrados) {
-            itensCarrinho.push({ ...produto });
+        const existingItemIndex = itensCarrinho.findIndex(item => item.codigoDeBarras === globalDataFiltrados[0].codigoDeBarras);
+        if (existingItemIndex !== -1) {
+            // Se o item já existir no carrinho, apenas incrementa a quantidade
+            itensCarrinho[existingItemIndex].quantidade++;
+        } else {
+            // Se o item não existir no carrinho, adiciona-o
+            itensCarrinho.push({ ...globalDataFiltrados[0], quantidade: 1 });
         }
     }
 
     atualizaCarrinho();
 }
+
 
 buttonClear.addEventListener('click', clearCampoProdutos);
 function clearCampoProdutos() {
@@ -134,25 +137,45 @@ function clearCampoProdutos() {
     inputQtd.value = '';
 }
 
+function criaListaCarrinho(chave, produto) {
+    const li = document.createElement('li');
+    li.innerText = `${chave}: x ${produto.quantidade}`;
+    li.classList.add('lista-carrinho');
+    return li;
+}
+
 function atualizaCarrinho() {
     listaCarrinho.innerHTML = '';
 
-    // Agrupa os itens no carrinho e conta quantas vezes cada um aparece
-    const groupedItems = {};
+
+    console.log(groupedItems);
+
     for (let produto of itensCarrinho) {
+
         const chave = `${produto.codigoDeBarras} ${produto.nome} R$${produto.preco.toFixed(2)}`;
+
         if (!groupedItems[chave]) {
-            groupedItems[chave] = 0;
+            groupedItems[chave] = {
+                quantidade: 1,
+                codigoDeBarras: produto.codigoDeBarras,
+                estoque: produto.estoque,
+            };
+           
+        } else {
+
+            groupedItems[chave].quantidade++;
         }
-        groupedItems[chave]++;
     }
 
-    // Adiciona os itens agrupados ao carrinho
-    for (let produto in groupedItems) {
-        const li = criaListaCarrinho(produto, groupedItems[produto]);
-        listaCarrinho.appendChild(li);
+    for (let chave in groupedItems) {
+        if (groupedItems.hasOwnProperty(chave)) {
+            const produto = groupedItems[chave];
+            const li = criaListaCarrinho(chave, produto);
+            listaCarrinho.appendChild(li);
+        }
     }
 
+    
     total = itensCarrinho.reduce((valores, item) => {
         return valores + item.preco;
     }, 0);
@@ -165,15 +188,11 @@ function atualizaCarrinho() {
     preco.innerHTML = '';
     inputEAN.value = '';
     inputQtd.value = 1;
+    
 }
 let total;
 let itensCarrinho = [];
-
-formaPagamento.addEventListener('change', function () {
-    const selectedFormaPagamento = formaPagamento.value.trim();
-    console.log(selectedFormaPagamento);
-});
-
+let groupedItems = {};
 
 function limparInformacoesVenda() {
     codigoEAN.innerHTML = '';
@@ -193,6 +212,7 @@ function limparInformacoesVenda() {
 }
 
 buttonFinalizar.addEventListener('click', function () {
+
     const relatorio = {
         "listaCarrinho": [...itensCarrinho],
         "cliente": clienteAdd.value.trim(),
@@ -201,10 +221,44 @@ buttonFinalizar.addEventListener('click', function () {
         "dinheiroRecebido": dinheiroRecebido.value.trim(),
         "troco": troco.innerText.trim()
     };
-    limparInformacoesVenda()
+
+    atualizaEstoqueDb(groupedItems); // Passando groupedItems como parâmetro
+    if (!formaPagamento.value) {
+        alert('Selecione a forma de pagamento.')
+    } else (
+
+        limparInformacoesVenda()
+    )
     console.log(relatorio);
 });
 
+function atualizaEstoqueDb(groupedItems) { // Recebendo groupedItems como parâmetro
+    for (let chave in groupedItems) {
+        if (groupedItems.hasOwnProperty(chave)) {
+            const produto = groupedItems[chave];
+            const urlEstoque = `http://204.216.187.179:3000/updateProduto/${produto.codigoDeBarras}`;
 
+            const options = {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ estoque: produto.estoque - produto.quantidade })
+            };
 
-
+            fetch(urlEstoque, options)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Não foi possível atualizar o estoque do produto ' + produto.codigoDeBarras);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Estoque do produto ' + produto.codigoDeBarras + ' atualizado com sucesso:', data);
+                })
+                .catch(error => {
+                    console.error('Ocorreu um erro ao atualizar o estoque do produto ' + produto.codigoDeBarras + ':', error);
+                });
+        }
+    }
+}
