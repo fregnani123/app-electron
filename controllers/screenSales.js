@@ -22,22 +22,6 @@ const troco = document.querySelector('#troco');
 const dinheiroRecebido = document.querySelector('#dinheiro-recebido');
 const clienteAdd = document.querySelector('#cliente-add');
 
-function calcularTroco() {
-    const valor = dinheiroRecebido.value;
-
-    if (!isNaN(parseFloat(valor))) {
-        const trocoValue = parseFloat(valor) - total;
-
-        if (trocoValue > 0) {
-            troco.innerText = trocoValue.toFixed(2);
-        } else {
-            troco.innerText = '';
-        }
-    } else {
-        troco.innerText = '';
-    }
-}
-
 
 let resultadoFiltrado;
 
@@ -200,7 +184,7 @@ function limparInformacoesVenda() {
     estoque.innerHTML = '';
     preco.innerHTML = '';
     inputEAN.value = '';
-    inputQtd.value = '';
+    inputQtd.value = '1';
     clienteAdd.value = '';
     listaCarrinho.innerHTML = '';
     totalVenda.innerText = '';
@@ -209,30 +193,11 @@ function limparInformacoesVenda() {
     troco.innerText = '';
     codigoCPF.value = '';
     itensCarrinho = [];
+    groupedItems = {};
 }
 
-buttonFinalizar.addEventListener('click', function () {
 
-    const relatorio = {
-        "listaCarrinho": [...itensCarrinho],
-        "cliente": clienteAdd.value.trim(),
-        "total": total.toFixed(2),
-        "formaPagamento": formaPagamento.value.trim(),
-        "dinheiroRecebido": dinheiroRecebido.value.trim(),
-        "troco": troco.innerText.trim()
-    };
-
-    atualizaEstoqueDb(groupedItems); // Passando groupedItems como parâmetro
-    if (!formaPagamento.value) {
-        alert('Selecione a forma de pagamento.')
-    } else (
-
-        limparInformacoesVenda()
-    )
-    console.log(relatorio);
-});
-
-function atualizaEstoqueDb(groupedItems) { // Recebendo groupedItems como parâmetro
+function atualizaEstoqueDb(groupedItems) {
     for (let chave in groupedItems) {
         if (groupedItems.hasOwnProperty(chave)) {
             const produto = groupedItems[chave];
@@ -262,3 +227,75 @@ function atualizaEstoqueDb(groupedItems) { // Recebendo groupedItems como parâm
         }
     }
 }
+
+
+
+function calcularTroco() {
+    valorRecebido = parseFloat(dinheiroRecebido.value.trim());
+
+    if (!isNaN(valorRecebido) && valorRecebido >= 0) {
+        const trocoValue = valorRecebido - total;
+
+        if (trocoValue >= 0) {
+            troco.innerText = trocoValue.toFixed(2);
+        } else {
+            troco.innerText = 'Valor insuficiente';
+        }
+    } else {
+        troco.innerText = 'Valor inválido';
+    }
+   
+}
+
+dinheiroRecebido.addEventListener('input', calcularTroco);
+
+let valorRecebido;
+
+function setPagamento() {
+    if (formaPagamento.value === 'Cartão' || formaPagamento.value === 'PIX') {
+        valorRecebido = total;
+        dinheiroRecebido.value = total; // Definindo o valor no input
+    }
+}
+
+
+buttonFinalizar.addEventListener('click', function () {
+    setPagamento();
+
+    if (isNaN(valorRecebido) || valorRecebido <= 0) {
+        alert('O valor recebido do cliente deve ser um número maior que zero.');
+        return;
+    }
+
+    // Verifica se a forma de pagamento foi selecionada
+    if (!formaPagamento.value) {
+        alert('Selecione a forma de pagamento.');
+        return;
+    }
+
+    if (formaPagamento.value === 'Dinheiro' && isNaN(valorRecebido)) {
+        alert('Informe o valor recebido do cliente.');
+        return;
+    }
+
+    const trocoValue = parseFloat(troco.innerText);
+    if (trocoValue < 0) {
+        alert('O valor recebido do cliente é insuficiente.');
+        return;
+    }
+
+    // Crie seu objeto de relatório aqui
+    const relatorio = {
+        "listaCarrinho": groupedItems,
+        "cliente": clienteAdd.value.trim(),
+        "total": total.toFixed(2),
+        "formaPagamento": formaPagamento.value.trim(),
+        "dinheiroRecebido": dinheiroRecebido.value.trim(),
+        "troco": troco.innerText.trim()
+    };
+
+    atualizaEstoqueDb(groupedItems);
+
+    limparInformacoesVenda();
+    console.log(relatorio);
+});
