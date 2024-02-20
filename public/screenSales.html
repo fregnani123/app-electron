@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestão Lite</title>
     <link rel="stylesheet" href="../style/body.css">
     <link rel="stylesheet" href="../style/menu.css">
     <link rel="stylesheet" href="../style/screenSales.css">
+    <title>Gestão Lite</title>
 </head>
+
 <body>
     <header>
         <nav>
@@ -16,11 +17,14 @@
                 <li class="logo"><img id="logo-img" src="../img/logo-menu.png" alt=""></li>
             </ul>
         </nav>
-    </header>
-    <div id="container-sales">
+    </header><div id="container-sales">
         <div class="container-table">
-            <h3>Bem-vindo!</h3>
-            <div class="buscar-cliente"></div>
+            <h3>Tela de Venda</h3>
+             <span class="alert">
+                <img class="imgLogo" src="../img/suporte.png" alt="">
+                <p id="msg"></p>
+                <button id="bottonAlert">OK</button>
+            </span>
             <table>
                 <tr>
                     <th colspan="5th">Buscar Produto</th>
@@ -39,84 +43,26 @@
                 </tr>
                 <tr>
                     <td id="codigo"></td>
-                    <td id="produtoEncontrado"></td>
+                    <td id="produto"></td>
                     <td id="preco"></td>
                     <td id="estoque"></td>
                     <td><input type="number" id="input-qtd" min="0" value="1">
                     </td>
                 </tr>
             </table>
-            <table id="table-carrinho">
-                <tr>
-                    <th colspan="2" id="carrinho">Carrinho de Compras</th>
-                    <th colspan="2" id="carrinho1">Finalizar Pedido</th>
-                </tr>
-                <tr>
-                    <td class="tr-carrinho" colspan="2">
-                        <ul id="carrinho-add">
-                        </ul>
-                    </td>
-                    <td colspan="2" class="finalizar-pedido">
-                        <table class="pagamento-table">
-                            <br />
-                            <tr class="tr-buscarCliente">
-                                <td colspan="4">Buscar Cliente</td>
-                            </tr>
-                            <th colspan="4" class="correcao"></th>
-                            <tr>
-                                <td class="tr-cliente" colspan="3">Digite o CPF: <input type="number"
-                                        id="buscar-cliente"></td>
-                                <td class="button-cliente"><button id="button-cliente">Buscar Cliente</button></td>
-                            </tr>
-                            <tr>
-                                <td colspan="4" class="td"><span id="spanCliente">Cliente: </span><input
-                                        id="cliente-add" type="text" value="Consumidor">
-                                </td>
-                            </tr>
-                            <th colspan="4" class="correcao"></th>
-                            <tr class="tr-pagamento">
-                                <td colspan="2">Escolha a forma de pagamento</th>
-                                <td colspan="3">Dinheiro Recebido</td>
-                            </tr>
-                            <th colspan="4" class="correcao"></th>
-                            <tr>
-                                <td colspan="2">
-                                    <select id="forma-pagamento">
-                                        <option value="">Selecionar</option>
-                                        <option value="dinheiro">Dinheiro</option>
-                                        <option value="cartao">Cartão</option>
-                                        <option value="pix">PIX</option>
-                                    </select>
-                                </td>
-                                <td colspan="2">
-                                    <input id="dinheiro-recebido" type="number">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th colspan="4" class="correcao"></th>
-                            </tr>
-                            <tr class="tr-total">
-                                <td colspan="3">Total</td>
-                                <td class="td-troco">Troco Cliente</td>
-                            </tr>
-                            <tr>
-                                <td class="total" colspan="3"><span id="total">0.00</span></td>
-                                <td class="troco"><span id="troco"></span></td>
-                            </tr>
-                            <tr>
-                                <td class="buttonFinalizar" colspan="4">
-                                    <button type="button" id="finalizarCompra">Finalizar Venda</button>
-                                    <button type="button" id="cancelarCompra">Cancelar venda</button>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
+           <div class="carrinho-add">
+                <ul id="lista"></ul>
+           </div>
+           <div class="">
+                
+           </div>
         </div>
     </div>
-    <script src="../controllers/menu.js"></script>
-    <script src="../controllers/screenSales.js"></script>
+   
+
+<script src="../controllers/screenSales.js"></script>
+<script src="../controllers/menu.js"></script>
+
 </body>
 
 </html>
