@@ -215,33 +215,37 @@ button:hover {
     background-color: rgba(247, 247, 247, 0.548);
 
 }
-.excluir{
+
+.excluir {
     width: 20px;
     margin-left: -10px;
     margin-top: -5px;
 }
-.buttonExcluir{
-margin-left: 15px;
-width: 40px;
-height:auto ;
-background-color: rgb(247, 247, 247);
+
+.buttonExcluir {
+    margin-left: 15px;
+    width: 40px;
+    height: auto;
+    background-color: rgb(247, 247, 247);
 }
-.buttonExcluir:hover{
-margin-left: 15px;
-width: 40px;
-height:auto ;
-background-color: rgb(247, 247, 247);
+
+.buttonExcluir:hover {
+    margin-left: 15px;
+    width: 40px;
+    height: auto;
+    background-color: rgb(247, 247, 247);
 }
+
 .carrinho-add {
-width: 50%;
-margin-top: 5px;
-height: 390px;
-background-color: rgba(48, 8, 8, 0);
-margin-left: 6px;
-background-image: url('../img/carrinho-de-compras.png');
-background-repeat: no-repeat;
-background-size: contain;
-background-position: center;
+    width: 50%;
+    margin-top: -5px;
+    height: 390px;
+    background-color: rgba(48, 8, 8, 0);
+    margin-left: 6px;
+    background-image: url('../img/carrinho-de-compras.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
 .li-carrinho {
@@ -283,6 +287,21 @@ background-position: center;
     margin: 0px;
 }
 
+.finalizar-venda {
+    width: 47%;
+    margin-left: 20px;
+    margin-top: 11px;
+    height: 390px;
+border: 1px solid rgb(221, 221, 221);
+}
+
+.container {
+    display: flex;
+    /* background-color: blueviolet; */
+    height: 410px;
+    width: 100%;
+}
+
 #forma-pagamento {
     margin: 0;
     text-align: center;
@@ -291,6 +310,7 @@ background-position: center;
     height: 26px;
     border-radius: 2px;
 }
+
 
 option {
     font-size: 17px;
