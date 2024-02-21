@@ -6,10 +6,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const produtoNome = document.getElementById('produto');
     const produtoPreco = document.getElementById('preco');
     const produtoEstoque = document.getElementById('estoque');
+    const totalCarrinho = document.getElementById('total');
     const lista = document.getElementById('lista');
     const carrinho = [];
     let produtoEncontrado = null;
-
+    
+    
     codigoEANInput.addEventListener('input', () => {
         const codigoEAN = codigoEANInput.value;
         if (codigoEAN.trim() !== '') {
@@ -30,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             carrinho.push(itemCarrinho);
             renderizarLista();
+        
         } else {
             alert('Nenhum produto encontrado para adicionar ao carrinho.');
         }
@@ -84,9 +87,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 carrinho.splice(index, 1);
                 renderizarLista();
             });
-
+            console.log(carrinho)
             li.appendChild(buttonExcluir);
             lista.appendChild(li);
         });
+    };
+
+    function calcularTotalCarrinho() {
+        const total = carrinho.reduce((acc, item) => {
+            return acc + (item.produto.preco * item.quantidade);
+        }, 0);
+
+        return total.toFixed(2);
     }
+
 });

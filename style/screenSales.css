@@ -209,17 +209,22 @@ button:hover {
 }
 
 #lista {
-    width: 95%;
-    height: 390px;
+    height: 370px;
     border: 1px solid rgb(221, 221, 221);
-    background-color: rgba(247, 247, 247, 0.548);
+    background-color: rgba(247, 247, 247, 0.863);
+    margin-top: -16px;
+}
 
+.titulo-finalizar{
+    background-color: rgb(0, 38, 87);
+    color: white;
+    margin-top: 0px;
 }
 
 .excluir {
     width: 20px;
     margin-left: -10px;
-    margin-top: -5px;
+    margin-top: -9px;
 }
 
 .buttonExcluir {
@@ -240,7 +245,6 @@ button:hover {
     width: 50%;
     margin-top: -5px;
     height: 390px;
-    background-color: rgba(48, 8, 8, 0);
     margin-left: 6px;
     background-image: url('../img/carrinho-de-compras.png');
     background-repeat: no-repeat;
@@ -248,21 +252,17 @@ button:hover {
     background-position: center;
 }
 
+
 .li-carrinho {
     cursor: auto;
     border: none;
     font-size: 15px;
     width: 100%;
     background-color: rgb(247, 247, 247);
-}
-
-.li-carrinho {
-    cursor: auto;
-    border: none;
+    display: flex;
     padding: 0;
     margin-left: -20px;
-    width: 100%;
-    background-color: rgb(247, 247, 247);
+    justify-content: right;
 }
 
 .li-carrinho:hover {
@@ -398,4 +398,9 @@ option {
 
 .correcao {
     background: rgba(255, 254, 254, 0);
+}
+.titulo-carrinho{
+    background-color: rgb(0, 38, 87);
+    color: white;
+    width: 100%;
 }
