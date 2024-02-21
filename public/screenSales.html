@@ -17,10 +17,11 @@
                 <li class="logo"><img id="logo-img" src="../img/logo-menu.png" alt=""></li>
             </ul>
         </nav>
-    </header><div id="container-sales">
+    </header>
+    <div id="container-sales">
         <div class="container-table">
             <h3>Tela de Venda</h3>
-             <span class="alert">
+            <span class="alert">
                 <img class="imgLogo" src="../img/suporte.png" alt="">
                 <p id="msg"></p>
                 <button id="bottonAlert">OK</button>
@@ -51,23 +52,52 @@
                 </tr>
             </table>
             <div class="container">
-           <div class="carrinho-add">
-                <p class="titulo-carrinho">Produtos Adicionados ao Carrinho</p>
-                <ul id="lista"></ul>
-           </div>
-           <div class="finalizar-venda">
-            <p class="titulo-finalizar">Informações para Finalizar Venda</p>
-                <table class="pagamento-table">
-                    <p class="total"></p>
-                </table>
-           </div>
+                <div class="carrinho-add">
+                    <p class="titulo-carrinho">Produtos Adicionados ao Carrinho</p>
+                    <ul id="lista"></ul>
+                </div>
+                <div class="finalizar-venda">
+                    <p class="titulo-finalizar">Informações para Finalizar Venda</p>
+                    <div class="div-table1">
+                    </div>
+                    <div class="div-table2">
+                        <table class="pagamento-table">
+                            <tr>
+                                <th>Forma de Pagamento</th>
+                                <th>Valor Recebido do Cliente</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select id="forma-pagamento">
+                                        <option value="Dinheiro">Dinheiro</option>
+                                        <option value="Cartao">Cartão</option>
+                                        <option value="PIX">PIX</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="number" id="dinheiro-recebido">
+                                </td>
+                            </tr>
+                        <tr class="tr-total">
+                            <th>
+                                Troco Cliente
+                            </th>
+                            <th>
+                                Total
+                            </th>
+                        </tr>
+                        <td></td>
+                        <td><p id="total">0.00</p></td>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    </div>
-   
 
-<script src="../controllers/screenSales.js"></script>
-<script src="../controllers/menu.js"></script>
+
+    <script src="../controllers/screenSales.js"></script>
+    <script src="../controllers/menu.js"></script>
 
 </body>
 

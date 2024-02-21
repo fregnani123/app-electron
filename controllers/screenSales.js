@@ -6,11 +6,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const produtoNome = document.getElementById('produto');
     const produtoPreco = document.getElementById('preco');
     const produtoEstoque = document.getElementById('estoque');
-    const totalCarrinho = document.getElementById('total');
+    const totalCarrinho = document.querySelector('#total');
     const lista = document.getElementById('lista');
     const carrinho = [];
     let produtoEncontrado = null;
-    
     
     codigoEANInput.addEventListener('input', () => {
         const codigoEAN = codigoEANInput.value;
@@ -46,7 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 if (Array.isArray(data)) {
                     produtoEncontrado = data.find(produto => Number(produto.codigoDeBarras) === Number(codigoEAN));
-
+         
+                
                     if (produtoEncontrado) {
                         produtoCodigo.innerText = produtoEncontrado.codigoDeBarras;
                         produtoNome.innerText = produtoEncontrado.nome;
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const li = document.createElement('li');
             li.classList.add('li-carrinho')
             li.textContent = `${item.produto.nome} - Quantidade: ${item.quantidade} - Preço: R$ ${(item.produto.preco * item.quantidade).toFixed(2)}`;
-
+            
             const buttonExcluir = document.createElement('button');
             buttonExcluir.classList.add('buttonExcluir');         
             const imgExcluir = document.createElement('img')
@@ -87,18 +87,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 carrinho.splice(index, 1);
                 renderizarLista();
             });
-            console.log(carrinho)
             li.appendChild(buttonExcluir);
             lista.appendChild(li);
         });
+
+     let total = calcularTotalCarrinho(carrinho);
+        totalCarrinho.innerHTML = `${total}`
     };
 
-    function calcularTotalCarrinho() {
-        const total = carrinho.reduce((acc, item) => {
+    function calcularTotalCarrinho(calc) {
+        const total = calc.reduce((acc, item) => {
             return acc + (item.produto.preco * item.quantidade);
         }, 0);
 
         return total.toFixed(2);
     }
 
+    
 });
