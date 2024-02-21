@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
     const buttonAddCarrinho = document.getElementById('buttonAddCarrinho');
+    const buttonLimparEAN = document.getElementById('button-clear');
+    const buttonFinalizar = document.getElementById('finalizar-venda');
     const codigoEANInput = document.getElementById('input-EAN');
     const inputQtd = document.getElementById('input-qtd');
+    const inputTroco = document.getElementById('dinheiro-recebido')
+    const trocoCli = document.querySelector('#troco')
     const produtoCodigo = document.getElementById('codigo');
     const produtoNome = document.getElementById('produto');
     const produtoPreco = document.getElementById('preco');
@@ -10,7 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const lista = document.getElementById('lista');
     const carrinho = [];
     let produtoEncontrado = null;
-    
+    let total = 0;
+    let troco = 0;
+
     codigoEANInput.addEventListener('input', () => {
         const codigoEAN = codigoEANInput.value;
         if (codigoEAN.trim() !== '') {
@@ -31,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             carrinho.push(itemCarrinho);
             renderizarLista();
-        
+
         } else {
             alert('Nenhum produto encontrado para adicionar ao carrinho.');
         }
@@ -45,8 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 if (Array.isArray(data)) {
                     produtoEncontrado = data.find(produto => Number(produto.codigoDeBarras) === Number(codigoEAN));
-         
-                
+
+
                     if (produtoEncontrado) {
                         produtoCodigo.innerText = produtoEncontrado.codigoDeBarras;
                         produtoNome.innerText = produtoEncontrado.nome;
@@ -75,10 +81,10 @@ document.addEventListener('DOMContentLoaded', function () {
         carrinho.forEach((item, index) => {
             const li = document.createElement('li');
             li.classList.add('li-carrinho')
-            li.textContent = `${item.produto.nome} - Quantidade: ${item.quantidade} - Preço: R$ ${(item.produto.preco * item.quantidade).toFixed(2)}`;
-            
+            li.textContent = `Cod:${item.produto.codigoDeBarras} - ${item.produto.nome} - Preço: R$ ${(item.produto.preco).toFixed(2)} x${item.quantidade}`;
+
             const buttonExcluir = document.createElement('button');
-            buttonExcluir.classList.add('buttonExcluir');         
+            buttonExcluir.classList.add('buttonExcluir');
             const imgExcluir = document.createElement('img')
             imgExcluir.src = '../img/remover.png';
             buttonExcluir.appendChild(imgExcluir)
@@ -91,9 +97,24 @@ document.addEventListener('DOMContentLoaded', function () {
             lista.appendChild(li);
         });
 
-     let total = calcularTotalCarrinho(carrinho);
-        totalCarrinho.innerHTML = `${total}`
+        total = calcularTotalCarrinho(carrinho);
+        totalCarrinho.innerHTML = `${total}`;
     };
+
+    inputTroco.addEventListener('input', () => {
+        const dinheiroCLi = inputTroco.value;
+        if (dinheiroCLi.trim() !== '') {
+            const troco = Number(dinheiroCLi) - Number(total);
+            if (troco >= 0) {
+                trocoCli.innerText = `${troco.toFixed(2)}`;
+            } else {
+                trocoCli.innerText = 'Valor insuficiente';
+            }
+        }
+        if (dinheiroCLi === '') {
+            return trocoCli.innerHTML = ''
+        }
+    });
 
     function calcularTotalCarrinho(calc) {
         const total = calc.reduce((acc, item) => {
@@ -103,5 +124,68 @@ document.addEventListener('DOMContentLoaded', function () {
         return total.toFixed(2);
     }
 
-    
-});
+    function limparInputEAN() {
+        produtoCodigo.innerText = ''
+        produtoPreco.innerText = ''
+        produtoEstoque.innerText = ''
+        codigoEANInput.value = '';
+        produtoNome.innerText = '';
+        inputQtd.value = '1';
+    }
+
+    buttonLimparEAN.addEventListener('click', limparInputEAN)
+
+   
+
+    buttonFinalizar.addEventListener('click', () => {
+        const groupedItems = {};
+
+        // Agrupar os itens do carrinho pelo código de barras do produto
+        carrinho.forEach(item => {
+            const codigoDeBarras = item.produto.codigoDeBarras;
+            const quantidade = Number(item.quantidade);
+
+            if (groupedItems[codigoDeBarras]) {
+                groupedItems[codigoDeBarras].quantidade += quantidade;
+            } else {
+                groupedItems[codigoDeBarras] = {
+                    produto: item.produto,
+                    quantidade: quantidade
+                };
+            }
+        });
+
+        // Atualizar o estoque para cada produto
+        Object.values(groupedItems).forEach(item => {
+            const novoEstoque = Number(item.produto.estoque) - item.quantidade;
+            const urlPatchProduto = `http://204.216.187.179:3000/updateProduto/${item.produto.codigoDeBarras}`;
+
+            fetch(urlPatchProduto, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ estoque: novoEstoque })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        console.log(`Estoque atualizado para o produto ${item.produto.nome}`);
+                    } else {
+                        console.error(`Erro ao atualizar o estoque para o produto ${item.produto.nome}`);
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao atualizar o estoque:', error);
+                });
+        });
+
+        // Limpar carrinho e interface após a finalização da venda
+        limparInputEAN();
+        carrinho.length = 0;
+        lista.innerHTML = '';
+        totalCarrinho.innerHTML = '0.00';
+    });
+
+
+        })
+

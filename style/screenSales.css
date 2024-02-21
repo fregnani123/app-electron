@@ -213,9 +213,11 @@ button:hover {
     border: 1px solid rgb(221, 221, 221);
     background-color: rgba(247, 247, 247, 0.863);
     margin-top: -16px;
+    overflow: auto;
+    margin-left: -5px;
 }
 
-.titulo-finalizar{
+.titulo-finalizar {
     background-color: rgb(0, 38, 87);
     color: white;
     margin-top: 0px;
@@ -256,19 +258,19 @@ button:hover {
 .li-carrinho {
     cursor: auto;
     border: none;
-    font-size: 15px;
+    font-size: 13px;
     width: 100%;
     background-color: rgb(247, 247, 247);
     display: flex;
     padding: 0;
-    margin-left: -20px;
+    align-items: center;
+    margin-left: -5px;
     justify-content: right;
 }
 
 .li-carrinho:hover {
     cursor: auto;
     border: none;
-    margin-left: -20px;
     width: 100%;
     background-color: rgb(247, 247, 247);
 }
@@ -293,14 +295,14 @@ button:hover {
     /* background-color: blueviolet; */
     height: 410px;
     width: 100%;
-    margin-left:5px ;
+    margin-left: 5px;
 }
 
 #forma-pagamento {
     margin: 0;
     text-align: center;
     outline: none;
-    width: 70%;
+    width: 50%;
     height: 26px;
     border-radius: 2px;
 }
@@ -346,34 +348,17 @@ option {
     text-align: left;
 }
 
-.troco {
-    font-size: 25px;
-    padding-top: 15px;
-}
-
-#troco {
-    padding-top: 15px;
-    font-weight: bold;
-    color: #333;
-    font-size: 35px;
-}
-
-#total {
-    font-weight: bold;
-    color: #333;
-    font-size: 50px;
-    margin-top: 15px;
-}
-
-.tr-total,
 .tr-buscarCliente,
 .tr-pagamento {
     background-color: rgb(0, 38, 87);
     color: white;
+
 }
 
-.buttonFinalizar {
-    height: 80px;
+#finalizar-venda {
+    position: fixed;
+    bottom: 25px;
+    right: 28px;
 }
 
 .buscar-cliente {
@@ -386,28 +371,82 @@ option {
     right: 10px;
 }
 
-.titulo-carrinho{
+.titulo-carrinho {
     background-color: rgb(0, 38, 87);
     color: white;
+    width: 101.1%;
+    margin-left: -5px;
+}
+
+.div-table1 {
+    height: 130px;
     width: 100%;
 }
 
-.div-table1{
-    margin-top: -16px;
+.div-table2 {
     width: 100%;
     height: 170px;
-}
-.div-table2{
-   margin-left: -6px;
-    width: 100.5%;
-    height: 170px;
-    margin-top: -11px;
    
 }
 
-.label-recebido{
-background-color: rgb(0, 38, 87);
-color: white;
-
+#total {
+    font-weight: bold;
+    color: #333;
+    font-size: 50px;
+    margin-top: 0px;
+    width: 200px;
 }
 
+.total {
+    font-weight: bold;
+    color: #333;
+    font-size: 50px;
+    margin-top: 0px;
+    display: flex;
+    margin-left: 10px;
+}
+
+#troco {
+    padding: 2.5px;
+    border: 1px solid rgba(128, 128, 128, 0.342);
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: 24px;
+    margin-top: -16px;
+    height: 20px;
+}
+.troco {
+    margin-top: -18px;
+    background-color: rgb(0, 38, 87);
+    color: white;
+    border: 1px solid rgba(128, 128, 128, 0.342);
+}
+
+.spanPG {
+    background-color: rgb(0, 38, 87);
+    color: white;
+    border: 1px solid rgba(128, 128, 128, 0.342);
+}
+
+.spanCli {
+    margin-top: -16px;
+    background-color: rgb(0, 38, 87);
+    color: white;
+    border: 1px solid rgba(128, 128, 128, 0.342);
+}
+
+.dinheiro-recebido {
+    padding: 2.5px;
+    color: white;
+    border: 1px solid rgba(128, 128, 128, 0.342);
+    margin-top: -17px;
+}
+
+.forma-pagamento {
+    margin-top: -17px;
+    padding: 2.5px;
+    color: white;
+    border: 1px solid rgba(128, 128, 128, 0.342);
+}

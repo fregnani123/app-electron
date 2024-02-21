@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../style/screenSales.css">
     <title>Gestão Lite</title>
 </head>
-
 <body>
     <header>
         <nav>
@@ -57,42 +56,30 @@
                     <ul id="lista"></ul>
                 </div>
                 <div class="finalizar-venda">
-                    <p class="titulo-finalizar">Informações para Finalizar Venda</p>
                     <div class="div-table1">
+                        <p class="titulo-finalizar">Informações para Finalizar Venda</p>
                     </div>
+
                     <div class="div-table2">
-                        <table class="pagamento-table">
-                            <tr>
-                                <th>Forma de Pagamento</th>
-                                <th>Valor Recebido do Cliente</th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <select id="forma-pagamento">
-                                        <option value="Dinheiro">Dinheiro</option>
-                                        <option value="Cartao">Cartão</option>
-                                        <option value="PIX">PIX</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <input type="number" id="dinheiro-recebido">
-                                </td>
-                            </tr>
-                        <tr class="tr-total">
-                            <th>
-                                Troco Cliente
-                            </th>
-                            <th>
-                                Total
-                            </th>
-                        </tr>
-                        <td></td>
-                        <td><p id="total">0.00</p></td>
-                        </table>
+                        <p class="spanPG">Forma de Pagamento</p>
+                        <p class="forma-pagamento"><select id="forma-pagamento">
+                            <option value="Dinheiro">Dinheiro</option>
+                            <option value="Cartao">Cartão</option>
+                            <option value="PIX">PIX</option>
+                        </select></p>
+                            <p class="spanCli">Valor Recebido do Cliente</p>
+                            <p class="dinheiro-recebido"><input type="number" id="dinheiro-recebido"></p>
+                        <p class="troco">Troco Cliente</p>
+                        <p id="troco"></p>
+                        <p class="total">Total:<span id="total">0.00</span></p>
+                        
+                        <button id="finalizar-venda">Finalizar Venda</button>
                     </div>
                 </div>
+
             </div>
         </div>
+    </div>
     </div>
 
 
