@@ -176,7 +176,6 @@ document.addEventListener('DOMContentLoaded', function () {
         inputQtd.value = '1';
     }
 
-
     buttonLimparEAN.addEventListener('click', limparInputEAN);
 
     const relatorio = {
