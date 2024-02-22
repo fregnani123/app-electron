@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     padding: 5px;
-    ;
+
 }
 
 #bottonAlert {
@@ -31,7 +31,7 @@
     border: 1px solid white;
 }
 
-#msg {
+.msg {
     margin-left: 10px;
 }
 
@@ -145,8 +145,8 @@ th {
 #input-qtd,
 #input-EAN, #inputCPF {
     text-align: center;
-    outline: none;
-    height: 20px;
+        outline: none;
+        height: 22px;
 }
 
 #input-qtd {
@@ -463,12 +463,23 @@ option {
     border: 1px solid rgba(128, 128, 128, 0.342);
 }
 
+#clienteEncontrado{
+    text-align: center;
+    outline: none;
+    height: 24px;
+    border: 1px solid gray;
+}
 .clienteEncontrado{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: flex;
     margin-top: -15px;
     height: 20px;
     padding: 3.5px;
     border: 1px solid rgba(128, 128, 128, 0.342);
 }
+
 .clienteTitulo{
     background-color: rgb(0, 38, 87);
     color: white;

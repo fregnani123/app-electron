@@ -19,10 +19,9 @@
     </header>
     <div id="container-sales">
         <div class="container-table">
-            <h3>Tela de Venda</h3>
-            <span class="alert">
+            <h3>Tela de Venda</h3> <span class="alert">
                 <img class="imgLogo" src="../img/suporte.png" alt="">
-                <p id="msg"></p>
+                <p class="msg"></p>
                 <button id="bottonAlert">OK</button>
             </span>
             <table>
@@ -59,7 +58,7 @@
                     <div class="div-table1">
                         <p class="titulo-finalizar">Informações para Finalizar Venda</p>
                         <p class="clienteTitulo">Cliente</p>
-                        <p class="clienteEncontrado" id="clienteEncontrado"></p>
+                        <p class="clienteEncontrado"><input id="clienteEncontrado" type="text" value="Consumidor"></p>
                         <p id="spanCPF" class="spanCPF">Digite o CPF do Cliente: <input id="inputCPF" type="number"></p>
                     </div>
                     <div class="div-table2">
@@ -70,7 +69,7 @@
                             <option value="PIX">PIX</option>
                         </select></p>
                             <p class="spanCli">Valor Recebido do Cliente</p>
-                            <p class="dinheiro-recebido"><input type="number" id="dinheiro-recebido"></p>
+                            <p class="dinheiro-recebido"><input type="number" id="dinheiro-recebido" value=""></p>
                         <p class="troco">Troco Cliente</p>
                         <p id="troco"></p>
                         <p class="total">Total:<span id="total">0.00</span></p>

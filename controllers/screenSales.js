@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const codigoEANInput = document.getElementById('input-EAN');
     const inputCPF = document.getElementById('inputCPF');
     const inputQtd = document.getElementById('input-qtd');
-    const inputTroco = document.getElementById('dinheiro-recebido')
+    const selectPagamento = document.getElementById('forma-pagamento');
+    const dinheiroCliente = document.getElementById('dinheiro-recebido')
     const trocoCli = document.querySelector('#troco')
     const clienteADD = document.querySelector('#clienteEncontrado')
     const produtoCodigo = document.getElementById('codigo');
@@ -14,15 +15,23 @@ document.addEventListener('DOMContentLoaded', function () {
     const produtoEstoque = document.getElementById('estoque');
     const totalCarrinho = document.querySelector('#total');
     const lista = document.getElementById('lista');
+    const spanAlert = document.querySelector('.alert');
+    const msgAlert= document.querySelector('.msg');
+    const buttonAlert = document.querySelector('#bottonAlert');
     const carrinho = [];
-    let total = 0;
-    let troco = 0;
 
-    const clienteImprimir = []
+    function criaAlert(msg) {
+        spanAlert.classList.toggle('alertDisplay')
+        msgAlert.innerText = msg;
+    }
 
+    buttonAlert.addEventListener('click',criaAlert)
 
     inputCPF.addEventListener('input', function (event) {
         const cpfDigitado = event.target.value;
+        if (!cpfDigitado) {
+            clienteADD.value = 'Consumidor'
+        }
         cpfDigitado.trim();
         buscarCliente(cpfDigitado);
     });
@@ -33,26 +42,24 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch(urlCliente)
             .then(response => response.json())
             .then(clientes => {
-                console.log(clientes);
-                const clienteEncontrado = clientes.find(cliente => Number(cliente.cpfFake) === Number(cpf));
-                if (clienteEncontrado) {
-                    clienteImprimir.push(clienteEncontrado);
-                    console.log('Cliente encontrado:', clienteEncontrado);
+                if (!cpf || cpf.trim() === '') { // Verifica se o CPF está vazio
+                    clienteADD.value = 'Consumidor'; // Define "Consumidor" como o valor padrão
+                    return; // Retorna para evitar a execução do código abaixo
+                }
 
-                    // Agora você pode executar o código que depende da variável clienteImprimir
-                    for (let nome of clienteImprimir) {
-                        clienteADD.innerHTML = nome.cliente;
-                        console.log(nome.cliente);
+                if (Array.isArray(clientes)) {
+                    clienteEncontrado = clientes.find(cliente => Number(cliente.cpfFake) === Number(cpf));
+                    if (clienteEncontrado) {
+                        clienteADD.value = clienteEncontrado.cliente;
+                    } else if (cpf.length > 9 && !clienteEncontrado) {
+                        clienteADD.value = 'Cliente não encontrado para o CPF digitado.';
                     }
-                } else {
-                    console.log('Cliente não encontrado para o CPF:', cpf);
                 }
             })
             .catch(error => {
                 console.error('Ocorreu um erro ao buscar o cliente:', error);
             });
     }
-
 
 
     codigoEANInput.addEventListener('input', () => {
@@ -77,7 +84,8 @@ document.addEventListener('DOMContentLoaded', function () {
             renderizarLista();
 
         } else {
-            alert('Nenhum produto encontrado para adicionar ao carrinho.');
+            const msg = 'Nenhum produto encontrado para adicionar ao carrinho.';
+            criaAlert(msg)
         }
     });
 
@@ -109,12 +117,10 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .catch(error => {
                 console.error('Erro ao buscar o produto:', error);
-                alert('Ocorreu um erro ao buscar o produto. Por favor, tente novamente.');
+                const msg = 'Ocorreu um erro ao buscar o produto. Por favor, tente novamente.';
+                criaAlert(msg)
             });
     }
-
-
-
 
     function renderizarLista() {
         lista.innerHTML = '';
@@ -130,6 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
             imgExcluir.src = '../img/remover.png';
             buttonExcluir.appendChild(imgExcluir)
             imgExcluir.classList.add('excluir')
+
             buttonExcluir.addEventListener('click', () => {
                 carrinho.splice(index, 1);
                 renderizarLista();
@@ -138,24 +145,19 @@ document.addEventListener('DOMContentLoaded', function () {
             lista.appendChild(li);
         });
 
-        total = calcularTotalCarrinho(carrinho);
+
+        const total = calcularTotalCarrinho(carrinho);
         totalCarrinho.innerHTML = `${total}`;
+
+        dinheiroCliente.addEventListener('input', () => {
+         dinheiro = dinheiroCliente.value 
+             trocoSoma = dinheiro - total 
+            return trocoCli.innerText = trocoSoma.toFixed(2) < 0 ? '' : trocoSoma.toFixed(2) ; 
+        }
+        )
+
     };
 
-    inputTroco.addEventListener('input', () => {
-        const dinheiroCLi = inputTroco.value;
-        if (dinheiroCLi.trim() !== '') {
-            const troco = Number(dinheiroCLi) - Number(total);
-            if (troco >= 0) {
-                trocoCli.innerText = `${troco.toFixed(2)}`;
-            } else {
-                trocoCli.innerText = 'Valor insuficiente';
-            }
-        }
-        if (dinheiroCLi === '') {
-            return trocoCli.innerHTML = ''
-        }
-    });
 
     function calcularTotalCarrinho(calc) {
         const total = calc.reduce((acc, item) => {
@@ -174,22 +176,51 @@ document.addEventListener('DOMContentLoaded', function () {
         inputQtd.value = '1';
     }
 
-    buttonLimparEAN.addEventListener('click', limparInputEAN)
 
-//     const relatório = {
-//             carrinho: carrinho,
-//             cliente: clienteADD,
-//             dateVenda: dataVenda,
-//             dinheiroRecebido: dinheiroRecebido,
-//             formaPagamento: formaPagamento,
-//             total: total,
-//    }
+    buttonLimparEAN.addEventListener('click', limparInputEAN);
 
+    const relatorio = {
+        carrinho: [],
+        cliente: '',
+        dateVenda: new Date().toLocaleDateString(),
+        dinheiroCliente: '',
+        formaPagamento: '',
+        totalCompra: '',
+        trocoCliente: '',
+    };
 
+    // Função para atualizar e exibir o relatório
+    function atualizarRelatorio() {
+        relatorio.carrinho = carrinho.map(item => ({
+            produto: item.produto,
+            quantidade: item.quantidade
+        }));
+        relatorio.cliente = clienteADD.value;
+        relatorio.dinheiroCliente = dinheiroCliente.value;
+        relatorio.trocoCliente = trocoSoma.toFixed(2);
+        // Number(dinheiroCliente.value - calcularTotalCarrinho(relatorio.carrinho)).toFixed(2) < 0 ? '0,00' : relatorio.trocoCliente,
+            relatorio.formaPagamento = selectPagamento.value;
+        relatorio.totalCompra = calcularTotalCarrinho(relatorio.carrinho)
+
+        console.log(relatorio);
+    }
 
     buttonFinalizar.addEventListener('click', () => {
         const groupedItems = {};
+        const formaPagamento = selectPagamento.value;
+        const dinheiroRecebido = dinheiroCliente.value;
 
+        if (carrinho.length === 0) {
+            const msg = 'O Carrinho está vázio, para finalizar adicione pelo menos um ítem.'
+            criaAlert(msg)
+            return;
+        }
+       
+        if (formaPagamento === 'Dinheiro' && dinheiroRecebido === '') {
+            const msg = 'Por favor, insira o valor recebido em dinheiro.';
+            criaAlert(msg)
+            return; // Impede a execução adicional do código
+        }
         // Agrupar os itens do carrinho pelo código de barras do produto
         carrinho.forEach(item => {
             const codigoDeBarras = item.produto.codigoDeBarras;
@@ -228,13 +259,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.error('Erro ao atualizar o estoque:', error);
                 });
         });
-
+        atualizarRelatorio()
         limparInputEAN();
+        inputCPF.value = 1
         carrinho.length = 0;
         lista.innerHTML = '';
+        dinheiroCliente.value = '',
+        trocoCli.innerText = '',
         totalCarrinho.innerHTML = '0.00';
     });
 
 
-        })
+})
 
