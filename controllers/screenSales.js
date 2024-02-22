@@ -3,9 +3,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const buttonLimparEAN = document.getElementById('button-clear');
     const buttonFinalizar = document.getElementById('finalizar-venda');
     const codigoEANInput = document.getElementById('input-EAN');
+    const inputCPF = document.getElementById('inputCPF');
     const inputQtd = document.getElementById('input-qtd');
     const inputTroco = document.getElementById('dinheiro-recebido')
     const trocoCli = document.querySelector('#troco')
+    const clienteADD = document.querySelector('#clienteEncontrado')
     const produtoCodigo = document.getElementById('codigo');
     const produtoNome = document.getElementById('produto');
     const produtoPreco = document.getElementById('preco');
@@ -13,9 +15,45 @@ document.addEventListener('DOMContentLoaded', function () {
     const totalCarrinho = document.querySelector('#total');
     const lista = document.getElementById('lista');
     const carrinho = [];
-    let produtoEncontrado = null;
     let total = 0;
     let troco = 0;
+
+    const clienteImprimir = []
+
+
+    inputCPF.addEventListener('input', function (event) {
+        const cpfDigitado = event.target.value;
+        cpfDigitado.trim();
+        buscarCliente(cpfDigitado);
+    });
+
+    function buscarCliente(cpf) {
+        const urlCliente = 'http://204.216.187.179:3000/clientes';
+
+        fetch(urlCliente)
+            .then(response => response.json())
+            .then(clientes => {
+                console.log(clientes);
+                const clienteEncontrado = clientes.find(cliente => Number(cliente.cpfFake) === Number(cpf));
+                if (clienteEncontrado) {
+                    clienteImprimir.push(clienteEncontrado);
+                    console.log('Cliente encontrado:', clienteEncontrado);
+
+                    // Agora você pode executar o código que depende da variável clienteImprimir
+                    for (let nome of clienteImprimir) {
+                        clienteADD.innerHTML = nome.cliente;
+                        console.log(nome.cliente);
+                    }
+                } else {
+                    console.log('Cliente não encontrado para o CPF:', cpf);
+                }
+            })
+            .catch(error => {
+                console.error('Ocorreu um erro ao buscar o cliente:', error);
+            });
+    }
+
+
 
     codigoEANInput.addEventListener('input', () => {
         const codigoEAN = codigoEANInput.value;
@@ -74,6 +112,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 alert('Ocorreu um erro ao buscar o produto. Por favor, tente novamente.');
             });
     }
+
+
+
 
     function renderizarLista() {
         lista.innerHTML = '';
@@ -135,7 +176,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     buttonLimparEAN.addEventListener('click', limparInputEAN)
 
-   
+//     const relatório = {
+//             carrinho: carrinho,
+//             cliente: clienteADD,
+//             dateVenda: dataVenda,
+//             dinheiroRecebido: dinheiroRecebido,
+//             formaPagamento: formaPagamento,
+//             total: total,
+//    }
+
+
 
     buttonFinalizar.addEventListener('click', () => {
         const groupedItems = {};
@@ -179,7 +229,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
         });
 
-        // Limpar carrinho e interface após a finalização da venda
         limparInputEAN();
         carrinho.length = 0;
         lista.innerHTML = '';

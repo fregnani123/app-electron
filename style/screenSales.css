@@ -131,13 +131,19 @@ th {
     appearance: none;
 }
 
+#inputCPF[type=number]::-webkit-inner-spin-button,
+#inputCPF[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
 #dinheiro-recebido {
     outline: none;
     height: 20px;
 }
 
 #input-qtd,
-#input-EAN {
+#input-EAN, #inputCPF {
     text-align: center;
     outline: none;
     height: 20px;
@@ -209,7 +215,7 @@ button:hover {
 }
 
 #lista {
-    height: 370px;
+    height: 362px;
     border: 1px solid rgb(221, 221, 221);
     background-color: rgba(247, 247, 247, 0.863);
     margin-top: -16px;
@@ -219,6 +225,9 @@ button:hover {
 
 .titulo-finalizar {
     background-color: rgb(0, 38, 87);
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
     color: white;
     margin-top: 0px;
 }
@@ -375,6 +384,8 @@ option {
     background-color: rgb(0, 38, 87);
     color: white;
     width: 101.1%;
+    padding-top: 5px;
+    padding-bottom: 5px;
     margin-left: -5px;
 }
 
@@ -386,7 +397,7 @@ option {
 .div-table2 {
     width: 100%;
     height: 170px;
-   
+
 }
 
 #total {
@@ -417,6 +428,7 @@ option {
     margin-top: -16px;
     height: 20px;
 }
+
 .troco {
     margin-top: -18px;
     background-color: rgb(0, 38, 87);
@@ -448,5 +460,26 @@ option {
     margin-top: -17px;
     padding: 2.5px;
     color: white;
+    border: 1px solid rgba(128, 128, 128, 0.342);
+}
+
+.clienteEncontrado{
+    margin-top: -15px;
+    height: 20px;
+    padding: 3.5px;
+    border: 1px solid rgba(128, 128, 128, 0.342);
+}
+.clienteTitulo{
+    background-color: rgb(0, 38, 87);
+    color: white;
+    border: 1px solid rgba(128, 128, 128, 0.342);
+}
+.spanCPF{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin-top: -15px;
+    height: 20px;
+    padding: 5px;
     border: 1px solid rgba(128, 128, 128, 0.342);
 }
