@@ -61,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-
     codigoEANInput.addEventListener('input', () => {
         const codigoEAN = codigoEANInput.value;
         if (codigoEAN.trim() !== '') {
@@ -157,7 +156,6 @@ document.addEventListener('DOMContentLoaded', function () {
         )
 
     };
-
 
     function calcularTotalCarrinho(calc) {
         const total = calc.reduce((acc, item) => {
