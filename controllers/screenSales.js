@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 total: totalCompra,
             })
         }).then(response => {
-            if (response.ok) {
+            if (response.ok){
                 console.log('Relatório enviado para o MongoDB com sucesso!');
             } else {
                 console.error('Erro ao enviar o relatório para o MongoDB');
@@ -222,8 +222,6 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error(error);
         });
     }
-
-
 
     buttonFinalizar.addEventListener('click', () => {
         const groupedItems = {};
@@ -288,9 +286,7 @@ document.addEventListener('DOMContentLoaded', function () {
         dinheiroCliente.value = '',
         trocoCli.innerText = '',
         totalCarrinho.innerHTML = '0.00';
-        
     });
-
 
     const formaPagamento2 = document.getElementById('forma-pagamento');
     const divPagamento = document.querySelector('.divPagamento');
@@ -310,7 +306,6 @@ document.addEventListener('DOMContentLoaded', function () {
             
         }
     });
-
 
 })
 

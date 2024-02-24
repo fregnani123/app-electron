@@ -1,4 +1,60 @@
- #productForm{
+ /* #productForm{
     background-color: white;
-    
+    width: 50%;
+ } */
+
+ /* Estilizando o contêiner do formulário */
+ .divForm {
+   padding-top: 15px;
+    width: 400px;
+    margin: 0 auto;
+   
+ }
+
+ /* Estilizando as etiquetas do formulário */
+ label {
+    display: block;
+    margin-bottom: 5px;
+ }
+
+ /* Estilizando os campos de entrada do formulário */
+ input[type="text"],
+ input[type="number"],
+ select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+ }
+
+ /* Estilizando o botão de envio do formulário */
+ button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+ }
+
+ /* Alterando a cor do botão quando o cursor passa sobre ele */
+ button[type="submit"]:hover {
+    background-color: #45a049;
+ }
+ #descricao, #nomeProduto{
+   height: 33px;
+   border-radius: 5px;
+ }
+
+ input,select{
+   background-color: var(--cor-InputAmarelo);
+   outline: none;
+   text-align: center;
+ }
+ input[type=number]::-webkit-inner-spin-button,
+ input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
  }

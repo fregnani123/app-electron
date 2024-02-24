@@ -1,3 +1,10 @@
+
+:root {
+  --cor-AzulEscura:rgb(0, 38, 87);
+  --cor-BorderCinza: #ddd;
+  --cor-InputAmarelo: #FFFFE0;;
+}
+
 .alert {
     display: none;
 }
@@ -481,9 +488,11 @@ option {
 
 #clienteEncontrado {
     text-align: center;
+    font-size: 17px;
     outline: none;
     height: 24px;
-    border: 1px solid gray;
+    border:none;
+    background-color: rgba(255, 255, 255, 0) ;
 }
 
 .clienteEncontrado {
@@ -502,6 +511,12 @@ option {
     color: white;
     border: 1px solid rgba(128, 128, 128, 0.342);
 }
+.tituloBuscarCli{
+margin-top: -16px;
+background-color: rgb(0, 38, 87);
+color: white;
+border: 1px solid rgba(128, 128, 128, 0.342);
+}
 
 .spanCPF {
     justify-content: center;
@@ -511,4 +526,7 @@ option {
     height: 20px;
     padding: 5px;
     border: 1px solid rgba(128, 128, 128, 0.342);
+}
+.spanCPFtitulo {
+   margin-left: -30px;
 }
