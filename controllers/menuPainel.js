@@ -1,7 +1,7 @@
 const menuPainel1 = [
     { id: '1', texto: 'Painel de controle', src: '../img/painel-de-controle (1).png', to: './controllers.html' },
     { id: '2', texto: 'Realizar venda', src: '../img/carrinho-de-compras.png', to: './screenSales.html' },
-    { id: '3', texto: 'Detalhes de venda', src: '../img/detalhes vendas.png', to: '/' },
+    { id: '3', texto: 'Detalhes de venda', src: '../img/detalhes vendas.png', to: '../public/detalhes-venda.html' },
     { id: '4', texto: 'Cadastro de produto', src: '../img/cadastro de produtos.png', to: '/' },
     { id: '5', texto: 'Alterar Produto', src: '../img/alterar.png', to: '/' },
 ];

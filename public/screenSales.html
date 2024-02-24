@@ -31,7 +31,7 @@
                 <tr>
                     <td colspan="5th">Digite o Código do Produto: <input id="input-EAN" type="number"><button
                             id="buttonAddCarrinho">Adicionar
-                            Produto</button><button id="button-clear">Limpar EAN</button></td>
+                            Produto</button><button id="button-clear">Limpar EAN</button><span class="dataHJ">Data: <span class="date"></span></span></td>
                 </tr>
                 <tr>
                     <th class="codigo">Código</th>
@@ -68,8 +68,8 @@
                             <option value="Cartao">Cartão</option>
                             <option value="PIX">PIX</option>
                         </select></p>
-                            <p class="spanCli">Valor Recebido do Cliente</p>
-                            <p class="dinheiro-recebido"><input type="number" id="dinheiro-recebido" value=""></p>
+                          <p class="spanCli"><span class="divPagamento">Valor Recebido do Cliente</span></p>
+                            <p class="dinheiro-recebido"><span class="spanPagamento"><input type="number" id="dinheiro-recebido" value=""></span></p>
                         <p class="troco">Troco Cliente</p>
                         <p id="troco"></p>
                         <p class="total">Total:<span id="total">0.00</span></p>

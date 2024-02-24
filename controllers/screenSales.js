@@ -18,6 +18,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const spanAlert = document.querySelector('.alert');
     const msgAlert= document.querySelector('.msg');
     const buttonAlert = document.querySelector('#bottonAlert');
+    const date = document.querySelector('.date')
+
+    date.innerText = dateVenda = new Date().toLocaleDateString();
+
     const carrinho = [];
 
     function criaAlert(msg) {
@@ -150,8 +154,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         dinheiroCliente.addEventListener('input', () => {
          dinheiro = dinheiroCliente.value 
-             trocoSoma = dinheiro - total 
-            return trocoCli.innerText = trocoSoma.toFixed(2) < 0 ? '' : trocoSoma.toFixed(2) ; 
+          let trocoSoma = (dinheiro - total).toFixed(2) 
+            return trocoCli.innerText = trocoSoma < 0 ? '' : trocoSoma ; 
         }
         )
 
@@ -176,31 +180,50 @@ document.addEventListener('DOMContentLoaded', function () {
 
     buttonLimparEAN.addEventListener('click', limparInputEAN);
 
-    const relatorio = {
-        carrinho: [],
-        cliente: '',
-        dateVenda: new Date().toLocaleDateString(),
-        dinheiroCliente: '',
-        formaPagamento: '',
-        totalCompra: '',
-        trocoCliente: '',
-    };
+    function enviarRelatorio() {
+        
+        const urlRelatorio = 'http://204.216.187.179:3000/detalhesdevendaPost';
+        const cliente = clienteADD.value;
+        const dateVenda = new Date().toISOString(); // Convertendo para o formato ISO
+        const dinheiroRecebido = dinheiroCliente.value || 0; // Definindo um valor padrão caso esteja vazio ou nulo
+        const formaPagamento = selectPagamento.value;
+        const totalCompra = totalCarrinho.innerHTML;
 
-    // Função para atualizar e exibir o relatório
-    function atualizarRelatorio() {
-        relatorio.carrinho = carrinho.map(item => ({
-            produto: item.produto,
-            quantidade: item.quantidade
-        }));
-        relatorio.cliente = clienteADD.value;
-        relatorio.dinheiroCliente = dinheiroCliente.value;
-        relatorio.trocoCliente = trocoSoma.toFixed(2);
-        // Number(dinheiroCliente.value - calcularTotalCarrinho(relatorio.carrinho)).toFixed(2) < 0 ? '0,00' : relatorio.trocoCliente,
-            relatorio.formaPagamento = selectPagamento.value;
-        relatorio.totalCompra = calcularTotalCarrinho(relatorio.carrinho)
+        const carrinhoToSend = carrinho.map(item => {
+            return {
+                codigoDeBarras: item.produto.codigoDeBarras,
+                nome: item.produto.nome,
+                preco: item.produto.preco,
+                quantidade: item.quantidade
+            };
+        });
 
-        console.log(relatorio);
+        fetch(urlRelatorio, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                carrinho: carrinhoToSend,
+                cliente: cliente,
+                dateVenda: dateVenda,
+                dinheiroRecebido: dinheiroRecebido,
+                formaPagamento: formaPagamento,
+                total: totalCompra,
+            })
+        }).then(response => {
+            if (response.ok) {
+                console.log('Relatório enviado para o MongoDB com sucesso!');
+            } else {
+                console.error('Erro ao enviar o relatório para o MongoDB');
+                console.error('Status da resposta:', response.status);
+            }
+        }).catch(error => {
+            console.error(error);
+        });
     }
+
+
 
     buttonFinalizar.addEventListener('click', () => {
         const groupedItems = {};
@@ -214,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
        
         if (formaPagamento === 'Dinheiro' && dinheiroRecebido === '') {
-            const msg = 'Por favor, insira o valor recebido em dinheiro.';
+            const msg = 'Insira o valor recebido em dinheiro.';
             criaAlert(msg)
             return; // Impede a execução adicional do código
         }
@@ -256,14 +279,36 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.error('Erro ao atualizar o estoque:', error);
                 });
         });
-        atualizarRelatorio()
+        // atualizarRelatorio()
         limparInputEAN();
+        enviarRelatorio()
         inputCPF.value = 1
         carrinho.length = 0;
         lista.innerHTML = '';
         dinheiroCliente.value = '',
         trocoCli.innerText = '',
         totalCarrinho.innerHTML = '0.00';
+        
+    });
+
+
+    const formaPagamento2 = document.getElementById('forma-pagamento');
+    const divPagamento = document.querySelector('.divPagamento');
+    const spanPagamento = document.querySelector('.spanPagamento');
+
+    formaPagamento2.addEventListener('change', function () {
+        if (formaPagamento2.value === 'PIX' || formaPagamento2.value === 'Cartao') {
+            divPagamento.classList.remove('divPagamento');     
+            divPagamento.classList.add('display');      
+            spanPagamento.classList.remove('spanPagamento');     
+            spanPagamento.classList.add('display');      
+        } else {
+            divPagamento.classList.remove('display');  
+            divPagamento.classList.add('divPagamento');
+            spanPagamento.classList.add('spanPagamento'); 
+            spanPagamento.classList.remove('display'); 
+            
+        }
     });
 
 
