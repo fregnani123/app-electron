@@ -1,8 +1,8 @@
-
 :root {
-  --cor-AzulEscura:rgb(0, 38, 87);
-  --cor-BorderCinza: #ddd;
-  --cor-InputAmarelo: #FFFFE0;;
+    --cor-AzulEscura: rgb(0, 38, 87);
+    --cor-BorderCinza: #ddd;
+    --cor-InputAmarelo: #FFFFE0;
+    ;
 }
 
 .alert {
@@ -42,10 +42,10 @@
     margin-left: 10px;
 }
 
-.imgLogo {
+/* .imgLogo {
     margin-left: 10px;
     width: 70px;
-}
+} */
 
 h3 {
     color: rgb(0, 38, 87);
@@ -55,33 +55,26 @@ h3 {
     background-color: rgb(247, 247, 247);
 }
 
-#container-sales {
-    background-color: rgb(0, 38, 87);
-    position: fixed;
-    top: 0;
-    left: 18.5%;
+.container {
     width: 100%;
     height: 100%;
-    text-align: center;
-    padding: 0px;
+    overflow: hidden;
+}
+
+body {
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
 }
 
 .container-table {
-    margin: 0;
-    width: 79%;
-    height: 91.8%;
-    background-color: rgb(247, 247, 247);
-    padding: 6px;
-    padding-right: 15px;
-    padding-top: 30px;
-    position: fixed;
-    top: 1.5%;
+    margin-top: 105px;
+    width: 100%;
 }
 
 table {
     border-collapse: collapse;
     width: 100%;
-    margin-left: 5px;
 }
 
 th,
@@ -112,12 +105,10 @@ td {
 th {
     background-color: rgb(0, 38, 87);
     color: white;
-    padding: 5px;
 }
 
 #table-carrinho {
     margin-top: 20px;
-
 }
 
 #input-EAN[type=number]::-webkit-inner-spin-button,
@@ -172,6 +163,7 @@ th {
 
 #carrinho {
     width: 40%;
+    background-color: red;
     text-align: center;
 }
 
@@ -184,7 +176,6 @@ label {
     display: block;
     margin-bottom: 5px;
 }
-
 
 input[type="text"] {
     width: 100%;
@@ -230,22 +221,18 @@ button:hover {
     width: 15%;
 }
 
-#lista {
-    height: 362px;
-    border: 1px solid rgb(221, 221, 221);
-    background-color: rgba(247, 247, 247, 0.863);
-    margin-top: -16px;
-    overflow: auto;
-    margin-left: -5px;
-}
+
 
 .titulo-finalizar {
     background-color: rgb(0, 38, 87);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    height: 12px;
+    padding: 5px;
     color: white;
-    margin-top: 0px;
+    margin-top: -15px;
 }
 
 .excluir {
@@ -279,32 +266,39 @@ button:hover {
     background-position: center;
 }
 
+#lista {
+    position: relative;
+    height: 362px;
+    border: 1px solid rgb(221, 221, 221);
+    overflow-y: scroll;
+    width: 97%;
+    height: 200px;
+    margin-top: -15px;
+    background-color: rgb(247, 247, 247);
+}
 
 .li-carrinho {
+    width: 98%;
     cursor: auto;
     border: none;
-    font-size: 13px;
-    width: 100%;
+    font-size: 15px;
     background-color: rgb(247, 247, 247);
-    display: flex;
-    padding: 0;
+    padding: 2px;
     align-items: center;
-    margin-left: -5px;
     justify-content: right;
+    height: 20px;
+    cursor: pointer;
+    text-align: center;
+    justify-content: center;
+
 }
 
 .li-carrinho:hover {
     cursor: auto;
-    border: none;
-    width: 100%;
     background-color: rgb(247, 247, 247);
+    height: 20px;
 }
 
-
-.lista-carrinho:hover {
-    border: none;
-    background-color: rgb(247, 247, 247);
-}
 
 .finalizar-venda {
     width: 53%;
@@ -312,15 +306,6 @@ button:hover {
     margin-top: 11px;
     height: 390px;
     border: 1px solid rgb(221, 221, 221);
-}
-
-.container {
-    /* background-color: red; */
-    display: flex;
-    /* background-color: blueviolet; */
-    height: 410px;
-    width: 100%;
-    margin-left: 5px;
 }
 
 #forma-pagamento {
@@ -332,7 +317,6 @@ button:hover {
     border-radius: 2px;
     background-color: #FFFFE0;
 }
-
 
 option {
     font-size: 17px;
@@ -398,74 +382,82 @@ option {
 }
 
 .titulo-carrinho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(0, 38, 87);
+    height: 10px;
     color: white;
-    width: 101.1%;
     padding-top: 5px;
     padding-bottom: 5px;
-    margin-left: -5px;
+    margin-top: -0px;
 }
 
 .div-table1 {
-    height: 130px;
-    width: 100%;
+    height: 200px;
+    width: 50%;
+    margin-top: 0;
 }
 
 .div-table2 {
-    width: 100%;
-    height: 170px;
+    height: 200px;
+    width: 50%;
+}
 
+.spanCli {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 38, 87);
+    color: white;
+    border: 1px solid rgba(128, 128, 128, 0.342);
+    height: 18px;
 }
 
 #total {
     font-weight: bold;
     color: #333;
-    font-size: 50px;
     margin-top: 0px;
     width: 200px;
+
 }
 
 .total {
     font-weight: bold;
     color: #333;
-    font-size: 50px;
-    margin-top: 0px;
     display: flex;
-    margin-left: 10px;
+    background-color: red;
 }
 
 #troco {
-    padding: 2.5px;
-    border: 1px solid rgba(128, 128, 128, 0.342);
-    justify-content: center;
+    height: 26px;
     display: flex;
-    text-align: center;
-    align-items: center;
-    font-size: 24px;
-    margin-top: -16px;
-    height: 20px;
+    justify-content: center;
+    padding: 2px;
+    color: white;
+    border: 1px solid rgba(128, 128, 128, 0.342);
+    margin-top: -15px;
 }
 
 .troco {
-    margin-top: -18px;
     background-color: rgb(0, 38, 87);
     color: white;
     border: 1px solid rgba(128, 128, 128, 0.342);
+    display: flex;
+    justify-content: center;
+    margin-top: -17px;
 }
+
 
 .spanPG {
     background-color: rgb(0, 38, 87);
     color: white;
     border: 1px solid rgba(128, 128, 128, 0.342);
+    display: flex;
+    justify-content: center;
 }
 
-.spanCli {
-    margin-top: -16px;
-    background-color: rgb(0, 38, 87);
-    color: white;
-    border: 1px solid rgba(128, 128, 128, 0.342);
-    height: 17px;
-}
+
 
 .dataHJ {
     margin-left: 200px;
@@ -473,26 +465,30 @@ option {
 
 .dinheiro-recebido {
     height: 26px;
-    padding: 2.5px;
+    display: flex;
+    justify-content: center;
+    padding: 1px;
     color: white;
     border: 1px solid rgba(128, 128, 128, 0.342);
-    margin-top: -17px;
+    margin-top: -15px;
 }
 
 .forma-pagamento {
-    margin-top: -17px;
-    padding: 2.5px;
+    margin-top: -15px;
+    display: flex;
+    justify-content: center;
+    padding: 1px;
     color: white;
     border: 1px solid rgba(128, 128, 128, 0.342);
 }
 
 #clienteEncontrado {
     text-align: center;
-    font-size: 17px;
+    font-size: 16px;
     outline: none;
-    height: 24px;
-    border:none;
-    background-color: rgba(255, 255, 255, 0) ;
+    height: 20px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 .clienteEncontrado {
@@ -507,15 +503,24 @@ option {
 }
 
 .clienteTitulo {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: flex;
     background-color: rgb(0, 38, 87);
     color: white;
     border: 1px solid rgba(128, 128, 128, 0.342);
 }
-.tituloBuscarCli{
-margin-top: -16px;
-background-color: rgb(0, 38, 87);
-color: white;
-border: 1px solid rgba(128, 128, 128, 0.342);
+
+.tituloBuscarCli {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    margin-top: -16px;
+    background-color: rgb(0, 38, 87);
+    color: white;
+    border: 1px solid rgba(128, 128, 128, 0.342);
 }
 
 .spanCPF {
@@ -527,6 +532,12 @@ border: 1px solid rgba(128, 128, 128, 0.342);
     padding: 5px;
     border: 1px solid rgba(128, 128, 128, 0.342);
 }
+
 .spanCPFtitulo {
-   margin-left: -30px;
+    margin-left: -30px;
+}
+
+.container-finalizar {
+    display: flex;
+    margin-top: -31px;
 }

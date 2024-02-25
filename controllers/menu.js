@@ -9,7 +9,7 @@ const menuItens = [
     { id: '7', texto: 'Cadastro de cliente', to: './cadastro-cliente.html' },
     { id: '8', texto: 'Controle de entrada ', to: './controle-entrada.html' },
     { id: '9', texto: 'Agendamento', to: './agenda.html' },
-    { id: '10', texto: '', to: '/controleES' },
+    // { id: '10', texto: '', to: '/controleES' },
     { id: 'li-Exit', texto: '', src:'../img/exit.png', to: '../public/index.html' },
 ];
 

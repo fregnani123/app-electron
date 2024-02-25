@@ -1,19 +1,20 @@
-
 header {
-    background: rgb(0, 38, 87);
     color: rgb(255, 255, 255);
-    height: 100%;
-    width: 18%;
+    height: 105px;
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    padding: 5px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: white;
 }
 
 nav {
     position: relative;
-    height: 98%;
-
+    width: 100%;
+    height: 30%;
 }
 
 #ul-Menu {
@@ -23,32 +24,49 @@ nav {
     overflow: hidden;
     box-sizing: border-box;
     height: 100%;
+    width: 100%;
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+    align-items: flex-end;
+    border-bottom: 1px solid gray;
+    background-color: white;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
-li{
-    padding: 5px;
-    margin: 3px;
-    margin-top: 3px;
+li {
+    width: 50%;
+    display: flex;
+    align-items: center;
     list-style: none;
     border: 1px solid rgb(184, 184, 184);
-    border-radius: 2px;
+    padding: 2px;
     background-color: rgb(247, 247, 247);
     color: black;
+    font-size: 15px;
+    margin-bottom: 2px;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+li:hover {
+    height: 22px;
+    background-color:white;
 }
 
 a {
     display: block;
     width: 100%;
     text-decoration: none;
-    color: #333;
+    color: #070707;
+    
 }
 
-li:hover {
-    border: 1px solid rgb(0, 38, 87);
-    background-color: rgb(221, 221, 221);
-}
-
-.menu-item-li-Exit{
+.menu-item-li-Exit {
     bottom: 7px;
     list-style: none;
     width: auto;
@@ -60,7 +78,7 @@ li:hover {
     bottom: 0;
     right: 5px;
     position: absolute;
-
+    display: none;
 }
 
 .menu-item-li-Exit:hover {
@@ -73,21 +91,21 @@ img {
     width: 30px;
 }
 
-.logo {
-    padding-top: 20%;
-    padding-bottom: 30%;
+.logoMenu {
+    width: 100%;
     box-sizing: border-box;
-}
-
-.logo:hover {
-    border: 1px solid rgb(184, 184, 184);
-    background-color: rgb(94, 10, 10);
-    cursor: auto;
+    border: none;
+    position: fixed;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #logo-img {
     top: 0;
-    width: 100%;
+    width: 9%;
+ 
 }
 
 .menu-item-10 {
@@ -100,6 +118,3 @@ img {
     background-color: rgb(247, 247, 247);
     cursor: auto;
 }
-
-
-
