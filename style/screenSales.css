@@ -221,20 +221,6 @@ button:hover {
     width: 15%;
 }
 
-
-
-.titulo-finalizar {
-    background-color: rgb(0, 38, 87);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 12px;
-    padding: 5px;
-    color: white;
-    margin-top: -15px;
-}
-
 .excluir {
     width: 20px;
     margin-left: -10px;
@@ -300,14 +286,6 @@ button:hover {
 }
 
 
-.finalizar-venda {
-    width: 53%;
-    margin-left: 10px;
-    margin-top: 11px;
-    height: 390px;
-    border: 1px solid rgb(221, 221, 221);
-}
-
 #forma-pagamento {
     margin: 0;
     text-align: center;
@@ -366,9 +344,9 @@ option {
 }
 
 #finalizar-venda {
-    position: fixed;
-    bottom: 25px;
+    bottom: 10px;
     right: 28px;
+    position: absolute;
 }
 
 .buscar-cliente {
@@ -394,14 +372,17 @@ option {
 }
 
 .div-table1 {
-    height: 200px;
+    height: 250px;
     width: 50%;
     margin-top: 0;
+    border: 1px solid var(--cor-BorderCinza);
 }
 
 .div-table2 {
-    height: 200px;
+    height: 250px;
     width: 50%;
+    border: 1px solid var(--cor-BorderCinza);
+    
 }
 
 .spanCli {
@@ -412,31 +393,40 @@ option {
     color: white;
     border: 1px solid rgba(128, 128, 128, 0.342);
     height: 18px;
+    position: relative;
 }
 
 #total {
     font-weight: bold;
     color: #333;
-    margin-top: 0px;
-    width: 200px;
-
+    font-size: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: -5px;
 }
 
 .total {
-    font-weight: bold;
-    color: #333;
     display: flex;
-    background-color: red;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 38, 87);
+    color: white;
+    border: 1px solid rgba(128, 128, 128, 0.342);
+    height: 18px;
+    margin-top: -19px;
 }
 
 #troco {
     height: 26px;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 2px;
-    color: white;
     border: 1px solid rgba(128, 128, 128, 0.342);
     margin-top: -15px;
+    font-size: 19px;
 }
 
 .troco {
@@ -455,6 +445,7 @@ option {
     border: 1px solid rgba(128, 128, 128, 0.342);
     display: flex;
     justify-content: center;
+    margin-top: -16px;
 }
 
 
