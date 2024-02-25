@@ -1,8 +1,10 @@
 const newProductForm = document.getElementById('productForm');
 const produtoCadastrado = document.querySelector('#alert');
 
-newProductForm.addEventListener('submit', (e) => {
+newProductForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    const urlGetProdutoDate = 'http://204.216.187.179:3000/findProduto';
     const urlNewProduct = 'http://204.216.187.179:3000/newProduto';
 
     // Aqui estão as variáveis para obter os valores dos campos do formulário
@@ -13,6 +15,7 @@ newProductForm.addEventListener('submit', (e) => {
     const estoqueProduto = document.getElementById('estoque').value;
     const codigoDeBarrasProduto = document.getElementById('codigoDeBarras').value;
 
+    // Função para limpar os campos do formulário
     function limparInputs() {
         document.getElementById('nomeProduto').value = '';
         document.getElementById('descricao').value = '';
@@ -22,19 +25,26 @@ newProductForm.addEventListener('submit', (e) => {
         document.getElementById('codigoDeBarras').value = '';
     };
 
-    newProductForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const urlNewProduct = 'http://204.216.187.179:3000/newProduto';
+    try {
+        // Baixar os dados dos produtos
+        const response = await fetch(urlGetProdutoDate);
+        if (!response.ok) {
+            throw new Error('Erro ao obter os produtos');
+        }
 
-        // Aqui estão as variáveis para obter os valores dos campos do formulário
-        const nomeProduto = document.getElementById('nomeProduto').value;
-        const descricaoProduto = document.getElementById('descricao').value;
-        const precoProduto = document.getElementById('preco').value;
-        const categoriaProduto = document.getElementById('categoria').value;
-        const estoqueProduto = document.getElementById('estoque').value;
-        const codigoDeBarrasProduto = document.getElementById('codigoDeBarras').value;
+        const data = await response.json(); console.log(data)
 
-        fetch(urlNewProduct, {
+        // Verificar se o código de barras já existe nos produtos baixados
+        const codigoDeBarrasExiste = data.some(produto => Number(produto.codigoDeBarras) === Number(codigoDeBarrasProduto.trim()));
+        
+        if (codigoDeBarrasExiste) {
+            alert('Erro: O código de barras já existe no banco de dados.');
+            return;
+        }
+
+        // Se o código de barras não existir, podemos prosseguir com a inserção do novo produto
+       
+        const responseNewProduct = await fetch(urlNewProduct, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -47,39 +57,15 @@ newProductForm.addEventListener('submit', (e) => {
                 estoque: estoqueProduto,
                 codigoDeBarras: codigoDeBarrasProduto,
             })
-        }).then(response => {
-            if (response.ok) {
-                console.log('Produto cadastrado com sucesso');
-            } else {
-                console.error('Erro ao enviar o relatório para o MongoDB');
-                console.error('Status da resposta:', response.status);
-            }
-        }).catch(error => {
-            console.error(error);
         });
-    });
-    fetch(urlNewProduct, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            nome: nomeProduto,
-            descricao: descricaoProduto,
-            preco: precoProduto,
-            categoria: categoriaProduto,
-            estoque: estoqueProduto,
-            codigoDeBarras: codigoDeBarrasProduto,
-        })
-    }).then(response => {
-        if (response.ok) {
+
+        if (responseNewProduct.ok) {
             console.log('Produto cadastrado com sucesso');
+            limparInputs();
         } else {
-            console.error('Erro ao enviar o relatório para o MongoDB');
-            console.error('Status da resposta:', response.status);
+            console.error('Erro ao cadastrar o produto');
         }
-    }).catch(error => {
-        console.error(error);
-    });
-    limparInputs()
+    } catch (error) {
+        console.error('Erro:', error.message);
+    }
 });
