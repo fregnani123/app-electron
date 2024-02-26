@@ -1,0 +1,40 @@
+.pedidoPrint {
+    list-style-type: none;
+    padding: 0;
+}
+
+.pedidoPrint .liPrint {
+    margin-bottom: 5px;
+    background-color: white;
+}
+
+.liPrint {
+    width: 100%;
+    border: none;
+    height: auto;
+    list-style: none;
+}
+
+.liPrint:hover {
+    border: none;
+    height: auto;
+
+}
+
+.printVenda {
+    display: none;
+    font-size: 15px;
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background-color: white;
+    border: 1px solid gray;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    left: 350px;
+    top: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}

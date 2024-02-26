@@ -223,6 +223,73 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+
+    const urlPrint = 'http://204.216.187.179:3000/detalhes';
+    const divContent = document.querySelector('.printVenda');
+
+    fetch(urlPrint)
+        .then((res) => {
+            return res.json();
+        })
+        .then(data => {
+            if (Array.isArray(data) && data.length > 0) {
+                const ultimoPedido = data.pop(); // Definindo ultimoPedido dentro do escopo
+                if (ultimoPedido) {
+                    // Criando a tabela
+                    const ul = document.createElement('ul');
+                    ul.classList.add('pedidoPrint');
+
+                    ul.innerHTML = `
+                    <li class='liPrint'>Nome da Loja:<span>Gestão Lite</span></li>
+                    <li class='liPrint'><span class='label'>Data:</span> <span class='value'>${new Date(ultimoPedido.dateVenda).toLocaleDateString()}</span></li>
+                    <li class='liPrint'><span class='label'>Cliente:</span> <span class='value'>${ultimoPedido.cliente}</span></li>
+                    <li class='liPrint'><span class='label'>Total:</span> <span class='value'>${ultimoPedido.total.toFixed(2)}</span></li>
+                    <li class='liPrint'><span class='label'>Dinheiro Recebido:</span> <span class='value'>${ultimoPedido.dinheiroRecebido.toFixed(2)}</span></li>
+                    <li class='liPrint'><span class='label'>Forma de Pagamento:</span> <span class='value'>${ultimoPedido.formaPagamento}</span></li>
+                    <li class='liPrint'><span class='label'>Troco:</span> <span class='value'>${(Number(ultimoPedido.dinheiroRecebido) - Number(ultimoPedido.total)).toFixed(2)}</span></li>
+                `;
+
+                    // Iterar sobre os itens do carrinho
+                    ultimoPedido.carrinho.forEach(item => {
+                        const nomeDoProduto = item.nome;
+                        const precoDoProduto = item.preco;
+                        const quantidadeDoProduto = item.quantidade;
+
+                        // Adicionar informações do produto à tabela
+                        ul.innerHTML += `
+                    <li class='liPrint'> Produto:${nomeDoProduto} - Preço:${precoDoProduto.toFixed(2)} - Qtd:${quantidadeDoProduto}</li>
+                    `;
+                    });
+
+                    // Adicionando a lista ao elemento de conteúdo
+                    divContent.appendChild(ul);
+
+                    console.log(ultimoPedido); // Faça o que precisar com o último objeto
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Ocorreu um erro:', error);
+        });
+
+    
+    function printRelatorio(divContent) {
+        const newWindow = window.open('', '_blank');
+        newWindow.document.open();
+
+        // Escrever o conteúdo de divContent no novo documento
+        newWindow.document.write('<html><head><title>Conteúdo para Impressão</title>');
+        newWindow.document.write('<style>.liPrint{list-style-type: none;}.printVenda{font-size: 15px;width: 450px;height: 450px;background-color: white;border: 1px solid gray;color: rgb(0, 0, 0);border-radius: 10px;left: 350px;top: 10px;text-align: center;align-items: center;justify-content: center;padding: 5px;}</style>');
+        newWindow.document.write('</head><body>');
+        newWindow.document.write(divContent.innerHTML);
+        newWindow.document.write('</body></html>');
+        newWindow.document.close();
+
+        // Chamar o método de impressão no novo documento
+        newWindow.print();
+    }
+    
+
     buttonFinalizar.addEventListener('click', () => {
         const groupedItems = {};
         const formaPagamento = selectPagamento.value;
@@ -278,6 +345,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
         });
         // atualizarRelatorio()
+        printRelatorio(divContent)
         limparInputEAN();
         enviarRelatorio()
         inputCPF.value = 1

@@ -33,23 +33,22 @@
     padding: 5px;
 }
 
-.printVenda {
-    font-size: 15px;
-    position: absolute;
-    width: 450px;
-    height: 450px;
-    background-color: rgb(27, 27, 27);
-    border: 1px solid gray;
-    color: white;
-    border-radius: 10px;
-    left: 350px;
-    top: 10px;
-    text-align: center;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    padding: 5px;
-    display: none;
+/* Estilo para a tabela de pedido */
+.tablePrint {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tablePrint,
+
+.tdPrint {
+    border: 1px solid black;
+}
+
+
+.tdPrint {
+    padding: 8px;
+    text-align: left;
 }
 
 
@@ -583,4 +582,12 @@ option {
 .container-finalizar {
     display: flex;
     margin-top: -31px;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.value {
+    margin-left: 10px;
 }
