@@ -17,13 +17,17 @@
             </ul>
         </nav>
     </header>
-
     <body>
-        <div class="container-table">
+      <div class="container-table">
             <span class="alert">
                 <img class="imgLogo" src="../img/suporte.png" alt="">
                 <p class="msg"></p>
                 <button id="bottonAlert">OK</button>
+            </span>
+            <span class="printVenda">
+                <p class="msg">Imprimir</p>
+                <button id="bottonASim">Sim</button>
+                <button id="bottonANao">Não</button>
             </span>
             <table>
                 <tr>
@@ -76,12 +80,11 @@
                     <p class="dinheiro-recebido"><span class="spanPagamento"><input type="number" id="dinheiro-recebido"
                                 value=""></span></p>
                     <p class="troco">Troco Cliente</p>
-                    <p id="troco"></p>
+                    <p id="troco">0.00</p>
                     <p class="total">Total</p>
-                    <p id="total">0.00 <button id="finalizar-venda">Finalizar
+                    <p id="total">0.00</p>
+                    <p class="finalizar-venda"><button id="finalizar-venda">Finalizar
                         Venda</button></p>
-                    
-
                 </div>
             </div>
         </div>

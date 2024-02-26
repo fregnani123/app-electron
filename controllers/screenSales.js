@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const divPagamento = document.querySelector('.divPagamento');
     const spanPagamento = document.querySelector('.spanPagamento');
 
-    formaPagamento2.addEventListener('change', function () {
+    formaPagamento2.addEventListener('change', function () {        
         if (formaPagamento2.value === 'PIX' || formaPagamento2.value === 'Cartao') {
             divPagamento.classList.remove('divPagamento');     
             divPagamento.classList.add('display');      
