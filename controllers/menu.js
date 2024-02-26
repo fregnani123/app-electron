@@ -13,7 +13,6 @@ const menuItens = [
     { id: 'li-Exit', texto: '', src:'../img/exit.png', to: '../public/index.html' },
 ];
 
-
 const listMenu = document.querySelector('#ul-Menu');
 const containerMenu = document.querySelector("#container-menu");
 
@@ -30,7 +29,7 @@ function criaLi(texto, id, src, to) {
     }
    
     li.classList.add('menu-item-' + id);
-    a.classList.add('a-menu')
+    a.classList.add('a-menu' + id)
     li.appendChild(a);
     return li;
 }

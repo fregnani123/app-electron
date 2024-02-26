@@ -11,7 +11,12 @@ header {
     background-color: white;
 }
 
-/* Estilo para itens de menu ativos */
+.electron-menu {
+    background-color: #ce0f0f;
+    /* Mude a cor de fundo */
+    color: white;
+    /* Mude a cor do texto */
+}
 
 
 nav {
@@ -70,7 +75,6 @@ a {
     color: #070707;
 
 }
-
 
 .menu-item-li-Exit {
     bottom: 7px;

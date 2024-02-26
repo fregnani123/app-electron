@@ -1,22 +1,61 @@
-const { app, BrowserWindow, webContents } = require('electron');
+const { app, BrowserWindow, Menu, screen } = require('electron');
 const path = require('path');
 const { EventEmitter } = require('events');
 
-let mainWindow; 
+let mainWindow = null;
 
 function createWindow() {
+    const { width, height } = screen.getPrimaryDisplay().workAreaSize;
+    const taskbarHeight = screen.getPrimaryDisplay().workAreaSize.height - screen.getPrimaryDisplay().bounds.height;
+
     mainWindow = new BrowserWindow({
-        width: 1200,
-        height: 800,
+        width: width,
+        height: height - taskbarHeight,
+        x: 0,
+        y: 0,
         icon: path.join(__dirname, '../img/menu-aberto.png'),
-        // webPreferences: {
-        //     preload: path.join(__dirname, 'preload.js')
-        // },
-        autoHideMenuBar: true, // Oculta a barra de menu
-        useContentSize: true // Pode ser útil para evitar que a janela se sobreponha à barra de tarefas, mas experimente com e sem esta opção.
+        autoHideMenuBar: true,
+        useContentSize: true,
+        maximizable: true
     });
 
     mainWindow.loadFile('./public/index.html');
+    mainWindow.maximize();
+
+    const template = [
+        {
+            label: 'File',
+            submenu: [
+                {
+                    label: 'Exit',
+                    click: () => {
+                        app.quit();
+                    }
+                }
+            ]
+        },
+        {
+            label: 'View',
+            submenu: [
+                { role: 'reload' },
+            ]
+        },
+        {
+            label: 'Help',
+            submenu: [
+                {
+                    label: 'Learn More',
+                    click: async () => {
+                        const { shell } = require('electron');
+                        await shell.openExternal('https://electronjs.org');
+                    }
+                }
+            ]
+        }
+    ];
+
+    const menu = Menu.buildFromTemplate(template);
+    mainWindow.setMenu(menu);
 }
 
 app.whenReady().then(() => {
@@ -24,9 +63,9 @@ app.whenReady().then(() => {
 
     app.on('activate', function () {
         if (BrowserWindow.getAllWindows().length === 0) createWindow();
-        webContents.setMaxListeners(20); // Defina o número de ouvintes que você precisa
+        webContents.setMaxListeners(20); // Define the number of listeners you need
     });
-    // Adicione um atalho de teclado para abrir as DevTools
+    // Add a keyboard shortcut to open DevTools
     mainWindow.webContents.on('did-frame-finish-load', () => {
         mainWindow.webContents.on('before-input-event', (event, input) => {
             if (input.control && input.shift && input.key === 'I') {
@@ -35,6 +74,7 @@ app.whenReady().then(() => {
         });
     });
 });
+
 
 app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') app.quit();

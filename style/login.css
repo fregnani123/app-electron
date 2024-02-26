@@ -11,7 +11,18 @@ body {
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.164);
+}
+
+#container {
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+body {
+    background-color: white;
+    overflow: hidden;
 }
 
 h2 {
@@ -65,5 +76,13 @@ button:hover {
 
 #logoImg {
     width: 50px;
-    margin-right: 10px; 
+    margin-right: 10px;
+}
+
+h2 {
+    color: rgb(0, 38, 87);
+}
+
+.password {
+    color: rgb(0, 38, 87);
 }
