@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const buttonAlert = document.querySelector('#bottonAlert');
     const date = document.querySelector('.date')
 
+    const divContent = document.querySelector('.divPrint');
     date.innerText = dateVenda = new Date().toLocaleDateString();
 
     const carrinho = [];
@@ -85,11 +86,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
             carrinho.push(itemCarrinho);
             renderizarLista();
+           
 
         } else {
             const msg = 'Nenhum produto encontrado para adicionar ao carrinho.';
             criaAlert(msg)
         }
+        
     });
 
     function buscarProduto(codigoEAN) {
@@ -147,17 +150,22 @@ document.addEventListener('DOMContentLoaded', function () {
             li.appendChild(buttonExcluir);
             lista.appendChild(li);
         });
-
-
-        const total = calcularTotalCarrinho(carrinho);
-        totalCarrinho.innerHTML = `${total}`;
-
+        
         dinheiroCliente.addEventListener('input', () => {
-         dinheiro = dinheiroCliente.value 
-          let trocoSoma = (dinheiro - total).toFixed(2) 
-            return trocoCli.innerText = trocoSoma < 0 ? '' : trocoSoma ; 
-        }
-        )
+            let dinheiro = dinheiroCliente.value.replace(/\D/g, ''); // Remove tudo exceto números
+
+            // Adiciona o ponto antes dos últimos dois dígitos
+            dinheiro = dinheiro.replace(/^(\d{0,})(\d{2})$/, "$1.$2");
+
+            // Verifica se o valor tem um ponto decimal e o primeiro caractere é zero
+            if (dinheiro.includes('.') && dinheiro.charAt(0) === '0') {
+                dinheiro = dinheiro.substring(1); // Remove o zero à esquerda
+            }
+
+            dinheiroCliente.value = dinheiro;
+            let trocoSoma = (parseFloat(dinheiro) - total).toFixed(2);
+            return trocoCli.innerText = trocoSoma < 0 ? '' : trocoSoma;
+        });
 
     };
 
@@ -189,6 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const formaPagamento = selectPagamento.value;
         const totalCompra = totalCarrinho.innerHTML;
 
+            
         const carrinhoToSend = carrinho.map(item => {
             return {
                 codigoDeBarras: item.produto.codigoDeBarras,
@@ -223,74 +232,200 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    const varImpressao = {
+        cliente: '',
+        dateVenda:'',
+        dinheiroRecebido:'',
+        formaPagamento:'',
+        totalCompra: '',
+        carrinhoToSend: carrinho,
+    }
 
-    const urlPrint = 'http://204.216.187.179:3000/detalhes';
-    const divContent = document.querySelector('.printVenda');
+ 
+function impressaoRelatorio() {
+        varImpressao.cliente = clienteADD.value;
+        varImpressao.dateVenda = new Date().toISOString();
+        varImpressao.dinheiroRecebido = dinheiroCliente.value || 0;
+        varImpressao.formaPagamento = selectPagamento.value;
+        varImpressao.totalCompra = totalCarrinho.innerHTML;
 
-    fetch(urlPrint)
-        .then((res) => {
-            return res.json();
-        })
-        .then(data => {
-            if (Array.isArray(data) && data.length > 0) {
-                const ultimoPedido = data.pop(); // Definindo ultimoPedido dentro do escopo
-                if (ultimoPedido) {
-                    // Criando a tabela
-                    const ul = document.createElement('ul');
-                    ul.classList.add('pedidoPrint');
+        const ul = document.createElement('ul');
+        ul.classList.add('ulPrint');
 
-                    ul.innerHTML = `
-                    <li class='liPrint'>Nome da Loja:<span>Gestão Lite</span></li>
-                    <li class='liPrint'><span class='label'>Data:</span> <span class='value'>${new Date(ultimoPedido.dateVenda).toLocaleDateString()}</span></li>
-                    <li class='liPrint'><span class='label'>Cliente:</span> <span class='value'>${ultimoPedido.cliente}</span></li>
-                    <li class='liPrint'><span class='label'>Total:</span> <span class='value'>${ultimoPedido.total.toFixed(2)}</span></li>
-                    <li class='liPrint'><span class='label'>Dinheiro Recebido:</span> <span class='value'>${ultimoPedido.dinheiroRecebido.toFixed(2)}</span></li>
-                    <li class='liPrint'><span class='label'>Forma de Pagamento:</span> <span class='value'>${ultimoPedido.formaPagamento}</span></li>
-                    <li class='liPrint'><span class='label'>Troco:</span> <span class='value'>${(Number(ultimoPedido.dinheiroRecebido) - Number(ultimoPedido.total)).toFixed(2)}</span></li>
-                `;
+        ul.innerHTML = `
 
-                    // Iterar sobre os itens do carrinho
-                    ultimoPedido.carrinho.forEach(item => {
-                        const nomeDoProduto = item.nome;
-                        const precoDoProduto = item.preco;
-                        const quantidadeDoProduto = item.quantidade;
+ <li class='liPrintHeader'><img class="imgLogoLoja" src="../img/logoLoja.png" alt=""><span class="tituloPedido">Pedido Simples</span></li>
+            <li class='liPrintEndereco'><span>Endereço: R. Henrique Lage, 222 - Centro, Içara - SC, 88820-000 </br>Contato: 48-3432.5672</span></li>
 
-                        // Adicionar informações do produto à tabela
-                        ul.innerHTML += `
-                    <li class='liPrint'> Produto:${nomeDoProduto} - Preço:${precoDoProduto.toFixed(2)} - Qtd:${quantidadeDoProduto}</li>
-                    `;
-                    });
+            <li class='liPrintInfo'>Data do Pedido: ${new Date(varImpressao.dateVenda).toLocaleDateString()} -</br>
+           Cliente: ${varImpressao.cliente} - </br>Forma de Pagamento: ${varImpressao.formaPagamento} - </br>Total do Pedido: R$ ${varImpressao.totalCompra} - </li>
+           <li class="borderProdutos"></li></br>
 
-                    // Adicionando a lista ao elemento de conteúdo
-                    divContent.appendChild(ul);
+    `;
 
-                    console.log(ultimoPedido); // Faça o que precisar com o último objeto
-                }
-            }
-        })
-        .catch(error => {
-            console.error('Ocorreu um erro:', error);
+        carrinho.forEach((item, index) => {
+            const codigoDoProduto = item.produto.codigoDeBarras;
+            const nomeDoProduto = item.produto.nome;
+            const precoDoProduto = item.produto.preco;
+            const quantidadeDoProduto = item.quantidade;
+
+            // Adicionar informações do produto à lista
+            const numeroItem = (index + 1).toString().padStart(3, '0'); // Formatação do número do item
+            ul.innerHTML += `
+        <li class='liPrintProdutos''>Item: ${numeroItem} - Código: ${codigoDoProduto} | Produto: ${nomeDoProduto} - Preço: ${precoDoProduto.toFixed(2)} - Qtd: ${quantidadeDoProduto}</li>
+    `;
         });
 
-    
+
+        divContent.appendChild(ul);
+        printRelatorio(divContent);
+    }
+
+
     function printRelatorio(divContent) {
+        
         const newWindow = window.open('', '_blank');
         newWindow.document.open();
+        newWindow.document.write('<html><head><title></title>');
+        newWindow.document.write(`
+      <style>
+        .imgLogoLoja {
+            width: 100px;
+            height: auto;
+        }
 
-        // Escrever o conteúdo de divContent no novo documento
-        newWindow.document.write('<html><head><title>Conteúdo para Impressão</title>');
-        newWindow.document.write('<style>.liPrint{list-style-type: none;}.printVenda{font-size: 15px;width: 450px;height: 450px;background-color: white;border: 1px solid gray;color: rgb(0, 0, 0);border-radius: 10px;left: 350px;top: 10px;text-align: center;align-items: center;justify-content: center;padding: 5px;}</style>');
+        .divPrint {
+            margin: 0;
+            padding: 0;
+            width: 1123.46px;
+            height: 794.8px;
+            /* border: 1px solid gray; */
+        }
+
+        .ulPrint {
+            height: 750px;
+            border: 1px solid gray;
+            margin: 0;
+            padding: 0;
+        }
+
+        .liPrint,
+        .liPrintHeader,
+        .liPrintProdutos {
+            font-size: 15px;
+            margin-top: 5px;
+            margin-left: 5px;
+            margin-right: 5px;
+            list-style-type: none
+        }
+
+        .printVenda {
+            font-size: 15px;
+            width: 700px;
+            height: 450px;
+            /* border: 1px solid gray; */
+            color: #000;
+            left: 350px;
+            top: 10px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            padding: 5px
+        }
+
+        .liPrintHeader {
+            border: 1px solid rgb(179, 179, 179);
+            display: flex;
+            padding: 2px;
+            box-sizing: border-box;
+        }
+
+        .tituloPedido {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(46, 46, 46);
+            width: 100%;
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        .liPrintEndereco {
+            border: 1px solid rgb(179, 179, 179);
+            display: flex;
+            padding: 2px;
+            box-sizing: border-box;
+            margin-left: 5px;
+            margin-right: 5px;
+            border-top: none;
+            align-items: center;
+            height: 50px;
+            font-weight: 600;
+        }
+
+        .liPrintProdutos {
+            display: flex;
+            box-sizing: border-box;
+            margin-left: 5px;
+            margin-right: 5px;
+            font-size: 15px;
+            padding-left: 5px;
+            margin-top: 0;
+            border-left: 1px solid gray;
+           
+        }
+
+        .liPrintInfo {
+            display: flex;
+            box-sizing: border-box;
+            margin-left: 5px;
+            margin-right: 5px;
+            font-size: 15px;
+            padding-left: 5px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            margin-top: 0;
+            border: 1px solid gray;
+            border-top: none;
+           
+            
+        }
+        .borderProdutos {
+            border: 1px solid gray;
+            z-index: -1;
+            position: absolute;
+            height: 530px;
+            margin-left: 5px;
+            margin-right: 5px;
+            width: 1109.46px;
+            border-top: none;
+            list-style: none;
+        }
+    </style>
+`);
         newWindow.document.write('</head><body>');
-        newWindow.document.write(divContent.innerHTML);
+       
+        const clonedContent = divContent.cloneNode(true);
+        newWindow.document.body.appendChild(clonedContent);
+
+        const images = clonedContent.querySelectorAll('img');
+        let loadedImages = 0;
+        images.forEach(image => {
+            image.onload = function () {
+                loadedImages++;
+                if (loadedImages === images.length) {
+                    newWindow.print();
+                    newWindow.document.close();
+                    newWindow.close(); 
+                }
+            };
+        });
+
         newWindow.document.write('</body></html>');
-        newWindow.document.close();
-
-        // Chamar o método de impressão no novo documento
-        newWindow.print();
+      
     }
-    
 
-    buttonFinalizar.addEventListener('click', () => {
+buttonFinalizar.addEventListener('click', () => {
         const groupedItems = {};
         const formaPagamento = selectPagamento.value;
         const dinheiroRecebido = dinheiroCliente.value;
@@ -321,7 +456,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // Atualizar o estoque para cada produto
         Object.values(groupedItems).forEach(item => {
             const novoEstoque = Number(item.produto.estoque) - item.quantidade;
             const urlPatchProduto = `http://204.216.187.179:3000/updateProduto/${item.produto.codigoDeBarras}`;
@@ -344,8 +478,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.error('Erro ao atualizar o estoque:', error);
                 });
         });
-        // atualizarRelatorio()
-        printRelatorio(divContent)
+        divContent.innerHTML = ''
+        impressaoRelatorio()
         limparInputEAN();
         enviarRelatorio()
         inputCPF.value = 1
@@ -354,26 +488,30 @@ document.addEventListener('DOMContentLoaded', function () {
         dinheiroCliente.value = '',
         trocoCli.innerText = '',
         totalCarrinho.innerHTML = '0.00';
+        
     });
 
     const formaPagamento2 = document.getElementById('forma-pagamento');
     const divPagamento = document.querySelector('.divPagamento');
     const spanPagamento = document.querySelector('.spanPagamento');
 
+
     formaPagamento2.addEventListener('change', function () {        
         if (formaPagamento2.value === 'PIX' || formaPagamento2.value === 'Cartao') {
+
             divPagamento.classList.remove('divPagamento');     
             divPagamento.classList.add('display');      
             spanPagamento.classList.remove('spanPagamento');     
             spanPagamento.classList.add('display');      
-        } else {
+        } else{
             divPagamento.classList.remove('display');  
             divPagamento.classList.add('divPagamento');
             spanPagamento.classList.add('spanPagamento'); 
             spanPagamento.classList.remove('display'); 
-            
+               
         }
+        
     });
-
+   
 })
 
