@@ -150,7 +150,11 @@ document.addEventListener('DOMContentLoaded', function () {
             li.appendChild(buttonExcluir);
             lista.appendChild(li);
         });
-        
+
+
+        const total = calcularTotalCarrinho(carrinho);
+        totalCarrinho.innerHTML = `${total}`;
+
         dinheiroCliente.addEventListener('input', () => {
             let dinheiro = dinheiroCliente.value.replace(/\D/g, ''); // Remove tudo exceto números
 
@@ -162,9 +166,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 dinheiro = dinheiro.substring(1); // Remove o zero à esquerda
             }
 
-            dinheiroCliente.value = dinheiro;
-            let trocoSoma = (parseFloat(dinheiro) - total).toFixed(2);
-            return trocoCli.innerText = trocoSoma < 0 ? '' : trocoSoma;
+            // Se o dinheiro terminar em ponto decimal, adicione um zero
+            if (dinheiro.endsWith('.')) {
+                dinheiro += '0';
+            }
+
+            // Se o dinheiro não tiver casas decimais, adicione duas casas decimais
+            if (!/\./.test(dinheiro)) {
+                dinheiro += '.00';
+            }
+
+            dinheiroCliente.value = parseFloat(dinheiro).toFixed(2); // Formata para duas casas decimais
+            let trocoSoma = parseFloat(dinheiro) - parseFloat(total);
+            return trocoCli.innerText = parseFloat(trocoSoma).toFixed(2) <= 0 ? '0.00' : parseFloat(trocoSoma).toFixed(2);
         });
 
     };
@@ -512,6 +526,6 @@ buttonFinalizar.addEventListener('click', () => {
         }
         
     });
-   
+    
 })
 
