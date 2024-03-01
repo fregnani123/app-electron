@@ -16,9 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const totalCarrinho = document.querySelector('#total');
     const lista = document.getElementById('lista');
     const spanAlert = document.querySelector('.alert');
-    const msgAlert= document.querySelector('.msg');
+    const msgAlert = document.querySelector('.msg');
     const buttonAlert = document.querySelector('#bottonAlert');
-    const date = document.querySelector('.date')
+    const date = document.querySelector('.date');
+    const vendedor = document.getElementById('vendedor');
+
 
     const divContent = document.querySelector('.divPrint');
     date.innerText = dateVenda = new Date().toLocaleDateString();
@@ -30,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
         msgAlert.innerText = msg;
     }
 
-    buttonAlert.addEventListener('click',criaAlert)
+    buttonAlert.addEventListener('click', criaAlert)
 
     inputCPF.addEventListener('input', function (event) {
         const cpfDigitado = event.target.value;
@@ -44,7 +46,12 @@ document.addEventListener('DOMContentLoaded', function () {
     function buscarCliente(cpf) {
         const urlCliente = 'http://204.216.187.179:3000/clientes';
 
-        fetch(urlCliente)
+        fetch(urlCliente, {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Basic ' + btoa('Freg123:Freg_1308')
+            }
+        })
             .then(response => response.json())
             .then(clientes => {
                 if (!cpf || cpf.trim() === '') { // Verifica se o CPF está vazio
@@ -97,9 +104,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function buscarProduto(codigoEAN) {
         const urlGetProduto = `http://204.216.187.179:3000/findProduto`;
-
-        fetch(urlGetProduto)
-            .then(response => response.json())
+        fetch(urlGetProduto, {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Basic ' + btoa('Freg123:Freg_1308')
+            }
+        }).then(response => response.json())
             .then(data => {
                 if (Array.isArray(data)) {
                     produtoEncontrado = data.find(produto => Number(produto.codigoDeBarras) === Number(codigoEAN));
@@ -203,6 +213,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
     buttonLimparEAN.addEventListener('click', limparInputEAN);
 
+    const urlRelatorioGet = 'http://204.216.187.179:3000/detalhes';
+   
+   
+   fetch(urlRelatorioGet, {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Basic ' + btoa('Freg123:Freg_1308'),
+                }
+            }).then(res => {
+                return res.json();
+            }).then(dataVenda => {
+                if (Array.isArray(dataVenda)) {
+                    dataVenda.forEach((item, index) => {
+                        const numeroItem = (index + 1).toString().padStart(3, '0');
+                        numeroPedido = Number(numeroItem);
+                        console.log(numeroPedido);
+                    });
+                } else {
+                    console.log(dataVenda);
+                }
+              
+            }).catch(error => {
+                console.error('Erro na solicitação:', error);
+               
+            });
+        
+    let numeroPedido;
+
     function enviarRelatorio() {
         
         const urlRelatorio = 'http://204.216.187.179:3000/detalhesdevendaPost';
@@ -211,6 +249,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const dinheiroRecebido = dinheiroCliente.value || 0; // Definindo um valor padrão caso esteja vazio ou nulo
         const formaPagamento = selectPagamento.value;
         const totalCompra = totalCarrinho.innerHTML;
+        const vendedorSelecionado = vendedor.value;
+        const numeroPedidoNovo = numeroPedido;
+
 
             
         const carrinhoToSend = carrinho.map(item => {
@@ -225,15 +266,18 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch(urlRelatorio, {
             method: 'POST',
             headers: {
+                'Authorization': 'Basic ' + btoa('Freg123:Freg_1308'),
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
+                numeroPedido: numeroPedidoNovo,
                 carrinho: carrinhoToSend,
                 cliente: cliente,
                 dateVenda: dateVenda,
                 dinheiroRecebido: dinheiroRecebido,
                 formaPagamento: formaPagamento,
                 total: totalCompra,
+                vendedor:vendedorSelecionado,
             })
         }).then(response => {
             if (response.ok){
@@ -254,6 +298,7 @@ document.addEventListener('DOMContentLoaded', function () {
         formaPagamento:'',
         totalCompra: '',
         carrinhoToSend: carrinho,
+        vendedor:'',
     }
 
  
@@ -263,18 +308,19 @@ function impressaoRelatorio() {
         varImpressao.dinheiroRecebido = dinheiroCliente.value || 0;
         varImpressao.formaPagamento = selectPagamento.value;
         varImpressao.totalCompra = totalCarrinho.innerHTML;
+        varImpressao.vendedorSelecionado = vendedor.value;
 
         const ul = document.createElement('ul');
         ul.classList.add('ulPrint');
 
         ul.innerHTML = `
 
-  <li class="tituloPedido">Pedido Nº01</li>
+  <li class="tituloPedido">Pedido Nº${numeroPedido + 1}</li>
             <li class='liPrintHeader'><img class="imgLogoLoja" src="../img/logoLoja.png" alt=""><span class='liPrintEndereco'
                    >New Sun Shine Shop Service</br> Endereço: R. Henrique Lage, 222 - Centro, Içara - SC, 88820-000 </br>Contato:
                     48-3432.5672</span></li>
 
-            <li class='liPrintInfo'>Data do Pedido: ${new Date(varImpressao.dateVenda).toLocaleDateString()}</br>
+            <li class='liPrintInfo'>Data do Pedido: ${new Date(varImpressao.dateVenda).toLocaleDateString()}</br>Vendedor: ${varImpressao.vendedorSelecionado} </br>
            Cliente: ${varImpressao.cliente}  </br>Forma de Pagamento: ${varImpressao.formaPagamento} </br>Total do Pedido: R$ ${varImpressao.totalCompra}  </li>
            <li class="borderProdutos"></li></br>
 
@@ -446,7 +492,7 @@ function impressaoRelatorio() {
       
     }
 
-buttonFinalizar.addEventListener('click', () => {
+    buttonFinalizar.addEventListener('click', () => {
         const groupedItems = {};
         const formaPagamento = selectPagamento.value;
         const dinheiroRecebido = dinheiroCliente.value;
@@ -482,8 +528,9 @@ buttonFinalizar.addEventListener('click', () => {
             const urlPatchProduto = `http://204.216.187.179:3000/updateProduto/${item.produto.codigoDeBarras}`;
 
             fetch(urlPatchProduto, {
-                method: 'PATCH',
+                method: 'PATCH',  
                 headers: {
+                    'Authorization': 'Basic ' + btoa('Freg123:Freg_1308'),
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ estoque: novoEstoque })
@@ -500,24 +547,28 @@ buttonFinalizar.addEventListener('click', () => {
                 });
         });
         divContent.innerHTML = ''
-        impressaoRelatorio()
+        impressaoRelatorio();
         limparInputEAN();
-        enviarRelatorio()
+        enviarRelatorio();
         inputCPF.value = 1
         carrinho.length = 0;
         lista.innerHTML = '';
         dinheiroCliente.value = '',
         trocoCli.innerText = '',
-        totalCarrinho.innerHTML = '0.00';
+            totalCarrinho.innerHTML = '0.00';
+        setTimeout(() => {
+            location.reload();
+        }, 1000); // Aguarda 1 segundo antes de recarregar a página
         
     });
+
 
     const formaPagamento2 = document.getElementById('forma-pagamento');
     const divPagamento = document.querySelector('.divPagamento');
     const spanPagamento = document.querySelector('.spanPagamento');
 
 
-    formaPagamento2.addEventListener('change', function () {        
+formaPagamento2.addEventListener('change', function () {        
         if (formaPagamento2.value === 'PIX' || formaPagamento2.value === 'Cartao') {
 
             divPagamento.classList.remove('divPagamento');     

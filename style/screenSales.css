@@ -172,6 +172,8 @@ th {
 }
 
 #dinheiro-recebido {
+    display: flex;
+    text-align: center;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 2px;
@@ -350,8 +352,7 @@ button:hover {
     height: 20px;
 }
 
-
-#forma-pagamento {
+#forma-pagamento, #vendedor {
     margin: 0;
     text-align: center;
     outline: none;
@@ -362,7 +363,6 @@ button:hover {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 2px;
-
     font-size: 16px;
     background-color: #FFFFE0;
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
@@ -487,6 +487,8 @@ option {
     margin-top: -15px;
     border: 1px solid rgba(128, 128, 128, 0.342);
     border-left: none;
+    padding-bottom: 17px;
+    border-top: none;
 }
 
 .total {
@@ -562,8 +564,9 @@ option {
     color: white;
     border: 1px solid rgba(128, 128, 128, 0.342);
     border-right: none;
-    padding-bottom: 42px;
+    /* padding-bottom: 42px; */
 }
+
 
 #clienteEncontrado {
     text-align: center;
