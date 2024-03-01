@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão Lite</title>
-    <link rel="stylesheet" href="../style/body.css">
     <link rel="stylesheet" href="../style/menu.css">
     <link rel="stylesheet" href="../style/screenSales.css">
+    <link rel="stylesheet" href="../style/detalhesVenda.css">
     <style>
         .menu-item-3,
         .a-menu3 {
@@ -27,11 +27,29 @@
 <body>
     <div id="container-sales">
         <div class="container-table">
-            <table>
+            <div id="dateFilter">
+                <label for="startDate">Data Inicial:</label>
+                <input type="date" id="startDate">
+                <label for="endDate">Data Final:</label>
+                <input type="date" id="endDate">
+                <button onclick="filterByDate()">Filtrar</button>
+            </div>
+            <table id="salesTable">
+                <tr>
+                    <th>Carrinho</th>
+                    <th>Cliente</th>
+                    <th>Data da Venda</th>
+                    <th>Dinheiro Recebido</th>
+                    <th>Forma de Pagamento</th>
+                    <th>Total</th>
+                </tr>
+                <!-- Os dados das vendas serão preenchidos dinamicamente aqui -->
             </table>
+
         </div>
     </div>
     <script src="../controllers/menu.js"></script>
-</body>
+    <script src="../controllers/detalhesVenda"></script>
+</body>               
 </div>
 </html>

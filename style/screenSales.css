@@ -2,6 +2,7 @@
     --cor-AzulEscura: rgb(0, 38, 87);
     --cor-BorderCinza: #ddd;
     --cor-InputAmarelo: #FFFFE0;
+    --background-color: rgb(0, 38, 87);
     ;
 }
 
@@ -115,6 +116,13 @@ td {
 
 .td {
     height: 20px;
+}
+
+.tdEAN {
+    display: flex;
+    justify-content: center;
+    margin-left: 200px;
+    align-items: center;
 }
 
 .tr-buscar {
@@ -529,10 +537,9 @@ option {
     margin-top: -16px;
 }
 
-
-
 .dataHJ {
-    margin-left: 450px;
+    margin-left: 0px;
+     padding-left: 150px;
 }
 
 .dinheiro-recebido {

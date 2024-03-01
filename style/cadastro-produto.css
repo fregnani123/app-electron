@@ -1,74 +1,81 @@
- .divInputs{
- 
-   width: 350px;
- }
+.container-sales {
+   display: flex;
+   justify-content: center;
+}
 
- .divForm {
-   padding-top: 15px;
-    width: 400px;
-    margin: 0 auto;
-    border: 1px solid var(--cor-BorderCinza);
-    justify-content: center;
-    text-align: center;
-    display: flex;
-    padding: 15px;
-    width: 98%;
- }
-
- /* Estilizando as etiquetas do formulário */
- label {
-    display: block;
-    margin-bottom: 5px;
- }
-
- /* Estilizando os campos de entrada do formulário */
- input[type="text"],
- input[type="number"],
- select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
- }
-
- /* Estilizando o botão de envio do formulário */
- button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
- }
-
- /* Alterando a cor do botão quando o cursor passa sobre ele */
- button[type="submit"]:hover {
-    background-color: #45a049;
- }
- #descricao, #nomeProduto{
-   height: 33px;
+.divForm {
+   margin: 20px;
+   padding: 20px;
+   border: 1px solid #ccc;
    border-radius: 5px;
- }
+   width: 450px;
+   background-color: #f9f9f9;
+   margin-top: 140px;
+   position: relative;
+}
 
- input,select{
-   background-color: var(--cor-InputAmarelo);
+
+.titulos {
+   display: flex;
+   align-items: center;
+   margin-bottom: 5px;
+   justify-content: center;
+   font-weight: 600;
+
+}
+
+input[type="text"],
+input[type="number"],
+select {
+   width: 100%;
+   padding: 8px;
+   margin-bottom: 10px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+   -webkit-appearance: none;
+   appearance: none;
+}
+
+input,
+select {
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   padding: 2px;
+   height: 29px;
+   font-size: 16px;
+   background-color: #FFFFE0;
+   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
    outline: none;
    text-align: center;
-   margin-top: -4px;
- }
- input[type=number]::-webkit-inner-spin-button,
- input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    appearance: none;
- }
+}
 
- .titulos{
-    background-color: rgb(0, 38, 87);
-    width: 100%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    color: white;
-    margin-top: 0px;
- }
+button {
+   background-color: #4CAF50;
+   color: white;
+   padding: 10px 20px;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   font-size: 16px;
+}
+
+.titulosButton {
+   margin-left: -1px;
+}
+
+button:hover {
+   background-color: #45a049;
+}
+
+button[type="submit"] {
+   width: 100%;
+}
+
+button[type="submit"]:hover {
+   background-color: #45a049;
+}

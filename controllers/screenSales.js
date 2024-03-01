@@ -132,9 +132,10 @@ document.addEventListener('DOMContentLoaded', function () {
         lista.innerHTML = '';
 
         carrinho.forEach((item, index) => {
+            const numeroItemCarrinho = (index + 1).toString().padStart(3, '0')
             const li = document.createElement('li');
             li.classList.add('li-carrinho')
-            li.textContent = `Cod:${item.produto.codigoDeBarras} - ${item.produto.nome} - Preço: R$ ${(item.produto.preco).toFixed(2)} x${item.quantidade}`;
+            li.textContent = `${numeroItemCarrinho} Cod:${item.produto.codigoDeBarras} - ${item.produto.nome} - Preço: R$ ${(item.produto.preco).toFixed(2)} x${item.quantidade}`;
 
             const buttonExcluir = document.createElement('button');
             buttonExcluir.classList.add('buttonExcluir');
@@ -268,11 +269,13 @@ function impressaoRelatorio() {
 
         ul.innerHTML = `
 
- <li class='liPrintHeader'><img class="imgLogoLoja" src="../img/logoLoja.png" alt=""><span class="tituloPedido">Pedido Simples</span></li>
-            <li class='liPrintEndereco'><span>Endereço: R. Henrique Lage, 222 - Centro, Içara - SC, 88820-000 </br>Contato: 48-3432.5672</span></li>
+  <li class="tituloPedido">Pedido Nº01</li>
+            <li class='liPrintHeader'><img class="imgLogoLoja" src="../img/logoLoja.png" alt=""><span class='liPrintEndereco'
+                   >New Sun Shine Shop Service</br> Endereço: R. Henrique Lage, 222 - Centro, Içara - SC, 88820-000 </br>Contato:
+                    48-3432.5672</span></li>
 
-            <li class='liPrintInfo'>Data do Pedido: ${new Date(varImpressao.dateVenda).toLocaleDateString()} -</br>
-           Cliente: ${varImpressao.cliente} - </br>Forma de Pagamento: ${varImpressao.formaPagamento} - </br>Total do Pedido: R$ ${varImpressao.totalCompra} - </li>
+            <li class='liPrintInfo'>Data do Pedido: ${new Date(varImpressao.dateVenda).toLocaleDateString()}</br>
+           Cliente: ${varImpressao.cliente}  </br>Forma de Pagamento: ${varImpressao.formaPagamento} </br>Total do Pedido: R$ ${varImpressao.totalCompra}  </li>
            <li class="borderProdutos"></li></br>
 
     `;
@@ -302,23 +305,27 @@ function impressaoRelatorio() {
         newWindow.document.open();
         newWindow.document.write('<html><head><title></title>');
         newWindow.document.write(`
-      <style>
+     <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
         .imgLogoLoja {
-            width: 100px;
+            width: 150px;
             height: auto;
+            padding: 5px;
         }
 
         .divPrint {
-            margin: 0;
-            padding: 0;
-            width: 1123.46px;
-            height: 794.8px;
-            /* border: 1px solid gray; */
+            width: 940px;
+            height: 750px;
+           /* border: 1px solid gray; */
         }
 
         .ulPrint {
             height: 750px;
-            border: 1px solid gray;
+            width: 935px;
+            /* border: 1px solid rgb(51, 16, 255); */
             margin: 0;
             padding: 0;
         }
@@ -326,8 +333,6 @@ function impressaoRelatorio() {
         .liPrint,
         .liPrintHeader,
         .liPrintProdutos {
-            font-size: 15px;
-            margin-top: 5px;
             margin-left: 5px;
             margin-right: 5px;
             list-style-type: none
@@ -348,33 +353,36 @@ function impressaoRelatorio() {
         }
 
         .liPrintHeader {
-            border: 1px solid rgb(179, 179, 179);
+            border: 1px solid rgba(177, 177, 177, 0.541);
             display: flex;
             padding: 2px;
             box-sizing: border-box;
         }
 
-        .tituloPedido {
-            display: flex;
-            justify-content: center;
+        .liPrintEndereco  {
             align-items: center;
-            color: rgb(46, 46, 46);
+            color: rgb(0, 0, 0);
             width: 100%;
-            font-size: 25px;
+            font-size: 20px;
             font-weight: 600;
+            margin-left: 15px;
+            display: flex;
         }
 
-        .liPrintEndereco {
-            border: 1px solid rgb(179, 179, 179);
+        .tituloPedido{
+            margin-top: 10px;
+            border: 1px solid rgba(177, 177, 177, 0.541);
             display: flex;
-            padding: 2px;
             box-sizing: border-box;
             margin-left: 5px;
             margin-right: 5px;
-            border-top: none;
+            border-bottom: none;
             align-items: center;
-            height: 50px;
+            height: 30px;
             font-weight: 600;
+            display: flex;
+            font-size: 20px;
+            justify-content: center;
         }
 
         .liPrintProdutos {
@@ -382,11 +390,11 @@ function impressaoRelatorio() {
             box-sizing: border-box;
             margin-left: 5px;
             margin-right: 5px;
-            font-size: 15px;
+            font-size: 17px;
             padding-left: 5px;
             margin-top: 0;
-            border-left: 1px solid gray;
-           
+            border-left: 1px solid  rgba(177, 177, 177, 0.541);
+
         }
 
         .liPrintInfo {
@@ -394,24 +402,23 @@ function impressaoRelatorio() {
             box-sizing: border-box;
             margin-left: 5px;
             margin-right: 5px;
-            font-size: 15px;
+            font-size: 17px;
             padding-left: 5px;
             padding-bottom: 10px;
             padding-top: 10px;
             margin-top: 0;
-            border: 1px solid gray;
-            border-top: none;
-           
-            
-        }
+            border: 1px solid  rgba(177, 177, 177, 0.541);
+            border-top: none;}
+
         .borderProdutos {
-            border: 1px solid gray;
+            border: 1px solid  rgba(177, 177, 177, 0.541);;
             z-index: -1;
             position: absolute;
             height: 530px;
             margin-left: 5px;
             margin-right: 5px;
-            width: 1109.46px;
+            height: 490px;
+            width: 923px;
             border-top: none;
             list-style: none;
         }

@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão Lite</title>
-    <link rel="stylesheet" href="../style/body.css">
     <link rel="stylesheet" href="../style/menu.css">
     <link rel="stylesheet" href="../style/cadastro-produto.css">
     <link rel="stylesheet" href="../style/screenSales.css">
+    
     <style>
         .menu-item-4,
         .a-menu4 {
-             background-color: white;
+            background-color: white;
             height: 22px;
         }
     </style>
@@ -26,64 +25,55 @@
                 </ul>
             </nav>
         </header>
-        <div id="container-sales">
-            <div class="container-table">
-                <span class="alert">
-                    <img class="imgLogo" src="../img/suporte.png" alt="">
-                    <p class="msg"></p>
-                    <button id="bottonAlert">OK</button>
-                </span>
+        
+        <div id="container-sales" class="container-sales">
+           
+       <div class="divForm"> <div class="teste"></div>
+                                <form id="formProdutos">
+                                        <label for="nome" class="titulos">Nome do Produto</label>
+                                        <input type="text" id="nomeProduto" name="nome" autocomplete="off" required>
+            
+                                        <label for="descricao" class="titulos">Descrição</label>
+                                        <input type="text" id="descricao" name="descricao" autocomplete="off" required>
+            
+                                        <label for="preco" class="titulos">Preço de Venda</label>
+                                        <input type="number" id="preco" name="preco" step="0.01" autocomplete="off" required>
+            
+                                        <label for="categoria" class="titulos">Categoria</label>
+                                        <select id="categoria" name="categoria" required>
+                                            <option value="">Selecione uma categoria</option>
+                                            <option value="eletronico">Eletrônicos</option>
+                                            <option value="vestuario">Vestuário</option>
+                                            <option value="alimenticio">Alimentício</option>
+                                            <option value="moveis">Móveis</option>
+                                            <option value="beleza">Produtos de beleza</option>
+                                            <option value="automotivo">Automotivo</option>
+                                            <option value="brinquedos">Brinquedos</option>
+                                            <option value="livros">Livros</option>
+                                            <option value="esportes">Artigos esportivos</option>
+                                            <option value="decoracao">Decoração</option>
+                                            <option value="jardinagem">Jardinagem</option>
+                                            <option value="musica">Instrumentos musicais</option>
+                                            <option value="informatica">Informática</option>
+                                            <option value="papelaria">Material de papelaria</option>
+                                            <option value="casa">Produtos para casa</option>
+                                            <option value="ferramentas">Ferramentas</option>
+                                            <option value="artesanato">Artesanato</option>
+                                            <option value="bebidas">Bebidas</option>
+                                            <option value="outros">Outros</option>
+                                        </select>
+            
+                                        <label for="estoque" class="titulos">Estoque Inicial</label>
+                                        <input type="number" id="estoque" name="estoque" autocomplete="off" required>
+            
+                                        <label for="codigoDeBarras" class="titulos">Código de Barras</label>
+                                        <input type="number" id="codigoDeBarras" name="codigoDeBarras" required> 
+                                        <button type="submit" class="titulosButton">Cadastrar Produto</button>
+                                </form>
+     
 
-                <div class="divForm">
-                    <form id="productForm">
-                        <div class="divInputs">
-                            <label for="nome" class="titulos">Nome do Produto</label>
-                            <input type="text" id="nomeProduto" name="nome" required>
-
-                            <label for="descricao" class="titulos">Descrição</label>
-                            <input type="text" id="descricao" name="descricao" required>
-
-                            <label for="preco" class="titulos">Preço de Venda</label>
-                            <input type="number" id="preco" name="preco" step="0.01" required>
-
-                            <label for="categoria" class="titulos">Categoria</label>
-                            <select id="categoria" name="categoria" required>
-                                <option value="">Selecione uma categoria</option>
-                                <option value="eletronico">Eletrônicos</option>
-                                <option value="vestuario">Vestuário</option>
-                                <option value="alimenticio">Alimentício</option>
-                                <option value="moveis">Móveis</option>
-                                <option value="beleza">Produtos de beleza</option>
-                                <option value="automotivo">Automotivo</option>
-                                <option value="brinquedos">Brinquedos</option>
-                                <option value="livros">Livros</option>
-                                <option value="esportes">Artigos esportivos</option>
-                                <option value="decoracao">Decoração</option>
-                                <option value="jardinagem">Jardinagem</option>
-                                <option value="musica">Instrumentos musicais</option>
-                                <option value="informatica">Informática</option>
-                                <option value="papelaria">Material de papelaria</option>
-                                <option value="casa">Produtos para casa</option>
-                                <option value="ferramentas">Ferramentas</option>
-                                <option value="artesanato">Artesanato</option>
-                                <option value="bebidas">Bebidas</option>
-                                <option value="outros">Outros</option>
-                            </select>
-
-                            <label for="estoque" class="titulos">Estoque Inicial</label>
-                            <input type="number" id="estoque" name="estoque" required>
-
-                            <label for="codigoDeBarras" class="titulos">Código de Barras</label>
-                            <input type="number" id="codigoDeBarras" name="codigoDeBarras" required>
-
-                            <button type="submit" class="titulos">Cadastrar Produto</button>
-                    </form>
-                </div>
             </div>
         </div>
-</div>
-</div>
-
 <script src="../controllers/menu.js"></script>
 <script src="../controllers/cadastro-produto.js"></script>
 </body>
