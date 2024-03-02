@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
+        body {
             padding: 0;
             margin: 0;
         }
+
         .imgLogoLoja {
             width: 150px;
             height: auto;
@@ -18,14 +19,13 @@
 
         .divPrint {
             width: 940px;
-            height: 750px;
-           /* border: 1px solid gray; */
+            height: 680px;
+            position: relative;
         }
 
         .ulPrint {
             height: 750px;
             width: 935px;
-            /* border: 1px solid rgb(51, 16, 255); */
             margin: 0;
             padding: 0;
         }
@@ -42,7 +42,6 @@
             font-size: 15px;
             width: 700px;
             height: 450px;
-            /* border: 1px solid gray; */
             color: #000;
             left: 350px;
             top: 10px;
@@ -53,36 +52,19 @@
         }
 
         .liPrintHeader {
-            border: 1px solid rgba(177, 177, 177, 0.541);
+            border: 1px solid rgb(0, 0, 0);
             display: flex;
             padding: 2px;
             box-sizing: border-box;
         }
 
-        .liPrintEndereco  {
+        .liPrintEndereco {
             align-items: center;
             color: rgb(0, 0, 0);
             width: 100%;
             font-size: 20px;
-            font-weight: 600;
             margin-left: 15px;
             display: flex;
-        }
-
-        .tituloPedido{
-            margin-top: 10px;
-            border: 1px solid rgba(177, 177, 177, 0.541);
-            display: flex;
-            box-sizing: border-box;
-            margin-left: 5px;
-            margin-right: 5px;
-            border-bottom: none;
-            align-items: center;
-            height: 30px;
-            font-weight: 600;
-            display: flex;
-            font-size: 20px;
-            justify-content: center;
         }
 
         .liPrintProdutos {
@@ -93,8 +75,7 @@
             font-size: 17px;
             padding-left: 5px;
             margin-top: 0;
-            border-left: 1px solid  rgba(177, 177, 177, 0.541);
-
+            border-left: 1px solid rgb(0, 0, 0);
         }
 
         .liPrintInfo {
@@ -104,14 +85,15 @@
             margin-right: 5px;
             font-size: 17px;
             padding-left: 5px;
-            padding-bottom: 10px;
             padding-top: 10px;
-            margin-top: 0;
-            border: 1px solid  rgba(177, 177, 177, 0.541);
-            border-top: none;}
+            margin-bottom: -5px;
+            border: 1px solid rgb(0, 0, 0);
+            border-top: none;
+            border-bottom: none;
+        }
 
         .borderProdutos {
-            border: 1px solid  rgba(177, 177, 177, 0.541);;
+            border: 1px solid rgb(0, 0, 0);
             z-index: -1;
             position: absolute;
             height: 530px;
@@ -122,25 +104,107 @@
             border-top: none;
             list-style: none;
         }
+
+        .descricaoLista {
+            height: 25px;
+            display: flex;
+            box-sizing: border-box;
+            margin-left: 5px;
+            margin-right: 5px;
+            font-size: 17px;
+            margin-top: 0;
+            align-items: center;
+            margin-top: -4px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 0;
+            border: 1px solid rgb(0, 0, 0);
+            width: 100px;
+        }
+
+        .codigo {
+            margin-left: 0;
+            border: 1px solid rgb(0, 0, 0);
+            border-left: none;
+            border-right: none;
+            width: 140px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .produtos {
+            margin-left: 0;
+            border: 1px solid rgb(0, 0, 0);
+            border-right: none;
+            width: 290px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .vlUnitario {
+            margin-left: 0;
+            border: 1px solid rgb(0, 0, 0);
+            border-right: none;
+            width: 130px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .qtde {
+            margin-left: 0;
+            border: 1px solid rgb(0, 0, 0);
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .vlTotal {
+            margin-left: 0;
+            border: 1px solid rgb(0, 0, 0);
+            border-left: none;
+            border-right: none;
+            width: 156px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .totalVenda{
+            position: absolute;
+            bottom: 10px;
+            right: 100px;
+        }
+        .numero{
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+        }
     </style>
 </head>
 
 <body>
     <div class="divPrint">
         <ul class="ulPrint">
-            <li class="tituloPedido">Pedido Nº01</li>
-            <li class='liPrintHeader'><img class="imgLogoLoja" src="../img/logoLoja.png" alt=""><span class='liPrintEndereco' 
-                   >New Sun Shine Shop Service</br> Endereço: R. Henrique Lage, 222 - Centro, Içara - SC, 88820-000 </br>Contato:
-                    48-3432.5672</span></li>
-            <li class='liPrintInfo'>Data do Pedido: 27/02/2024 </br> Cliente: Consumidor  </br>Total do Pedido: R$
-                19.90 </br> Forma de Pagamento: Dinheiro  </li>
-            <li class="borderProdutos"></li>
-            </br>
-            <li class='liPrintProdutos'>codigo: ${codigoDoProduto} Produto: ${nomeDoProduto} - Preço:
-                ${precoDoProduto.toFixed(2)} - Qtd: ${quantidadeDoProduto}</li>
-            <li class='liPrintProdutos'>codigo: ${codigoDoProduto} Produto: ${nomeDoProduto} - Preço:
-                ${precoDoProduto.toFixed(2)} - Qtd:
-                ${quantidadeDoProduto}</li>
+    <li class='liPrintHeader'><img class="imgLogoLoja" src="../img/logoLoja.png" alt=""><span class='liPrintEndereco'>New
+            Sun Shine Shop Service</br> Endereço: R. Henrique Lage, 222 - Centro, Içara - SC, 88820-000 </br>Contato:
+            48-3432.5672</span></li>
+    <li class='liPrintInfo'>Data Pedido: ${new Date(varImpressao.dateVenda).toLocaleDateString()}</br>
+        Cliente: ${varImpressao.cliente}</br>Endereço:</br>CPF:</br>Forma de Pagamento:
+        ${varImpressao.formaPagamento}</br>Vendedor: ${varImpressao.vendedorSelecionado}</br><span class="totalVenda">Sub
+            total: R$${varImpressao.totalCompra}<br />Desconto total:0.00<br/>Total: R$ ${varImpressao.totalCompra}</span>
+            <span class="numero">Data Pedido: ${new Date(varImpressao.dateVenda).toLocaleDateString()}<br/> nº Pedido${}</span>
+    </li>
+    <li class="borderProdutos"></li></br>
+    <li class="descricaoLista"><span class="item">Item</span><span class="codigo">Código</span><span
+            class="produtos">Produtos</span><span class="vlUnitario">Valor Unitário</span><span
+            class="qtde">Qtde</span><span class="vlTotal">valor Total</span></li>
         </ul>
     </div>
 </body>

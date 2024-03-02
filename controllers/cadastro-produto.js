@@ -1,4 +1,4 @@
-const newProductForm = document.getElementById('productForm');
+const newProductForm = document.getElementById('formProdutos');
 const produtoCadastrado = document.querySelector('#alert');
 
 newProductForm.addEventListener('submit', async (e) => {
@@ -27,7 +27,13 @@ newProductForm.addEventListener('submit', async (e) => {
 
     try {
         // Baixar os dados dos produtos
-        const response = await fetch(urlGetProdutoDate);
+        const response = await fetch(urlGetProdutoDate, {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Basic ' + btoa('Freg123:Freg_1308'),
+                'Content-Type': 'application/json'
+            },
+        });
         if (!response.ok) {
             throw new Error('Erro ao obter os produtos');
         }
@@ -47,6 +53,7 @@ newProductForm.addEventListener('submit', async (e) => {
         const responseNewProduct = await fetch(urlNewProduct, {
             method: 'POST',
             headers: {
+                'Authorization': 'Basic ' + btoa('Freg123:Freg_1308'),
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({

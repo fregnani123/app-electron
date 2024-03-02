@@ -187,8 +187,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 dinheiro += '.00';
             }
 
+
+
             dinheiroCliente.value = parseFloat(dinheiro).toFixed(2); // Formata para duas casas decimais
-            let trocoSoma = parseFloat(dinheiro) - parseFloat(total);
+            let trocoSoma = parseFloat(dinheiro) - parseFloat(total); 
+
+            
             return trocoCli.innerText = parseFloat(trocoSoma).toFixed(2) <= 0 ? '0.00' : parseFloat(trocoSoma).toFixed(2);
         });
 
@@ -250,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const formaPagamento = selectPagamento.value;
         const totalCompra = totalCarrinho.innerHTML;
         const vendedorSelecionado = vendedor.value;
-        const numeroPedidoNovo = numeroPedido;
+        const numeroPedidoNovo = numeroPedido + 1;
 
 
             
@@ -309,36 +313,44 @@ function impressaoRelatorio() {
         varImpressao.formaPagamento = selectPagamento.value;
         varImpressao.totalCompra = totalCarrinho.innerHTML;
         varImpressao.vendedorSelecionado = vendedor.value;
+        varImpressao.numeroPedidoPrint = numeroPedido + 1;
 
         const ul = document.createElement('ul');
         ul.classList.add('ulPrint');
 
         ul.innerHTML = `
-
-  <li class="tituloPedido">Pedido Nº${numeroPedido + 1}</li>
-            <li class='liPrintHeader'><img class="imgLogoLoja" src="../img/logoLoja.png" alt=""><span class='liPrintEndereco'
-                   >New Sun Shine Shop Service</br> Endereço: R. Henrique Lage, 222 - Centro, Içara - SC, 88820-000 </br>Contato:
-                    48-3432.5672</span></li>
-
-            <li class='liPrintInfo'>Data do Pedido: ${new Date(varImpressao.dateVenda).toLocaleDateString()}</br>Vendedor: ${varImpressao.vendedorSelecionado} </br>
-           Cliente: ${varImpressao.cliente}  </br>Forma de Pagamento: ${varImpressao.formaPagamento} </br>Total do Pedido: R$ ${varImpressao.totalCompra}  </li>
-           <li class="borderProdutos"></li></br>
-
+           <li class='liPrintHeader'><img class="imgLogoLoja" src="../img/logoLoja.png" alt=""><span class='liPrintEndereco'>New
+            Sun Shine Shop Service</br> Endereço: R. Henrique Lage, 222 - Centro, Içara - SC, 88820-000 </br>Contato:
+            48-3432.5672</span></li>
+    <li class='liPrintInfo'>Data Pedido: ${new Date(varImpressao.dateVenda).toLocaleDateString()}</br>
+        Cliente: ${varImpressao.cliente}</br>Endereço:</br>CPF:</br>Forma de Pagamento:
+        ${varImpressao.formaPagamento}</br>Vendedor: ${varImpressao.vendedorSelecionado}</br><span class="totalVenda">Sub
+            total: R$ ${varImpressao.totalCompra}<br />Desconto total:0.00<br/>Total: R$ ${varImpressao.totalCompra}</span>
+             <span class="numero">Data Pedido: ${new Date(varImpressao.dateVenda).toLocaleDateString()}<br/> nº Pedido: ${varImpressao.numeroPedidoPrint}</span>
+    </li>
+    <li class="borderProdutos"></li></br>
+    <li class="descricaoLista"><span class="item">Item</span><span class="codigo">Código</span><span
+            class="produtos">Produtos</span><span class="vlUnitario">Valor Unitário</span><span
+            class="qtde">Qtde</span><span class="vlTotal">valor Total</span></li>
     `;
 
         carrinho.forEach((item, index) => {
             const codigoDoProduto = item.produto.codigoDeBarras;
             const nomeDoProduto = item.produto.nome;
             const precoDoProduto = item.produto.preco;
-            const quantidadeDoProduto = item.quantidade;
+            const QtdProduto = item.quantidade;
+            const subtotal = parseFloat(precoDoProduto * QtdProduto)
+            
 
             // Adicionar informações do produto à lista
             const numeroItem = (index + 1).toString().padStart(3, '0'); // Formatação do número do item
             ul.innerHTML += `
-        <li class='liPrintProdutos''>Item: ${numeroItem} - Código: ${codigoDoProduto} | Produto: ${nomeDoProduto} - Preço: ${precoDoProduto.toFixed(2)} - Qtd: ${quantidadeDoProduto}</li>
+           
+        <li class="descricaoLista"><span class="item">${numeroItem}</span><span class="codigo">${codigoDoProduto}</span><span
+                    class="produtos">${nomeDoProduto}</span><span class="vlUnitario">${precoDoProduto.toFixed(2)}</span><span
+                    class="qtde">${QtdProduto}x</span><span class="vlTotal">${subtotal.toFixed(2)}</span></li>
     `;
         });
-
 
         divContent.appendChild(ul);
         printRelatorio(divContent);
@@ -351,11 +363,12 @@ function impressaoRelatorio() {
         newWindow.document.open();
         newWindow.document.write('<html><head><title></title>');
         newWindow.document.write(`
-     <style>
-        body{
+          <style>
+        body {
             padding: 0;
             margin: 0;
         }
+
         .imgLogoLoja {
             width: 150px;
             height: auto;
@@ -364,14 +377,13 @@ function impressaoRelatorio() {
 
         .divPrint {
             width: 940px;
-            height: 750px;
-           /* border: 1px solid gray; */
+            height: 680px;
+            position: relative;
         }
 
         .ulPrint {
             height: 750px;
             width: 935px;
-            /* border: 1px solid rgb(51, 16, 255); */
             margin: 0;
             padding: 0;
         }
@@ -388,7 +400,6 @@ function impressaoRelatorio() {
             font-size: 15px;
             width: 700px;
             height: 450px;
-            /* border: 1px solid gray; */
             color: #000;
             left: 350px;
             top: 10px;
@@ -399,36 +410,19 @@ function impressaoRelatorio() {
         }
 
         .liPrintHeader {
-            border: 1px solid rgba(177, 177, 177, 0.541);
+            border: 1px solid rgb(0, 0, 0);
             display: flex;
             padding: 2px;
             box-sizing: border-box;
         }
 
-        .liPrintEndereco  {
+        .liPrintEndereco {
             align-items: center;
             color: rgb(0, 0, 0);
             width: 100%;
             font-size: 20px;
-            font-weight: 600;
             margin-left: 15px;
             display: flex;
-        }
-
-        .tituloPedido{
-            margin-top: 10px;
-            border: 1px solid rgba(177, 177, 177, 0.541);
-            display: flex;
-            box-sizing: border-box;
-            margin-left: 5px;
-            margin-right: 5px;
-            border-bottom: none;
-            align-items: center;
-            height: 30px;
-            font-weight: 600;
-            display: flex;
-            font-size: 20px;
-            justify-content: center;
         }
 
         .liPrintProdutos {
@@ -439,25 +433,24 @@ function impressaoRelatorio() {
             font-size: 17px;
             padding-left: 5px;
             margin-top: 0;
-            border-left: 1px solid  rgba(177, 177, 177, 0.541);
-
+            border-left: 1px solid rgb(0, 0, 0);
         }
 
-        .liPrintInfo {
+     .liPrintInfo {
             display: flex;
             box-sizing: border-box;
             margin-left: 5px;
             margin-right: 5px;
             font-size: 17px;
             padding-left: 5px;
-            padding-bottom: 10px;
             padding-top: 10px;
-            margin-top: 0;
-            border: 1px solid  rgba(177, 177, 177, 0.541);
-            border-top: none;}
-
+            margin-bottom: -5px;
+            border: 1px solid rgb(0, 0, 0);
+            border-top: none;
+            border-bottom: none;
+        }
         .borderProdutos {
-            border: 1px solid  rgba(177, 177, 177, 0.541);;
+            border: 1px solid rgb(0, 0, 0);
             z-index: -1;
             position: absolute;
             height: 530px;
@@ -467,6 +460,88 @@ function impressaoRelatorio() {
             width: 923px;
             border-top: none;
             list-style: none;
+        }
+
+        .descricaoLista {
+            height: 25px;
+            display: flex;
+            box-sizing: border-box;
+            margin-left: 5px;
+            margin-right: 5px;
+            font-size: 17px;
+            margin-top: 0;
+            align-items: center;
+            margin-top: -4px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 0;
+            border: 1px solid rgb(0, 0, 0);
+            width: 100px;
+        }
+
+        .codigo {
+            margin-left: 0;
+            border: 1px solid rgb(0, 0, 0);
+            border-left: none;
+            border-right: none;
+            width: 140px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .produtos {
+            margin-left: 0;
+            border: 1px solid rgb(0, 0, 0);
+            border-right: none;
+            width: 290px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .vlUnitario {
+            margin-left: 0;
+            border: 1px solid rgb(0, 0, 0);
+            border-right: none;
+            width: 130px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .qtde {
+            margin-left: 0;
+            border: 1px solid rgb(0, 0, 0);
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .vlTotal {
+            margin-left: 0;
+            border: 1px solid rgb(0, 0, 0);
+            border-left: none;
+            border-right: none;
+            width: 156px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .totalVenda{
+            position: absolute;
+            bottom: 10px;
+            right: 100px;
+        }
+         .numero{
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
         }
     </style>
 `);
@@ -496,6 +571,7 @@ function impressaoRelatorio() {
         const groupedItems = {};
         const formaPagamento = selectPagamento.value;
         const dinheiroRecebido = dinheiroCliente.value;
+        
 
         if (carrinho.length === 0) {
             const msg = 'O Carrinho está vázio, para finalizar adicione pelo menos um ítem.'
@@ -508,6 +584,19 @@ function impressaoRelatorio() {
             criaAlert(msg)
             return; // Impede a execução adicional do código
         }
+
+
+        // Calcula o total da venda
+        const totalVenda = parseFloat(totalCarrinho.innerHTML);
+
+        if (dinheiroRecebido < totalVenda) {
+            const msg = 'O valor recebido é menor que o total da compra.';
+            criaAlert(msg);
+            return;
+        }
+
+
+        
         // Agrupar os itens do carrinho pelo código de barras do produto
         carrinho.forEach(item => {
             const codigoDeBarras = item.produto.codigoDeBarras;
@@ -566,7 +655,6 @@ function impressaoRelatorio() {
     const formaPagamento2 = document.getElementById('forma-pagamento');
     const divPagamento = document.querySelector('.divPagamento');
     const spanPagamento = document.querySelector('.spanPagamento');
-
 
 formaPagamento2.addEventListener('change', function () {        
         if (formaPagamento2.value === 'PIX' || formaPagamento2.value === 'Cartao') {
