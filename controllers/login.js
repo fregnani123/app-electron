@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
-        if (username === 'adm' && password === 'adm') {
+        if (username === 'lan2024' && password === 'lan2024') {
             window.location.href = '../public/controllers.html'; // Redireciona para a página Home
         } else {
             alert('Credenciais inválidas. Tente novamente.');

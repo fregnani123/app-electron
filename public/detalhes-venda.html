@@ -12,7 +12,7 @@
         .menu-item-3,
         .a-menu3 {
             height: 22px;
-             background-color: white;
+            background-color: white;
         }
     </style>
 </head>
@@ -24,32 +24,50 @@
             </ul>
         </nav>
     </header>
-<body>
-    <div id="container-sales">
-        <div class="container-table">
-            <div id="dateFilter">
-                <label for="startDate">Data Inicial:</label>
-                <input type="date" id="startDate">
-                <label for="endDate">Data Final:</label>
-                <input type="date" id="endDate">
-                <button onclick="filterByDate()">Filtrar</button>
-            </div>
-            <table id="salesTable">
-                <tr>
-                    <th>Carrinho</th>
-                    <th>Cliente</th>
-                    <th>Data da Venda</th>
-                    <th>Dinheiro Recebido</th>
-                    <th>Forma de Pagamento</th>
-                    <th>Total</th>
-                </tr>
-                <!-- Os dados das vendas serão preenchidos dinamicamente aqui -->
-            </table>
 
+    <body>
+        <div id="container-sales">
+            <div class="correcaoMarginTop"></div>
+            <div class="container-table">
+                <table>
+                    <tr>
+                        <th class="thperio">Buscar vendas por periodo</th>
+                        <th class="thnumero">Buscar vendas numero do Pedido</th>
+                        <th class="thvendas">Buscar vendas por Cliente</th>
+                    </tr>
+                    <tr> 
+                        <td colspan="1" id="dateFilter">
+                        <label for="startDate" class="labelDate">Data Inicial:</label>
+                        <input type="date" id="startDate">
+                        <label for="endDate" class="labelDate">Data Final:</label>
+                        <input type="date" id="endDate">
+                        <button onclick="filterByDate()">Filtrar</button>
+                    </td>
+                    <td  id="filterCodigo">
+                         <input type="number" name="" id="">
+                    </td>
+                    <td id="filterCodigo">
+                         <input type="number" name="" id="">
+                    </td>
+                </tr>
+            </table>
+                <table id="salesTable">
+                    <tr>
+                        <th>Carrinho</th>
+                        <th>Cliente</th>
+                        <th>Data da Venda</th>
+                        <th>Dinheiro Recebido</th>
+                        <th>Forma de Pagamento</th>
+                        <th>Total</th>
+                    </tr>
+                    <!-- Os dados das vendas serão preenchidos dinamicamente aqui -->
+                </table>
+
+            </div>
         </div>
-    </div>
-    <script src="../controllers/menu.js"></script>
-    <script src="../controllers/detalhesVenda"></script>
-</body>               
+        <script src="../controllers/menu.js"></script>
+        <script src="../controllers/detalhesVenda"></script>
+    </body>
 </div>
+
 </html>

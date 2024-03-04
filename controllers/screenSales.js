@@ -326,7 +326,7 @@ function impressaoRelatorio() {
         Cliente: ${varImpressao.cliente}</br>Endereço:</br>CPF:</br>Forma de Pagamento:
         ${varImpressao.formaPagamento}</br>Vendedor: ${varImpressao.vendedorSelecionado}</br><span class="totalVenda">Sub
             total: R$ ${varImpressao.totalCompra}<br />Desconto total:0.00<br/>Total: R$ ${varImpressao.totalCompra}</span>
-             <span class="numero">Data Pedido: ${new Date(varImpressao.dateVenda).toLocaleDateString()}<br/> nº Pedido: ${varImpressao.numeroPedidoPrint}</span>
+             <span class="numero">Data impressão: ${new Date(varImpressao.dateVenda).toLocaleDateString()}<br/> nº Pedido: ${varImpressao.numeroPedidoPrint}</span>
     </li>
     <li class="borderProdutos"></li></br>
     <li class="descricaoLista"><span class="item">Item</span><span class="codigo">Código</span><span
@@ -348,7 +348,7 @@ function impressaoRelatorio() {
            
         <li class="descricaoLista"><span class="item">${numeroItem}</span><span class="codigo">${codigoDoProduto}</span><span
                     class="produtos">${nomeDoProduto}</span><span class="vlUnitario">${precoDoProduto.toFixed(2)}</span><span
-                    class="qtde">${QtdProduto}x</span><span class="vlTotal">${subtotal.toFixed(2)}</span></li>
+                    class="qtde">${QtdProduto}</span><span class="vlTotal">${subtotal.toFixed(2)}</span></li>
     `;
         });
 
@@ -449,14 +449,13 @@ function impressaoRelatorio() {
             border-top: none;
             border-bottom: none;
         }
-        .borderProdutos {
+     .borderProdutos {
             border: 1px solid rgb(0, 0, 0);
             z-index: -1;
             position: absolute;
-            height: 530px;
             margin-left: 5px;
             margin-right: 5px;
-            height: 490px;
+            height: 440px;
             width: 923px;
             border-top: none;
             list-style: none;

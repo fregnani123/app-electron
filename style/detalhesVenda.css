@@ -1,8 +1,32 @@
+.tituloBuscar {}
 
- #dateFilter {
-     margin-bottom: 10px;
-     width: 100%;
-     background-color:var(--background-color);
-     display: flex;
-     color: white;
- }
+#dateFilter {
+    display: flex;
+    background-color: white;
+    color: black;
+    justify-content: left;
+}
+
+.labelDate {
+    display: flex;
+    justify-content: left;
+    margin-left: 20px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.correcaoMarginTop {
+    width: 100%;
+    height: 10px;
+}
+
+.thperio {
+    width: 35%;
+}
+
+.thnumero {
+    width: 20%;
+}
+.thvendas {
+ padding-right: 350px;
+}
