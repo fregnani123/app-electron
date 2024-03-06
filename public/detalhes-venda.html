@@ -44,29 +44,35 @@
                         <button onclick="filterByDate()">Filtrar</button>
                     </td>
                     <td  id="filterCodigo">
-                         <input type="number" name="" id="">
+                         <input type="number" name="" id="inputNumero">
                     </td>
-                    <td id="filterCodigo">
+                    <td id="filterCliente">
                          <input type="number" name="" id="">
                     </td>
                 </tr>
             </table>
                 <table id="salesTable">
                     <tr>
-                        <th>Carrinho</th>
-                        <th>Cliente</th>
-                        <th>Data da Venda</th>
-                        <th>Dinheiro Recebido</th>
-                        <th>Forma de Pagamento</th>
-                        <th>Total</th>
+                        <th class="th1">Nº Pedido</th>
+                        <th class="th2">Cliente</th>
+                        <th class="th3">Data da Venda</th>
+                        <th class="th4">Forma de Pagamento</th>
+                        <th class="th5">Total</th>
                     </tr>
-                    <!-- Os dados das vendas serão preenchidos dinamicamente aqui -->
+                    <tr>
+                        <td id="th1" class="th1"></td>
+                        <td id="th2" class="th2"></td>
+                        <td id="th3" class="th3"></td>
+                        <td id="th4" class="th4"></td>
+                        <td id="th5" class="th5"></td>
+                        
+                    </tr>
                 </table>
 
             </div>
         </div>
         <script src="../controllers/menu.js"></script>
-        <script src="../controllers/detalhesVenda"></script>
+        <script src="../controllers/detalhesVenda.js"></script>
     </body>
 </div>
 
