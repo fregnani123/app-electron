@@ -273,19 +273,22 @@ button:hover {
 }
 
 .codigo {
-    width: 11%;
+    width: 12%;
 }
 
 .produto {
-    width: 38%;
+    width:20%;
+}
+.descricao {
+    width: 34%;
 }
 
 .preco {
-    width: 18%;
+    width: 11%;
 }
 
 .estoque {
-    width: 15%;
+    width: 11%;
 }
 
 .excluir {

@@ -31,23 +31,15 @@
             <div class="container-table">
                 <table>
                     <tr>
-                        <th class="thperio">Buscar vendas por periodo</th>
-                        <th class="thnumero">Buscar vendas numero do Pedido</th>
-                        <th class="thnumero">Buscar vendas por Cliente</th>
+                        <!-- <th class="thperio">Buscar vendas por periodo</th> -->
+                        <th class="thnumero1">Buscar venda numero do Pedido</th>
+                        <th class="thnumero2">Buscar venda por Cliente</th>
                     </tr>
-                    <tr> 
-                        <td colspan="1" id="dateFilter">
-                        <label for="startDate" class="labelDate">Data Inicial:</label>
-                        <input type="date" id="startDate">
-                        <label for="endDate" class="labelDate">Data Final:</label>
-                        <input type="date" id="endDate">
-                        <button onclick="filterByDate()">Filtrar</button>
-                    </td>
                     <td  id="filterCodigo">
-                         <input type="number" name="" id="inputNumero">
+                        Digite o Nº Pedido <input type="number" name="" id="inputNumero">
                     </td>
                     <td id="filterCliente">
-                         <input type="number" name="" id="">
+                        Digite o CPF <input type="number" name="" id="">
                     </td>
                 </tr>
             </table>
@@ -65,10 +57,63 @@
                         <td id="th3" class="th3"></td>
                         <td id="th4" class="th4"></td>
                         <td id="th5" class="th5"></td>
-                        
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <th class="itensPedido">
+                            Itens do Pedido filtrado <span id="spanNumero"></span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="itensPedido">
+                            <p class="descricaoLista"><span class="codigo">Código</span><span class="produtos">Produtos</span><span
+                                    class="vlUnitario">Valor Unitário</span><span class="qtde">Qtde</span><span class="vlTotal">valor Total</span>
+                            </p>
+                            <ul id="listaItens">
+                            </ul>
+                        </td>
                     </tr>
                 </table>
 
+
+                <table>
+                        <tr>
+                            <th colspan="4">
+                                Relatório de Pedidos por período.
+                            </th>
+                        </td>
+                           <tr>
+                            <td colspan="1" id="dateFilter">
+                            <label for="startDate" class="labelDate">Data Inicial:</label>
+                            <input type="date" id="startDate">
+                            <label for="endDate" class="labelDate">Data Final:</label>
+                            <input type="date" id="endDate">
+                            </td>
+                            <td class="tdvalores">
+                               <p class="tdvalores2">Valores no Dinheiro</p> <span class="valoresDinheiro" id="valores">0.00</span>
+                            </td>
+                            <td class="tdvalores">
+                            <p class="tdvalores2">Valores no Cartão</p> <span class="valoresCartao" id="valores">0.00</span>
+                            </td>
+                            <td class="tdvalores">
+                            <p class="tdvalores2">Valores no Pix</p> <span class="valoresPIX" id="valores">0.00</span>
+                            </td>
+
+                </table>
+                <table>
+                    <tr>
+                        <td class="itensPedido">
+                            <p class="descricaoLista"><span class="codigo">Nº Pedido</span><span class="produtos">Cliente</span><span
+                                    class="vlUnitario">Data da Venda</span><span class="formaPag">Forma de Pagamento</span><span class="vlTotal">
+                                    Total</span>
+                            </p>
+                            <ul id="listaItensTodos">
+                                <!-- <li class="listaPedidos"><span class="codigoFilter">2<span><span>consumidor</span></li> -->
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
         <script src="../controllers/menu.js"></script>

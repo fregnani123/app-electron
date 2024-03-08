@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const clienteADD = document.querySelector('#clienteEncontrado')
     const produtoCodigo = document.getElementById('codigo');
     const produtoNome = document.getElementById('produto');
+    const produtoDescricao = document.getElementById('descricao');
     const produtoPreco = document.getElementById('preco');
     const produtoEstoque = document.getElementById('estoque');
     const totalCarrinho = document.querySelector('#total');
@@ -93,13 +94,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
             carrinho.push(itemCarrinho);
             renderizarLista();
-           
+            limparInputEAN();
+
 
         } else {
             const msg = 'Nenhum produto encontrado para adicionar ao carrinho.';
             criaAlert(msg)
         }
-        
+
     });
 
     function buscarProduto(codigoEAN) {
@@ -117,7 +119,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     if (produtoEncontrado) {
                         produtoCodigo.innerText = produtoEncontrado.codigoDeBarras;
-                        produtoNome.innerText = produtoEncontrado.nome;
+                        produtoNome.innerText = `${produtoEncontrado.nome} `;
+                        produtoDescricao.innerText = `${produtoEncontrado.descricao} `;
                         produtoPreco.innerText = produtoEncontrado.preco.toFixed(2);
                         produtoEstoque.innerText = produtoEncontrado.estoque;
                     } else {
@@ -190,9 +193,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
             dinheiroCliente.value = parseFloat(dinheiro).toFixed(2); // Formata para duas casas decimais
-            let trocoSoma = parseFloat(dinheiro) - parseFloat(total); 
+            let trocoSoma = parseFloat(dinheiro) - parseFloat(total);
 
-            
+
             return trocoCli.innerText = parseFloat(trocoSoma).toFixed(2) <= 0 ? '0.00' : parseFloat(trocoSoma).toFixed(2);
         });
 
@@ -212,41 +215,42 @@ document.addEventListener('DOMContentLoaded', function () {
         produtoEstoque.innerText = ''
         codigoEANInput.value = '';
         produtoNome.innerText = '';
+        produtoDescricao.innerText = '';
         inputQtd.value = '1';
     }
 
     buttonLimparEAN.addEventListener('click', limparInputEAN);
 
     const urlRelatorioGet = 'http://204.216.187.179:3000/detalhes';
-   
-   
-   fetch(urlRelatorioGet, {
-                method: 'GET',
-                headers: {
-                    'Authorization': 'Basic ' + btoa('Freg123:Freg_1308'),
-                }
-            }).then(res => {
-                return res.json();
-            }).then(dataVenda => {
-                if (Array.isArray(dataVenda)) {
-                    dataVenda.forEach((item, index) => {
-                        const numeroItem = (index + 1).toString().padStart(3, '0');
-                        numeroPedido = Number(numeroItem);
-                        console.log(numeroPedido);
-                    });
-                } else {
-                    console.log(dataVenda);
-                }
-              
-            }).catch(error => {
-                console.error('Erro na solicitação:', error);
-               
+
+
+    fetch(urlRelatorioGet, {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Basic ' + btoa('Freg123:Freg_1308'),
+        }
+    }).then(res => {
+        return res.json();
+    }).then(dataVenda => {
+        if (Array.isArray(dataVenda)) {
+            dataVenda.forEach((item, index) => {
+                const numeroItem = (index + 1).toString().padStart(3, '0');
+                numeroPedido = Number(numeroItem);
+                console.log(numeroPedido);
             });
-        
+        } else {
+            console.log(dataVenda);
+        }
+
+    }).catch(error => {
+        console.error('Erro na solicitação:', error);
+
+    });
+
     let numeroPedido;
 
     function enviarRelatorio() {
-        
+
         const urlRelatorio = 'http://204.216.187.179:3000/detalhesdevendaPost';
         const cliente = clienteADD.value;
         const dateVenda = new Date().toISOString(); // Convertendo para o formato ISO
@@ -257,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const numeroPedidoNovo = numeroPedido + 1;
 
 
-            
+
         const carrinhoToSend = carrinho.map(item => {
             return {
                 codigoDeBarras: item.produto.codigoDeBarras,
@@ -281,10 +285,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 dinheiroRecebido: dinheiroRecebido,
                 formaPagamento: formaPagamento,
                 total: totalCompra,
-                vendedor:vendedorSelecionado,
+                vendedor: vendedorSelecionado,
             })
         }).then(response => {
-            if (response.ok){
+            if (response.ok) {
                 console.log('Relatório enviado para o MongoDB com sucesso!');
             } else {
                 console.error('Erro ao enviar o relatório para o MongoDB');
@@ -297,16 +301,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const varImpressao = {
         cliente: '',
-        dateVenda:'',
-        dinheiroRecebido:'',
-        formaPagamento:'',
+        dateVenda: '',
+        dinheiroRecebido: '',
+        formaPagamento: '',
         totalCompra: '',
         carrinhoToSend: carrinho,
-        vendedor:'',
+        vendedor: '',
     }
 
- 
-function impressaoRelatorio() {
+
+    function impressaoRelatorio() {
         varImpressao.cliente = clienteADD.value;
         varImpressao.dateVenda = new Date().toISOString();
         varImpressao.dinheiroRecebido = dinheiroCliente.value || 0;
@@ -320,7 +324,7 @@ function impressaoRelatorio() {
 
         ul.innerHTML = `
            <li class='liPrintHeader'><img class="imgLogoLoja" src="../img/logoLoja.png" alt=""><span class='liPrintEndereco'>New
-            Sun Shine Shop Service</br> Endereço: R. Henrique Lage, 222 - Centro, Içara - SC, 88820-000 </br>Contato:
+            Sun Shine Shop Service - CNPJ 07.833.865/0001-88</br> Endereço: R. Henrique Lage, 222 - Centro, Içara - SC, 88820-000 </br>Contato:
             48-3432.5672</span></li>
     <li class='liPrintInfo'>Data Pedido: ${new Date(varImpressao.dateVenda).toLocaleDateString()}</br>
         Cliente: ${varImpressao.cliente}</br>Endereço:</br>CPF:</br>Forma de Pagamento:
@@ -340,7 +344,7 @@ function impressaoRelatorio() {
             const precoDoProduto = item.produto.preco;
             const QtdProduto = item.quantidade;
             const subtotal = parseFloat(precoDoProduto * QtdProduto)
-            
+
 
             // Adicionar informações do produto à lista
             const numeroItem = (index + 1).toString().padStart(3, '0'); // Formatação do número do item
@@ -358,7 +362,7 @@ function impressaoRelatorio() {
 
 
     function printRelatorio(divContent) {
-        
+
         const newWindow = window.open('', '_blank');
         newWindow.document.open();
         newWindow.document.write('<html><head><title></title>');
@@ -545,7 +549,7 @@ function impressaoRelatorio() {
     </style>
 `);
         newWindow.document.write('</head><body>');
-       
+
         const clonedContent = divContent.cloneNode(true);
         newWindow.document.body.appendChild(clonedContent);
 
@@ -557,27 +561,27 @@ function impressaoRelatorio() {
                 if (loadedImages === images.length) {
                     newWindow.print();
                     newWindow.document.close();
-                    newWindow.close(); 
+                    newWindow.close();
                 }
             };
         });
 
         newWindow.document.write('</body></html>');
-      
+
     }
 
     buttonFinalizar.addEventListener('click', () => {
         const groupedItems = {};
         const formaPagamento = selectPagamento.value;
         const dinheiroRecebido = dinheiroCliente.value;
-        
+
 
         if (carrinho.length === 0) {
             const msg = 'O Carrinho está vázio, para finalizar adicione pelo menos um ítem.'
             criaAlert(msg)
             return;
         }
-       
+
         if (formaPagamento === 'Dinheiro' && dinheiroRecebido === '') {
             const msg = 'Insira o valor recebido em dinheiro.';
             criaAlert(msg)
@@ -588,14 +592,12 @@ function impressaoRelatorio() {
         // Calcula o total da venda
         const totalVenda = parseFloat(totalCarrinho.innerHTML);
 
-        if (dinheiroRecebido < totalVenda) {
+        if (dinheiroRecebido < totalVenda && formaPagamento === 'Dinheiro') {
             const msg = 'O valor recebido é menor que o total da compra.';
             criaAlert(msg);
             return;
         }
 
-
-        
         // Agrupar os itens do carrinho pelo código de barras do produto
         carrinho.forEach(item => {
             const codigoDeBarras = item.produto.codigoDeBarras;
@@ -616,7 +618,7 @@ function impressaoRelatorio() {
             const urlPatchProduto = `http://204.216.187.179:3000/updateProduto/${item.produto.codigoDeBarras}`;
 
             fetch(urlPatchProduto, {
-                method: 'PATCH',  
+                method: 'PATCH',
                 headers: {
                     'Authorization': 'Basic ' + btoa('Freg123:Freg_1308'),
                     'Content-Type': 'application/json'
@@ -642,12 +644,12 @@ function impressaoRelatorio() {
         carrinho.length = 0;
         lista.innerHTML = '';
         dinheiroCliente.value = '',
-        trocoCli.innerText = '',
+            trocoCli.innerText = '',
             totalCarrinho.innerHTML = '0.00';
         setTimeout(() => {
             location.reload();
         }, 1000); // Aguarda 1 segundo antes de recarregar a página
-        
+
     });
 
 
@@ -655,22 +657,22 @@ function impressaoRelatorio() {
     const divPagamento = document.querySelector('.divPagamento');
     const spanPagamento = document.querySelector('.spanPagamento');
 
-formaPagamento2.addEventListener('change', function () {        
+    formaPagamento2.addEventListener('change', function () {
         if (formaPagamento2.value === 'PIX' || formaPagamento2.value === 'Cartao') {
 
-            divPagamento.classList.remove('divPagamento');     
-            divPagamento.classList.add('display');      
-            spanPagamento.classList.remove('spanPagamento');     
-            spanPagamento.classList.add('display');      
-        } else{
-            divPagamento.classList.remove('display');  
+            divPagamento.classList.remove('divPagamento');
+            divPagamento.classList.add('display');
+            spanPagamento.classList.remove('spanPagamento');
+            spanPagamento.classList.add('display');
+        } else {
+            divPagamento.classList.remove('display');
             divPagamento.classList.add('divPagamento');
-            spanPagamento.classList.add('spanPagamento'); 
-            spanPagamento.classList.remove('display'); 
-               
+            spanPagamento.classList.add('spanPagamento');
+            spanPagamento.classList.remove('display');
+
         }
-        
+
     });
-    
+
 })
 

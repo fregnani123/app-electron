@@ -26,35 +26,242 @@
     width: 20%;
 }
 
-input{
+input {
     text-align: center;
     outline: none;
     height: 22px;
     background-color: #FFFFE0;
 }
 
-    input[type=number]::-webkit-inner-spin-button,
-    input[type=number]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            appearance: none;
-    }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
 
-    .th1{
-      width: 10%;
-      height: 20px;
-    }
-    .th2{
+.th1 {
+    width: 10%;
+    height: 20px;
+}
+
+.th2 {
     width: 30%;
-    }
-    .th3{
+}
+
+.th3 {
     width: 10%;
-    }
-    .th4{
+}
+
+.th4 {
     width: 10%;
-    }
-    .th5{
-        width: 10%;
-    }
-    .th6{
+}
+
+.th5 {
     width: 10%;
-    }
+}
+
+.th6 {
+    width: 10%;
+}
+
+.thnumero1,
+#filterCodigo {
+    text-align: right;
+    padding-right: 15px;
+}
+
+.thnumero2,
+#filterCliente {
+    text-align: left;
+    padding-left: 15px;
+}
+
+.itensPedido {
+    width: 100%;
+}
+
+.ulPrint {
+    height: 750px;
+    width: 935px;
+    margin: 0;
+    padding: 0;
+}
+
+.printVenda {
+    font-size: 15px;
+    width: 700px;
+    height: 450px;
+    color: #000;
+    left: 350px;
+    top: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 5px
+}
+
+.liPrintHeader {
+    border: 1px solid rgb(0, 0, 0);
+    display: flex;
+    padding: 2px;
+    box-sizing: border-box;
+}
+
+.liPrintEndereco {
+    align-items: center;
+    color: rgb(0, 0, 0);
+    width: 100%;
+    font-size: 20px;
+    margin-left: 15px;
+    display: flex;
+}
+
+
+#listaItens {
+    height: 120px;
+    overflow-y: scroll;
+    margin-top: -10px;
+}
+#listaItensTodos {
+    height: 120px;
+    overflow-y: scroll;
+    margin-top: -10px;
+    /* background-color: red; */
+    justify-content: center;
+}
+
+.listaPedidos{
+    border: none;
+    display: flex;
+    margin-left: 0;
+    width: 100%;
+    height: 22px;
+    margin-top: 0px;
+    justify-content: center;
+    margin-top: -1px;
+}
+
+.descricaoLista {
+    border: none;
+    display: flex;
+    margin-left: 0;
+    width: 100%;
+    height: 22px;
+    margin-top: 0px;
+    justify-content: center;
+
+}
+
+.liList {
+    border: none;
+    display: flex;
+    margin-left: -12.5px;
+    width: 100%;
+    height: 22px;
+    justify-content: center;
+    margin-top: -px
+}
+
+.descricaoLista:hover {
+    border: none;
+    height: 22px;
+
+}
+
+.liList:hover {
+    border: none;
+    height: 22px;
+    background-color: rgb(247, 247, 247);
+}
+
+.codigo {
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 140px;
+    display: flex;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+}
+
+.produtos {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vlUnitario {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formaPag {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    width: 155px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.qtde {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vlTotal {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-left: none;
+    width: 156px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.totalVenda {
+    height: 22px;
+    position: absolute;
+    bottom: 10px;
+    right: 100px;
+}
+
+.numero {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+}
+
+#dateFilter {
+    display: flex;
+    justify-content: center;
+    height: 80px;
+}
+
+#valores {
+    width: 150px;
+    height: 22px;
+    font-size: 20px;
+}
+
+.tdvalores2 {
+    margin-left: -15px;
+}
