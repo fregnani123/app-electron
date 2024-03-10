@@ -14,8 +14,7 @@ const listaItensTodos = document.querySelector('#listaItensTodos');
 const valoresDinheiro = document.querySelector('.valoresDinheiro');
 const valoresCartao = document.querySelector('.valoresCartao');
 const valoresPIX = document.querySelector('.valoresPIX');
-
-
+const totalRelatorio = document.querySelector('.valorTotal');
 
 let SD, ED;
 
@@ -83,9 +82,7 @@ function filterPedidos(SD, ED) {
             spanTotal.classList.add('spaTotal');
             spanTotal.textContent = Number(pedidos.total).toFixed(2);
            
-    
-    
-            li.classList.add('listaPedidos');
+            li.classList.add('liPedidos');
             li.appendChild(spanNumero);
             li.appendChild(spanCliente);
             li.appendChild(spanDate);
@@ -125,7 +122,11 @@ function filterPedidos(SD, ED) {
 
             valoresDinheiro.innerHTML =totalDinheiro.toFixed(2);
             valoresCartao.innerHTML =totalCartao.toFixed(2);
-            valoresPIX.innerHTML =totalPIX.toFixed(2);
+            valoresPIX.innerHTML = totalPIX.toFixed(2);
+           totalRelatorio.innerHTML = parseFloat(totalDinheiro + totalCartao + totalPIX).toFixed(2)
+        
+        
+        
 
         console.log("Pedidos no período:", pedidosDatas);
 

@@ -152,6 +152,12 @@ th {
     appearance: none;
 }
 
+input {
+    text-align: center;
+    outline: none;
+    height: 22px;
+    background-color: #FFFFE0;
+}
 
 #dinheiro-recebido[type=number]::-webkit-inner-spin-button,
 #dinheiro-recebido[type=number]::-webkit-outer-spin-button {
@@ -175,7 +181,6 @@ th {
     display: flex;
     text-align: center;
     border: 1px solid #ccc;
-    border-radius: 5px;
     padding: 2px;
     height: 29px;
     font-size: 16px;
@@ -192,13 +197,13 @@ th {
 #inputCPF {
     text-align: center;
     outline: none;
-    height: 22px;
+    height: 23px;
     background-color: #FFFFE0;
 }
 
 #input-EAN {
     border: 1px solid #ccc;
-    border-radius: 5px;
+    margin-left: 2px;
     padding: 2px;
     height: 22px;
     font-size: 16px;
@@ -208,11 +213,12 @@ th {
 
 #inputCPF {
     border: 1px solid #ccc;
-    border-radius: 5px;
     padding: 2px;
+    margin-left: 5px;
     font-size: 16px;
     background-color: #FFFFE0;
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+    width: 215px;
 }
 
 #input-qtd {
@@ -221,7 +227,6 @@ th {
     font-size: 15px;
     background-color: #FFFFE0;
     border: 1px solid #ccc;
-    border-radius: 5px;
     padding: 2px;
     font-size: 16px;
     background-color: #FFFFE0;
@@ -249,7 +254,6 @@ input[type="text"] {
     padding: 2px;
     box-sizing: border-box;
     border: 1px solid #ccc;
-    border-radius: 2px;
     outline: none;
     background-color: #FFFFE0;
 }
@@ -277,8 +281,9 @@ button:hover {
 }
 
 .produto {
-    width:20%;
+    width: 20%;
 }
+
 .descricao {
     width: 34%;
 }
@@ -333,38 +338,29 @@ button:hover {
     background-color: rgb(247, 247, 247);
 }
 
-.li-carrinho {
-    width: 98%;
-    cursor: auto;
-    border: none;
-    font-size: 17px;
-    background-color: rgb(247, 247, 247);
-    padding: 2px;
-    align-items: center;
-    justify-content: right;
-    height: 20px;
-    cursor: pointer;
-    text-align: center;
-    justify-content: center;
-
-}
-
-.li-carrinho:hover {
-    cursor: auto;
-    background-color: rgb(247, 247, 247);
-    height: 20px;
-}
-
-#forma-pagamento, #vendedor {
-    margin: 0;
+#forma-pagamento{
     text-align: center;
     outline: none;
-    width: 50%;
+    width: 345px;
     height: 29px;
-    border-radius: 2px;
     background-color: #FFFFE0;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 2px;
+    font-size: 16px;
+    margin-left: 2px;
+    background-color: #FFFFE0;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+#vendedor {
+    margin: 0;
+    margin-left: 0px;
+    text-align: center;
+    outline: none;
+    width: 296px;
+    height: 29px;
+    margin-left: 2px;
+    background-color: #FFFFE0;
+    border: 1px solid #ccc;
     padding: 2px;
     font-size: 16px;
     background-color: #FFFFE0;
@@ -449,33 +445,27 @@ option {
     color: white;
     padding-top: 5px;
     padding-bottom: 5px;
-    margin-top: -0px;
+    margin-top: 0px;
 }
-
-.div-table1 {
-    height: 300px;
-    width: 50%;
-    margin-top: 0;
-    border: 1px solid var(--cor-BorderCinza);
+.titulo-finalizar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 38, 87);
+    height: 10px;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;   
 }
-
-.div-table2 {
-    height: 300px;
-    width: 50%;
-    border: 1px solid var(--cor-BorderCinza);
-    border-left: none;
-}
-
 .spanCli {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgb(0, 38, 87);
     color: white;
-    /* border: 1px solid rgba(128, 128, 128, 0.342); */
+    border: 1px solid rgba(128, 128, 128, 0.342);
     height: 20px;
     margin-top: 0px;
-
 }
 
 #total {
@@ -503,7 +493,7 @@ option {
     border: 1px solid rgba(128, 128, 128, 0.342);
     border-left: none;
     height: 19px;
-    margin-top: -19px;
+    margin-top: -22px;
 }
 
 #troco {
@@ -544,7 +534,7 @@ option {
 
 .dataHJ {
     margin-left: 0px;
-     padding-left: 150px;
+    padding-left: 150px;
 }
 
 .dinheiro-recebido {
@@ -559,57 +549,43 @@ option {
     border-left: none;
 }
 
-.forma-pagamento {
-    margin-top: -15px;
-    display: flex;
-    justify-content: center;
-    padding: 1px;
-    color: white;
-    border: 1px solid rgba(128, 128, 128, 0.342);
-    border-right: none;
-    /* padding-bottom: 42px; */
-}
-
-
 #clienteEncontrado {
     text-align: center;
     font-size: 16px;
     height: 29px;
     outline: none;
-    border: none;
     background-color: rgba(255, 255, 255, 0);
-    border-right: none;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 3px;
     font-size: 16px;
     background-color: #FFFFE0;
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
-    width: 80%;
+    width: 435px;
+     margin-left: 2px;
 }
 
 .clienteEncontrado {
-    justify-content: center;
     text-align: center;
     align-items: center;
     display: flex;
     margin-top: -15px;
-    height: 22px;
+    height: 26px;
     padding: 3.5px;
     border: 1px solid rgba(128, 128, 128, 0.342);
-    border-right: none;
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .clienteTitulo {
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    display: flex;
-    background-color: rgb(0, 38, 87);
-    height: 20px;
-    color: white;
-    /* border: 1px solid rgba(128, 128, 128, 0.342); */
-    margin-top: 0;
+   text-align: center;
+   align-items: center;
+   display: flex;
+   height: 20px;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   margin-top: -11px;
 }
 
 .tituloBuscarCli {
@@ -623,20 +599,6 @@ option {
     border: 1px solid rgba(128, 128, 128, 0.342);
 }
 
-.spanCPF {
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    margin-top: -15px;
-    height: 20px;
-    padding: 5px;
-    border: 1px solid rgba(128, 128, 128, 0.342);
-    border-right: none;
-}
-
-.spanCPFtitulo {
-    margin-left: -30px;
-}
 
 .container-finalizar {
     display: flex;
@@ -654,7 +616,214 @@ option {
 .divPrint {
     display: none;
 }
+
 .correcaoMarginTop {
     width: 100%;
-    height:10px;
+    height: 10px;
+}
+
+.descricaoLista {
+    border: none;
+    display: flex;
+    margin-left: 20px;
+    margin-top: -15px;
+    width: 100%;
+    height: 22px;
+    justify-content: left;
+}
+
+.codigoP,
+.spanCodigo,
+.spanNumero {
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 170px;
+    display: flex;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+}
+
+.produtos,
+.spanNome {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.descricaoList,
+.spanDescricao {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.precoProduto,
+.spanPrecoNovo {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    width: 155px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vlTotal,
+.spanQtd {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-left: none;
+    width: 156px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deletar {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-left: none;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.li-carrinho {
+    border: none;
+    display: flex;
+    width: 100%;
+    height: 22px;
+    margin-left: -24px;
+    margin-top: 2px;
+}
+
+.li-carrinho:hover {
+    border: none;
+    height: 22px;
+
+}
+
+.clienteCPF {
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    width: 439px;
+    display: flex;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+}
+
+.clienteCPFInput {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    border-top: none;
+    width: 440px;
+    margin-left: -9px;
+   
+}
+
+.clienteBuscar {
+    border: 1px solid rgb(173, 173, 173);
+    border-left:none ;
+    width: 300px;
+    padding-left: 50px;
+    display: flex;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+}
+
+.spanCPFtitulo {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: flex;
+    height: 35px;
+    border: 1px solid rgb(173, 173, 173);
+    border-top:none;
+    width:350px;
+    align-items: center;
+}
+
+.spanFormPag {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    border-right: 1px solid rgb(173, 173, 173);
+    width: 300px;
+    padding-left: 50px;
+}
+
+
+
+.spanFormVende {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    border-right: 1px solid rgb(173, 173, 173);
+    border-bottom: 1px solid rgb(173, 173, 173);
+    width: 300px
+   
+}
+
+.div-table1 {
+    height: 300px;
+    margin-top: 5px;
+    width: 100%;
+}
+.formaPag {
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    width: 300px;
+    display: flex;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+    border-left: none;
+}
+.alterarCli{
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    width: 400px;
+    display: flex;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+    border-right: none;
+}
+.digiteCPF{
+       margin-top: 0px;
+       margin-left: -9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 35px;
+        border: 1px solid rgb(173, 173, 173);
+        border-top: none;
+        border-right: none;
+        width: 409px;
 }

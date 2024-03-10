@@ -147,8 +147,48 @@ document.addEventListener('DOMContentLoaded', function () {
         carrinho.forEach((item, index) => {
             const numeroItemCarrinho = (index + 1).toString().padStart(3, '0')
             const li = document.createElement('li');
-            li.classList.add('li-carrinho')
-            li.textContent = `${numeroItemCarrinho} Cod:${item.produto.codigoDeBarras} - ${item.produto.nome} - Preço: R$ ${(item.produto.preco).toFixed(2)} x${item.quantidade}`;
+            console.log(item)
+
+            const spanItem = document.createElement('span');
+            spanItem.classList.add('spanNumero');
+            spanItem.textContent = numeroItemCarrinho;
+
+
+            const spanCodigo = document.createElement('span');
+            spanCodigo.classList.add('spanCodigo');
+            spanCodigo.textContent = item.produto.codigoDeBarras;
+
+
+            const spanNome = document.createElement('span');
+            spanNome.classList.add('spanNome');
+            spanNome.textContent = item.produto.nome;
+
+            const spanDescricao = document.createElement('span');
+            spanDescricao.classList.add('spanDescricao');
+            spanDescricao.textContent = item.produto.descricao;
+
+            const spanPreco = document.createElement('span');
+            spanPreco.classList.add('spanPrecoNovo');
+            spanPreco.innerText = Number(item.produto.preco).toFixed(2)
+
+            const spanQtd = document.createElement('span');
+            spanQtd.classList.add('spanQtd');
+            spanQtd.textContent = Number(item.quantidade);
+
+            const spanTotal = document.createElement('span');
+            spanTotal.classList.add('spanQtd');
+            spanTotal.textContent = Number(item.produto.preco * item.quantidade).toFixed(2);
+
+            li.classList.add('li-carrinho');
+            li.appendChild(spanItem);
+            li.appendChild(spanCodigo);
+            li.appendChild(spanNome);
+            li.appendChild(spanDescricao);
+            li.appendChild(spanPreco);
+            li.appendChild(spanQtd);
+            li.appendChild(spanTotal);
+            lista.appendChild(li)
+
 
             const buttonExcluir = document.createElement('button');
             buttonExcluir.classList.add('buttonExcluir');
@@ -156,6 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
             imgExcluir.src = '../img/remover.png';
             buttonExcluir.appendChild(imgExcluir)
             imgExcluir.classList.add('excluir')
+
 
             buttonExcluir.addEventListener('click', () => {
                 carrinho.splice(index, 1);
@@ -334,13 +375,14 @@ document.addEventListener('DOMContentLoaded', function () {
     </li>
     <li class="borderProdutos"></li></br>
     <li class="descricaoLista"><span class="item">Item</span><span class="codigo">Código</span><span
-            class="produtos">Produtos</span><span class="vlUnitario">Valor Unitário</span><span
+            class="produtos">Produto - Descrição</span><span class="vlUnitario">Valor Unitário</span><span
             class="qtde">Qtde</span><span class="vlTotal">valor Total</span></li>
     `;
 
         carrinho.forEach((item, index) => {
             const codigoDoProduto = item.produto.codigoDeBarras;
             const nomeDoProduto = item.produto.nome;
+            const descricao = item.produto.descricao;
             const precoDoProduto = item.produto.preco;
             const QtdProduto = item.quantidade;
             const subtotal = parseFloat(precoDoProduto * QtdProduto)
@@ -350,8 +392,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const numeroItem = (index + 1).toString().padStart(3, '0'); // Formatação do número do item
             ul.innerHTML += `
            
-        <li class="descricaoLista"><span class="item">${numeroItem}</span><span class="codigo">${codigoDoProduto}</span><span
-                    class="produtos">${nomeDoProduto}</span><span class="vlUnitario">${precoDoProduto.toFixed(2)}</span><span
+        <li class="descricaoLista"><span class="item">${numeroItem}</span><span class="codigo">${codigoDoProduto}</span><span class="SpanProdutos"> <span class='correcaoCss'>${nomeDoProduto}</span> - ${descricao}</span><span class="vlUnitario">${precoDoProduto.toFixed(2)}</span><span
                     class="qtde">${QtdProduto}</span><span class="vlTotal">${subtotal.toFixed(2)}</span></li>
     `;
         });
@@ -367,31 +408,31 @@ document.addEventListener('DOMContentLoaded', function () {
         newWindow.document.open();
         newWindow.document.write('<html><head><title></title>');
         newWindow.document.write(`
-          <style>
+         <style>
         body {
             padding: 0;
             margin: 0;
         }
-
+    
         .imgLogoLoja {
             width: 150px;
             height: auto;
             padding: 5px;
         }
-
+    
         .divPrint {
             width: 940px;
             height: 680px;
             position: relative;
         }
-
+    
         .ulPrint {
             height: 750px;
             width: 935px;
             margin: 0;
             padding: 0;
         }
-
+    
         .liPrint,
         .liPrintHeader,
         .liPrintProdutos {
@@ -399,7 +440,7 @@ document.addEventListener('DOMContentLoaded', function () {
             margin-right: 5px;
             list-style-type: none
         }
-
+    
         .printVenda {
             font-size: 15px;
             width: 700px;
@@ -412,14 +453,14 @@ document.addEventListener('DOMContentLoaded', function () {
             justify-content: center;
             padding: 5px
         }
-
+    
         .liPrintHeader {
             border: 1px solid rgb(0, 0, 0);
             display: flex;
             padding: 2px;
             box-sizing: border-box;
         }
-
+    
         .liPrintEndereco {
             align-items: center;
             color: rgb(0, 0, 0);
@@ -428,7 +469,7 @@ document.addEventListener('DOMContentLoaded', function () {
             margin-left: 15px;
             display: flex;
         }
-
+    
         .liPrintProdutos {
             display: flex;
             box-sizing: border-box;
@@ -439,8 +480,8 @@ document.addEventListener('DOMContentLoaded', function () {
             margin-top: 0;
             border-left: 1px solid rgb(0, 0, 0);
         }
-
-     .liPrintInfo {
+    
+        .liPrintInfo {
             display: flex;
             box-sizing: border-box;
             margin-left: 5px;
@@ -453,7 +494,8 @@ document.addEventListener('DOMContentLoaded', function () {
             border-top: none;
             border-bottom: none;
         }
-     .borderProdutos {
+    
+        .borderProdutos {
             border: 1px solid rgb(0, 0, 0);
             z-index: -1;
             position: absolute;
@@ -464,7 +506,7 @@ document.addEventListener('DOMContentLoaded', function () {
             border-top: none;
             list-style: none;
         }
-
+    
         .descricaoLista {
             height: 25px;
             display: flex;
@@ -475,17 +517,20 @@ document.addEventListener('DOMContentLoaded', function () {
             margin-top: 0;
             align-items: center;
             margin-top: -4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-
+    
         .item {
             display: flex;
             justify-content: center;
             align-items: center;
             margin-left: 0;
             border: 1px solid rgb(0, 0, 0);
-            width: 100px;
+            width: 80px;
         }
-
+    
         .codigo {
             margin-left: 0;
             border: 1px solid rgb(0, 0, 0);
@@ -496,52 +541,70 @@ document.addEventListener('DOMContentLoaded', function () {
             justify-content: center;
             align-items: center;
         }
-
-        .produtos {
-            margin-left: 0;
+    
+        .SpanProdutos {
             border: 1px solid rgb(0, 0, 0);
             border-right: none;
-            width: 290px;
+            width: 400px;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .produtos {
+            border: 1px solid rgb(0, 0, 0);
+            border-right: none;
+            width: 400px;
             display: flex;
             justify-content: center;
             align-items: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-
+        .correcaoCss{
+         padding-left:10px
+        }
+    
         .vlUnitario {
             margin-left: 0;
             border: 1px solid rgb(0, 0, 0);
             border-right: none;
-            width: 130px;
+            width: 105px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-
+    
         .qtde {
             margin-left: 0;
             border: 1px solid rgb(0, 0, 0);
-            width: 100px;
+            width: 90px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-
+    
         .vlTotal {
             margin-left: 0;
             border: 1px solid rgb(0, 0, 0);
             border-left: none;
             border-right: none;
-            width: 156px;
+            width: 126px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .totalVenda{
+    
+        .totalVenda {
             position: absolute;
             bottom: 10px;
             right: 100px;
         }
-         .numero{
+    
+        .numero {
             position: absolute;
             bottom: 10px;
             left: 20px;

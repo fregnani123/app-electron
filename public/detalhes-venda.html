@@ -12,7 +12,14 @@
         .menu-item-3,
         .a-menu3 {
             height: 22px;
-            background-color: white;
+            color: white;
+            background-color: rgb(0, 38, 87);
+        }
+        .menu-item-3:hover,
+        .a-menu3:hover {
+            height: 22px;
+            color: white;
+            background-color: rgb(0, 38, 87);
         }
     </style>
 </head>
@@ -79,7 +86,7 @@
 
                 <table>
                         <tr>
-                            <th colspan="4">
+                            <th colspan="5">
                                 Relatório de Pedidos por período.
                             </th>
                         </td>
@@ -91,6 +98,9 @@
                             <input type="date" id="endDate">
                             </td>
                             <td class="tdvalores">
+                               <p class="tdvalores2">Total de Vendas</p> <span class="valorTotal" id="valores">0.00</span>
+                            </td>
+                            <td class="tdvalores">
                                <p class="tdvalores2">Valores no Dinheiro</p> <span class="valoresDinheiro" id="valores">0.00</span>
                             </td>
                             <td class="tdvalores">
@@ -99,17 +109,22 @@
                             <td class="tdvalores">
                             <p class="tdvalores2">Valores no Pix</p> <span class="valoresPIX" id="valores">0.00</span>
                             </td>
-
                 </table>
                 <table>
                     <tr>
                         <td class="itensPedido">
                             <p class="descricaoLista"><span class="codigo">Nº Pedido</span><span class="produtos">Cliente</span><span
-                                    class="vlUnitario">Data da Venda</span><span class="formaPag">Forma de Pagamento</span><span class="vlTotal">
+                                    class="dataVenda">Data da Venda</span><span class="formaPag">Forma de Pagamento</span><span class="vlTotal">
                                     Total</span>
                             </p>
                             <ul id="listaItensTodos">
-                                <!-- <li class="listaPedidos"><span class="codigoFilter">2<span><span>consumidor</span></li> -->
+                                <!-- <li class="liPedidos">
+                                    <span class="spanNumero">2</span>
+                                    <span class="spanCliente">consumidor</span>
+                                    <span class="spanDate">04/03/2024, 11:14:56</span>
+                                    <span class="spanPag">Dinheiro</span>
+                                    <span class="spanTotal">200,00</span>
+                                </li> -->
                             </ul>
                         </td>
                     </tr>

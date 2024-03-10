@@ -13,8 +13,16 @@
         .menu-item-2,
         .a-menu2 {
             height: 22px;
-            background-color: white;
+            color: white;
+            background-color: rgb(0, 38, 87);
         }
+        .menu-item-2:hover,
+        .a-menu2:hover {
+            height: 22px;
+            color: white;
+            background-color: rgb(0, 38, 87);
+        }
+
     </style>
 </head>
 <div class="container">
@@ -64,31 +72,33 @@
                     </td>
                 </tr>
             </table>
-
             <p class="titulo-carrinho">Produtos Adicionados ao Carrinho</p>
-            <ul id="lista"></ul>
+                <p class="descricaoLista"><span class="codigoP">Ítem</span><span class="codigoP">Código</span><span class="produtos">Produto</span><span
+                        class="descricaoList">Descrição</span><span class="precoProduto">Preço</span><span class="vlTotal">
+                        Qtd</span><span class="vlTotal">
+                            Total</span ><span class="deletar">Deletar</span>
+                </p>
+            <ul id="lista">
 
+            </ul>
+        
             <div class="container-finalizar">
                 <div class="div-table1">
-                    <p class="clienteTitulo">Cliente</p>
-                    <p class="clienteEncontrado"><input id="clienteEncontrado" type="text" value="Consumidor">
+                <p class="titulo-finalizar">Finalizar Pedido</p>
+                    <p class="clienteTitulo"><span class="alterarCli">Alterar Cliente</span><span class="clienteCPF">Cliente</span><span class="clienteBuscar">Forma de Pagamento</span></span><span class="formaPag">Vendedor</span></p>
+                    
+                    <p class="clienteEncontrado"><span class="digiteCPF">Digite o CPF do Cliente:<input id="inputCPF" type="number" readonly></span><span class="clienteCPFInput"><input id="clienteEncontrado" type="text" value="Consumidor"></span><span class="spanCPFtitulo"><select id="forma-pagamento">
+                                    <option value="Dinheiro">Dinheiro</option>
+                                    <option value="Cartao">Cartão</option>
+                                    <option value="PIX">PIX</option>
+                                </select></span><span  class="spanFormVende"><select id="vendedor">
+                                    <option value="Julio">Julio</option>
+                                    <option value="Jair">Jair</option>
+                                </select></span>
                     </p>
-                    <p class="tituloBuscarCli">Buscar Cliente</p>
-                    <p id="spanCPF" class="spanCPF"><span class="spanCPFtitulo">Digite o CPF do Cliente:&nbsp;<input
-                                id="inputCPF" type="number" readonly></span></p>
-                    <p class="spanPG">Forma de Pagamento</p>
-                    <p class="forma-pagamento"><select id="forma-pagamento">
-                            <option value="Dinheiro">Dinheiro</option>
-                            <option value="Cartao">Cartão</option>
-                            <option value="PIX">PIX</option>
-                        </select></p>
-                    <p class="spanPG">Vendedor</p>
-                    <p class="forma-pagamento"><select id="vendedor">
-                            <option value="Julio">Julio</option>
-                            <option value="Jair">Jair</option>
-                        </select></p>
+                
                 </div>
-                <div class="div-table2">
+                <!-- <div class="div-table2">
                     <p class="spanCli"><span class="divPagamento">Valor Recebido do Cliente</span></p>
                     <p class="dinheiro-recebido"><span class="spanPagamento"><input type="text" id="dinheiro-recebido"
                                 autocomplete="off" value=""></span></p>
@@ -98,7 +108,7 @@
                     <p id="total">0.00</p>
                     <p class="finalizar-venda"><button id="finalizar-venda">Finalizar
                             Venda</button></p>
-                </div>
+                </div> -->
             </div>
         </div>
 </div>
