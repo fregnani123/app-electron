@@ -1,9 +1,9 @@
 
 const menuItens = [
-    { id: '1', texto: 'Painel de controle', to: './controllers.html' },
+    { id: '1', texto: 'Painel de Controle', to: './controllers.html' },
     { id: '2', texto: 'Realizar venda', to: './screenSales.html' },
     { id: '3', texto: 'Detalhes de Venda', to: '../public/detalhes-venda.html' },
-    { id: '4', texto: 'Cadastro de produto', to: './Cadastro-de-produto.html' },
+    { id: '4', texto: 'Cadastro de Produto', to: './Cadastro-de-produto.html' },
     { id: '5', texto: 'Alterar Produto', to: '../public/alterar-produto.html' },
     { id: '6', texto: 'Excluir Produto', to: '../public/excluir-produtos.html' },
     { id: '7', texto: 'Cadastro Cliente', to: '../public/cadastro-cliente.html' },

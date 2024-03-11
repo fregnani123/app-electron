@@ -10,7 +10,9 @@ header {
     justify-content: center;
     background-color: white;
 }
-
+.bodyMenu{
+    background-color: rgb(0, 38, 87);
+}
 .electron-menu {
     background-color: #ce0f0f;
     /* Mude a cor de fundo */
@@ -90,19 +92,6 @@ a {
     position: absolute;
     display: none;
 }
-
-/* .menu-item-1,
-.menu-item-2,
-.menu-item-3,
-.menu-item-4,
-.menu-item-5,
-.menu-item-6,
-.menu-item-7,
-.menu-item-8,
-.menu-item-9 {
-    background-color: rgb(0, 255, 76);
-} */
-
 .menu-item-li-Exit:hover {
     background-color: rgb(0, 38, 87);
     border: 1px solid rgb(0, 38, 87);

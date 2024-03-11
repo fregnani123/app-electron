@@ -1,13 +1,14 @@
-const newProductForm = document.getElementById('formProdutos');
+const newProductForm = document.querySelector('#cadastrar');
 const produtoCadastrado = document.querySelector('#alert');
 
-newProductForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
+newProductForm.addEventListener('click', formCadastrar); 
+
+async function formCadastrar() {
+    console.log('clicado')
 
     const urlGetProdutoDate = 'http://204.216.187.179:3000/findProduto';
     const urlNewProduct = 'http://204.216.187.179:3000/newProduto';
 
-    // Aqui estão as variáveis para obter os valores dos campos do formulário
     const nomeProduto = document.getElementById('nomeProduto').value;
     const descricaoProduto = document.getElementById('descricao').value;
     const precoProduto = document.getElementById('preco').value;
@@ -15,7 +16,6 @@ newProductForm.addEventListener('submit', async (e) => {
     const estoqueProduto = document.getElementById('estoque').value;
     const codigoDeBarrasProduto = document.getElementById('codigoDeBarras').value;
 
-    // Função para limpar os campos do formulário
     function limparInputs() {
         document.getElementById('nomeProduto').value = '';
         document.getElementById('descricao').value = '';
@@ -42,14 +42,14 @@ newProductForm.addEventListener('submit', async (e) => {
 
         // Verificar se o código de barras já existe nos produtos baixados
         const codigoDeBarrasExiste = data.some(produto => Number(produto.codigoDeBarras) === Number(codigoDeBarrasProduto.trim()));
-        
+
         if (codigoDeBarrasExiste) {
             alert('Erro: O código de barras já existe no banco de dados.');
             return;
         }
 
         // Se o código de barras não existir, podemos prosseguir com a inserção do novo produto
-       
+
         const responseNewProduct = await fetch(urlNewProduct, {
             method: 'POST',
             headers: {
@@ -75,4 +75,4 @@ newProductForm.addEventListener('submit', async (e) => {
     } catch (error) {
         console.error('Erro:', error.message);
     }
-});
+};

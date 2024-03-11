@@ -16,13 +16,13 @@
             color: white;
             background-color: rgb(0, 38, 87);
         }
+
         .menu-item-2:hover,
         .a-menu2:hover {
             height: 22px;
             color: white;
             background-color: rgb(0, 38, 87);
         }
-
     </style>
 </head>
 <div class="container">
@@ -51,8 +51,7 @@
                 <tr>
                     <td colspan="5th"><span class="tdEAN"> Digite o Código do Produto: <input id="input-EAN"
                                 type="number"><button id="buttonAddCarrinho">Adicionar
-                                Produto</button><button id="button-clear">Limpar EAN</button><span class="dataHJ">Data:
-                                <span class="date"></span></span></span></td>
+                                Produto no Carrinho</button><button id="button-clear">Limpar EAN</button></span></td>
                 </tr>
                 <tr>
                     <th class="codigo">Código</th>
@@ -73,42 +72,59 @@
                 </tr>
             </table>
             <p class="titulo-carrinho">Produtos Adicionados ao Carrinho</p>
-                <p class="descricaoLista"><span class="codigoP">Ítem</span><span class="codigoP">Código</span><span class="produtos">Produto</span><span
-                        class="descricaoList">Descrição</span><span class="precoProduto">Preço</span><span class="vlTotal">
-                        Qtd</span><span class="vlTotal">
-                            Total</span ><span class="deletar">Deletar</span>
-                </p>
+            <p class="descricaoLista"><span class="item">Ítem</span><span class="codigoP">Código</span><span
+                    class="produtos">Produto</span><span class="descricaoList">Descrição</span><span
+                    class="precoProduto">Preço</span><span class="spanQtd">
+                    Qtd</span><span class="vlTotal">
+                    Total</span><span class="deletar">Deletar</span>
+            </p>
             <ul id="lista">
 
             </ul>
-        
+
             <div class="container-finalizar">
                 <div class="div-table1">
-                <p class="titulo-finalizar">Finalizar Pedido</p>
-                    <p class="clienteTitulo"><span class="alterarCli">Alterar Cliente</span><span class="clienteCPF">Cliente</span><span class="clienteBuscar">Forma de Pagamento</span></span><span class="formaPag">Vendedor</span></p>
-                    
-                    <p class="clienteEncontrado"><span class="digiteCPF">Digite o CPF do Cliente:<input id="inputCPF" type="number" readonly></span><span class="clienteCPFInput"><input id="clienteEncontrado" type="text" value="Consumidor"></span><span class="spanCPFtitulo"><select id="forma-pagamento">
-                                    <option value="Dinheiro">Dinheiro</option>
-                                    <option value="Cartao">Cartão</option>
-                                    <option value="PIX">PIX</option>
-                                </select></span><span  class="spanFormVende"><select id="vendedor">
+                    <p class="titulo-finalizar">Finalizar Pedido</p>
+                    <p class="clienteTitulo"><span class="alterarCli">Alterar Cliente</span><span
+                            class="clienteCPF">Cliente</span><span class="clienteBuscar">Forma de
+                            Pagamento</span></span><span class="formaPag">Valor Recebido</span></p>
+
+                    <p class="clienteEncontrado"><span class="digiteCPF">Digite o CPF do Cliente:<input id="inputCPF"
+                                type="number" autocomplete="off" readonly></span><span class="clienteCPFInput"><input
+                                id="clienteEncontrado" type="text" value="Consumidor"></span><span
+                            class="spanCPFtitulo"><select id="forma-pagamento">
+                                <option value="Dinheiro">Dinheiro</option>
+                                <option value="Cartao">Cartão</option>
+                                <option value="PIX">PIX</option>
+                            </select></span><span class="spanFormVende">
+                            <input type="text" id="dinheiro-recebido" autocomplete="off" value="">
+                           
+                        </span>
+                    </p>
+<div class="divTotal">
+                    <table>
+                        
+                        <tr class="trFinalizar">
+                            <td id="tdVendedor">
+                                <label for="endDate" class="labelDate">Data Pedido: <span class="date"></span></label>
+                                <label for="startDate" class="labelDate">Vendedor: <select id="vendedor">
                                     <option value="Julio">Julio</option>
                                     <option value="Jair">Jair</option>
-                                </select></span>
-                    </p>
-                
+                                </select></label>    
+                            </td>
+                            <td class="tdFinalizar">
+                                <p class="tdvalores2">Troco Cliente</p> <span class="valoresCartao" id="troco">0.00</span>
+                            </td>
+                            <td class="tdFinalizar">
+                                <p class="tdvalores2">Total Pedido</p> <span class="valoresPIX" id="total">0.00</span>
+                            </td>
+                            <td class="btnFinalizar">
+                            <button id="finalizar-venda">Finalizar
+                                        Pedido</button>
+                            </td>
+                    </table>
+                    </div>
                 </div>
-                <!-- <div class="div-table2">
-                    <p class="spanCli"><span class="divPagamento">Valor Recebido do Cliente</span></p>
-                    <p class="dinheiro-recebido"><span class="spanPagamento"><input type="text" id="dinheiro-recebido"
-                                autocomplete="off" value=""></span></p>
-                    <p class="troco">Troco Cliente</p>
-                    <p id="troco">0.00</p>
-                    <p class="total">Total</p>
-                    <p id="total">0.00</p>
-                    <p class="finalizar-venda"><button id="finalizar-venda">Finalizar
-                            Venda</button></p>
-                </div> -->
             </div>
         </div>
 </div>

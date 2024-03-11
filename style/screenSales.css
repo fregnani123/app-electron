@@ -9,7 +9,6 @@
 .menu-list-2 {
     position: absolute;
     left: 150px;
-    background-color: red;
 }
 
 .alert {
@@ -186,6 +185,8 @@ input {
     font-size: 16px;
     background-color: #FFFFE0;
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+    width: 196px;
+    margin-left: 2px;
 }
 
 .display {
@@ -209,6 +210,7 @@ input {
     font-size: 16px;
     background-color: #FFFFE0;
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2px;
 }
 
 #inputCPF {
@@ -235,7 +237,6 @@ input {
 
 #carrinho {
     width: 40%;
-    background-color: red;
     text-align: center;
 }
 
@@ -299,7 +300,6 @@ button:hover {
 .excluir {
     width: 20px;
     margin-left: -10px;
-    margin-top: -9px;
 }
 
 .buttonExcluir {
@@ -328,7 +328,6 @@ button:hover {
 }
 
 #lista {
-
     height: 362px;
     border: 1px solid rgb(221, 221, 221);
     overflow-y: scroll;
@@ -336,6 +335,7 @@ button:hover {
     height: 200px;
     margin-top: -15px;
     background-color: rgb(247, 247, 247);
+    
 }
 
 #forma-pagamento{
@@ -352,12 +352,11 @@ button:hover {
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 #vendedor {
-    margin: 0;
-    margin-left: 0px;
+    margin-left: 10px;
     text-align: center;
     outline: none;
-    width: 296px;
-    height: 29px;
+    width: 200px;
+    height: 28px;
     margin-left: 2px;
     background-color: #FFFFE0;
     border: 1px solid #ccc;
@@ -414,24 +413,12 @@ option {
 
 }
 
-#finalizar-venda {
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: 10px;
-    height: 30px;
-}
-
-.finalizar-venda {
-    width: 100%;
-    margin-top: -56px;
-}
 
 .buscar-cliente {
     display: none;
     position: absolute;
     width: 500px;
     height: 200px;
-    background-color: red;
     bottom: 350px;
     right: 10px;
 }
@@ -471,14 +458,12 @@ option {
 #total {
     font-weight: bold;
     color: #333;
-    font-size: 60px;
     padding-top: 2px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     margin-top: -15px;
-    border: 1px solid rgba(128, 128, 128, 0.342);
     border-left: none;
     padding-bottom: 17px;
     border-top: none;
@@ -497,17 +482,17 @@ option {
 }
 
 #troco {
-    height: 26px;
+font-weight: bold;
+    color: #333;
+    padding-top: 2px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 2px;
-    border: 1px solid rgba(128, 128, 128, 0.342);
-    border-left: none;
+    justify-content: center;
+    position: relative;
     margin-top: -15px;
-    font-size: 20px;
-    box-sizing: border-box;
-    height: 32px;
+    border-left: none;
+    padding-bottom: 17px;
+    border-top: none;
 }
 
 .troco {
@@ -520,8 +505,6 @@ option {
     margin-top: -15px;
 }
 
-
-
 .spanPG {
     background-color: rgb(0, 38, 87);
     color: white;
@@ -532,9 +515,19 @@ option {
     margin-top: -16px;
 }
 
-.dataHJ {
+/* .dataHJ {
     margin-left: 0px;
     padding-left: 150px;
+    background-color: red;
+} */
+.labelDate{
+margin-left: 20px;
+font-size: 16px;
+border: 1px solid rgb(196, 196, 196);
+padding: 2px;
+}
+td{
+    border: 1px solid rgb(196, 196, 196);
 }
 
 .dinheiro-recebido {
@@ -560,7 +553,7 @@ option {
     background-color: #FFFFE0;
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
     width: 435px;
-     margin-left: 2px;
+    margin-left: 2px;
 }
 
 .clienteEncontrado {
@@ -586,6 +579,7 @@ option {
    display: flex;
    justify-content: center;
    margin-top: -11px;
+  
 }
 
 .tituloBuscarCli {
@@ -625,17 +619,35 @@ option {
 .descricaoLista {
     border: none;
     display: flex;
-    margin-left: 20px;
+    margin-left: px;
     margin-top: -15px;
     width: 100%;
     height: 22px;
     justify-content: left;
 }
 
-.codigoP,
+
 .spanCodigo,
 .spanNumero {
-    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 170px;
+    display: flex;
+    height: 22px;
+    justify-content: center;
+    align-items: center;   
+}
+.codigoP{
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 169px;
+    display: flex;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+    
+}
+.item{
     border: 1px solid rgb(173, 173, 173);
     border-right: none;
     width: 170px;
@@ -643,6 +655,7 @@ option {
     height: 22px;
     justify-content: center;
     align-items: center;
+    margin-left: 43px;
 }
 
 .produtos,
@@ -657,8 +670,18 @@ option {
     align-items: center;
 }
 
-.descricaoList,
+
 .spanDescricao {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.descricaoList {
     height: 22px;
     margin-left: 0;
     border: 1px solid rgb(173, 173, 173);
@@ -674,16 +697,26 @@ option {
     height: 22px;
     margin-left: 0;
     border: 1px solid rgb(173, 173, 173);
-    width: 155px;
+    width: 140px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.vlTotal,
+.vlTotal
+ {
+    height: 22px;
+    border: 1px solid rgb(173, 173, 173);
+    border-left: none;
+    width: 158px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+}
+
 .spanQtd {
     height: 22px;
-    margin-left: 0;
     border: 1px solid rgb(173, 173, 173);
     border-left: none;
     width: 156px;
@@ -706,9 +739,10 @@ option {
 .li-carrinho {
     border: none;
     display: flex;
+    justify-content: left;
     width: 100%;
     height: 22px;
-    margin-left: -24px;
+    margin-left: 0px;
     margin-top: 2px;
 }
 
@@ -785,7 +819,7 @@ option {
     height: 35px;
     border-right: 1px solid rgb(173, 173, 173);
     border-bottom: 1px solid rgb(173, 173, 173);
-    width: 300px
+    width: 200px
    
 }
 
@@ -797,7 +831,7 @@ option {
 .formaPag {
     margin-left: 0;
     border: 1px solid rgb(173, 173, 173);
-    width: 300px;
+    width: 200px;
     display: flex;
     height: 22px;
     justify-content: center;
@@ -827,3 +861,37 @@ option {
         border-right: none;
         width: 409px;
 }
+
+.divTotal{
+    width: 100%;
+    height: 125px;
+    margin-top: -15px;
+    
+}
+#tdVendedor{
+    width: 839px;
+    height: 92px;
+    justify-content: center;
+    display: flex;
+}
+.trFinalizar{
+    justify-content: right;
+    display: flex;
+    margin-right: 61px;
+}
+.tdFinalizar{
+    width: 172px;
+    font-size: 20px;
+}
+#finalizar-venda {
+    font-size: 15px;
+    width: 98%;
+    height: 99%;
+    margin-left: -0.5px;
+}
+.btnFinalizar {
+    font-size: 15px;
+    margin-left: -2px;
+    width: 198px;}
+
+
