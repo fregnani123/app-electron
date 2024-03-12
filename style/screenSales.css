@@ -5,6 +5,9 @@
     --background-color: rgb(0, 38, 87);
     ;
 }
+li{
+    border-radius: 0;
+}
 
 .menu-list-2 {
     position: absolute;
@@ -151,11 +154,12 @@ th {
     appearance: none;
 }
 
-input {
+input, #clienteEncontrado {
     text-align: center;
     outline: none;
-    height: 22px;
+    height: 29px;
     background-color: #FFFFE0;
+    font-size: 16px;
 }
 
 #dinheiro-recebido[type=number]::-webkit-inner-spin-button,
@@ -185,6 +189,17 @@ input {
     font-size: 16px;
     background-color: #FFFFE0;
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    margin-left: -1px;
+}
+#inputCPF {
+    display: flex;
+    text-align: center;
+    border: 1px solid #ccc;
+    height: 24px;
+    font-size: 16px;
+    background-color: #FFFFE0;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
     width: 196px;
     margin-left: 2px;
 }
@@ -193,14 +208,6 @@ input {
     display: none;
 }
 
-#input-qtd,
-#input-EAN,
-#inputCPF {
-    text-align: center;
-    outline: none;
-    height: 23px;
-    background-color: #FFFFE0;
-}
 
 #input-EAN {
     border: 1px solid #ccc;
@@ -213,15 +220,7 @@ input {
     margin-bottom: 2px;
 }
 
-#inputCPF {
-    border: 1px solid #ccc;
-    padding: 2px;
-    margin-left: 5px;
-    font-size: 16px;
-    background-color: #FFFFE0;
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
-    width: 215px;
-}
+
 
 #input-qtd {
     width: 90%;
@@ -335,22 +334,21 @@ button:hover {
     height: 200px;
     margin-top: -15px;
     background-color: rgb(247, 247, 247);
-    
+
 }
 
-#forma-pagamento{
+#forma-pagamento {
     text-align: center;
     outline: none;
-    width: 345px;
+    width: 100%;
     height: 29px;
     background-color: #FFFFE0;
     border: 1px solid #ccc;
-    padding: 2px;
     font-size: 16px;
-    margin-left: 2px;
     background-color: #FFFFE0;
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 #vendedor {
     margin-left: 10px;
     text-align: center;
@@ -434,6 +432,7 @@ option {
     padding-bottom: 5px;
     margin-top: 0px;
 }
+
 .titulo-finalizar {
     display: flex;
     justify-content: center;
@@ -442,8 +441,9 @@ option {
     height: 10px;
     color: white;
     padding-top: 5px;
-    padding-bottom: 5px;   
+    padding-bottom: 5px;
 }
+
 .spanCli {
     display: flex;
     align-items: center;
@@ -482,7 +482,7 @@ option {
 }
 
 #troco {
-font-weight: bold;
+    font-weight: bold;
     color: #333;
     padding-top: 2px;
     display: flex;
@@ -520,66 +520,39 @@ font-weight: bold;
     padding-left: 150px;
     background-color: red;
 } */
-.labelDate{
-margin-left: 20px;
-font-size: 16px;
-border: 1px solid rgb(196, 196, 196);
-padding: 2px;
+.labelDate {
+    margin-left: 20px;
+    font-size: 16px;
+    border: 1px solid rgb(196, 196, 196);
+    padding: 2px;
 }
-td{
+
+td {
     border: 1px solid rgb(196, 196, 196);
 }
 
-.dinheiro-recebido {
-    height: 26px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1px;
-    color: white;
-    border: 1px solid rgba(128, 128, 128, 0.342);
-    margin-top: -15px;
-    border-left: none;
-}
-
-#clienteEncontrado {
-    text-align: center;
-    font-size: 16px;
-    height: 29px;
-    outline: none;
-    background-color: rgba(255, 255, 255, 0);
-    border: 1px solid #ccc;
-    font-size: 16px;
-    background-color: #FFFFE0;
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
-    width: 435px;
-    margin-left: 2px;
-}
-
-.clienteEncontrado {
-    text-align: center;
-    align-items: center;
-    display: flex;
-    margin-top: -15px;
-    height: 26px;
-    padding: 3.5px;
-    border: 1px solid rgba(128, 128, 128, 0.342);
-    border-bottom: none;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
 
 .clienteTitulo {
-   text-align: center;
-   align-items: center;
-   display: flex;
-   height: 20px;
-   width: 100%;
-   display: flex;
-   justify-content: center;
-   margin-top: -11px;
-  
+    text-align: center;
+        align-items: center;
+        display: flex;
+        margin-top: -15px;
+        padding: 3.5px;
+        border-bottom: none;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+}
+.clienteTitulo2 {
+    text-align: center;
+        align-items: center;
+        display: flex;
+        margin-top: -26px;
+        padding: 3.5px;
+        border-bottom: none;
+        display: flex;
+        justify-content: center;
+        width: 100%;
 }
 
 .tituloBuscarCli {
@@ -635,9 +608,10 @@ td{
     display: flex;
     height: 22px;
     justify-content: center;
-    align-items: center;   
+    align-items: center;
 }
-.codigoP{
+
+.codigoP {
     border: 1px solid rgb(173, 173, 173);
     border-right: none;
     width: 169px;
@@ -645,9 +619,10 @@ td{
     height: 22px;
     justify-content: center;
     align-items: center;
-    
+
 }
-.item{
+
+.item {
     border: 1px solid rgb(173, 173, 173);
     border-right: none;
     width: 170px;
@@ -681,6 +656,7 @@ td{
     justify-content: center;
     align-items: center;
 }
+
 .descricaoList {
     height: 22px;
     margin-left: 0;
@@ -703,8 +679,7 @@ td{
     align-items: center;
 }
 
-.vlTotal
- {
+.vlTotal {
     height: 22px;
     border: 1px solid rgb(173, 173, 173);
     border-left: none;
@@ -712,7 +687,7 @@ td{
     display: flex;
     justify-content: center;
     align-items: center;
- 
+
 }
 
 .spanQtd {
@@ -761,6 +736,35 @@ td{
     justify-content: center;
     align-items: center;
 }
+.clienteCPF:hover {
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    width: 439px;
+    display: flex;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0);
+}
+.clienteCPF2 {
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    width: 439px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+}
+.clienteCPF2:hover {
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    width: 439px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0);
+}
 
 .clienteCPFInput {
     margin-top: 0px;
@@ -771,14 +775,12 @@ td{
     border: 1px solid rgb(173, 173, 173);
     border-right: none;
     border-top: none;
-    width: 440px;
-    margin-left: -9px;
-   
+    width: 430px;
 }
 
 .clienteBuscar {
     border: 1px solid rgb(173, 173, 173);
-    border-left:none ;
+    border-left: none;
     width: 300px;
     padding-left: 50px;
     display: flex;
@@ -786,16 +788,37 @@ td{
     justify-content: center;
     align-items: center;
 }
-
-.spanCPFtitulo {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    display: flex;
-    height: 35px;
+.clienteBuscar:hover {
     border: 1px solid rgb(173, 173, 173);
-    border-top:none;
-    width:350px;
+    border-left: none;
+    width: 300px;
+    padding-left: 50px;
+    display: flex;
+    height: 22px;
+    justify-content: center;
     align-items: center;
+    background-color: rgba(255, 255, 255, 0);
+}
+.clienteBuscar2 {
+    border: 1px solid rgb(173, 173, 173);
+    border-left: none;
+    width: 348px;
+   
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+}
+.clienteBuscar2:hover {
+    border: 1px solid rgb(173, 173, 173);
+    border-left: none;
+    width: 300px;
+    padding-left: 50px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 .spanFormPag {
@@ -807,27 +830,20 @@ td{
     border-right: 1px solid rgb(173, 173, 173);
     width: 300px;
     padding-left: 50px;
+
+}
+
+li{
+    border-radius: none;
 }
 
 
-
-.spanFormVende {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    display: flex;
-    align-items: center;
-    height: 35px;
-    border-right: 1px solid rgb(173, 173, 173);
-    border-bottom: 1px solid rgb(173, 173, 173);
-    width: 200px
-   
-}
 
 .div-table1 {
     height: 300px;
-    margin-top: 5px;
-    width: 100%;
+    margin-top: -10px;
 }
+
 .formaPag {
     margin-left: 0;
     border: 1px solid rgb(173, 173, 173);
@@ -838,7 +854,40 @@ td{
     align-items: center;
     border-left: none;
 }
-.alterarCli{
+.formaPag:hover {
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    width: 200px;
+    display: flex;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+    border-left: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+.formaPag2 {
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    width: 200px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    border-left: none;
+}
+.formaPag2:hover {
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    width: 200px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    border-left: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.alterarCli {
     margin-left: 0;
     border: 1px solid rgb(173, 173, 173);
     width: 400px;
@@ -848,50 +897,117 @@ td{
     align-items: center;
     border-right: none;
 }
-.digiteCPF{
-       margin-top: 0px;
-       margin-left: -9px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        height: 35px;
-        border: 1px solid rgb(173, 173, 173);
-        border-top: none;
-        border-right: none;
-        width: 409px;
+.alterarCli:hover {
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    width: 400px;
+    display: flex;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+    border-right: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+.alterarCli2 {
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    width: 400px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    border-right: none;
+}
+.alterarCli2:hover {
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    width: 400px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    border-right: none;
+    background-color: rgba(255, 255, 255, 0);
 }
 
-.divTotal{
+
+
+.divTotal {
     width: 100%;
     height: 125px;
     margin-top: -15px;
-    
+
 }
-#tdVendedor{
-    width: 839px;
+
+#tdVendedor {
+    width: 848px;
     height: 92px;
     justify-content: center;
     display: flex;
+    
 }
-.trFinalizar{
-    justify-content: right;
+#tdVendedor:hover {
+    width: 848px;
+    height: 92px;
+    justify-content: center;
     display: flex;
-    margin-right: 61px;
+    background-color: rgba(255, 255, 255, 0);
+    
 }
-.tdFinalizar{
+
+.trFinalizar {
+    justify-content: center;
+    display: flex;
+}
+
+.tdFinalizar {
+    display: block;
     width: 172px;
     font-size: 20px;
+    height: 92px;
+    border-left: none;
 }
+.tdFinalizar:hover {
+    display: block;
+    width: 172px;
+    font-size: 20px;
+    height: 92px;
+    border-left: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+.tdvalores2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 #finalizar-venda {
     font-size: 15px;
     width: 98%;
     height: 99%;
-    margin-left: -0.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .btnFinalizar {
+    border-left: none;
     font-size: 15px;
-    margin-left: -2px;
-    width: 198px;}
+    width: 195px;
+    height: 92px;
+}
+.btnFinalizar:hover {
+    font-size: 15px;
+    width: 195px;
+    height: 92px;
+}
 
-
+.ulFinalizar {
+    width: 100%;
+    height: 92px;
+    display: flex;
+    justify-content: center;
+    margin-left: -37px;
+    margin-top: -23px;
+}

@@ -25,16 +25,18 @@
         }
     </style>
 </head>
-<div class="container">
-    <header>
-        <p class="logoMenu"><img id="logo-img" src="../img/logo.png" alt=""></p>
-        <nav>
-            <ul id="ul-Menu">
-            </ul>
-        </nav>
-    </header>
 
-    <body>
+<body>
+    <div class="container">
+        <header>
+            <p class="logoMenu"><img id="logo-img" src="../img/logo.png" alt=""></p>
+            <nav>
+                <ul id="ul-Menu">
+                    <!-- Itens do menu vão aqui -->
+                </ul>
+            </nav>
+        </header>
+
         <div class="container-table">
             <div class="correcaoMarginTop"></div>
             <span class="alert">
@@ -43,6 +45,7 @@
                 <button id="bottonAlert">OK</button>
             </span>
             <div class="divPrint">
+                <!-- Conteúdo da área de impressão vai aqui -->
             </div>
             <table>
                 <tr>
@@ -79,64 +82,66 @@
                     Total</span><span class="deletar">Deletar</span>
             </p>
             <ul id="lista">
-
+                <!-- Itens da lista de produtos adicionados ao carrinho vão aqui -->
             </ul>
 
-            <div class="container-finalizar">
-                <div class="div-table1">
-                    <p class="titulo-finalizar">Finalizar Pedido</p>
-                    <p class="clienteTitulo"><span class="alterarCli">Alterar Cliente</span><span
-                            class="clienteCPF">Cliente</span><span class="clienteBuscar">Forma de
-                            Pagamento</span></span><span class="formaPag">Valor Recebido</span></p>
 
-                    <p class="clienteEncontrado"><span class="digiteCPF">Digite o CPF do Cliente:<input id="inputCPF"
-                                type="number" autocomplete="off" readonly></span><span class="clienteCPFInput"><input
-                                id="clienteEncontrado" type="text" value="Consumidor"></span><span
-                            class="spanCPFtitulo"><select id="forma-pagamento">
-                                <option value="Dinheiro">Dinheiro</option>
-                                <option value="Cartao">Cartão</option>
-                                <option value="PIX">PIX</option>
-                            </select></span><span class="spanFormVende">
-                            <input type="text" id="dinheiro-recebido" autocomplete="off" value="">
-                           
-                        </span>
-                    </p>
-<div class="divTotal">
-                    <table>
-                        
-                        <tr class="trFinalizar">
-                            <td id="tdVendedor">
-                                <label for="endDate" class="labelDate">Data Pedido: <span class="date"></span></label>
-                                <label for="startDate" class="labelDate">Vendedor: <select id="vendedor">
+            <div class="div-table1">
+              
+                <p class="titulo-finalizar">Finalizar Pedido</p>
+
+                <ul class="clienteTitulo">
+                    <li class="alterarCli">Alterar Cliente</li>
+                    <li class="clienteCPF">Cliente</li>
+                    <li class="clienteBuscar">Forma de Pagamento</li>
+                    <li class="formaPag">Valor Recebido</li>
+                </ul>
+
+                <ul class="clienteTitulo2">
+                    <li class="alterarCli2">Digite o CPF do Cliente:<input id="inputCPF"
+                            type="number" autocomplete="off" readonly>
+                    </li>
+                    <li  class="clienteCPF2"><input
+                            id="clienteEncontrado" type="text" value="Consumidor">
+                    </li>
+                    <li class="clienteBuscar2"><select id="forma-pagamento">
+                            <option value="Dinheiro">Dinheiro</option>
+                            <option value="Cartao">Cartão</option>
+                            <option value="PIX">PIX</option>
+                        </select>
+                    </li>
+                    <li class="formaPag2">
+                        <input type="text" id="dinheiro-recebido" autocomplete="off" value="">
+
+                    </li>
+                </ul>
+                
+                <ul class="ulFinalizar">
+                        <li id="tdVendedor">
+                            <label for="endDate" class="labelDate">Data Pedido: <span class="date"></span></label>
+                            <label for="startDate" class="labelDate">Vendedor: <select id="vendedor">
                                     <option value="Julio">Julio</option>
                                     <option value="Jair">Jair</option>
-                                </select></label>    
-                            </td>
-                            <td class="tdFinalizar">
-                                <p class="tdvalores2">Troco Cliente</p> <span class="valoresCartao" id="troco">0.00</span>
-                            </td>
-                            <td class="tdFinalizar">
-                                <p class="tdvalores2">Total Pedido</p> <span class="valoresPIX" id="total">0.00</span>
-                            </td>
-                            <td class="btnFinalizar">
+                                </select></label>
+                        </li>
+                        <li class="tdFinalizar">
+                            <p class="tdvalores2">Troco Cliente</p> <p class="valoresCartao" id="troco">0.00</p>
+                        </li>
+                        <li class="tdFinalizar">
+                            <p class="tdvalores2">Total Pedido</p> <span class="valoresPIX" id="total">0.00</span>
+                        </li>
+                        <li class="btnFinalizar">
                             <button id="finalizar-venda">Finalizar
-                                        Pedido</button>
-                            </td>
-                    </table>
-                    </div>
-                </div>
+                                Pedido</button>
+                        </li>
+                </ul>
             </div>
         </div>
-</div>
-</div>
-</div>
+    </div>
 
-
-<script src="../controllers/screenSales.js"></script>
-<script src="../controllers/menu.js"></script>
-<script src="../controllers/print.js"></script>
-
+    <script src="../controllers/screenSales.js"></script>
+    <script src="../controllers/menu.js"></script>
+    <script src="../controllers/print.js"></script>
 </body>
-</div>
 
 </html>
