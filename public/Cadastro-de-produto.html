@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,7 @@
     <link rel="stylesheet" href="../style/menu.css">
     <link rel="stylesheet" href="../style/cadastro-produto.css">
     <link rel="stylesheet" href="../style/screenSales.css">
-    
+
     <style>
         .menu-item-4,
         .a-menu4 {
@@ -15,6 +16,7 @@
             color: white;
             background-color: rgb(0, 38, 87);
         }
+
         .menu-item-4:hover,
         .a-menu4:hover {
             height: 22px;
@@ -23,7 +25,9 @@
         }
     </style>
 </head>
+
 <div class="container">
+
     <body>
         <header>
             <p class="logoMenu"><img id="logo-img" src="../img/logo.png" alt=""></p>
@@ -32,48 +36,35 @@
                 </ul>
             </nav>
         </header>
-        
+
         <body id="container-sales" class="container-sales">
-       <div class="divForm">
-    
+            <div class="divForm">
                 <table class="tableCadastro">
+
                     <tr>
                         <th class="tituloCadastro">
                             Cadastrar Novo Produto
                         </th>
                         <!-- <th class="tituloCadastro">
                                         Lista de Produtos Cadastrados
-                                    </th> -->
+                                    </th> --><span class="alert">
+                            <img class="imgLogo" src="../img/suporte.png" alt="">
+                            <p class="msg"></p>
+                            <button id="bottonAlert">OK</button>
+                        </span>
                     </tr>
                     <tr>
                         <td>
                             <ul class="ulCadastro">
                                 <li class="spanProdutosCadastro">Nome do Produto</li>
                                 <li class="spanProdutosCadastro2">Descrição do Produto</li>
-                            </ul>
-                            <ul class="ulCadastro2">
-                                <li class="spanProdutosCadastroIn"><input type="text" id="nomeProduto" name="nome" autocomplete="off"
-                                        required></li>
-                                <li class="spanProdutosCadastroIn2"><input type="text" id="descricao" name="descricao"
-                                        autocomplete="off" required></li>
-                            </ul>
-                
-                            <ul class="ulCadastro">
-                                <li class="spanProdutosPreco">Preço de compra</li>
-                                <li class="spanProdutosPreco">Calcular o Markup</li>
-                                <li class="spanProdutosPreco">Preço de Venda</li>
                                 <li class="spanProdutosCategoria">Categoria do Produto</li>
                             </ul>
                             <ul class="ulCadastro2">
-                                <li class="spanProdutosPreco2">
-                                    <!-- <input type="number" id="preco" name="preco" step="0.01" autocomplete="off" required> -->
-                                </li>
-                                <li class="spanProdutosPreco2">
-                                    <!-- <input type="number" id="preco" name="preco" step="0.01" autocomplete="off" required> -->
-                                </li>
-                                <li class="spanProdutosPreco2"><input type="number" id="preco" name="preco" step="0.01"
-                                        autocomplete="off" required>
-                                </li>
+                                <li class="spanProdutosCadastroIn"><input type="text" id="nomeProduto" name="nome"
+                                        autocomplete="off" required></li>
+                                <li class="spanProdutosCadastroIn2"><input type="text" id="descricao" name="descricao"
+                                        autocomplete="off" required></li>
                                 <li class="spanProdutosCategoria2">
                                     <select id="categoria" name="categoria" required>
                                         <option value="">Selecione uma categoria</option>
@@ -97,32 +88,101 @@
                                         <option value="bebidas">Bebidas</option>
                                         <option value="outros">Outros</option>
                                     </select>
-                                   
                                 </li>
                             </ul>
-                
+
                             <ul class="ulCadastro">
                                 <li class="spanProdutosCodigo">Codigo do Produto</li>
                                 <li class="spanProdutosEstoque">Estoque Inicial</li>
-                
+                                <li class="spanProdutosPreco">Preço de compra</li>
+                                <li class="spanProdutosPreco">Calcular o Markup</li>
+                                <li class="spanProdutosPreco">Preço de Venda</li>
+                                <li class="litopBtn"></li>
                             </ul>
                             <ul class="ulCadastro2">
-                                <li class="spanProdutosCodigo2"><input type="number" id="codigoDeBarras" name="codigoDeBarras" required></li>
-                                <li class="spanProdutosEstoque2"><input type="number" id="estoque" name="estoque" autocomplete="off"
-                                        required>
+                                <li class="spanProdutosCodigo2"><input type="number" id="codigoDeBarras"
+                                        name="codigoDeBarras" autocomplete="off" required></li>
+                                <li class="spanProdutosEstoque2"><input type="number" id="estoque" name="estoque"
+                                        autocomplete="off" required>
+                                </li>
+                                <li class="spanProdutosPreco2">
+                                    <!-- <input type="number" id="preco" name="preco" step="0.01" autocomplete="off" required> -->
+                                </li>
+                                <li class="spanProdutosPreco2">
+                                    <!-- <input type="number" id="preco" name="preco" step="0.01" autocomplete="off" required> -->
+                                </li>
+                                <li class="spanProdutosPreco2"><input type="number" id="preco" name="preco" step="0.01"
+                                        autocomplete="off" required>
+                                </li>
+                                <li class="liBtn"><button id="cadastrar">Cadastrar Produto</button>
                                 </li>
                             </ul>
-                            <ul class="ulCadastro2">
-                                <li class="liBtn"><button id="cadastrar" >Cadastrar Produto</button></li>
+
+                    </tr>
+                </table>
+
+                <table class="tableProdutos">
+                    <tr>
+                        <th class="tituloCadastro">
+                            Informações de Produtos Cadastrados
+                        </th>
+                    <tr>
+                        <td class="tdFiltrar">
+                            <p class="tdFiltrarProdutos">
+                                <span>Filtrar Produtos por categoria: </span>
+                                <span>
+                                    <select id="produtoFiltrados" name="categoria" required>
+                                        <option value="">Selecione uma categoria</option>
+                                        <option value="eletronico">Eletrônicos</option>
+                                        <option value="vestuario">Vestuário</option>
+                                        <option value="alimenticio">Alimentício</option>
+                                        <option value="moveis">Móveis</option>
+                                        <option value="beleza">Produtos de beleza</option>
+                                        <option value="automotivo">Automotivo</option>
+                                        <option value="brinquedos">Brinquedos</option>
+                                        <option value="livros">Livros</option>
+                                        <option value="esportes">Artigos esportivos</option>
+                                        <option value="decoracao">Decoração</option>
+                                        <option value="jardinagem">Jardinagem</option>
+                                        <option value="musica">Instrumentos musicais</option>
+                                        <option value="informatica">Informática</option>
+                                        <option value="papelaria">Material de papelaria</option>
+                                        <option value="casa">Produtos para casa</option>
+                                        <option value="ferramentas">Ferramentas</option>
+                                        <option value="artesanato">Artesanato</option>
+                                        <option value="bebidas">Bebidas</option>
+                                        <option value="outros">Outros</option>
+                                    </select>
+                                </span>
+                                <span class="filtrarCodigo">Filtrar Produto Código:</span><span><input type="number" name="" id="codigoEAN"></span>
+                            </p>
+                         
+                            <ul id="listaProdutoFilter">
+                            <li class="descricaoLista0" ><span class="spanItem">Ítem</span><span
+                                        class="codigoP">Código</span><span class="produtos" id="produtosLista">Produto</span><span
+                                        class="descricaoList">Descrição</span><span class="produtos" id="categoriaLista">Categoria</span><span
+                                        class="precoProduto">Preço
+                                        Compra</span><span class="precoProduto">Preço Venda</span><span class="spanQtdP">
+                                        Estoque</span>
+                            </class=></li>
+                            <li class="descricaoLista2"><span class="spanItem">Ítem</span>
+                                    <span span class="codigo0">Código</span>
+                                    <span class="produtos">Produto</span>
+                                    <span class="descricaoList0">Descrição</span>
+                                    <span class="categoriaLista">Categoria</span>
+                                    <span class="precoProduto">Preço Compra</span>
+                                    <span class="precoProduto">Preço Venda</span>
+                                    <span class="spanQtdP">Estoque</span>
+                            </li>
                             </ul>
                         </td>
                     </tr>
+                    </tr>
                 </table>
-                            
+
             </div>
+            <script src="../controllers/menu.js"></script>
+            <script src="../controllers/cadastro-produto.js"></script>
         </body>
-<script src="../controllers/menu.js"></script>
-<script src="../controllers/cadastro-produto.js"></script>
-</body>
 
 </html>

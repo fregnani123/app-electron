@@ -80,4 +80,4 @@ app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') app.quit();
 });
 
-EventEmitter.defaultMaxListeners = 15;
+EventEmitter.defaultMaxListeners = 20;

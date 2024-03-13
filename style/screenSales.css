@@ -69,10 +69,10 @@ li{
     margin-left: 10px;
 }
 
-/* .imgLogo {
+.imgLogo {
     margin-left: 10px;
     width: 70px;
-} */
+}
 
 h3 {
     color: rgb(0, 38, 87);
@@ -161,6 +161,17 @@ input, #clienteEncontrado {
     background-color: #FFFFE0;
     font-size: 16px;
 }
+
+#clienteEncontrado{text-align: center;
+    outline: none;
+    width: 100%;
+    height: 29px;
+    background-color: #FFFFE0;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #FFFFE0;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2)}
+
 
 #dinheiro-recebido[type=number]::-webkit-inner-spin-button,
 #dinheiro-recebido[type=number]::-webkit-outer-spin-button {
@@ -334,10 +345,10 @@ button:hover {
     height: 200px;
     margin-top: -15px;
     background-color: rgb(247, 247, 247);
-
 }
 
 #forma-pagamento {
+    cursor: pointer;
     text-align: center;
     outline: none;
     width: 100%;
@@ -442,6 +453,7 @@ option {
     color: white;
     padding-top: 5px;
     padding-bottom: 5px;
+    width: 110%;
 }
 
 .spanCli {
@@ -538,7 +550,6 @@ td {
         display: flex;
         margin-top: -15px;
         padding: 3.5px;
-        border-bottom: none;
         display: flex;
         justify-content: center;
         width: 100%;
@@ -547,12 +558,23 @@ td {
     text-align: center;
         align-items: center;
         display: flex;
-        margin-top: -26px;
+        margin-top: -23px;
         padding: 3.5px;
-        border-bottom: none;
         display: flex;
         justify-content: center;
         width: 100%;
+        height: 29px;
+        border-top: 1px solid #fdfdfd00
+}
+.clienteTitulo3 {
+    text-align: center;
+        align-items: center;
+        display: flex;
+        padding: 3.5px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: -10px;
 }
 
 .tituloBuscarCli {
@@ -564,6 +586,7 @@ td {
     background-color: rgb(0, 38, 87);
     color: white;
     border: 1px solid rgba(128, 128, 128, 0.342);
+    
 }
 
 
@@ -588,6 +611,7 @@ td {
     width: 100%;
     height: 10px;
 }
+
 
 .descricaoLista {
     border: none;
@@ -803,22 +827,22 @@ td {
     border: 1px solid rgb(173, 173, 173);
     border-left: none;
     width: 348px;
-   
     display: flex;
     height: 29px;
     justify-content: center;
     align-items: center;
+    
 }
 .clienteBuscar2:hover {
-    border: 1px solid rgb(173, 173, 173);
+border: 1px solid rgb(173, 173, 173);
     border-left: none;
-    width: 300px;
-    padding-left: 50px;
+    width: 348px;
     display: flex;
     height: 29px;
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0);
+   
 }
 
 .spanFormPag {
@@ -841,7 +865,8 @@ li{
 
 .div-table1 {
     height: 300px;
-    margin-top: -10px;
+    margin-top: -12px;
+    margin-right:15px ;
 }
 
 .formaPag {
@@ -940,17 +965,16 @@ li{
 }
 
 #tdVendedor {
-    width: 848px;
+    width: 846px;
     height: 92px;
     justify-content: center;
     display: flex;
-    
 }
 #tdVendedor:hover {
-    width: 848px;
-    height: 92px;
-    justify-content: center;
-    display: flex;
+    width: 846px;
+        height: 92px;
+        justify-content: center;
+        display: flex;
     background-color: rgba(255, 255, 255, 0);
     
 }
@@ -982,32 +1006,19 @@ li{
 }
 
 
-#finalizar-venda {
-    font-size: 15px;
-    width: 98%;
-    height: 99%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.btnFinalizar {
+.btnFinalizar,#finalizar-venda {
     border-left: none;
     font-size: 15px;
-    width: 195px;
+    width: 195.5px;
     height: 92px;
 }
-.btnFinalizar:hover {
+.btnFinalizar:hover,#finalizar-venda {
+    border-left: none;
     font-size: 15px;
-    width: 195px;
+    width: 195.5px;
     height: 92px;
 }
 
-.ulFinalizar {
-    width: 100%;
-    height: 92px;
-    display: flex;
-    justify-content: center;
-    margin-left: -37px;
-    margin-top: -23px;
-}
+
+

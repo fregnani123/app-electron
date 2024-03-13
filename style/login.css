@@ -4,6 +4,47 @@ body {
     margin: 0;
     padding: 0;
 }
+ #bottonAlert {
+    background-color: rgb(190, 231, 255);
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        color: black;
+        border-radius: 10px;
+        border: 1px solid white;
+        width: 70px;
+        height: 40px;
+    }
+    
+.msg {
+    margin-left: 10px;
+}
+
+.imgLogo {
+    margin-left: 10px;
+    width: 70px;
+}
+.alert {
+    display: none;
+}
+
+.alertDisplay {
+    font-size: 15px;
+    position: absolute;
+    width: 450px;
+    height: 150px;
+    background-color: rgb(27, 27, 27);
+    border: 1px solid gray;
+    color: white;
+    border-radius: 10px;
+    left: 350px;
+    top: 10px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
 
 .container {
     width: 300px;
