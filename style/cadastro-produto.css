@@ -72,7 +72,11 @@ input[type=number]::-webkit-outer-spin-button {
 
 input,
 #preco,
-#categoria {
+#precoCusto,
+#categoria,
+#tamanho,
+#tamanhoNumero,
+#cor {
    text-align: center;
    outline: none;
    background-color: #FFFFE0;
@@ -199,6 +203,7 @@ input,
 
 
 #preco,
+#precoCusto,
 #codigoDeBarras,
 #estoque {
    height: 25px;
@@ -258,6 +263,7 @@ input,
    justify-content: center;
    align-items: center;
    background-color: rgba(255, 255, 255, 0.007);
+   border-left: none;
 }
 
 .spanProdutosPreco2 {
@@ -383,21 +389,6 @@ input,
    align-items: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .codigoLista {
    border: 1px solid rgb(173, 173, 173);
    border-right: none;
@@ -436,6 +427,66 @@ input,
 }
 
 .spanProdutosCodigo:hover {
+   border: 1px solid rgb(173, 173, 173);
+   border-right: none;
+   width: 150px;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.007);
+}
+.spanTamanho {
+   border: 1px solid rgb(173, 173, 173);
+   border-right: none;
+   width: 150px;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+}
+
+.spanTamanho:hover {
+   border: 1px solid rgb(173, 173, 173);
+   border-right: none;
+   width: 150px;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.007);
+}
+.spanTamanhoNumero {
+   border: 1px solid rgb(173, 173, 173);
+   border-right: none;
+   width: 150px;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+}
+
+.spanTamanhoNumero:hover {
+   border: 1px solid rgb(173, 173, 173);
+   border-right: none;
+   width: 150px;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.007);
+}
+.spanCor {
+   border: 1px solid rgb(173, 173, 173);
+   border-right: none;
+   width: 150px;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+}
+
+.spanCor:hover {
    border: 1px solid rgb(173, 173, 173);
    border-right: none;
    width: 150px;
@@ -486,6 +537,44 @@ input,
    align-items: center;
    background-color: rgba(255, 255, 255, 0.007);
 }
+.spanTamanho2 {
+   border: 1px solid rgb(173, 173, 173);
+   width: 150px;
+   display: flex;
+   height: 29px;
+   justify-content: center;
+   align-items: center;
+   border-right: none;
+}
+.spanTamanho2:hover {
+   border: 1px solid rgb(173, 173, 173);
+   width: 150px;
+   display: flex;
+   border-right: none;
+   height: 29px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.007);
+}
+.spanTamanhoNumero2 {
+   border: 1px solid rgb(173, 173, 173);
+   width: 150px;
+   display: flex;
+   height: 29px;
+   justify-content: center;
+   align-items: center;
+   border-right: none;
+}
+.spanTamanhoNumero2:hover{
+   border: 1px solid rgb(173, 173, 173);
+   width: 150px;
+   display: flex;
+   border-right: none;
+   height: 29px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.007);
+}
 
 .spanProdutosEstoque2 {
    border: 1px solid rgb(173, 173, 173);
@@ -496,6 +585,29 @@ input,
    align-items: center;
    background-color: rgba(255, 255, 255, 0.007);
 }
+
+.spanCor2 {
+border: 1px solid rgb(173, 173, 173);
+   width: 150px;
+   display: flex;
+   border-right: none;
+   height: 29px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.007);
+}
+.spanCor2:hover{
+   border: 1px solid rgb(173, 173, 173);
+   width: 150px;
+   display: flex;
+   border-right: none;
+   height: 29px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.007);
+}
+
+
 
 .spanProdutosEstoque2:hover {
    border: 1px solid rgb(173, 173, 173);
@@ -615,8 +727,8 @@ button[type="submit"]:hover {
    height: 362px;
    border: 1px solid rgb(221, 221, 221);
    overflow-y: scroll;
-   width: 85%;
-   height: 290px;
+   width: 70%;
+   height: 270px;
    margin-top: -17px;
    margin-left: -20px;
    background-color: rgb(247, 247, 247);

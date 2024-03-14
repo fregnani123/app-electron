@@ -3,14 +3,33 @@ const newProductForm = document.querySelector('#cadastrar');
 const produtoCadastrado = document.querySelector('#alert');
 const codigoEAN = document.querySelector('#codigoEAN');
 const filtrarProdutos = document.querySelector('#produtoFiltrados');
+const ulLista = document.querySelector('#listaProdutoFilter');
+const liDes = document.querySelector('.descricaoLista0');
+const selectTamanhoNumero = document.querySelector('#tamanhoNumero');
+
+for (var i = 1; i <= 150; i++) {
+    var option = document.createElement("option");
+    option.value = i;
+    option.text = i;
+    selectTamanhoNumero.appendChild(option);
+}
 
 
 codigoEAN.addEventListener('input', function (event) {
     const EANDigitado = event.target.value;
-    buscarProdutoEAN(EANDigitado)
+    if (EANDigitado.trim() !== '' && EANDigitado.trim() && EANDigitado.length >= 9) {
+        filterEAN(EANDigitado)
+    }
+    
 });
 
-function buscarProdutoEAN (filtrar) {
+filtrarProdutos.addEventListener('input', function (event) {
+    const filtrarProdutos = event.target.value;
+    filterCategoria(filtrarProdutos)
+    
+});
+
+function filterCategoria (filtrar) {
     const urlGetProdutoDate = 'http://204.216.187.179:3000/findProduto';
     fetch(urlGetProdutoDate, {
         method: 'GET',
@@ -22,16 +41,101 @@ function buscarProdutoEAN (filtrar) {
             throw new Error('Erro ao buscar pedidos: ' + response.status);
         }
         return response.json();
-    }).then(DataFilter => { console.log(DataFilter)
-          produtoFilter = DataFilter.find(produto => Number(produto.codigoDeBarras) === Number(filtrar))
+    }).then(DataFilter => {
+        produtoFilter = DataFilter.filter(produto => produto.categoria === filtrar)
+        
         if (produtoFilter) {
-            console.log(produtoFilter)
+            renderizaLista()
+        }
+        
+    })
+
+}
+
+function filterEAN(filtrarEAN) {
+
+    const urlGetProdutoDate = 'http://204.216.187.179:3000/findProduto';
+    fetch(urlGetProdutoDate, {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Basic ' + btoa('Freg123:Freg_1308')
+        }
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao buscar pedidos: ' + response.status);
+        }
+        return response.json();
+    }).then(DataFilter => {
+        produtoFilter = DataFilter.filter(produto => Number(produto.codigoDeBarras) === Number(filtrarEAN))
+
+        if (produtoFilter) {
+            renderizaLista()
         }
     })
 
 }
 
-// filtrarProdutos.addEventListener('input', filterCategoria);
+
+
+function renderizaLista() {
+    
+    ulLista.innerHTML = ''
+    ulLista.appendChild(liDes);
+
+    produtoFilter.forEach((item, index) => {
+
+        const numeroItemProduto1 = (index + 1).toString().padStart(3, '0')
+        const li1 = document.createElement('li');
+
+
+        const spanItem1 = document.createElement('span');
+        spanItem1.classList.add('spanItem');
+        spanItem1.textContent = numeroItemProduto1;
+
+        const spanCodigo1 = document.createElement('span');
+        spanCodigo1.classList.add('codigo0');
+        spanCodigo1.textContent = item.codigoDeBarras;
+
+        const spanProdutos1 = document.createElement('span');
+        spanProdutos1.classList.add('produtos');
+        spanProdutos1.textContent = item.nome;
+
+        const spanDescricao1 = document.createElement('span');
+        spanDescricao1.classList.add('descricaoList0');
+        spanDescricao1.textContent = item.descricao;
+
+        const spanCategiria1 = document.createElement('span');
+        spanCategiria1.classList.add('categoriaLista');
+        spanCategiria1.textContent = item.categoria;
+
+        const spanPrecoCompra1 = document.createElement('span');
+        spanPrecoCompra1.classList.add('precoProduto');
+        spanPrecoCompra1.textContent = Number(item.precoCusto).toFixed(2);;
+
+        const spanPrecoVenda1 = document.createElement('span');
+        spanPrecoVenda1.classList.add('precoProduto');
+        spanPrecoVenda1.textContent = Number(item.preco).toFixed(2);
+
+        const spanEstoque1 = document.createElement('span');
+        spanEstoque1.classList.add('spanQtdP');
+        spanEstoque1.textContent = item.estoque;
+
+        li1.classList.add('descricaoLista2')
+        li1.appendChild(spanItem1);
+        li1.appendChild(spanCodigo1);
+        li1.appendChild(spanProdutos1);
+        li1.appendChild(spanDescricao1);
+        li1.appendChild(spanCategiria1);
+        li1.appendChild(spanPrecoCompra1);
+        li1.appendChild(spanPrecoVenda1);
+        li1.appendChild(spanEstoque1);
+
+        ulLista.appendChild(li1)
+
+    })
+
+}
+
 
 const spanAlert = document.querySelector('.alert');
 const msgAlert = document.querySelector('.msg');
@@ -53,8 +157,13 @@ async function formCadastrar() {
     const urlGetProdutoDate = 'http://204.216.187.179:3000/findProduto';
     const urlNewProduct = 'http://204.216.187.179:3000/newProduto';
 
+   
+
     const nomeProduto = document.getElementById('nomeProduto').value;
     const descricaoProduto = document.getElementById('descricao').value;
+    const selectTamanhoPGG = document.getElementById('tamanho').value;
+    const selectTamanhoNumero = document.getElementById('tamanhoNumero').value;
+    const precoCusto = document.getElementById('precoCusto').value;
     const precoProduto = document.getElementById('preco').value;
     const categoriaProduto = document.getElementById('categoria').value;
     const estoqueProduto = document.getElementById('estoque').value;
@@ -63,6 +172,9 @@ async function formCadastrar() {
     function limparInputs() {
         document.getElementById('nomeProduto').value = '';
         document.getElementById('descricao').value = '';
+        document.getElementById('tamanho').value = '';
+        document.getElementById('tamanhoNumero').value = '';
+        document.getElementById('precoCusto').value = '';
         document.getElementById('preco').value = '';
         document.getElementById('categoria').value = '';
         document.getElementById('estoque').value = '';
@@ -103,6 +215,9 @@ async function formCadastrar() {
             body: JSON.stringify({
                 nome: nomeProduto,
                 descricao: descricaoProduto,
+                tamanhoPG: selectTamanhoPGG,
+                tamanhoNumeracao: selectTamanhoNumero,
+                precoCusto: precoCusto,
                 preco: precoProduto,
                 categoria: categoriaProduto,
                 estoque: estoqueProduto,

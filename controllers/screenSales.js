@@ -145,9 +145,9 @@ document.addEventListener('DOMContentLoaded', function () {
         lista.innerHTML = '';
 
         carrinho.forEach((item, index) => {
+
             const numeroItemCarrinho = (index + 1).toString().padStart(3, '0')
             const li = document.createElement('li');
-            console.log(item)
 
             const spanItem = document.createElement('span');
             spanItem.classList.add('spanNumero');
