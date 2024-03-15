@@ -90,19 +90,21 @@ input,
 .divForm {
    width: 100%;
    height: 100vh;
-   /* background-color: #f9f9f9; */
    position: relative;
    margin-top: 115px;
+
 }
 
 .tableCadastro {
    width: 100%;
+
 }
 
 .ulCadastro {
    display: flex;
    margin-left: -40px;
    justify-content: center;
+
 }
 
 .ulCadastro2 {
@@ -129,7 +131,6 @@ input,
    justify-content: center;
    align-items: center;
 }
-
 
 .spanProdutosCadastro:hover {
    border: 1px solid rgb(173, 173, 173);
@@ -221,8 +222,13 @@ input,
    margin-left: -40px;
    justify-content: center;
    margin-top: -19px;
+
 }
 
+.tbUlCadastro {
+
+   /* height: 300px; */
+}
 
 .spanProdutosPreco {
    border: 1px solid rgb(173, 173, 173);
@@ -366,12 +372,58 @@ input,
    align-items: center;
 }
 
+.tamanhoPG {
+   height: 22px;
+   margin-left: 0;
+   border: 1px solid rgb(173, 173, 173);
+   border-right: none;
+   width: 250px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.precoCusto {
+   height: 22px;
+   margin-left: 0;
+   border: 1px solid rgb(173, 173, 173);
+   border-right: none;
+   width: 180px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+}
+
+.precoVenda {
+   height: 22px;
+   margin-left: 0;
+   border: 1px solid rgb(173, 173, 173);
+   border-right: none;
+   width: 180px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+}
+
+.tamanhoNum {
+   height: 22px;
+   margin-left: 0;
+   border: 1px solid rgb(173, 173, 173);
+   border-right: none;
+   width: 200px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
 .categoriaLista {
    height: 22px;
    margin-left: 0;
    border: 1px solid rgb(173, 173, 173);
    border-right: none;
-   width: 230px;
+   width: 320px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -436,6 +488,7 @@ input,
    align-items: center;
    background-color: rgba(255, 255, 255, 0.007);
 }
+
 .spanTamanho {
    border: 1px solid rgb(173, 173, 173);
    border-right: none;
@@ -456,6 +509,7 @@ input,
    align-items: center;
    background-color: rgba(255, 255, 255, 0.007);
 }
+
 .spanTamanhoNumero {
    border: 1px solid rgb(173, 173, 173);
    border-right: none;
@@ -476,6 +530,7 @@ input,
    align-items: center;
    background-color: rgba(255, 255, 255, 0.007);
 }
+
 .spanCor {
    border: 1px solid rgb(173, 173, 173);
    border-right: none;
@@ -537,6 +592,7 @@ input,
    align-items: center;
    background-color: rgba(255, 255, 255, 0.007);
 }
+
 .spanTamanho2 {
    border: 1px solid rgb(173, 173, 173);
    width: 150px;
@@ -546,6 +602,7 @@ input,
    align-items: center;
    border-right: none;
 }
+
 .spanTamanho2:hover {
    border: 1px solid rgb(173, 173, 173);
    width: 150px;
@@ -556,6 +613,7 @@ input,
    align-items: center;
    background-color: rgba(255, 255, 255, 0.007);
 }
+
 .spanTamanhoNumero2 {
    border: 1px solid rgb(173, 173, 173);
    width: 150px;
@@ -565,7 +623,8 @@ input,
    align-items: center;
    border-right: none;
 }
-.spanTamanhoNumero2:hover{
+
+.spanTamanhoNumero2:hover {
    border: 1px solid rgb(173, 173, 173);
    width: 150px;
    display: flex;
@@ -587,7 +646,7 @@ input,
 }
 
 .spanCor2 {
-border: 1px solid rgb(173, 173, 173);
+   border: 1px solid rgb(173, 173, 173);
    width: 150px;
    display: flex;
    border-right: none;
@@ -596,7 +655,8 @@ border: 1px solid rgb(173, 173, 173);
    align-items: center;
    background-color: rgba(255, 255, 255, 0.007);
 }
-.spanCor2:hover{
+
+.spanCor2:hover {
    border: 1px solid rgb(173, 173, 173);
    width: 150px;
    display: flex;
@@ -727,10 +787,9 @@ button[type="submit"]:hover {
    height: 362px;
    border: 1px solid rgb(221, 221, 221);
    overflow-y: scroll;
-   width: 70%;
+   width: 1300px;
    height: 270px;
    margin-top: -17px;
-   margin-left: -20px;
    background-color: rgb(247, 247, 247);
 }
 
@@ -740,11 +799,13 @@ button[type="submit"]:hover {
 }
 
 
-.spanQtdP {
-   width: 60px;
+.spanEstoque {
+   align-items: center;
+   display: flex;
+   justify-content: center;
+   width: 100px;
    border: 1px solid rgb(173, 173, 173);
    height: 22px;
-   border-left: none;
 }
 
 
@@ -777,9 +838,12 @@ button[type="submit"]:hover {
 
 }
 
-.tdFiltrar {
-   /* background-color: red; */
+.trFiltrar {
    padding-bottom: 50px;
+   justify-content: center;
+   display: flex;
+   width: 100%;
+   /* background-color: #45a049; */
 }
 
 .filtrarCodigo {

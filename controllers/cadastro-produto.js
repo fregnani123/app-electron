@@ -20,8 +20,11 @@ codigoEAN.addEventListener('input', function (event) {
     if (EANDigitado.trim() !== '' && EANDigitado.trim() && EANDigitado.length >= 9) {
         filterEAN(EANDigitado)
     }
-    
-});
+    if (EANDigitado === '')
+        limparUlLista();
+}
+
+    );
 
 filtrarProdutos.addEventListener('input', function (event) {
     const filtrarProdutos = event.target.value;
@@ -75,11 +78,15 @@ function filterEAN(filtrarEAN) {
 
 }
 
-
+function limparUlLista() {
+    ulLista.innerHTML = '';
+    ulLista.appendChild(liDes);
+}
 
 function renderizaLista() {
     
-    ulLista.innerHTML = ''
+    ulLista.innerHTML = '';
+
     ulLista.appendChild(liDes);
 
     produtoFilter.forEach((item, index) => {
@@ -108,16 +115,24 @@ function renderizaLista() {
         spanCategiria1.classList.add('categoriaLista');
         spanCategiria1.textContent = item.categoria;
 
+        const spanTamanhoPG = document.createElement('span');
+        spanTamanhoPG.classList.add('tamanhoPG');
+        spanTamanhoPG.textContent = item.tamanhoPG;
+
+        const spanTamanhoNum = document.createElement('span');
+        spanTamanhoNum.classList.add('tamanhoNum');
+        spanTamanhoNum.textContent = item.tamanhoNumeracao;
+
         const spanPrecoCompra1 = document.createElement('span');
-        spanPrecoCompra1.classList.add('precoProduto');
+        spanPrecoCompra1.classList.add('precoCusto');
         spanPrecoCompra1.textContent = Number(item.precoCusto).toFixed(2);;
 
         const spanPrecoVenda1 = document.createElement('span');
-        spanPrecoVenda1.classList.add('precoProduto');
+        spanPrecoVenda1.classList.add('precoVenda');
         spanPrecoVenda1.textContent = Number(item.preco).toFixed(2);
 
         const spanEstoque1 = document.createElement('span');
-        spanEstoque1.classList.add('spanQtdP');
+        spanEstoque1.classList.add('spanEstoque');
         spanEstoque1.textContent = item.estoque;
 
         li1.classList.add('descricaoLista2')
@@ -126,6 +141,8 @@ function renderizaLista() {
         li1.appendChild(spanProdutos1);
         li1.appendChild(spanDescricao1);
         li1.appendChild(spanCategiria1);
+        li1.appendChild(spanTamanhoPG);
+        li1.appendChild(spanTamanhoNum);
         li1.appendChild(spanPrecoCompra1);
         li1.appendChild(spanPrecoVenda1);
         li1.appendChild(spanEstoque1);

@@ -1,0 +1,890 @@
+.container-sales {
+    display: flex;
+    justify-content: center;
+    /* background-color: rgb(0, 38, 87); */
+}
+
+#bottonAlert {
+    background-color: rgb(190, 231, 255);
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: black;
+    border-radius: 10px;
+    border: 1px solid white;
+    width: 70px;
+    height: 40px;
+}
+
+.msg {
+    margin-left: 10px;
+}
+
+.imgLogo {
+    margin-left: 10px;
+    width: 70px;
+}
+
+.alert {
+    display: none;
+}
+
+.alertDisplay {
+    font-size: 15px;
+    position: absolute;
+    width: 450px;
+    height: 150px;
+    background-color: rgb(27, 27, 27);
+    border: 1px solid gray;
+    color: white;
+    border-radius: 10px;
+    left: 350px;
+    top: 10px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+li {
+    border-radius: 0;
+}
+
+#nomeProduto,
+#descricao {
+    text-align: center;
+    outline: none;
+    width: 100%;
+    height: 29px;
+    background-color: #FFFFE0;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #FFFFE0;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2)
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input,
+#preco,
+#precoCusto,
+#categoria,
+#tamanho,
+#tamanhoNumero,
+#cor {
+    text-align: center;
+    outline: none;
+    background-color: #FFFFE0;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ccc;
+    width: 100%;
+    height: 29px;
+
+}
+
+.divForm {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    margin-top: 115px;
+
+}
+
+.tableCadastro {
+    width: 100%;
+
+}
+
+.ulCadastro {
+    display: flex;
+    margin-left: -40px;
+    justify-content: center;
+
+}
+
+.ulCadastro2 {
+    display: flex;
+    margin-left: -40px;
+    justify-content: center;
+}
+
+.spanProdutosCadastro {
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 350px;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+}
+
+.spanDescricao {
+    height: 22px;
+    border: 1px solid rgb(173, 173, 173);
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spanProdutosCadastro:hover {
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 350px;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanProdutosCadastro2 {
+    border: 1px solid rgb(173, 173, 173);
+    width: 350px;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+}
+
+.spanProdutosCadastro2:hover {
+    border: 1px solid rgb(173, 173, 173);
+    width: 350px;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanProdutosCadastroIn {
+    border: 1px solid rgb(173, 173, 173);
+    width: 350px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+}
+
+.spanProdutosCadastroIn:hover {
+    border: 1px solid rgb(173, 173, 173);
+    width: 350px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanProdutosCadastroIn2 {
+    border: 1px solid rgb(173, 173, 173);
+    width: 350px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    border-left: none;
+}
+
+.spanProdutosCadastroIn2:hover {
+    border: 1px solid rgb(173, 173, 173);
+    width: 350px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    border-left: none;
+    background-color: rgba(255, 255, 255, 0.007);
+}
+
+
+#preco,
+#precoCusto,
+#codigoDeBarras,
+#estoque {
+    height: 25px;
+}
+
+.ulCadastro {
+    display: flex;
+    margin-left: -40px;
+    justify-content: center;
+    margin-top: 0px;
+}
+
+.ulCadastro2 {
+    display: flex;
+    margin-left: -40px;
+    justify-content: center;
+    margin-top: -19px;
+
+}
+
+.tbUlCadastro {
+
+    /* height: 300px; */
+}
+
+.spanProdutosPreco {
+    border: 1px solid rgb(173, 173, 173);
+    border-left: none;
+    width: 150px;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+}
+
+.spanProdutosPreco:hover {
+    border: 1px solid rgb(173, 173, 173);
+    border-left: none;
+    width: 150px;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanProdutosCategoria {
+    border: 1px solid rgb(173, 173, 173);
+    width: 350px;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+    border-left: none;
+}
+
+.spanProdutosCategoria:hover {
+    border: 1px solid rgb(173, 173, 173);
+    width: 350px;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+    border-left: none;
+}
+
+.spanProdutosPreco2 {
+    border: 1px solid rgb(173, 173, 173);
+    width: 150px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    border-left: none;
+}
+
+.spanProdutosPreco2:hover {
+    border: 1px solid rgb(173, 173, 173);
+    width: 150px;
+    display: flex;
+    border-left: none;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanProdutosCategoria2 {
+    border: 1px solid rgb(173, 173, 173);
+    width: 350px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    border-left: none;
+}
+
+.spanProdutosCategoria2:hover {
+    border: 1px solid rgb(173, 173, 173);
+    width: 350px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+    border-left: none;
+}
+
+
+.spanItem {
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 65px;
+    display: flex;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 43px;
+}
+
+.spanItem2 {
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 60px;
+    display: flex;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 43px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.codigo0 {
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 169px;
+    display: flex;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.produtos0 {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tamanhoPG {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.precoCusto {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.precoVenda {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.tamanhoNum {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.categoriaLista {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.descricaoList0 {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.codigoLista {
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 169px;
+    display: flex;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.ulCadastro {
+    display: flex;
+    margin-left: -40px;
+    justify-content: center;
+    margin-top: 0px;
+}
+
+.ulCadastro2 {
+    display: flex;
+    margin-left: -40px;
+    justify-content: center;
+    margin-top: -19px;
+}
+
+
+.spanProdutosCodigo {
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 150px;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+}
+
+.spanProdutosCodigo:hover {
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 150px;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanTamanho {
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 150px;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+}
+
+.spanTamanho:hover {
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 150px;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanTamanhoNumero {
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 150px;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+}
+
+.spanTamanhoNumero:hover {
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 150px;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanCor {
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 150px;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+}
+
+.spanCor:hover {
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 150px;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanProdutosEstoque {
+    border: 1px solid rgb(173, 173, 173);
+    width: 150px;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanProdutosEstoque:hover {
+    border: 1px solid rgb(173, 173, 173);
+    width: 150px;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanProdutosCodigo2 {
+    border: 1px solid rgb(173, 173, 173);
+    width: 150px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    border-right: none;
+}
+
+.spanProdutosCodigo2:hover {
+    border: 1px solid rgb(173, 173, 173);
+    width: 150px;
+    display: flex;
+    border-right: none;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanTamanho2 {
+    border: 1px solid rgb(173, 173, 173);
+    width: 150px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    border-right: none;
+}
+
+.spanTamanho2:hover {
+    border: 1px solid rgb(173, 173, 173);
+    width: 150px;
+    display: flex;
+    border-right: none;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanTamanhoNumero2 {
+    border: 1px solid rgb(173, 173, 173);
+    width: 150px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    border-right: none;
+}
+
+.spanTamanhoNumero2:hover {
+    border: 1px solid rgb(173, 173, 173);
+    width: 150px;
+    display: flex;
+    border-right: none;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanProdutosEstoque2 {
+    border: 1px solid rgb(173, 173, 173);
+    width: 150px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanCor2 {
+    border: 1px solid rgb(173, 173, 173);
+    width: 150px;
+    display: flex;
+    border-right: none;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanCor2:hover {
+    border: 1px solid rgb(173, 173, 173);
+    width: 150px;
+    display: flex;
+    border-right: none;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+}
+
+
+
+.spanProdutosEstoque2:hover {
+    border: 1px solid rgb(173, 173, 173);
+    width: 150px;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+
+}
+
+
+
+
+
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#cadastrar {
+    width: 100%;
+
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.liBtn {
+    border: 1px solid rgb(173, 173, 173);
+    width: 270px;
+    height: auto;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+    margin-left: 10px;
+    border: none;
+}
+
+.liBtn:hover {
+    border: 1px solid rgb(173, 173, 173);
+    width: 270px;
+    height: auto;
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+    margin-left: 10px;
+}
+
+.litopBtn {
+    border: 1px solid rgb(173, 173, 173);
+    width: 270px;
+    height: auto;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+    margin-left: 10px;
+    border: none;
+}
+
+.litopBtn:hover {
+    border: 1px solid rgb(173, 173, 173);
+    width: 270px;
+    height: auto;
+    display: flex;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.007);
+    margin-left: 10px;
+}
+
+
+.descricaoLista0 {
+    border: none;
+    display: flex;
+    height: 22px;
+    width: 100%;
+    margin-left: -50px;
+}
+
+.descricaoLista0:hover {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.descricaoLista2 {
+    border: none;
+    display: flex;
+    margin-left: px;
+    margin-top: -15px;
+    width: 100%;
+    height: 22px;
+    justify-content: left;
+    margin-top: 0px;
+    margin-left: -50px;
+}
+
+
+#listaProdutoFilter {
+    height: 362px;
+    border: 1px solid rgb(221, 221, 221);
+    overflow-y: scroll;
+    width: 1300px;
+    height: 270px;
+    margin-top: -17px;
+    background-color: rgb(247, 247, 247);
+}
+
+.tableProdutos {
+    margin-top: 0px;
+
+}
+
+
+.spanEstoque {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    border: 1px solid rgb(173, 173, 173);
+    height: 22px;
+}
+
+
+
+#categoriaLista {
+    width: 230px;
+}
+
+.produtoFilter {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    border-right: none;
+    width: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tdFiltrarProdutos {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 0px;
+    height: 32px;
+    display: flex;
+    margin-left: -2px;
+    align-items: center;
+    border: 1px solid rgb(221, 221, 221);
+
+}
+
+.trFiltrar {
+    padding-bottom: 50px;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    /* background-color: #45a049; */
+}
+
+.filtrarCodigo {
+    margin-left: 20px;
+}
+
+#produtoFiltrados,
+#codigoEAN {
+    margin-left: 3px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    width: 100%;
+    height: 29px;
+    background-color: #FFFFE0;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #FFFFE0;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#codigoEAN {
+    margin-left: 3px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    width: 100%;
+    height: 24px;
+    background-color: #FFFFE0;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #FFFFE0;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.tituloCadastro{
+    background-color:rgb(78, 78, 78);
+    color: rgb(255, 255, 255);
+}
+#tituloCadastro{
+    background-color: rgb(0, 38, 87);
+    color: rgb(255, 255, 255);
+}
