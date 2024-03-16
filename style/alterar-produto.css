@@ -47,10 +47,6 @@
     padding: 5px;
 }
 
-li {
-    border-radius: 0;
-}
-
 #nomeProduto,
 #descricao {
     text-align: center;
@@ -97,15 +93,15 @@ input,
 
 .tableCadastro {
     width: 100%;
-
+    height: 100vh;
 }
 
 .ulCadastro {
     display: flex;
     margin-left: -40px;
     justify-content: center;
-
 }
+
 
 .ulCadastro2 {
     display: flex;
@@ -217,17 +213,25 @@ input,
     margin-top: 0px;
 }
 
-.ulCadastro2 {
+/* .ulCadastro2 {
     display: flex;
     margin-left: -40px;
     justify-content: center;
     margin-top: -19px;
 
-}
+} */
 
 .tbUlCadastro {
+    padding: 20px;
+    margin-top: 50px;
+    margin-top: -17px;
+}
 
-    /* height: 300px; */
+.trTable {
+    width: 100%;
+    align-items: top;
+    justify-content: center;
+    display: flex;
 }
 
 .spanProdutosPreco {
@@ -258,7 +262,7 @@ input,
     height: 17px;
     justify-content: center;
     align-items: center;
-    border-left: none;
+    border-right: none;
 }
 
 .spanProdutosCategoria:hover {
@@ -269,7 +273,8 @@ input,
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.007);
-    border-left: none;
+    border-right: none;
+
 }
 
 .spanProdutosPreco2 {
@@ -300,7 +305,7 @@ input,
     height: 29px;
     justify-content: center;
     align-items: center;
-    border-left: none;
+    border-right: none;
 }
 
 .spanProdutosCategoria2:hover {
@@ -311,7 +316,7 @@ input,
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.007);
-    border-left: none;
+    border-right: none;
 }
 
 
@@ -340,19 +345,10 @@ input,
 
 
 
-
-
-
-
-
-
-
-
-
 .codigo0 {
     border: 1px solid rgb(173, 173, 173);
     border-right: none;
-    width: 169px;
+    width: 220px;
     display: flex;
     height: 22px;
     justify-content: center;
@@ -366,7 +362,7 @@ input,
     margin-left: 0;
     border: 1px solid rgb(173, 173, 173);
     border-right: none;
-    width: 380px;
+    width: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -429,13 +425,12 @@ input,
     align-items: center;
 }
 
-
 .descricaoList0 {
     height: 22px;
     margin-left: 0;
     border: 1px solid rgb(173, 173, 173);
     border-right: none;
-    width: 350px;
+    width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -533,7 +528,6 @@ input,
 
 .spanCor {
     border: 1px solid rgb(173, 173, 173);
-    border-right: none;
     width: 150px;
     display: flex;
     height: 17px;
@@ -543,7 +537,6 @@ input,
 
 .spanCor:hover {
     border: 1px solid rgb(173, 173, 173);
-    border-right: none;
     width: 150px;
     display: flex;
     height: 17px;
@@ -649,7 +642,7 @@ input,
     border: 1px solid rgb(173, 173, 173);
     width: 150px;
     display: flex;
-    border-right: none;
+
     height: 29px;
     justify-content: center;
     align-items: center;
@@ -660,7 +653,6 @@ input,
     border: 1px solid rgb(173, 173, 173);
     width: 150px;
     display: flex;
-    border-right: none;
     height: 29px;
     justify-content: center;
     align-items: center;
@@ -679,10 +671,6 @@ input,
     background-color: rgba(255, 255, 255, 0.007);
 
 }
-
-
-
-
 
 
 button {
@@ -732,6 +720,7 @@ button[type="submit"]:hover {
     align-items: center;
     background-color: rgba(255, 255, 255, 0.007);
     margin-left: 10px;
+    border: none;
 }
 
 .litopBtn {
@@ -752,6 +741,7 @@ button[type="submit"]:hover {
     width: 270px;
     height: auto;
     display: flex;
+    border: none;
     height: 17px;
     justify-content: center;
     align-items: center;
@@ -880,11 +870,9 @@ button[type="submit"]:hover {
     background-color: #FFFFE0;
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
-.tituloCadastro{
-    background-color:rgb(78, 78, 78);
-    color: rgb(255, 255, 255);
-}
-#tituloCadastro{
-    background-color: rgb(0, 38, 87);
+
+.tituloCadastro {
+    height: 22px;
+    background-color: rgb(78, 78, 78);
     color: rgb(255, 255, 255);
 }

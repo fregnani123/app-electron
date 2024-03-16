@@ -174,7 +174,6 @@ async function formCadastrar() {
     const urlGetProdutoDate = 'http://204.216.187.179:3000/findProduto';
     const urlNewProduct = 'http://204.216.187.179:3000/newProduto';
 
-   
 
     const nomeProduto = document.getElementById('nomeProduto').value;
     const descricaoProduto = document.getElementById('descricao').value;

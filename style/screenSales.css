@@ -1,8 +1,10 @@
 :root {
-    --cor-AzulEscura: rgb(0, 38, 87);
-    --cor-BorderCinza: #ddd;
+    --cor-AzulEscura: rgb(78, 78, 78);;
+    /* --cor-AzulEscura: rgb(0, 38, 87); */
+    --cor2: #616161;
+    --cor3: #fafafa;
     --cor-InputAmarelo: #FFFFE0;
-    --background-color: rgb(0, 38, 87);
+    --background-color: rgb(78, 78, 78);
     ;
 }
 li{
@@ -94,7 +96,8 @@ body {
     width: 100%;
     margin: 0;
     position: relative;
-    background: rgb(0, 38, 87);
+    background-color:var(--cor2)
+    /* background: rgb(0, 38, 87); */
 }
 
 .container-table {
@@ -133,15 +136,17 @@ td {
 
 
 #label-EAN {
-    background-color: rgb(0, 38, 87);
+    background-color: var(--cor2);
+    /* background-color: rgb(0, 38, 87); */
     color: white;
     padding: 5px;
-    border: 1px solid rgb(0, 38, 87);
+    border: 1px solid rgb(78, 78, 78);;
 }
 
 th {
-    background-color: rgb(0, 38, 87);
-    color: white;
+    /* background-color: rgb(0, 38, 87); */
+    color: var(--cor3);
+    background-color: var(--cor2);
 }
 
 #table-carrinho {
@@ -417,7 +422,8 @@ option {
 
 .tr-buscarCliente,
 .tr-pagamento {
-    background-color: rgb(0, 38, 87);
+    background-color: rgb(78, 78, 78);
+    /* background-color: rgb(0, 38, 87); */
     color: white;
 
 }
@@ -436,9 +442,10 @@ option {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(0, 38, 87);
+    /* background-color: rgb(0, 38, 87); */
     height: 10px;
-    color: white;
+    background-color: var(--cor2);
+    color:var(--cor3);
     padding-top: 5px;
     padding-bottom: 5px;
     margin-top: 0px;
@@ -448,20 +455,23 @@ option {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(0, 38, 87);
+    /* background-color: rgb(0, 38, 87); */
     height: 10px;
-    color: white;
+    background-color: var(--cor2);
+    color: var(--cor3);
     padding-top: 5px;
+    padding-right: 15px;
     padding-bottom: 5px;
-    width: 110%;
+    width: 100%;
 }
 
 .spanCli {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(0, 38, 87);
+    /* background-color: rgb(0, 38, 87); */
     color: white;
+    background-color: rgb(78, 78, 78);
     border: 1px solid rgba(128, 128, 128, 0.342);
     height: 20px;
     margin-top: 0px;
@@ -857,9 +867,9 @@ border: 1px solid rgb(173, 173, 173);
 
 }
 
-li{
-    border-radius: none;
-}
+/* li{
+    border-radius: 2px;
+} */
 
 
 
