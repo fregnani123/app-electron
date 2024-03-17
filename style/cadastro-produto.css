@@ -80,7 +80,6 @@ input,
    border: 1px solid #ccc;
    width: 100%;
    height: 29px;
-
 }
 
 .divForm {
@@ -96,18 +95,7 @@ input,
    height: 100vh;
 }
 
-.ulCadastro {
-   display: flex;
-   margin-left: -40px;
-   justify-content: center;
 
-}
-
-.ulCadastro2 {
-   display: flex;
-   margin-left: -40px;
-   justify-content: center;
-}
 
 .spanProdutosCadastro {
    border: 1px solid rgb(173, 173, 173);
@@ -117,6 +105,7 @@ input,
    height: 17px;
    justify-content: center;
    align-items: center;
+   border-bottom: none;
 }
 
 .spanDescricao {
@@ -136,7 +125,8 @@ input,
    height: 17px;
    justify-content: center;
    align-items: center;
-   background-color: rgba(255, 255, 255, 0.007);
+   background-color: rgba(255, 255, 255, 0);
+   border-bottom: none;
 }
 
 .spanProdutosCadastro2 {
@@ -146,6 +136,7 @@ input,
    height: 17px;
    justify-content: center;
    align-items: center;
+   border-bottom: none;
 }
 
 .spanProdutosCadastro2:hover {
@@ -155,7 +146,9 @@ input,
    height: 17px;
    justify-content: center;
    align-items: center;
-   background-color: rgba(255, 255, 255, 0.007);
+   border-bottom: none;
+   background-color: rgba(255, 255, 255, 0);
+
 }
 
 .spanProdutosCadastroIn {
@@ -198,7 +191,11 @@ input,
    background-color: rgba(255, 255, 255, 0.007);
 }
 
-
+input,
+#categoria,
+#tamanho,
+#tamanhoNumero,
+#cor,
 #preco,
 #precoCusto,
 #codigoDeBarras,
@@ -206,27 +203,41 @@ input,
    height: 25px;
 }
 
-.ulCadastro {
-   display: flex;
-   margin-left: -40px;
-   justify-content: center;
-   margin-top: 0px;
+input:hover,
+#categoria:hover,
+#tamanho:hover,
+#tamanhoNumero:hover,
+#cor:hover,
+#preco:hover,
+#precoCusto:hover,
+#codigoDeBarras:hover,
+#estoque:hover {
+   height: 25px;
 }
 
-/* .ulCadastro2 {
-    display: flex;
-    margin-left: -40px;
-    justify-content: center;
-    margin-top: -19px;
-
-} */
-
+.barraTop{
+   height: 22px;
+   justify-content: center;
+   display: flex;
+   align-items: center;
+   margin-top: -19px;
+}
+.barra{
+   background-color: rgb(78, 78, 78);
+   width: 100%;
+   color: rgb(78, 78, 78);;
+}
 .tbUlCadastro {
    padding: 20px;
    margin-top: 50px;
-   margin-top: -17px;
+   margin-top: -2px;
+   width: 100%;
 }
-
+.titleTr{
+   height: 22px;
+    position: sticky;
+    top: -50px;
+}
 .trTable {
    width: 100%;
    align-items: top;
@@ -237,15 +248,18 @@ input,
 .spanProdutosPreco {
    border: 1px solid rgb(173, 173, 173);
    border-left: none;
+   border-bottom: none;
    width: 150px;
    display: flex;
    height: 17px;
    justify-content: center;
    align-items: center;
+   background-color: rgba(255, 255, 255, 0);
 }
 
 .spanProdutosPreco:hover {
    border: 1px solid rgb(173, 173, 173);
+   border-bottom: none;
    border-left: none;
    width: 150px;
    display: flex;
@@ -257,6 +271,7 @@ input,
 
 .spanProdutosCategoria {
    border: 1px solid rgb(173, 173, 173);
+   border-bottom: none;
    width: 350px;
    display: flex;
    height: 17px;
@@ -267,6 +282,7 @@ input,
 
 .spanProdutosCategoria:hover {
    border: 1px solid rgb(173, 173, 173);
+   border-bottom: none;
    width: 350px;
    display: flex;
    height: 17px;
@@ -369,6 +385,7 @@ input,
 }
 
 .tamanhoPG {
+   border-bottom: none;
    height: 22px;
    margin-left: 0;
    border: 1px solid rgb(173, 173, 173);
@@ -388,10 +405,11 @@ input,
    display: flex;
    justify-content: center;
    align-items: center;
-
+   border-bottom: none;
 }
 
 .precoVenda {
+   border-bottom: none;
    height: 22px;
    margin-left: 0;
    border: 1px solid rgb(173, 173, 173);
@@ -404,6 +422,7 @@ input,
 }
 
 .tamanhoNum {
+   border-bottom: none;
    height: 22px;
    margin-left: 0;
    border: 1px solid rgb(173, 173, 173);
@@ -448,7 +467,46 @@ input,
 
 
 
+.spanProdutosEstoque {
+   border: 1px solid rgb(173, 173, 173);
+   width: 200px;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0);
+   border-bottom: none;
+}
+
+.spanProdutosEstoque:hover {
+   border: 1px solid rgb(173, 173, 173);
+   border-bottom: none;
+   width: 200px;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.007);
+
+}
+
+.spanProdutosEstoque2 {
+   height: 29px;
+}
+
+.spanProdutosEstoque2:hover {
+   height: 29px;
+   background-color: rgba(255, 255, 255, 0);
+}
+
 .ulCadastro {
+   display: flex;
+   margin-left: -40px;
+   justify-content: center;
+   margin-top: 0px;
+}
+
+.ulCadastro:hover {
    display: flex;
    margin-left: -40px;
    justify-content: center;
@@ -459,7 +517,14 @@ input,
    display: flex;
    margin-left: -40px;
    justify-content: center;
-   margin-top: -19px;
+   margin-top: -20px;
+}
+
+.ulCadastro2:hover {
+   display: flex;
+   margin-left: -40px;
+   justify-content: center;
+   margin-top: -20px;
 }
 
 
@@ -471,6 +536,7 @@ input,
    height: 17px;
    justify-content: center;
    align-items: center;
+   border-bottom: none;
 }
 
 .spanProdutosCodigo:hover {
@@ -482,10 +548,12 @@ input,
    justify-content: center;
    align-items: center;
    background-color: rgba(255, 255, 255, 0.007);
+   border-bottom: none;
 }
 
 .spanTamanho {
    border: 1px solid rgb(173, 173, 173);
+   border-bottom: none;
    border-right: none;
    width: 150px;
    display: flex;
@@ -494,8 +562,11 @@ input,
    align-items: center;
 }
 
+
+
 .spanTamanho:hover {
    border: 1px solid rgb(173, 173, 173);
+   border-bottom: none;
    border-right: none;
    width: 150px;
    display: flex;
@@ -508,6 +579,7 @@ input,
 .spanTamanhoNumero {
    border: 1px solid rgb(173, 173, 173);
    border-right: none;
+   border-bottom: none;
    width: 150px;
    display: flex;
    height: 17px;
@@ -517,6 +589,7 @@ input,
 
 .spanTamanhoNumero:hover {
    border: 1px solid rgb(173, 173, 173);
+   border-bottom: none;
    border-right: none;
    width: 150px;
    display: flex;
@@ -528,6 +601,7 @@ input,
 
 .spanCor {
    border: 1px solid rgb(173, 173, 173);
+   border-bottom: none;
    width: 150px;
    display: flex;
    height: 17px;
@@ -537,6 +611,7 @@ input,
 
 .spanCor:hover {
    border: 1px solid rgb(173, 173, 173);
+   border-bottom: none;
    width: 150px;
    display: flex;
    height: 17px;
@@ -545,25 +620,6 @@ input,
    background-color: rgba(255, 255, 255, 0.007);
 }
 
-.spanProdutosEstoque {
-   border: 1px solid rgb(173, 173, 173);
-   width: 150px;
-   display: flex;
-   height: 17px;
-   justify-content: center;
-   align-items: center;
-   background-color: rgba(255, 255, 255, 0.007);
-}
-
-.spanProdutosEstoque:hover {
-   border: 1px solid rgb(173, 173, 173);
-   width: 150px;
-   display: flex;
-   height: 17px;
-   justify-content: center;
-   align-items: center;
-   background-color: rgba(255, 255, 255, 0.007);
-}
 
 .spanProdutosCodigo2 {
    border: 1px solid rgb(173, 173, 173);
@@ -625,28 +681,18 @@ input,
    height: 29px;
    justify-content: center;
    align-items: center;
-   background-color: rgba(255, 255, 255, 0.007);
+   background-color: rgba(255, 255, 255, 0.000);
 }
 
-.spanProdutosEstoque2 {
-   border: 1px solid rgb(173, 173, 173);
-   width: 150px;
-   display: flex;
-   height: 29px;
-   justify-content: center;
-   align-items: center;
-   background-color: rgba(255, 255, 255, 0.007);
-}
 
 .spanCor2 {
    border: 1px solid rgb(173, 173, 173);
    width: 150px;
    display: flex;
-
    height: 29px;
    justify-content: center;
    align-items: center;
-   background-color: rgba(255, 255, 255, 0.007);
+
 }
 
 .spanCor2:hover {
@@ -659,21 +705,7 @@ input,
    background-color: rgba(255, 255, 255, 0.007);
 }
 
-
-
-.spanProdutosEstoque2:hover {
-   border: 1px solid rgb(173, 173, 173);
-   width: 150px;
-   display: flex;
-   height: 29px;
-   justify-content: center;
-   align-items: center;
-   background-color: rgba(255, 255, 255, 0.007);
-
-}
-
-
-button,#alterarProduto {
+button,#cadastrar {
    background-color: #4CAF50;
    color: white;
    padding: 10px 20px;
@@ -682,6 +714,11 @@ button,#alterarProduto {
    cursor: pointer;
    font-size: 16px;
 }
+button:hover,#cadastrar:hover {
+   background-color: #4caf4fdc;
+   color: white;
+}
+
 
 #cadastrar {
    width: 100%;
@@ -785,20 +822,13 @@ button[type="submit"]:hover {
    background-color: rgb(247, 247, 247);
 }
 
-.tableProdutos {
-   margin-top: 0px;
-
+.tableProdutos2 {
+   position: absolute;
+   bottom: 0;
 }
 
 
-.spanEstoque {
-   align-items: center;
-   display: flex;
-   justify-content: center;
-   width: 100px;
-   border: 1px solid rgb(173, 173, 173);
-   height: 22px;
-}
+
 
 
 

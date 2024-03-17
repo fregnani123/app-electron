@@ -1,7 +1,7 @@
 
 const newProductForm = document.querySelector('#cadastrar');
 const produtoCadastrado = document.querySelector('#alert');
-const codigoEAN = document.querySelector('#codigoEAN');
+const codigoEAN = document.querySelector('#codigoDeBarras');
 const filtrarProdutos = document.querySelector('#produtoFiltrados');
 const ulLista = document.querySelector('#listaProdutoFilter');
 const liDes = document.querySelector('.descricaoLista0');

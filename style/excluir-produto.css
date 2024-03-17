@@ -211,15 +211,16 @@ input,
    margin-left: -40px;
    justify-content: center;
    margin-top: 0px;
+   
 }
 
-/* .ulCadastro2 {
+.ulCadastro2 {
     display: flex;
     margin-left: -40px;
     justify-content: center;
-    margin-top: -19px;
-
-} */
+    margin-top: -20px;
+    
+}
 
 .tbUlCadastro {
    padding: 20px;
