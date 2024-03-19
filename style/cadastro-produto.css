@@ -4,16 +4,20 @@
    /* background-color: rgb(0, 38, 87); */
 }
 
+
 #bottonAlert {
    background-color: rgb(190, 231, 255);
    position: absolute;
    right: 10px;
    bottom: 10px;
    color: black;
-   border-radius: 10px;
+   border-radius: 5px;
    border: 1px solid white;
-   width: 70px;
-   height: 40px;
+   height: 30px;
+   width: 50px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 
 .msg {
@@ -66,13 +70,17 @@ input[type=number]::-webkit-outer-spin-button {
    appearance: none;
 }
 
+
 input,
 #preco,
+#massa,
+#volume,
 #precoCusto,
 #categoria,
 #tamanho,
 #tamanhoNumero,
-#cor {
+#cor,
+#unidade {
    text-align: center;
    outline: none;
    background-color: #FFFFE0;
@@ -81,6 +89,19 @@ input,
    width: 100%;
    height: 29px;
 }
+
+#massaNumero,
+#volumeNumero {
+   text-align: center;
+   outline: none;
+   background-color: #FFFFE0;
+   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+   border: 1px solid #ccc;
+   width: 120px;
+   height: 25px;
+   margin-right: 4px;
+}
+
 
 .divForm {
    width: 100%;
@@ -95,7 +116,14 @@ input,
    height: 100vh;
 }
 
-
+.spanEstoque {
+   border: 1px solid #ccc;
+   height: 22px;
+   width: 150px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
 
 .spanProdutosCadastro {
    border: 1px solid rgb(173, 173, 173);
@@ -196,53 +224,46 @@ input,
 #tamanho,
 #tamanhoNumero,
 #cor,
-#preco,
+#massa,
+#preco1,
 #precoCusto,
 #codigoDeBarras,
-#estoque {
+#estoque1 {
    height: 25px;
 }
 
 input:hover,
+#massa:hover,
 #categoria:hover,
 #tamanho:hover,
 #tamanhoNumero:hover,
 #cor:hover,
-#preco:hover,
+#preco1:hover,
 #precoCusto:hover,
 #codigoDeBarras:hover,
-#estoque:hover {
+#estoque1:hover {
    height: 25px;
 }
 
-.barraTop{
+.divTd {
+   width: auto;
+   height: 100vh;
+   display: block;
+
+}
+
+.titleTr {
    height: 22px;
-   justify-content: center;
-   display: flex;
-   align-items: center;
-   margin-top: -19px;
+   position: sticky;
+   top: -50px;
 }
-.barra{
-   background-color: rgb(78, 78, 78);
-   width: 100%;
-   color: rgb(78, 78, 78);;
-}
-.tbUlCadastro {
-   padding: 20px;
-   margin-top: 50px;
-   margin-top: -2px;
-   width: 100%;
-}
-.titleTr{
-   height: 22px;
-    position: sticky;
-    top: -50px;
-}
+
 .trTable {
    width: 100%;
    align-items: top;
    justify-content: center;
    display: flex;
+   margin-top: -13px;
 }
 
 .spanProdutosPreco {
@@ -405,7 +426,7 @@ input:hover,
    display: flex;
    justify-content: center;
    align-items: center;
-   border-bottom: none;
+
 }
 
 .precoVenda {
@@ -442,6 +463,22 @@ input:hover,
    display: flex;
    justify-content: center;
    align-items: center;
+}
+
+#categoria,
+#cor,
+#tamanhoNumero,
+#tamanho,
+#unidade {
+   height: 100%;
+}
+
+#categoria:hover,
+#cor:hover,
+#tamanhoNumero:hover,
+#tamanho:hover,
+#unidade:hover {
+   height: 100%;
 }
 
 .descricaoList0 {
@@ -499,10 +536,56 @@ input:hover,
    background-color: rgba(255, 255, 255, 0);
 }
 
+.spanProdutosUnidade {
+   border: 1px solid rgb(173, 173, 173);
+   width: 200px;
+   display: flex;
+   height: 17px;
+   border-left: none;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0);
+   border-bottom: none;
+}
+
+.spanProdutosUnidade:hover {
+   border: 1px solid rgb(173, 173, 173);
+   border-bottom: none;
+   width: 200px;
+   border-left: none;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.007);
+
+}
+
+#massa {
+   width: 100%;
+   height: 100%;
+}
+
+#massa:hover {
+   width: 100%;
+   height: 100%;
+}
+
+.spanProdutosUnidade2 {
+   height: 29px;
+   border-left: none;
+}
+
+.spanProdutosUnidade2:hover {
+   height: 29px;
+   border-left: none;
+   background-color: rgba(255, 255, 255, 0);
+}
+
 .ulCadastro {
    display: flex;
    margin-left: -40px;
-   justify-content: center;
+   justify-content: left;
    margin-top: 0px;
 }
 
@@ -511,6 +594,7 @@ input:hover,
    margin-left: -40px;
    justify-content: center;
    margin-top: 0px;
+   justify-content: left;
 }
 
 .ulCadastro2 {
@@ -518,6 +602,7 @@ input:hover,
    margin-left: -40px;
    justify-content: center;
    margin-top: -20px;
+   justify-content: left;
 }
 
 .ulCadastro2:hover {
@@ -525,6 +610,7 @@ input:hover,
    margin-left: -40px;
    justify-content: center;
    margin-top: -20px;
+   justify-content: left;
 }
 
 
@@ -562,8 +648,6 @@ input:hover,
    align-items: center;
 }
 
-
-
 .spanTamanho:hover {
    border: 1px solid rgb(173, 173, 173);
    border-bottom: none;
@@ -571,6 +655,50 @@ input:hover,
    width: 150px;
    display: flex;
    height: 17px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanMedida {
+   border: 1px solid rgb(173, 173, 173);
+   border-bottom: none;
+   border-right: none;
+   width: 300px;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+}
+
+.spanMedida:hover {
+   border: 1px solid rgb(173, 173, 173);
+   border-bottom: none;
+   border-right: none;
+   width: 300px;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanMedida2 {
+   border: 1px solid rgb(173, 173, 173);
+   width: 300px;
+   display: flex;
+   height: 29px;
+   justify-content: center;
+   align-items: center;
+   border-right: none;
+}
+
+.spanMedida2:hover {
+   border: 1px solid rgb(173, 173, 173);
+   width: 300px;
+   display: flex;
+   border-right: none;
+   height: 29px;
    justify-content: center;
    align-items: center;
    background-color: rgba(255, 255, 255, 0.007);
@@ -705,7 +833,10 @@ input:hover,
    background-color: rgba(255, 255, 255, 0.007);
 }
 
-button,#cadastrar {
+button,
+#alterar,
+#Cadastrar,
+#pesquisar {
    background-color: #4CAF50;
    color: white;
    padding: 10px 20px;
@@ -714,50 +845,43 @@ button,#cadastrar {
    cursor: pointer;
    font-size: 16px;
 }
-button:hover,#cadastrar:hover {
-   background-color: #4caf4fdc;
-   color: white;
+
+.pesquisar {
+   margin-left: -20px;
 }
 
 
-#cadastrar {
+
+#cadastrar,
+#pesquisar,
+#alterar {
    width: 100%;
-
 }
 
-button:hover {
-   background-color: #45a049;
-}
-
-
-button[type="submit"]:hover {
-   background-color: #45a049;
-}
 
 .liBtn {
+   background-color: rgba(255, 255, 255, 0);
    border: 1px solid rgb(173, 173, 173);
-   width: 270px;
-   height: auto;
+   width: 310px;
+   height: 50px;
    display: flex;
-   height: 29px;
    justify-content: center;
    align-items: center;
-   background-color: rgba(255, 255, 255, 0.007);
-   margin-left: 10px;
+   /* margin-left: 10px; */
    border: none;
 }
 
 .liBtn:hover {
+   background-color: rgba(255, 255, 255, 0);
    border: 1px solid rgb(173, 173, 173);
    width: 270px;
-   height: auto;
    display: flex;
-   height: 29px;
    justify-content: center;
    align-items: center;
-   background-color: rgba(255, 255, 255, 0.007);
-   margin-left: 10px;
+   /* margin-left: 10px; */
    border: none;
+   width: 310px;
+   height: 50px;
 }
 
 .litopBtn {
@@ -813,23 +937,27 @@ button[type="submit"]:hover {
 
 
 #listaProdutoFilter {
-   height: 362px;
    border: 1px solid rgb(221, 221, 221);
    overflow-y: scroll;
    width: 1300px;
    height: 270px;
    margin-top: -17px;
-   background-color: rgb(247, 247, 247);
+   background-color: rgb(255, 255, 255);
 }
 
 .tableProdutos2 {
+   display: none;
    position: absolute;
-   bottom: 0;
+   top: 35px;
+   left: 10px;
+   background-color: white;
+   height: 400px;
+   width: 1350px;
 }
 
-
-
-
+.tableProdutos2.active {
+   display: block;
+}
 
 
 #categoriaLista {
@@ -903,6 +1031,97 @@ button[type="submit"]:hover {
 
 .tituloCadastro {
    height: 22px;
-   background-color: rgb(78, 78, 78);
+   background-color: rgb(0, 38, 87);
    color: rgb(255, 255, 255);
+}
+
+.tbUlCadastro {
+   height: 100vh;
+   padding: 20px;
+   margin-top: 13px;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   /* background-color: red; */
+}
+
+.barraTop {
+   height: 22px;
+   justify-content: center;
+   display: flex;
+   align-items: center;
+   margin-top: -16px;
+   border-top: none;
+}
+
+.barra {
+   height: 22px;
+   background-color: rgb(0, 38, 87);
+   width: 100%;
+   color: rgb(255, 255, 255);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.barraBtn {
+   margin-top: -15px;
+   height: 60px;
+
+}
+
+#alterar,
+#btnPesquisa,
+#btnPesquisa2,
+#cadastrar {
+   border-radius: 0;
+   background-color: #4CAF50;
+   color: white;
+   margin: 2px;
+   padding: 10px;
+   border: none;
+   cursor: pointer;
+   /* Mudar a cor do botão quando clicado */
+   border-top: 1px solid rgb(143, 143, 143);
+   border-left: 1px solid rgb(143, 143, 143);
+   border-right: 2px solid rgb(48, 48, 48);
+   border-bottom: 2px solid rgb(48, 48, 48);
+}
+
+#alterar:active {
+   background-color: #4CAF50;
+   color: white;
+   margin: 2px;
+   padding: 10px;
+   border: none;
+   cursor: pointer;
+   border-top: 2px solid rgb(48, 48, 48);
+   border-left: 2px solid rgb(48, 48, 48);
+   border-right: 1px solid rgb(143, 143, 143);
+   border-bottom: 1px solid rgb(143, 143, 143);
+}
+
+#cadastrar:active {
+   background-color: #4CAF50;
+   color: white;
+   margin: 2px;
+   padding: 10px;
+   border: none;
+   cursor: pointer;
+   border-top: 2px solid rgb(48, 48, 48);
+   border-left: 2px solid rgb(48, 48, 48);
+   border-right: 1px solid rgb(143, 143, 143);
+   border-bottom: 1px solid rgb(143, 143, 143);
+}
+
+.buscarProduto {
+   margin-top: -10px;
+   border: 1px solid rgb(170, 170, 170);
+   width: 100%;
+}
+
+#inputFiltar {
+   margin-left: 5px;
+   width: 150px;
+   margin: 2px;
 }

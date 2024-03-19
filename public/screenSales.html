@@ -4,26 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/body.css">
     <link rel="stylesheet" href="../style/menu.css">
     <link rel="stylesheet" href="../style/screenSales.css">
-    <link rel="stylesheet" href="../style/print.css">
+    <!-- <link rel="stylesheet" href="../style/print.css"> -->
     <title>Gestão Lite</title>
     <style>
         .menu-item-2,
         .a-menu2 {
             height: 22px;
             color: white;
-            background-color:rgb(78, 78, 78);
-            /* background-color: rgb(0, 38, 87); */
+            /* background-color:rgb(78, 78, 78); */
+            background-color: rgb(0, 38, 87);
+            /* background-color: #333333; */
         }
 
         .menu-item-2:hover,
         .a-menu2:hover {
             height: 22px;
             color: white;
-            background-color:rgb(78, 78, 78);
-            /* background-color: rgb(0, 38, 87); */
+            /* background-color:rgb(78, 78, 78); */
+            background-color: rgb(0, 38, 87);
+            /* background-color: #333333 */
         }
     </style>
 </head>
@@ -54,26 +55,25 @@
                     <th colspan="6th">Buscar Produto</th>
                 </tr>
                 <tr>
-                    <td colspan="5th"><span class="tdEAN"> Digite o Código do Produto: <input id="input-EAN" autocomplete="off"
-                                type="number"><button id="buttonAddCarrinho">Adicionar
-                                Produto no Carrinho</button><button id="button-clear">Limpar EAN</button></span></td>
-                </tr>
-                <tr>
-                    <th class="codigo">Código</th>
-                    <th class="produto">Produto</th>
-                    <th class="descricao">Descrição</th>
-                    <th class="preco">Preço</th>
-                    <th class="estoque">Estoque</th>
-                    <th>Quantidade</th>
-                </tr>
-                <tr>
-                    <td id="codigo"></td>
-                    <td id="produto"></td>
-                    <td id="descricao"></td>
-                    <td id="preco"></td>
-                    <td id="estoque"></td>
-                    <td><input type="number" id="input-qtd" min="0" value="1">
-                    </td>
+                    <th class="thDescricaoProduto" colspan="10">
+                        <p class="descricaoLista" id="descricaoLista">
+                            <span class="codigoP">Adicione EAN</span>
+                            <span class="produtos">Produto</span>
+                            <span class="descricaoList" id="descricaoList">Descrição</span>
+                        <span class="precoProduto">Preço</span>
+                        <span class="estoque">Estoque</span>
+                        <span  class="Qtd">Selecionar Qtd</span>
+                    </p>
+                        <p class="descricaoLista" id="descricaoLista2">
+                        <span class="codigoP" id="codigo"><input id="input-EAN" autocomplete="off" type="number"></span>
+                        <span class="produtos" id="produto"></span>
+                        <span class="descricaoList"  id="descricao"></span>
+                        <span class="precoProduto" id="preco"></span>
+                        <span id="estoque" class="estoque"></span>
+                        <span class="Qtd2" id="spanDescricao"><input type="number" id="input-qtd" min="0" value="1"></span>
+                    </p>
+                    <p class="tdEAN"> <button id="buttonAddCarrinho">Adicionar
+                            Produto no Carrinho</button><button id="button-clear">Limpar EAN</button></p>
                 </tr>
             </table>
             <p class="titulo-carrinho">Produtos Adicionados ao Carrinho</p>

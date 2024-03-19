@@ -15,7 +15,9 @@
         .a-menu4 {
             height: 22px;
             color: white;
-            background-color: rgb(78, 78, 78);
+            /* background-color: rgb(78, 78, 78); */
+            background-color: rgb(0, 38, 87);
+            /* background-color: #333333; */
             cursor: pointer;
             border-top-left-radius: 3px;
             border-top-right-radius: 3px;
@@ -26,8 +28,9 @@
         .cadastro-produto:hover {
             height: 22px;
             color: white;
-            background-color: rgb(78, 78, 78);
-            /* background-color: rgb(0, 38, 87); */
+            /* background-color: rgb(78, 78, 78); */
+            background-color: rgb(0, 38, 87);
+            /* background-color: #333333; */
         }
 
         .cadastro-produto,
@@ -37,7 +40,9 @@
             height: 22px;
             width: 200px;
             color: white;
-            background-color: rgb(78, 78, 78);
+            /* background-color: #333333; */
+            background-color: rgb(0, 38, 87);
+            /* background-color: rgb(78, 78, 78); */
             cursor: pointer;
         }
     </style>
@@ -67,7 +72,7 @@
                         <a class="a2" href="../public/excluir-produtos.html">Excluir Produto</a>
                     </li>
                 </ul>
-<div class="barraTop"><p class="barra" >.
+                <div class="barraTop"><p class="barra" >Cadastrar
 </p></div>
                 <table class="tableCadastro">
                     <tr>
@@ -79,182 +84,259 @@
                     </tr>
 
                     <tr class="trTable">
-                 
+
                         <td class="tbUlCadastro">
-                       
-                            <ul class="ulCadastro">
-                                <li class="spanProdutosCodigo">Codigo EAN do Produto</li>
-                                <li class="spanProdutosCadastro">Nome do Produto</li>
-                                <li class="spanProdutosCadastro2">Descrição do Produto</li>
-                            </ul>
-                            <ul class="ulCadastro2">
-                                <li class="spanProdutosCodigo2"><input type="number" id="codigoDeBarras"
-                                        name="codigoDeBarras" autocomplete="off" required></li>
-                                <li class="spanProdutosCadastroIn"><input type="text" id="nomeProduto" name="nome"
-                                        autocomplete="off" required></li>
-                                <li class="spanProdutosCadastroIn2"><input type="text" id="descricao" name="descricao"
-                                        autocomplete="off" required></li>
+                            <div class="divTd">
+                                <ul class="ulCadastro">
+                                    <li class="spanProdutosCodigo">Codigo EAN do Produto</li>
+                                    <li class="spanProdutosCategoria">Categoria do Produto</li>
+                                    <li class="spanProdutosCadastro">Nome do Produto</li>
+                                    <li class="spanProdutosCadastro2">Descrição do Produto</li>
 
-                            </ul>
+                                </ul>
+                                <ul class="ulCadastro2">
+                                    <li class="spanProdutosCodigo2"><input type="number" id="codigoDeBarras"
+                                            name="codigoDeBarras" autocomplete="off" required></li>
+                                    <li class="spanProdutosCategoria2">
+                                        <select id="categoria" name="categoria" required>
+                                            <option value="">Selecione uma categoria</option>
+                                            <option value="eletronico">Eletrônicos</option>
+                                            <option value="vestuario">Vestuário</option>
+                                            <option value="alimenticio">Alimentício</option>
+                                            <option value="moveis">Móveis</option>
+                                            <option value="beleza">Produtos de beleza</option>
+                                            <option value="automotivo">Automotivo</option>
+                                            <option value="brinquedos">Brinquedos</option>
+                                            <option value="livros">Livros</option>
+                                            <option value="esportes">Artigos esportivos</option>
+                                            <option value="decoracao">Decoração</option>
+                                            <option value="jardinagem">Jardinagem</option>
+                                            <option value="musica">Instrumentos musicais</option>
+                                            <option value="informatica">Informática</option>
+                                            <option value="papelaria">Material de papelaria</option>
+                                            <option value="casa">Produtos para casa</option>
+                                            <option value="ferramentas">Ferramentas</option>
+                                            <option value="artesanato">Artesanato</option>
+                                            <option value="bebidas">Bebidas</option>
+                                            <option value="outros">Outros</option>
+                                        </select>
+                                    </li>
+                                    <li class="spanProdutosCadastroIn"><input type="text" id="nomeProduto" name="nome"
+                                            autocomplete="off" required></li>
+                                    <li class="spanProdutosCadastroIn2"><input type="text" id="descricao"
+                                            name="descricao" autocomplete="off" required></li>
 
-                            <ul class="ulCadastro">
-                                <li class="spanProdutosCategoria">Categoria do Produto</li>
-                                <li class="spanTamanho">Tamanho - P/GG</li>
-                                <li class="spanTamanhoNumero">Tamanho - Numeração</li>
-                                <li class="spanCor">Cor do Produto</li>
-                            </ul>
-                            <ul class="ulCadastro2">
-                                <li class="spanProdutosCategoria2">
-                                    <select id="categoria" name="categoria" required>
-                                        <option value="">Selecione uma categoria</option>
-                                        <option value="eletronico">Eletrônicos</option>
-                                        <option value="vestuario">Vestuário</option>
-                                        <option value="alimenticio">Alimentício</option>
-                                        <option value="moveis">Móveis</option>
-                                        <option value="beleza">Produtos de beleza</option>
-                                        <option value="automotivo">Automotivo</option>
-                                        <option value="brinquedos">Brinquedos</option>
-                                        <option value="livros">Livros</option>
-                                        <option value="esportes">Artigos esportivos</option>
-                                        <option value="decoracao">Decoração</option>
-                                        <option value="jardinagem">Jardinagem</option>
-                                        <option value="musica">Instrumentos musicais</option>
-                                        <option value="informatica">Informática</option>
-                                        <option value="papelaria">Material de papelaria</option>
-                                        <option value="casa">Produtos para casa</option>
-                                        <option value="ferramentas">Ferramentas</option>
-                                        <option value="artesanato">Artesanato</option>
-                                        <option value="bebidas">Bebidas</option>
-                                        <option value="outros">Outros</option>
-                                    </select>
-                                </li>
-                                <li class="spanTamanho2">
-                                    <select id="tamanho" name="tamanho">
-                                        <option value="">Selecione...</option>
-                                        <option value="P">P</option>
-                                        <option value="PP">PP</option>
-                                        <option value="M">M</option>
-                                        <option value="G">G</option>
-                                        <option value="GG">GG</option>
-                                        <!-- Adicione outras opções conforme necessário -->
-                                    </select>
-                                </li>
-                                <li class="spanTamanhoNumero2">
-                                    <select id="tamanhoNumero" name="tamanho">
-                                        <option value="">Selecione...</option>
-                                        <!-- Adicione outras opções conforme necessário -->
-                                    </select>
-                                </li>
-                                <li class="spanCor2">
-                                    <select id="cor" name="cor">
-                                        <option value="">Selecione...</option>
-                                        <option value="Vermelho">Vermelho</option>
-                                        <option value="Azul">Azul</option>
-                                        <option value="Verde">Verde</option>
-                                        <option value="Amarelo">Amarelo</option>
-                                        <option value="Preto">Preto</option>
-                                        <option value="Branco">Branco</option>
-                                        <option value="Rosa">Rosa</option>
-                                        <option value="Laranja">Laranja</option>
-                                        <option value="Roxo">Roxo</option>
-                                        <option value="Marrom">Marrom</option>
-                                        <option value="Marrom">Listrada</option>
-                                        <option value="Marrom">Tricolor</option>
-                                        <option value="Marrom">Outra</option>
+                                </ul>
 
-                                        <!-- Adicione outras cores conforme necessário -->
-                                    </select>
-                                </li>
+                                <ul class="ulCadastro">
+
+                                    <li class="spanMedida">Medidas de massa</li>
+                                    <li class="spanMedida">Medida de Volume</li>
+                                    <li class="spanTamanho">Tamanho - P/GG</li>
+                                    <li class="spanTamanhoNumero">Tamanho - Numeração</li>
+                                    <li class="spanCor">Cor do Produto</li>
+                                </ul>
+                                <ul class="ulCadastro2">
+
+                                    <li class="spanMedida2">
+                                        <span>
+                                            <input id="massaNumero" type="number">
+                                        </span>
+                                        <select id="massa" name="massa">
+                                            <option value="">Selecione...</option>
+                                            <option value="quilograma">Quilograma (kg)</option>
+                                            <option value="grama">Grama (g)</option>
+                                            <option value="tonelada">Tonelada (t)</option>
+                                            <option value="miligrama">Miligrama (mg)</option>
+                                            <option value="micrograma">Micrograma (µg)</option>
+                                            <option value="libra">Libra (lb)</option>
+                                            <!-- Adicione outras opções conforme necessário -->
+                                        </select>
+                                    </li>
+                                    <li class="spanMedida2">
+                                        <span>
+                                            <input id="volumeNumero" type="number">
+                                        </span>
+                                        <select id="volume" name="volume">
+                                            <option value="">Selecione...</option>
+                                            <option value="litro">Litro (L)</option>
+                                            <option value="mililitro">Mililitro (mL)</option>
+                                            <option value="metro_cubico">Metro Cúbico (m³)</option>
+                                            <option value="galao">Galão (gal)</option>
+                                            <option value="pint">Pint (pt)</option>
+                                            <!-- Adicione outras opções conforme necessário -->
+                                        </select>
+
+                                    </li>
+
+                                    <li class="spanTamanho2">
+                                        <select id="tamanho" name="tamanho">
+                                            <option value="">Selecione...</option>
+                                            <option value="P">P</option>
+                                            <option value="PP">PP</option>
+                                            <option value="M">M</option>
+                                            <option value="G">G</option>
+                                            <option value="GG">GG</option>
+                                            <!-- Adicione outras opções conforme necessário -->
+                                        </select>
+                                    </li>
+                                    <li class="spanTamanhoNumero2">
+                                        <select id="tamanhoNumero" name="tamanho">
+                                            <option value="">Selecione...</option>
+                                            <!-- Adicione outras opções conforme necessário -->
+                                        </select>
+                                    </li>
+                                    <li class="spanCor2">
+                                        <select id="cor" name="cor">
+                                            <option value="">Selecione...</option>
+                                            <option value="Vermelho">Vermelho</option>
+                                            <option value="Azul">Azul</option>
+                                            <option value="Verde">Verde</option>
+                                            <option value="Amarelo">Amarelo</option>
+                                            <option value="Preto">Preto</option>
+                                            <option value="Branco">Branco</option>
+                                            <option value="Rosa">Rosa</option>
+                                            <option value="Laranja">Laranja</option>
+                                            <option value="Roxo">Roxo</option>
+                                            <option value="Marrom">Marrom</option>
+                                            <option value="Marrom">Listrada</option>
+                                            <option value="Marrom">Tricolor</option>
+                                            <option value="Marrom">Outra</option>
+
+                                            <!-- Adicione outras cores conforme necessário -->
+                                        </select>
+                                    </li>
 
 
-                            </ul>
+                                </ul>
 
-                            <ul class="ulCadastro">
-                                <li class="spanProdutosEstoque">Alterar Estoque</li>
-                                <li class="spanProdutosPreco">Alterar Preço de Custo</li>
-                                <li class="spanProdutosPreco">Alterar Preço de Venda</li>
-                                <li class="litopBtn"></li>
-                            </ul>
+                                <ul class="ulCadastro">
 
-                            <ul class="ulCadastro2">
+                                    <li class="spanProdutosEstoque">Estoque Inicial</li>
+                                    <li class="spanProdutosUnidade">Unidades de Medida</li>
+                                    <li class="spanProdutosPreco">Preço de Custo</li>
+                                    <li class="spanProdutosPreco">Preço de Venda</li>
+                                    <li class="litopBtn"></li>
+                                </ul>
+
+                                <ul class="ulCadastro2">
 
 
-                                <li class="spanProdutosEstoque2"><input type="number" id="estoque" name="estoque"
-                                        autocomplete="off" required>
-                                </li>
+                                    <li class="spanProdutosEstoque2"><input type="number" id="estoque1" name="estoque"
+                                            autocomplete="off" required>
+                                    </li>
+                                    <li class="spanProdutosUnidade2">
+                                        <select id="unidade" name="">
+                                            <option value="UN">UN - Unidade (padrão)</option>
+                                            <option value="CX">CX - Caixa (1)</option>
+                                            <option value="DZ">DZ - Duzia (12)</option>
+                                            <option value="PT">PT - Pacote (1)</option>
+                                            <option value="RL">RL - Rolo (1)</option>
+                                            <option value="PÇ">RL - PÇ - Peça (1)</option>
+                                            <!-- Adicione outras cores conforme necessário -->
+                                        </select>
+                                    </li>
 
-                                <li class="spanProdutosPreco2">
-                                    <input type="number" id="precoCusto" name="preco" step="0.01" autocomplete="off"
-                                        required>
-                                </li>
-                                <li class="spanProdutosPreco2"><input type="number" id="preco" name="preco" step="0.01"
-                                        autocomplete="off" required>
-                                </li>
-                                <li class="liBtn"><button id="cadastrar">Cadastrar Novo Produto</button>
-                                </li>
-                            </ul>
+                                    <li class="spanProdutosPreco2">
+                                        <input type="number" id="precoCusto" name="preco" step="0.01" autocomplete="off"
+                                            required>
+                                    </li>
+                                    <li class="spanProdutosPreco2"><input type="number" id="preco1" name="preco"
+                                            step="0.01" autocomplete="off" required>
+                                    </li>
 
-                    </tr>
-                </table>
-
-                <table class="tableProdutos2">
-                    <tr>
-                        <th class="tituloCadastro" id="tituloCadastro">
-                            Informações de Produtos Cadastrados
-                        </th>
-                    </tr>
-
-                    <tr class="trFiltrar">
-                        <td>
-                            <p class="tdFiltrarProdutos">
-                                <span>Filtrar Produtos por categoria: </span>
-                                <span>
-                                    <select id="produtoFiltrados" name="categoria" required>
-                                        <option value="">Selecione uma categoria</option>
-                                        <option value="eletronico">Eletrônicos</option>
-                                        <option value="vestuario">Vestuário</option>
-                                        <option value="alimenticio">Alimentício</option>
-                                        <option value="moveis">Móveis</option>
-                                        <option value="beleza">Produtos de beleza</option>
-                                        <option value="automotivo">Automotivo</option>
-                                        <option value="brinquedos">Brinquedos</option>
-                                        <option value="livros">Livros</option>
-                                        <option value="esportes">Artigos esportivos</option>
-                                        <option value="decoracao">Decoração</option>
-                                        <option value="jardinagem">Jardinagem</option>
-                                        <option value="musica">Instrumentos musicais</option>
-                                        <option value="informatica">Informática</option>
-                                        <option value="papelaria">Material de papelaria</option>
-                                        <option value="casa">Produtos para casa</option>
-                                        <option value="ferramentas">Ferramentas</option>
-                                        <option value="artesanato">Artesanato</option>
-                                        <option value="bebidas">Bebidas</option>
-                                        <option value="outros">Outros</option>
-                                    </select>
-                                </span>
-                                <span class="filtrarCodigo">Filtrar Produto Código:</span><span><input type="number"
-                                        name="" id="codigoEAN"></span>
-                            </p>
-
-                            <ul id="listaProdutoFilter">
-                                <li class="descricaoLista0">
-                                    <span class="spanItem">Ítem</span>
-                                    <span span class="codigo0">Código</span>
-                                    <span class="produtos">Produto</span>
-                                    <span class="descricaoList0">Descrição</span>
-                                    <span class="categoriaLista">Categoria</span>
-                                    <span class="tamanhoPG">Tamanho de P/GG</span>
-                                    <span class="tamanhoNum">Tamanho Num.</span>
-                                    <span class="precoCusto">Preço Compra</span>
-                                    <span class="precoVenda">Preço Venda</span>
-                                    <span class="spanEstoque">Estoque</span>
-                                </li>
-                             
-                            </ul>
+                                </ul>
+                                <ul class="ulCadastro">
+                                    <li class="litopBtn"></li>
+                                </ul>
+                                <ul class="ulCadastro2">
+                                    <li class="liBtn"><button id="cadastrar">Cadastrar Novo Produto</button>
+                                    </li>
+                                    <li class="liBtn"><button id="btnPesquisa">Abrir Barra de Informações Produtos</button>
+                                    </li>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
-
                 </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="tableProdutos2">
+                    <table>
+                        <tr>
+                            <th class="tituloCadastro" id="tituloCadastro">
+                                Informações de Produtos Cadastrados
+                            </th>
+                        </tr>
+
+                        <tr class="trFiltrar">
+                            <td>
+                                <p class="tdFiltrarProdutos">
+                                    <span>Filtrar Produtos por categoria: </span>
+                                    <span>
+                                        <select id="produtoFiltrados" name="categoria" required>
+                                            <option value="">Selecione uma categoria</option>
+                                            <option value="eletronico">Eletrônicos</option>
+                                            <option value="vestuario">Vestuário</option>
+                                            <option value="alimenticio">Alimentício</option>
+                                            <option value="moveis">Móveis</option>
+                                            <option value="beleza">Produtos de beleza</option>
+                                            <option value="automotivo">Automotivo</option>
+                                            <option value="brinquedos">Brinquedos</option>
+                                            <option value="livros">Livros</option>
+                                            <option value="esportes">Artigos esportivos</option>
+                                            <option value="decoracao">Decoração</option>
+                                            <option value="jardinagem">Jardinagem</option>
+                                            <option value="musica">Instrumentos musicais</option>
+                                            <option value="informatica">Informática</option>
+                                            <option value="papelaria">Material de papelaria</option>
+                                            <option value="casa">Produtos para casa</option>
+                                            <option value="ferramentas">Ferramentas</option>
+                                            <option value="artesanato">Artesanato</option>
+                                            <option value="bebidas">Bebidas</option>
+                                            <option value="outros">Outros</option>
+                                        </select>
+                                    </span>
+                                    <span class="filtrarCodigo">Filtrar Produto Código:</span><span><input type="number"
+                                            name="" id="codigoEAN"></span>
+                                </p>
+
+                                <ul id="listaProdutoFilter">
+                                    <li class="descricaoLista0">
+                                        <span class="spanItem">Ítem</span>
+                                        <span span class="codigo0">Código</span>
+                                        <span class="produtos">Produto</span>
+                                        <span class="descricaoList0">Descrição</span>
+                                        <span class="categoriaLista">Categoria</span>
+                                        <span class="tamanhoPG">Tamanho de P/GG</span>
+                                        <span class="tamanhoNum">Tamanho Num.</span>
+                                        <span class="precoCusto">Preço Compra</span>
+                                        <span class="precoVenda">Preço Venda</span>
+                                        <span class="spanEstoque">Estoque</span>
+                                    </li>
+
+                                </ul>
+                                <p class="barraBtn">
+                                    <button id="btnPesquisa2">Fechar Pesquisa</button>
+                                </p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
 
             </div>
             <script src="../controllers/menu.js"></script>

@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function () {
             renderizarLista();
             limparInputEAN();
 
-
         } else {
             const msg = 'Nenhum produto encontrado para adicionar ao carrinho.';
             criaAlert(msg)
@@ -115,17 +114,15 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 if (Array.isArray(data)) {
                     produtoEncontrado = data.find(produto => Number(produto.codigoDeBarras) === Number(codigoEAN));
-
-
                     if (produtoEncontrado) {
-                        produtoCodigo.innerText = produtoEncontrado.codigoDeBarras;
+                        produtoCodigo.value = '';
                         produtoNome.innerText = `${produtoEncontrado.nome} `;
                         produtoDescricao.innerText = `${produtoEncontrado.descricao} `;
                         produtoPreco.innerText = produtoEncontrado.preco.toFixed(2);
                         produtoEstoque.innerText = produtoEncontrado.estoque;
                     } else {
                         produtoNome.innerText = 'Produto não encontrado';
-                        produtoCodigo.innerText = ''
+                        produtoCodigo.value = ''
                         produtoPreco.innerText = ''
                         produtoEstoque.innerText = ''
                         inputQtd.value = '1'
@@ -251,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function limparInputEAN() {
-        produtoCodigo.innerText = ''
+        produtoCodigo.value = ''
         produtoPreco.innerText = ''
         produtoEstoque.innerText = ''
         codigoEANInput.value = '';

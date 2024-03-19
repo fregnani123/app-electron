@@ -1,13 +1,15 @@
 :root {
-    --cor-AzulEscura: rgb(78, 78, 78);;
-    /* --cor-AzulEscura: rgb(0, 38, 87); */
-    --cor2: #616161;
-    --cor3: #fafafa;
+    --cor-AzulEscura: rgb(78, 78, 78);
+    ;
+    --cor2: rgb(0, 38, 87);
+    /* --cor2: #333333; */
+    --cor3: #ffffff;
     --cor-InputAmarelo: #FFFFE0;
     --background-color: rgb(78, 78, 78);
     ;
 }
-li{
+
+li {
     border-radius: 0;
 }
 
@@ -63,8 +65,10 @@ li{
     right: 10px;
     bottom: 10px;
     color: black;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid white;
+    height: 30px;
+    width: 50px;
 }
 
 .msg {
@@ -96,8 +100,8 @@ body {
     width: 100%;
     margin: 0;
     position: relative;
-    background-color:var(--cor2)
-    /* background: rgb(0, 38, 87); */
+    background-color: var(--cor2)
+        /* background: rgb(0, 38, 87); */
 }
 
 .container-table {
@@ -124,10 +128,13 @@ td {
 }
 
 .tdEAN {
+    /* border: 1px solid rgb(182, 182, 182); */
     display: flex;
     justify-content: center;
-    margin-left: 200px;
     align-items: center;
+    height: 40px;
+    text-align: center;
+    margin-top: -18px;
 }
 
 .tr-buscar {
@@ -140,7 +147,8 @@ td {
     /* background-color: rgb(0, 38, 87); */
     color: white;
     padding: 5px;
-    border: 1px solid rgb(78, 78, 78);;
+    border: 1px solid rgb(78, 78, 78);
+    ;
 }
 
 th {
@@ -153,13 +161,15 @@ th {
     margin-top: 20px;
 }
 
+
 #input-EAN[type=number]::-webkit-inner-spin-button,
 #input-EAN[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     appearance: none;
 }
 
-input, #clienteEncontrado {
+input,
+#clienteEncontrado {
     text-align: center;
     outline: none;
     height: 29px;
@@ -167,7 +177,8 @@ input, #clienteEncontrado {
     font-size: 16px;
 }
 
-#clienteEncontrado{text-align: center;
+#clienteEncontrado {
+    text-align: center;
     outline: none;
     width: 100%;
     height: 29px;
@@ -175,7 +186,8 @@ input, #clienteEncontrado {
     border: 1px solid #ccc;
     font-size: 16px;
     background-color: #FFFFE0;
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2)}
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2)
+}
 
 
 #dinheiro-recebido[type=number]::-webkit-inner-spin-button,
@@ -194,7 +206,8 @@ input, #clienteEncontrado {
 #inputCPF[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     appearance: none;
-}
+} 
+
 
 #dinheiro-recebido {
     display: flex;
@@ -208,6 +221,7 @@ input, #clienteEncontrado {
     width: 100%;
     margin-left: -1px;
 }
+
 #inputCPF {
     display: flex;
     text-align: center;
@@ -216,7 +230,7 @@ input, #clienteEncontrado {
     font-size: 16px;
     background-color: #FFFFE0;
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
-    width: 196px;
+    width: 100%;
     margin-left: 2px;
 }
 
@@ -227,19 +241,19 @@ input, #clienteEncontrado {
 
 #input-EAN {
     border: 1px solid #ccc;
-    margin-left: 2px;
-    padding: 2px;
-    height: 22px;
+    margin: 2px;
     font-size: 16px;
     background-color: #FFFFE0;
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
     margin-bottom: 2px;
+    width: 100%;
+    height: 23px;
 }
 
 
 
 #input-qtd {
-    width: 90%;
+    width: 100%;
     height: 22px;
     font-size: 15px;
     background-color: #FFFFE0;
@@ -247,7 +261,11 @@ input, #clienteEncontrado {
     padding: 2px;
     font-size: 16px;
     background-color: #FFFFE0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 2px;
 }
 
 #carrinho {
@@ -274,23 +292,92 @@ input[type="text"] {
     background-color: #FFFFE0;
 }
 
-button {
+#buttonAddCarrinho:active {
     background-color: #4CAF50;
     color: white;
-    padding: 5px 20px;
+    margin: 2px;
+    padding: 10px;
     border: none;
-    border-radius: 2px;
     cursor: pointer;
-    margin-left: 3px;
+    border-top: 2px solid rgb(48, 48, 48);
+    border-left: 2px solid rgb(48, 48, 48);
+    border-right: 1px solid rgb(143, 143, 143);
+    border-bottom: 1px solid rgb(143, 143, 143);
 }
 
-#button-clearEAN {
-    margin-bottom: 2px;
+#buttonAddCarrinho {
+    background-color: #4CAF50;
+    color: white;
+    margin: 2px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    /* Mudar a cor do botão quando clicado */
+    border-top: 1px solid rgb(143, 143, 143);
+    border-left: 1px solid rgb(143, 143, 143);
+    border-right: 2px solid rgb(48, 48, 48);
+    border-bottom: 2px solid rgb(48, 48, 48);
 }
 
-button:hover {
+#button-clear {
+    background-color: #4CAF50;
+    color: white;
+    margin: 2px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    /* Mudar a cor do botão quando clicado */
+    border-top: 1px solid rgb(143, 143, 143);
+    border-left: 1px solid rgb(143, 143, 143);
+    border-right: 2px solid rgb(48, 48, 48);
+    border-bottom: 2px solid rgb(48, 48, 48);
+}
+
+#button-clear:active {
+    background-color: #4CAF50;
+    color: white;
+    margin: 2px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-top: 2px solid rgb(48, 48, 48);
+    border-left: 2px solid rgb(48, 48, 48);
+    border-right: 1px solid rgb(143, 143, 143);
+    border-bottom: 1px solid rgb(143, 143, 143);
+}
+#finalizar-venda {
+    background-color: #4CAF50;
+    color: white;
+    margin: 2px;
+    padding: 10px 20px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    /* Mudar a cor do botão quando clicado */
+    border-top: 1px solid rgb(143, 143, 143);
+    border-left: 1px solid rgb(143, 143, 143);
+    border-right: 2px solid rgb(48, 48, 48);
+    border-bottom: 2px solid rgb(48, 48, 48);
+}
+
+#finalizar-venda:active{
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    margin: 2px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-top: 2px solid rgb(48, 48, 48);
+    border-left: 2px solid rgb(48, 48, 48);
+    border-right: 1px solid rgb(143, 143, 143);
+    border-bottom: 1px solid rgb(143, 143, 143);
+}
+
+/* 
+#button-clear:hover, #buttonAddCarrinho:hover {
     background-color: #45a049;
-}
+} */
 
 .codigo {
     width: 12%;
@@ -318,17 +405,25 @@ button:hover {
 }
 
 .buttonExcluir {
+    display: flex;
+    justify-content: right;
     margin-left: 15px;
     width: 40px;
     height: auto;
-    background-color: rgb(247, 247, 247);
+    background-color: rgba(247, 247, 247, 0);
+    border: none;
+    cursor: pointer;
 }
 
 .buttonExcluir:hover {
+    display: flex;
+    justify-content: right;
+    margin-left: 15px;
     margin-left: 15px;
     width: 40px;
+    cursor: pointer;
     height: auto;
-    background-color: rgb(247, 247, 247);
+    background-color: rgba(247, 247, 247, 0);
 }
 
 .carrinho-add {
@@ -348,7 +443,7 @@ button:hover {
     overflow-y: scroll;
     width: 97%;
     height: 200px;
-    margin-top: -15px;
+    margin-top: -10px;
     background-color: rgb(247, 247, 247);
 }
 
@@ -445,10 +540,10 @@ option {
     /* background-color: rgb(0, 38, 87); */
     height: 10px;
     background-color: var(--cor2);
-    color:var(--cor3);
+    color: var(--cor3);
     padding-top: 5px;
     padding-bottom: 5px;
-    margin-top: 0px;
+    margin-top: -15px;
 }
 
 .titulo-finalizar {
@@ -556,35 +651,37 @@ td {
 
 .clienteTitulo {
     text-align: center;
-        align-items: center;
-        display: flex;
-        margin-top: -15px;
-        padding: 3.5px;
-        display: flex;
-        justify-content: center;
-        width: 100%;
+    align-items: center;
+    display: flex;
+    margin-top: -15px;
+    padding: 3.5px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
+
 .clienteTitulo2 {
     text-align: center;
-        align-items: center;
-        display: flex;
-        margin-top: -23px;
-        padding: 3.5px;
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        height: 29px;
-        border-top: 1px solid #fdfdfd00
+    align-items: center;
+    display: flex;
+    margin-top: -23px;
+    padding: 3.5px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 29px;
+    border-top: 1px solid #fdfdfd00
 }
+
 .clienteTitulo3 {
     text-align: center;
-        align-items: center;
-        display: flex;
-        padding: 3.5px;
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        margin-top: -10px;
+    align-items: center;
+    display: flex;
+    padding: 3.5px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: -10px;
 }
 
 .tituloBuscarCli {
@@ -596,7 +693,7 @@ td {
     background-color: rgb(0, 38, 87);
     color: white;
     border: 1px solid rgba(128, 128, 128, 0.342);
-    
+
 }
 
 
@@ -626,13 +723,37 @@ td {
 .descricaoLista {
     border: none;
     display: flex;
-    margin-left: px;
+    margin-left: -20px;
     margin-top: -15px;
     width: 100%;
-    height: 22px;
+    height: 17px;
     justify-content: left;
 }
 
+#descricaoLista {
+    display: flex;
+    justify-content: center;
+    margin-top: -2px;
+}
+
+#descricaoLista2 {
+    display: flex;
+    justify-content: center;
+    margin-top: -10px;
+    height: 36px;
+    display: flex;
+}
+
+#spanDescricao,
+#estoque {
+    height: 30px;
+    text-align: center;
+}
+
+.thDescricaoProduto {
+    background-color: #ffffff00;
+    color: black;
+}
 
 .spanCodigo,
 .spanNumero {
@@ -702,6 +823,10 @@ td {
     align-items: center;
 }
 
+#descricaoList {
+    /* border-right:1px solid rgb(173, 173, 173); */
+}
+
 .precoProduto,
 .spanPrecoNovo {
     height: 22px;
@@ -711,6 +836,32 @@ td {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.Qtd,
+.estoque {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: none;
+}
+#preco,#codigo,#produto,#descricao{
+    height: 30px;
+}
+
+.Qtd2 {
+    height: 22px;
+    margin-left: 0;
+    border: 1px solid rgb(173, 173, 173);
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: none;
 }
 
 .vlTotal {
@@ -751,7 +902,7 @@ td {
     justify-content: left;
     width: 100%;
     height: 22px;
-    margin-left: 0px;
+    margin-left: -20px;
     margin-top: 2px;
 }
 
@@ -770,6 +921,7 @@ td {
     justify-content: center;
     align-items: center;
 }
+
 .clienteCPF:hover {
     margin-left: 0;
     border: 1px solid rgb(173, 173, 173);
@@ -780,6 +932,7 @@ td {
     align-items: center;
     background-color: rgba(255, 255, 255, 0);
 }
+
 .clienteCPF2 {
     margin-left: 0;
     border: 1px solid rgb(173, 173, 173);
@@ -789,6 +942,7 @@ td {
     justify-content: center;
     align-items: center;
 }
+
 .clienteCPF2:hover {
     margin-left: 0;
     border: 1px solid rgb(173, 173, 173);
@@ -822,6 +976,7 @@ td {
     justify-content: center;
     align-items: center;
 }
+
 .clienteBuscar:hover {
     border: 1px solid rgb(173, 173, 173);
     border-left: none;
@@ -833,6 +988,7 @@ td {
     align-items: center;
     background-color: rgba(255, 255, 255, 0);
 }
+
 .clienteBuscar2 {
     border: 1px solid rgb(173, 173, 173);
     border-left: none;
@@ -841,10 +997,11 @@ td {
     height: 29px;
     justify-content: center;
     align-items: center;
-    
+
 }
+
 .clienteBuscar2:hover {
-border: 1px solid rgb(173, 173, 173);
+    border: 1px solid rgb(173, 173, 173);
     border-left: none;
     width: 348px;
     display: flex;
@@ -852,7 +1009,7 @@ border: 1px solid rgb(173, 173, 173);
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0);
-   
+
 }
 
 .spanFormPag {
@@ -876,7 +1033,7 @@ border: 1px solid rgb(173, 173, 173);
 .div-table1 {
     height: 300px;
     margin-top: -12px;
-    margin-right:15px ;
+    margin-right: 15px;
 }
 
 .formaPag {
@@ -889,6 +1046,7 @@ border: 1px solid rgb(173, 173, 173);
     align-items: center;
     border-left: none;
 }
+
 .formaPag:hover {
     margin-left: 0;
     border: 1px solid rgb(173, 173, 173);
@@ -900,6 +1058,7 @@ border: 1px solid rgb(173, 173, 173);
     border-left: none;
     background-color: rgba(255, 255, 255, 0);
 }
+
 .formaPag2 {
     margin-left: 0;
     border: 1px solid rgb(173, 173, 173);
@@ -910,6 +1069,7 @@ border: 1px solid rgb(173, 173, 173);
     align-items: center;
     border-left: none;
 }
+
 .formaPag2:hover {
     margin-left: 0;
     border: 1px solid rgb(173, 173, 173);
@@ -932,6 +1092,7 @@ border: 1px solid rgb(173, 173, 173);
     align-items: center;
     border-right: none;
 }
+
 .alterarCli:hover {
     margin-left: 0;
     border: 1px solid rgb(173, 173, 173);
@@ -943,6 +1104,7 @@ border: 1px solid rgb(173, 173, 173);
     border-right: none;
     background-color: rgba(255, 255, 255, 0);
 }
+
 .alterarCli2 {
     margin-left: 0;
     border: 1px solid rgb(173, 173, 173);
@@ -953,6 +1115,7 @@ border: 1px solid rgb(173, 173, 173);
     align-items: center;
     border-right: none;
 }
+
 .alterarCli2:hover {
     margin-left: 0;
     border: 1px solid rgb(173, 173, 173);
@@ -980,13 +1143,14 @@ border: 1px solid rgb(173, 173, 173);
     justify-content: center;
     display: flex;
 }
+
 #tdVendedor:hover {
     width: 846px;
-        height: 92px;
-        justify-content: center;
-        display: flex;
+    height: 92px;
+    justify-content: center;
+    display: flex;
     background-color: rgba(255, 255, 255, 0);
-    
+
 }
 
 .trFinalizar {
@@ -1001,6 +1165,7 @@ border: 1px solid rgb(173, 173, 173);
     height: 92px;
     border-left: none;
 }
+
 .tdFinalizar:hover {
     display: block;
     width: 172px;
@@ -1009,7 +1174,8 @@ border: 1px solid rgb(173, 173, 173);
     border-left: none;
     background-color: rgba(255, 255, 255, 0);
 }
-.tdvalores2{
+
+.tdvalores2 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1017,18 +1183,17 @@ border: 1px solid rgb(173, 173, 173);
 
 
 
-.btnFinalizar,#finalizar-venda {
+.btnFinalizar{
     border-left: none;
     font-size: 15px;
-    width: 195.5px;
+  
     height: 92px;
-}
-.btnFinalizar:hover,#finalizar-venda {
+    background-color: rgba(255, 255, 255, 0);
+} 
+
+.btnFinalizar:hover{
     border-left: none;
     font-size: 15px;
-    width: 195.5px;
     height: 92px;
-}
-
-
-
+    background-color: rgba(255, 255, 255, 0);
+}  

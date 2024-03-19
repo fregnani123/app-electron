@@ -1,7 +1,7 @@
-
+document.addEventListener('DOMContentLoaded', function (){
 const newProductForm = document.querySelector('#cadastrar');
 const produtoCadastrado = document.querySelector('#alert');
-const codigoEAN = document.querySelector('#codigoDeBarras');
+const codigoEAN = document.querySelector('#codigoEAN');
 const filtrarProdutos = document.querySelector('#produtoFiltrados');
 const ulLista = document.querySelector('#listaProdutoFilter');
 const liDes = document.querySelector('.descricaoLista0');
@@ -180,9 +180,9 @@ async function formCadastrar() {
     const selectTamanhoPGG = document.getElementById('tamanho').value;
     const selectTamanhoNumero = document.getElementById('tamanhoNumero').value;
     const precoCusto = document.getElementById('precoCusto').value;
-    const precoProduto = document.getElementById('preco').value;
+    const precoProduto = document.getElementById('preco1').value;
     const categoriaProduto = document.getElementById('categoria').value;
-    const estoqueProduto = document.getElementById('estoque').value;
+    const estoqueProduto = document.getElementById('estoque1').value;
     const codigoDeBarrasProduto = document.getElementById('codigoDeBarras').value;
 
     function limparInputs() {
@@ -250,4 +250,22 @@ async function formCadastrar() {
     } catch (error) {
         console.error('Erro:', error.message);
     }
-};
+    };
+
+    const telaDeFiltar = document.querySelector('.tableProdutos2');
+    const barraBtn = document.querySelector('#btnPesquisa');
+    const barraBtn2 = document.querySelector('#btnPesquisa2');
+
+    
+    barraBtn2.addEventListener('click', () => {
+        telaDeFiltar.classList.toggle('active');
+        console.log('clicado')
+    })
+    barraBtn.addEventListener('click', () => {
+        telaDeFiltar.classList.toggle('active');
+        console.log('clicado')
+    })
+    
+
+
+})  
