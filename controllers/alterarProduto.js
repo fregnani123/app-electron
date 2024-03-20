@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const buttonAlert = document.querySelector('#bottonAlert');
     const msgAlert = document.querySelector('.msg');
 
+
+    
+
     buttonAlert.addEventListener('click', criaAlert)
 
     function criaAlert(msg) {
