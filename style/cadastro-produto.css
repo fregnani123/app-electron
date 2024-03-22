@@ -314,7 +314,8 @@ input:hover,
 
 }
 
-.spanProdutosPreco2,.spanProdutosPrecoCusto {
+.spanProdutosPreco2,
+.spanProdutosPrecoCusto {
    border: 1px solid rgb(173, 173, 173);
    width: 150px;
    display: flex;
@@ -861,7 +862,7 @@ button,
 #pesquisar,
 #alterar,
 #excluir {
-  width: 100%;
+   width: 100%;
 }
 
 
@@ -1081,7 +1082,7 @@ button,
 #btnPesquisa,
 #btnPesquisa2,
 #cadastrar {
-   border-radius:4px;
+   border-radius: 4px;
    background-color: #B0C4DE;
    color: rgb(0, 0, 0);
    margin: 2px;
@@ -1096,16 +1097,17 @@ button,
 }
 
 
-#cadastrar:active,#alterar:active,
+#cadastrar:active,
+#alterar:active,
 #btnPesquisa:active,
 #excluir:active,
 #btnPesquisa2:active,
 #cadastrar:active {
-   background-color:#B0C4DE;
+   background-color: #B0C4DE;
    color: rgb(0, 0, 0);
    margin: 2px;
    padding: 10px;
-   border-radius:4px ;
+   border-radius: 4px;
    border: none;
    cursor: pointer;
    border-top: 2px solid rgb(48, 48, 48);

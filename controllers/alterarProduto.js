@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
         medidaMassaDescricao.value = '';
         volumeValor.value = '';
         volumeDescricao.value = '';
-        filtrarProduto.value=''
+        filtrarProduto.value = ''
     }
 
 
