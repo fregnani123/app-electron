@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const preco = document.getElementById('preco1');
     const categoria = document.getElementById('categoria');
     const estoque = document.getElementById('estoque1');
-    const codigoDeBarras = document.getElementById('codigoDeBarras');
+    // const codigoDeBarras = document.getElementById('codigoDeBarras');
     const medidaMassaValor = document.getElementById('massaNumero');
     const medidaMassaDescricao = document.getElementById('massa');
     const volumeValor = document.getElementById('volumeNumero');
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const preco1 = preco.value
         const categoria1 = categoria.value
         const estoque1 = estoque.value
-        const codigoDeBarras1 = codigoDeBarras.value
+        // const codigoDeBarras1 = codigoDeBarras.value
         const medidaMassaValor1 = medidaMassaValor.value
         const medidaMassaDescricao1 = medidaMassaDescricao.value
         const volumeDescricao1 = volumeDescricao.value
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
             preco: preco1,
             categoria: categoria1,
             estoque: estoque1,
-            codigoDeBarras: codigoDeBarras1,
+            // codigoDeBarras: codigoDeBarras1,
             medidaMassaValor: medidaMassaValor1,
             medidaMassaDescricao: medidaMassaDescricao1,
             volumeDescricao: volumeDescricao1,
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
         preco.value = '';
         categoria.value = '';
         estoque.value = '';
-        codigoDeBarras.value = '';
+        // codigoDeBarras.value = '';
         medidaMassaValor.value = '';
         medidaMassaDescricao.value = '';
         volumeValor.value = '';
