@@ -12,44 +12,45 @@
     <link rel="stylesheet" href="../style/cadastro-produto.css">
 
     <style>
-       .menu-item-4,
+        .menu-item-4,
         .a-menu4 {
             height: 22px;
             color: white;
             /* background-color:rgb(78, 78, 78); */
             background-color: rgb(0, 38, 87);
-             /* background-color: #333333; */
+            /* background-color: #333333; */
             cursor: pointer;
-             border-top-left-radius: 3px;
+            border-top-left-radius: 3px;
             border-top-right-radius: 3px;
         }
 
         .menu-item-4:hover,
         .a-menu4:hover,
-        .cadastro-produto:hover{
+        .cadastro-produto:hover {
             height: 22px;
             color: white;
             /* background-color:rgb(78, 78, 78); */
             background-color: rgb(0, 38, 87);
-             /* background-color: #333333; */
+            /* background-color: #333333; */
         }
 
         .cadastro-produto,
         .a-cadastrar-produto {
-           height: 22px;
-           width: 200px;
-           color: white;
+            height: 22px;
+            width: 200px;
+            color: white;
             border-top-left-radius: 3px;
             border-top-right-radius: 3px;
-           /* background-color:rgb(78, 78, 78); */
-           background-color: rgb(0, 38, 87);
+            /* background-color:rgb(78, 78, 78); */
+            background-color: rgb(0, 38, 87);
             /* background-color: #333333; */
-           cursor: pointer;
+            cursor: pointer;
         }
     </style>
 </head>
 
 <div class="container">
+
     <body>
         <header>
             <p class="logoMenu"><img id="logo-img" src="../img/logo.png" alt=""></p>
@@ -58,6 +59,7 @@
                 </ul>
             </nav>
         </header>
+
         <body id="container-sales" class="container-sales">
             <div class="divForm">
                 <!-- Futuras melhorias colocar este menu secundario para criação no js. -->
@@ -75,7 +77,7 @@
                 <div class="barraTop">
                     <p class="barra">Alterar</p>
                 </div>
-                
+
                 <table class="tableCadastro">
                     <tr>
                         <span class="alert">
@@ -84,22 +86,22 @@
                             <button id="bottonAlert">OK</button>
                         </span>
                     </tr>
-                
+
                     <tr class="trTable">
-                
+
                         <td class="tbUlCadastro">
                             <div class="divTd">
                                 <p class="buscarProduto">Buscar Produto EAN: <input id="inputFiltar"></p>
                                 <ul class="ulCadastro">
-                                    <li class="spanProdutosCodigo">Codigo EAN do Produto</li>
+                                    <!-- <li class="spanProdutosCodigo">Codigo EAN do Produto</li> -->
                                     <li class="spanProdutosCategoria">Categoria do Produto</li>
                                     <li class="spanProdutosCadastro">Nome do Produto</li>
                                     <li class="spanProdutosCadastro2">Descrição do Produto</li>
-                
+
                                 </ul>
                                 <ul class="ulCadastro2">
-                                    <li class="spanProdutosCodigo2"><input type="number" id="codigoDeBarras" name="codigoDeBarras"
-                                            autocomplete="off" required></li>
+                                    <!-- <li class="spanProdutosCodigo2"><input type="number" id="codigoDeBarras"
+                                            name="codigoDeBarras" autocomplete="off" required></li> -->
                                     <li class="spanProdutosCategoria2">
                                         <select id="categoria" name="categoria" required>
                                             <option value="">Selecione uma categoria</option>
@@ -126,13 +128,13 @@
                                     </li>
                                     <li class="spanProdutosCadastroIn"><input type="text" id="nomeProduto" name="nome"
                                             autocomplete="off" required></li>
-                                    <li class="spanProdutosCadastroIn2"><input type="text" id="descricao" name="descricao"
-                                            autocomplete="off" required></li>
-                
+                                    <li class="spanProdutosCadastroIn2"><input type="text" id="descricao"
+                                            name="descricao" autocomplete="off" required></li>
+
                                 </ul>
-                
+
                                 <ul class="ulCadastro">
-                
+
                                     <li class="spanMedida">Medidas de massa</li>
                                     <li class="spanMedida">Medida de Volume</li>
                                     <li class="spanTamanho">Tamanho - P/GG</li>
@@ -140,19 +142,19 @@
                                     <li class="spanCor">Cor do Produto</li>
                                 </ul>
                                 <ul class="ulCadastro2">
-                
+
                                     <li class="spanMedida2">
                                         <span>
                                             <input id="massaNumero" type="number">
                                         </span>
                                         <select id="massa" name="massa">
                                             <option value="">Selecione...</option>
-                                            <option value="quilograma">Quilograma (kg)</option>
-                                            <option value="grama">Grama (g)</option>
-                                            <option value="tonelada">Tonelada (t)</option>
-                                            <option value="miligrama">Miligrama (mg)</option>
-                                            <option value="micrograma">Micrograma (µg)</option>
-                                            <option value="libra">Libra (lb)</option>
+                                            <option value="kg">Quilograma (kg)</option>
+                                            <option value="g">Grama (g)</option>
+                                            <option value="t">Tonelada (t)</option>
+                                            <option value="mg">Miligrama (mg)</option>
+                                            <option value="µg">Micrograma (µg)</option>
+                                            <option value="lb">Libra (lb)</option>
                                             <!-- Adicione outras opções conforme necessário -->
                                         </select>
                                     </li>
@@ -169,9 +171,9 @@
                                             <option value="pint">Pint (pt)</option>
                                             <!-- Adicione outras opções conforme necessário -->
                                         </select>
-                
+
                                     </li>
-                
+
                                     <li class="spanTamanho2">
                                         <select id="tamanho" name="tamanho">
                                             <option value="">Selecione...</option>
@@ -205,28 +207,28 @@
                                             <option value="Marrom">Listrada</option>
                                             <option value="Marrom">Tricolor</option>
                                             <option value="Marrom">Outra</option>
-                
+
                                             <!-- Adicione outras cores conforme necessário -->
                                         </select>
                                     </li>
-                
-                
+
+
                                 </ul>
-                
+
                                 <ul class="ulCadastro">
-                
+
                                     <li class="spanProdutosEstoque">Estoque Inicial</li>
                                     <li class="spanProdutosUnidade">Unidades de Medida</li>
                                     <li class="spanProdutosPreco">Preço de Custo</li>
                                     <li class="spanProdutosPreco">Preço de Venda</li>
                                     <li class="litopBtn"></li>
                                 </ul>
-                
+
                                 <ul class="ulCadastro2">
-                
-                
-                                    <li class="spanProdutosEstoque2"><input type="number" id="estoque1" name="estoque" autocomplete="off"
-                                            required>
+
+
+                                    <li class="spanProdutosEstoque2"><input type="number" id="estoque1" name="estoque"
+                                            autocomplete="off" required>
                                     </li>
                                     <li class="spanProdutosUnidade2">
                                         <select id="unidade" name="">
@@ -239,14 +241,15 @@
                                             <!-- Adicione outras cores conforme necessário -->
                                         </select>
                                     </li>
-                
+
                                     <li class="spanProdutosPreco2">
-                                        <input type="number" id="precoCusto1" name="preco" step="0.01" autocomplete="off" required>
-                                    </li>
-                                    <li class="spanProdutosPreco2"><input type="number" id="preco1" name="preco" step="0.01"
+                                        <input type="number" id="precoCusto1" name="preco" step="0.01"
                                             autocomplete="off" required>
                                     </li>
-                
+                                    <li class="spanProdutosPreco2"><input type="number" id="preco1" name="preco"
+                                            step="0.01" autocomplete="off" required>
+                                    </li>
+
                                 </ul>
                                 <ul class="ulCadastro">
                                     <li class="litopBtn"></li>
@@ -254,25 +257,23 @@
                                 <ul class="ulCadastro2">
                                     <li class="liBtn"><button id="alterar" class="alterar">Alterar Produto</button>
                                     </li>
-                                    <li class="liBtn"><button id="btnPesquisa2" class="pesquisar">Abrir Barra de Informações Produtos</button>
-                                    </li>
+                                    <!-- <li class="liBtn"><button id="btnPesquisa2" class="pesquisar">Abrir Barra de Informações Produtos</button>
+                                    </li> -->
                                 </ul>
                             </div>
                         </td>
                     </tr>
                 </table>
-                
 
 
-
-                <div class="tableProdutos2">
+                <!-- <div class="tableProdutos2">
                     <table>
                         <tr>
                             <th class="tituloCadastro" id="tituloCadastro">
                                 Informações de Produtos Cadastrados
                             </th>
                         </tr>
-                
+
                         <tr class="trFiltrar">
                             <td>
                                 <p class="tdFiltrarProdutos">
@@ -301,10 +302,10 @@
                                             <option value="outros">Outros</option>
                                         </select>
                                     </span>
-                                    <span class="filtrarCodigo">Filtrar Produto Código:</span><span><input type="number" name=""
-                                            id="codigoEAN"></span>
+                                    <span class="filtrarCodigo">Filtrar Produto Código:</span><span><input type="number"
+                                            name="" id="codigoEAN"></span>
                                 </p>
-                
+
                                 <ul id="listaProdutoFilter">
                                     <li class="descricaoLista0">
                                         <span class="spanItem">Ítem</span>
@@ -318,20 +319,20 @@
                                         <span class="precoVenda">Preço Venda</span>
                                         <span class="spanEstoque">Estoque</span>
                                     </li>
-                
+
                                 </ul>
                                 <p class="barraBtn"><button id="btnPesquisa" class="pesquisar">Fechar Pesquisa</button>
                                 </p>
                             </td>
                         </tr>
-               
-                    </table>
+
+                    </table> -->
                 </div>
-                
-                </div>
-                <script src="../controllers/menu.js"></script>
-                <!-- <script src="../controllers/cadastro-produto.js"></script> -->
-                <script src="../controllers/alterarProduto.js"></script>
-                </body>
-                
-                </html>
+
+            </div>
+            <script src="../controllers/menu.js"></script>
+            <!-- <script src="../controllers/cadastro-produto.js"></script> -->
+            <script src="../controllers/alterarProduto.js"></script>
+        </body>
+
+</html>

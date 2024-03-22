@@ -1,41 +1,42 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const filtarProduto = document.querySelector('#inputFiltar');
-    let selectTamanhoNumero = document.querySelector('#tamanhoNumero');
+    const filtrarProduto = document.querySelector('#inputFiltar');
+    const tamanhoNumeracao = document.querySelector('#tamanhoNumero');
     const alterProductForm = document.querySelector('#alterar')
-    let nomeProdutoInput = document.getElementById('nomeProduto');
-    let descricaoProdutoInput = document.getElementById('descricao');
-    let selectTamanhoPGG = document.getElementById('tamanho');
-    let selectCor = document.getElementById('cor');
-    let precoCusto = document.getElementById('precoCusto1');
-    let precoProduto = document.getElementById('preco1');
-    let categoriaProduto = document.getElementById('categoria');
-    let estoqueProduto = document.getElementById('estoque1');
-    let codigoDeBarrasProduto = document.getElementById('codigoDeBarras');
+    const nome = document.getElementById('nomeProduto');
+    const descricao = document.getElementById('descricao');
+    const tamanhoPG = document.getElementById('tamanho');
+    const cor = document.getElementById('cor');
+    const precoCusto = document.getElementById('precoCusto1');
+    const preco = document.getElementById('preco1');
+    const categoria = document.getElementById('categoria');
+    const estoque = document.getElementById('estoque1');
+    const codigoDeBarras = document.getElementById('codigoDeBarras');
+    const medidaMassaValor = document.getElementById('massaNumero');
+    const medidaMassaDescricao = document.getElementById('massa');
+    const volumeValor = document.getElementById('volumeNumero');
+    const volumeDescricao = document.getElementById('volume');
     const spanAlert = document.querySelector('.alert');
     const buttonAlert = document.querySelector('#bottonAlert');
     const msgAlert = document.querySelector('.msg');
 
 
-    
 
     buttonAlert.addEventListener('click', criaAlert)
-
     function criaAlert(msg) {
         spanAlert.classList.toggle('alertDisplay')
         msgAlert.innerText = msg;
     }
 
-   
 
     for (var i = 1; i <= 150; i++) {
         var option = document.createElement("option");
         option.value = i;
         option.text = i;
-        selectTamanhoNumero.appendChild(option);
+        tamanhoNumeracao.appendChild(option);
     }
 
-    filtarProduto.addEventListener('input', function (event) {
-        const EANDigitado = event.target.value;
+    filtrarProduto.addEventListener('input', function (event) {
+        EANDigitado = event.target.value;
         if (EANDigitado.trim() !== '' && EANDigitado.trim() && EANDigitado.length >= 9) {
             fetchFiltrar(EANDigitado)
 
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function fetchFiltrar(filtrarEAN) {
+
         const urlGetProdutoDate = 'http://204.216.187.179:3000/findProduto';
 
 
@@ -65,51 +67,65 @@ document.addEventListener('DOMContentLoaded', function () {
             const produto = produtoFilter.find(produto => Number(produto.codigoDeBarras) === Number(filtrarEAN));
 
             if (produto) {
-                nomeProdutoInput.value = produto.nome;
-                descricaoProdutoInput.value = produto.descricao;
-                selectTamanhoPGG.value = produto.tamanho;
-                selectTamanhoNumero.value = produto.tamanhoNumero;
-                selectCor.value = produto.cor === '' ? 'Padrão' : produto.cor;
-                precoCusto.value = Number(produto.precoCusto) === '' || isNaN(produto.precoCusto) ? '0.00' : Number(produto.precoCusto);
-                precoProduto.value = produto.preco;
-                categoriaProduto.value = produto.categoria;
-                estoqueProduto.value = produto.estoque;
-                codigoDeBarrasProduto.value = produto.codigoDeBarras;
+
+                nome.value = produto.nome;
+                descricao.value = produto.descricao;
+                precoCusto.value = produto.precoCusto;
+                preco.value = produto.preco;
+                categoria.value = produto.categoria;
+                estoque.value = produto.estoque;
+                medidaMassaValor.value = produto.medidaMassaValor;
+                medidaMassaDescricao.value = produto.medidaMassaDescricao;
+                volumeDescricao.value = produto.volumeDescricao;
+                volumeValor.value = produto.volumeValor;
+                tamanhoPG.value = produto.tamanhoPG;
+                tamanhoNumeracao.value = produto.tamanhoNumeracao;
+                cor.value = produto.cor;
 
                 console.log(produto)
             }
         });
     }
 
- 
     alterProductForm.addEventListener('click', updateProduto);
 
     function updateProduto() {
-        const nome = nomeProdutoInput.value;
-        const descricao = descricaoProdutoInput.value;
-        const PGG = selectTamanhoPGG.value;
-        const TN = selectTamanhoNumero.value;
-        const cor = selectCor.value;
-        const PCusto = precoCusto.value;
-        const PP = precoProduto.value;
-        const categoriaP = categoriaProduto.value;
-        const estoqueProdutoNovo = estoqueProduto.value;
-        const codigoBarrasNovo = codigoDeBarrasProduto.value;
+
+        const urlUpdate = `http://204.216.187.179:3000/updateProduto/${EANDigitado}`;
+
+        const nome1 = nome.value
+        const descricao1 = descricao.value
+        const precoCusto1 = precoCusto.value
+        const preco1 = preco.value
+        const categoria1 = categoria.value
+        const estoque1 = estoque.value
+        const codigoDeBarras1 = codigoDeBarras.value
+        const medidaMassaValor1 = medidaMassaValor.value
+        const medidaMassaDescricao1 = medidaMassaDescricao.value
+        const volumeDescricao1 = volumeDescricao.value
+        const volumeValor1 = volumeValor.value
+        const tamanhoPG1 = tamanhoPG.value
+        const tamanhoNumeracao1 = tamanhoNumeracao.value
+        const cor1 = cor.value
 
         const produto = {
-            nome: nome,
-            descricao: descricao,
-            tamanhoPG: PGG,
-            tamanhoNumeracao: TN,
-            cor: cor,
-            precoCusto: PCusto,
-            preco: PP,
-            categoria: categoriaP,
-            estoque: estoqueProdutoNovo,
-            codigoDeBarras: codigoBarrasNovo,
+            nome: nome1,
+            descricao: descricao1,
+            precoCusto: precoCusto1,
+            preco: preco1,
+            categoria: categoria1,
+            estoque: estoque1,
+            codigoDeBarras: codigoDeBarras1,
+            medidaMassaValor: medidaMassaValor1,
+            medidaMassaDescricao: medidaMassaDescricao1,
+            volumeDescricao: volumeDescricao1,
+            volumeValor: volumeValor1,
+            tamanhoPG: tamanhoPG1,
+            tamanhoNumeracao: tamanhoNumeracao1,
+            cor: cor1,
         };
 
-        const urlUpdate = `http://204.216.187.179:3000/updateProduto/${codigoBarrasNovo}`;
+
 
         fetch(urlUpdate, {
             method: 'PATCH',
@@ -127,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     criaAlert(msg);
                     limparInputs();
                 }
-                 
+
             })
             .catch(error => {
                 console.error('Erro ao atualizar produto:', error);
@@ -135,32 +151,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function limparInputs() {
-        nomeProdutoInput.value = '';
-        descricaoProdutoInput.value = '';
-        selectTamanhoPGG.value = '';
-        selectTamanhoNumero.value = '';
-        selectCor.value = '';
+        nome.value = '';
+        descricao.value = '';
+        tamanhoPG.value = '';
+        tamanhoNumeracao.value = '';
+        cor.value = '';
         precoCusto.value = '';
-        precoProduto.value = '';
-        categoriaProduto.value = '';
-        estoqueProduto.value = '';
-        codigoDeBarrasProduto.value = '';
-        filtarProduto.value = '';
-    };
+        preco.value = '';
+        categoria.value = '';
+        estoque.value = '';
+        codigoDeBarras.value = '';
+        medidaMassaValor.value = '';
+        medidaMassaDescricao.value = '';
+        volumeValor.value = '';
+        volumeDescricao.value = '';
+        filtrarProduto.value=''
+    }
 
-
-    const telaDeFiltar = document.querySelector('.tableProdutos2');
-    const barraBtn = document.querySelector('#btnPesquisa');
-    const barraBtn2 = document.querySelector('#btnPesquisa2');
-
-    barraBtn2.addEventListener('click', () => {
-        telaDeFiltar.classList.toggle('active');
-        console.log('clicado');
-    });
-    barraBtn.addEventListener('click', () => {
-        telaDeFiltar.classList.toggle('active');
-        console.log('clicado');
-    });
 
 
 });

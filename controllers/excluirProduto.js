@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
         categoriaProduto.innerText = '';
         estoqueProduto.innerText = '';
         codigoDeBarrasProduto.innerText = '';
-        filtarProduto.innerText = '';
+        filtrarProduto.value= '';
     };
 
 
