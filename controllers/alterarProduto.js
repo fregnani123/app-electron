@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const preco = document.getElementById('preco1');
     const categoria = document.getElementById('categoria');
     const estoque = document.getElementById('estoque1');
-    // const codigoDeBarras = document.getElementById('codigoDeBarras');
+    const unidadeMedida = document.getElementById('unidade');
     const medidaMassaValor = document.getElementById('massaNumero');
     const medidaMassaDescricao = document.getElementById('massa');
     const volumeValor = document.getElementById('volumeNumero');
@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 tamanhoPG.value = produto.tamanhoPG;
                 tamanhoNumeracao.value = produto.tamanhoNumeracao;
                 cor.value = produto.cor;
+                unidadeMedida.value = produto.unidadeMedida;
 
                 console.log(produto)
             }
@@ -93,20 +94,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const urlUpdate = `http://204.216.187.179:3000/updateProduto/${EANDigitado}`;
 
-        const nome1 = nome.value
-        const descricao1 = descricao.value
-        const precoCusto1 = precoCusto.value
-        const preco1 = preco.value
-        const categoria1 = categoria.value
-        const estoque1 = estoque.value
-        // const codigoDeBarras1 = codigoDeBarras.value
-        const medidaMassaValor1 = medidaMassaValor.value
-        const medidaMassaDescricao1 = medidaMassaDescricao.value
-        const volumeDescricao1 = volumeDescricao.value
-        const volumeValor1 = volumeValor.value
-        const tamanhoPG1 = tamanhoPG.value
-        const tamanhoNumeracao1 = tamanhoNumeracao.value
-        const cor1 = cor.value
+        const nome1 = nome.value;
+        const descricao1 = descricao.value;
+        const precoCusto1 = precoCusto.value;
+        const preco1 = preco.value;
+        const categoria1 = categoria.value;
+        const estoque1 = estoque.value;
+        const medidaMassaValor1 = medidaMassaValor.value;
+        const medidaMassaDescricao1 = medidaMassaDescricao.value;
+        const volumeDescricao1 = volumeDescricao.value;
+        const volumeValor1 = volumeValor.value;
+        const tamanhoPG1 = tamanhoPG.value;
+        const tamanhoNumeracao1 = tamanhoNumeracao.value;
+        const cor1 = cor.value;
+        const unidadeMedida1 = unidadeMedida.value;
 
         const produto = {
             nome: nome1,
@@ -115,7 +116,6 @@ document.addEventListener('DOMContentLoaded', function () {
             preco: preco1,
             categoria: categoria1,
             estoque: estoque1,
-            // codigoDeBarras: codigoDeBarras1,
             medidaMassaValor: medidaMassaValor1,
             medidaMassaDescricao: medidaMassaDescricao1,
             volumeDescricao: volumeDescricao1,
@@ -123,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tamanhoPG: tamanhoPG1,
             tamanhoNumeracao: tamanhoNumeracao1,
             cor: cor1,
+            unidadeMedida: unidadeMedida1,
         };
 
 
@@ -166,6 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
         volumeValor.value = '';
         volumeDescricao.value = '';
         filtrarProduto.value = ''
+        unidadeMedida.value=''
     }
 
 

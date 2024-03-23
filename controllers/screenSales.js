@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         produtoNome.innerText = `${produtoEncontrado.nome} `;
                         produtoDescricao.innerText = `${produtoEncontrado.descricao} `;
                         produtoPreco.innerText = produtoEncontrado.preco.toFixed(2);
-                        produtoEstoque.innerText = produtoEncontrado.estoque;
+                        produtoEstoque.innerText = `${produtoEncontrado.estoque} ${produtoEncontrado.unidadeMedida}`;
                     } else {
                         produtoNome.innerText = 'Produto não encontrado';
                         produtoCodigo.value = ''

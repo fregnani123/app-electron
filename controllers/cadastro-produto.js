@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const spanEstoque1 = document.createElement('span');
             spanEstoque1.classList.add('spanEstoque');
-            spanEstoque1.textContent = item.estoque;
+            spanEstoque1.textContent = `${item.estoque} ${item.unidadeMedida}`;
 
             li1.classList.add('descricaoLista2')
             li1.appendChild(spanItem1);
@@ -175,22 +175,58 @@ document.addEventListener('DOMContentLoaded', function () {
         const urlGetProdutoDate = 'http://204.216.187.179:3000/findProduto';
         const urlNewProduct = 'http://204.216.187.179:3000/newProduto';
 
-
+        const codigoDeBarrasProduto = document.getElementById('codigoDeBarras').value;
+        if (!codigoDeBarrasProduto) {
+            const msg = 'Campo codigo EAN não pode ser vazio.'
+            criaAlert(msg)
+            return;
+        }
+        const categoriaProduto = document.getElementById('categoria').value;
+        if (!categoriaProduto) {
+            const msg = 'Campo categoria do produto não pode ser vazio.'
+            criaAlert(msg)
+            return;
+        }
         const nomeProduto = document.getElementById('nomeProduto').value;
+        if (!nomeProduto) {
+            const msg = 'Campo nome do produto não pode ser vazio.'
+            criaAlert(msg)
+            return;
+        }
         const descricaoProduto = document.getElementById('descricao').value;
+        if (!descricaoProduto) {
+            const msg = 'Campo descrição não pode ser vazio.'
+            criaAlert(msg)
+            return;
+        }
+        const estoqueProduto = document.getElementById('estoque1').value;
+        if (!estoqueProduto) {
+            const msg = 'Campo estoque do produto não pode ser vazio.'
+            criaAlert(msg)
+            return;
+        }
+
+        const precoCusto = document.getElementById('precoCusto').value;
+        if (!precoCusto) {
+            const msg = 'Campo preco de Custo do produto não pode ser vazio.'
+            criaAlert(msg)
+            return;
+        }
+        const precoProduto = document.getElementById('preco1').value;
+        if (!precoProduto) {
+            const msg = 'Campo preco de venda do produto não pode ser vazio.'
+            criaAlert(msg)
+            return;
+        }
+
         const selectTamanhoPGG = document.getElementById('tamanho').value;
         const selectTamanhoNumero = document.getElementById('tamanhoNumero').value;
-        const precoCusto = document.getElementById('precoCusto').value;
-        const precoProduto = document.getElementById('preco1').value;
-        const categoriaProduto = document.getElementById('categoria').value;
-        const estoqueProduto = document.getElementById('estoque1').value;
-        const codigoDeBarrasProduto = document.getElementById('codigoDeBarras').value;
-        const medidaMassaValor = document.getElementById('massaNumero').value === '' ? '0' : document.getElementById('massaNumero').value;
+        const medidaMassaValor = document.getElementById('massaNumero').value;
         const medidaMassaDescricao = document.getElementById('massa').value;
         const selectVolumeValor = document.getElementById('volumeNumero').value;
         const selectVolumeDescricao = document.getElementById('volume').value;
         const cor = document.getElementById('cor').value;
-
+        const unidadeMedida = document.getElementById('unidade').value;
 
 
         function limparInputs() {
@@ -208,6 +244,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('volumeNumero').value = '';
             document.getElementById('volume').value = '';
             document.getElementById('cor').value = '';
+            document.getElementById('unidade').value = '';
         };
 
         try {
@@ -231,6 +268,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (codigoDeBarrasExiste) {
                 const msg = 'Erro: O código de barras já existe no banco de dados.'
                 criaAlert(msg);
+                return;
             }
 
             // Se o código de barras não existir, podemos prosseguir com a inserção do novo produto
@@ -255,7 +293,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     codigoDeBarras: codigoDeBarrasProduto,
                     volumeDescricao: selectVolumeDescricao,
                     volumeValor: selectVolumeValor,
-                    cor:cor,
+                    cor: cor,
+                    unidadeMedida: unidadeMedida,
                 })
             });
 

@@ -577,11 +577,17 @@ input:hover,
 }
 
 .spanProdutosUnidade2 {
+   display: flex;
+   justify-content: center;
+   align-items: center;
    height: 29px;
    border-left: none;
 }
 
 .spanProdutosUnidade2:hover {
+   display: flex;
+   justify-content: center;
+   align-items: center;
    height: 29px;
    border-left: none;
    background-color: rgba(255, 255, 255, 0);
