@@ -181,6 +181,13 @@ document.addEventListener('DOMContentLoaded', function () {
             criaAlert(msg)
             return;
         }
+       
+        if (codigoDeBarrasProduto.length <= 13) {
+            const msg = 'EAN invalido.'
+            criaAlert(msg)
+            return;
+        }
+
         const categoriaProduto = document.getElementById('categoria').value;
         if (!categoriaProduto) {
             const msg = 'Campo categoria do produto não pode ser vazio.'
