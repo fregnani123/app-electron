@@ -64,6 +64,19 @@
    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2)
 }
 
+#nomeProduto1,
+#descricao1 {
+   text-align: center;
+   outline: none;
+   width: 100%;
+   height: 29px;
+   background-color: #ffffff00;
+   border: none;
+   /* border: 1px solid #ccc; */
+   font-size: 16px;
+   box-shadow: none;
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
    -webkit-appearance: none;
@@ -123,6 +136,29 @@ input,
    display: flex;
    align-items: center;
    justify-content: center;
+}
+
+.spanProdutosBuscar {
+   border: 1px solid rgb(173, 173, 173);
+   border-right: none;
+   width: 159px;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+   border-bottom: none;
+}
+
+.spanProdutosBuscar:hover {
+   border: 1px solid rgb(173, 173, 173);
+   background-color: rgba(255, 255, 255, 0);
+   border-right: none;
+   width: 159px;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+   border-bottom: none;
 }
 
 .spanProdutosCadastro {
@@ -252,6 +288,12 @@ input:hover,
 
 }
 
+#estoque3 {
+   border: none;
+   background-color: rgba(255, 255, 255, 0);
+   box-shadow: none;
+}
+
 .titleTr {
    height: 22px;
    position: sticky;
@@ -268,9 +310,9 @@ input:hover,
 
 .spanProdutosPreco {
    border: 1px solid rgb(173, 173, 173);
-   border-left: none;
    border-bottom: none;
    width: 150px;
+   border-left: none;
    display: flex;
    height: 17px;
    justify-content: center;
@@ -281,7 +323,55 @@ input:hover,
 .spanProdutosPreco:hover {
    border: 1px solid rgb(173, 173, 173);
    border-bottom: none;
+   width: 150px;
    border-left: none;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanProdutosPreco3 {
+   border: 1px solid rgb(173, 173, 173);
+   border-bottom: none;
+   width: 150px;
+   border-left: none;
+   border-right: none;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0);
+}
+
+.spanProdutosPreco3:hover {
+   border: 1px solid rgb(173, 173, 173);
+   border-bottom: none;
+   width: 150px;
+   border-left: none;
+   border-right: none;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanProdutosPreco4 {
+   border: 1px solid rgb(173, 173, 173);
+   border-bottom: none;
+   width: 150px;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0);
+}
+
+.spanProdutosPreco4:hover {
+   border: 1px solid rgb(173, 173, 173);
+   border-bottom: none;
    width: 150px;
    display: flex;
    height: 17px;
@@ -289,6 +379,8 @@ input:hover,
    align-items: center;
    background-color: rgba(255, 255, 255, 0.007);
 }
+
+
 
 .spanProdutosCategoria {
    border: 1px solid rgb(173, 173, 173);
@@ -526,7 +618,75 @@ input:hover,
    justify-content: center;
    align-items: center;
    background-color: rgba(255, 255, 255, 0.007);
+}
 
+.spanProdutosEstoque5 {
+   border: 1px solid rgb(173, 173, 173);
+   width: 150px;
+   display: flex;
+   border-left: none;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0);
+   border-bottom: none;
+}
+
+.spanProdutosEstoque5:hover {
+   border: 1px solid rgb(173, 173, 173);
+   border-bottom: none;
+   border-left: none;
+   width: 150px;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanProdutosEstoque6 {
+   border: 1px solid rgb(173, 173, 173);
+   width: 150px;
+   display: flex;
+   border-left: none;
+   height: 29px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0);
+}
+
+.spanProdutosEstoque6:hover {
+   border: 1px solid rgb(173, 173, 173);
+
+   border-left: none;
+   width: 150px;
+   display: flex;
+   height: 29px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.007);
+}
+
+.spanProdutosEstoque1 {
+   border: 1px solid rgb(173, 173, 173);
+   width: 150px;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0);
+   border-bottom: none;
+}
+
+.spanProdutosEstoque1:hover {
+   border: 1px solid rgb(173, 173, 173);
+   border-bottom: none;
+   width: 150px;
+   display: flex;
+   height: 17px;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.007);
 }
 
 .spanProdutosEstoque2 {
@@ -538,6 +698,20 @@ input:hover,
 
 .spanProdutosEstoque2:hover {
    height: 29px;
+   background-color: rgba(255, 255, 255, 0);
+}
+
+.spanProdutosEstoque3 {
+   height: 29px;
+   display: flex;
+   width: 150px;
+   justify-content: center;
+   align-items: center;
+}
+
+.spanProdutosEstoque3:hover {
+   height: 29px;
+   width: 150px;
    background-color: rgba(255, 255, 255, 0);
 }
 
@@ -598,6 +772,7 @@ input:hover,
    margin-left: -40px;
    justify-content: left;
    margin-top: 0px;
+
 }
 
 .ulCadastro:hover {
@@ -880,8 +1055,9 @@ button,
    display: flex;
    justify-content: center;
    align-items: center;
-   /* margin-left: 10px; */
-   border: none;
+   border-left: none;
+   height: 50px;
+   margin-top: -21px;
 }
 
 .liBtn:hover {
@@ -891,10 +1067,60 @@ button,
    display: flex;
    justify-content: center;
    align-items: center;
-   /* margin-left: 10px; */
-   border: none;
+   border-left: none;
    width: 310px;
    height: 50px;
+   margin-top: -21px;
+}
+
+.liBtn0 {
+   background-color: rgba(255, 255, 255, 0);
+   border: 1px solid rgb(173, 173, 173);
+   width: 310px;
+   height: 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-left: none;
+   height: 49px;
+   margin-top: -20px;
+}
+
+.liBtn0:hover {
+   background-color: rgba(255, 255, 255, 0);
+   border: 1px solid rgb(173, 173, 173);
+   width: 270px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-left: none;
+   width: 310px;
+   height: 49px;
+   margin-top: -20px;
+}
+
+.liBtn3 {
+   background-color: rgba(255, 255, 255, 0);
+   border: 1px solid rgb(173, 173, 173);
+   width: 310px;
+   height: 49px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-left: none;
+   margin-top: -20px;
+}
+
+.liBtn3:hover {
+   background-color: rgba(255, 255, 255, 0);
+   border: 1px solid rgb(173, 173, 173);
+   width: 310px;
+   height: 49px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-left: none;
+   margin-top: -20px;
 }
 
 .litopBtn {
@@ -923,7 +1149,23 @@ button,
    margin-left: 10px;
 }
 
-
+.listaEntrada {
+   height: 22px;
+   justify-content: center;
+   display: flex;
+   align-items: center;
+   margin-top: 0px;
+   border-top: none;
+   background-color: rgb(0, 38, 87);
+   color:white;
+   width: 100%;
+}
+.ulEntrada{
+   border: 1px solid rgb(173, 173, 173);
+   width: auto;
+   height: 350px;
+   margin-top: -16px
+}
 .descricaoLista0 {
    border: none;
    display: flex;
@@ -967,6 +1209,7 @@ button,
    height: 400px;
    width: 100%;
 }
+
 
 .tableProdutos2.active {
    display: block;
@@ -1076,6 +1319,7 @@ button,
    justify-content: center;
    align-items: center;
 }
+
 .barraTopEntrada {
    height: 22px;
    justify-content: center;
@@ -1084,6 +1328,7 @@ button,
    margin-top: -6px;
    border-top: none;
 }
+
 .barraEntrada {
    height: 22px;
    background-color: rgb(0, 38, 87);
@@ -1143,6 +1388,21 @@ button,
    margin-top: -10px;
    border: 1px solid rgb(170, 170, 170);
    width: 100%;
+}
+
+.buscarProduto3 {
+   border: 1px solid rgb(170, 170, 170);
+   width: 159px;
+   height: 29px;
+   border-right: none;
+}
+
+.buscarProduto3:hover {
+   border: 1px solid rgb(170, 170, 170);
+   width: 159px;
+   height: 29px;
+   border-right: none;
+   background-color: rgba(255, 255, 255, 0);
 }
 
 #inputFiltar {

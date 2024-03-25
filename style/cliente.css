@@ -1,0 +1,25 @@
+#barraCliente {
+  margin-top: 50px;
+}
+#tableCadastroCliente{
+    margin-top: 16px;
+}
+
+.clienteNome{
+        border: 1px solid #ccc;
+        height: 17px;
+        width: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+.clienteNome:hover{
+        border: 1px solid #cccccc;
+        height: 17px;
+        width: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}

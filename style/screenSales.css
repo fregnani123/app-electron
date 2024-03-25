@@ -128,13 +128,14 @@ td {
 }
 
 .tdEAN {
-    /* border: 1px solid rgb(182, 182, 182); */
+    border: 1px solid rgb(182, 182, 182);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px;
+    height: 44px;
     text-align: center;
-    margin-top: -18px;
+    margin-top: -21px;
+    
 }
 
 .tr-buscar {
@@ -308,11 +309,15 @@ input[type="text"] {
 
 #buttonAddCarrinho {
     background-color: #B0C4DE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 15px;
     border-radius: 4px;
     color: rgb(0, 0, 0);
     margin: 2px;
     padding: 10px;
+    height: 36px;
     border: none;
     cursor: pointer;
     /* Mudar a cor do botão quando clicado */
@@ -330,7 +335,10 @@ input[type="text"] {
     padding: 10px;
     border: none;
     cursor: pointer;
-    /* Mudar a cor do botão quando clicado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
     border-top: 1px solid rgb(143, 143, 143);
     border-left: 1px solid rgb(143, 143, 143);
     border-right: 2px solid rgb(48, 48, 48);

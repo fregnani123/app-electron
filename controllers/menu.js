@@ -7,7 +7,7 @@ const menuItens = [
     // { id: '5', texto: 'Produto', to: '../public/alterar-produto.html' },
     // { id: '6', texto: 'Produto', to: '../public/excluir-produtos.html' },
     { id: '7', texto: 'Cadastro Cliente', to: '../public/cadastro-cliente.html' },
-    { id: '8', texto: 'Entrada de Produtos no Estoque', to: '../public/controle-entrada.html' },
+    { id: '8', texto: 'Entrada de Estoque', to: '../public/controle-entrada.html' },
     { id: '9', texto: 'Agendamentos', to: '../public/agenda.html' },
     // { id: '10', texto: '', to: '/controleES' },
     { id: 'li-Exit', texto: '', src:'../img/exit.png', to: '../public/index.html' },

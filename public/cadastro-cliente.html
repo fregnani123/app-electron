@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão Lite</title>
-    <link rel="stylesheet" href="../style/body.css">
     <link rel="stylesheet" href="../style/menu.css">
+    <link rel="stylesheet" href="../style/cadastro-produto.css">
     <link rel="stylesheet" href="../style/screenSales.css">
+    <link rel="stylesheet" href="../style/cliente.css">
     <style>
         .menu-item-7,
         .a-menu7 {
@@ -37,8 +38,92 @@
     <div id="container-sales">
         <div class="container-table">
 
-            <table>
-            </table>
+<div class="barraTopEntrada">
+    <p class="barraEntrada" id="barraCliente">Cadastro Cliente</p>
+</div>
+
+<table class="tableCadastro" id="tableCadastroCliente">
+    <tr>
+        <span class="alert">
+            <img class="imgLogo" src="../img/suporte.png" alt="">
+            <p class="msg"></p>
+            <button id="bottonAlert">OK</button>
+        </span>
+    </tr>
+
+    <tr class="trTable">
+
+        <td class="tbUlCadastro">
+            <div class="divTd">
+
+                <ul class="ulCadastro">
+                    <li class="clienteNome">Nome do Cliente</li>
+                    <li>CPF</li>
+                    <li>RG</li>
+                    <li>Data de Nascimento</li>
+                </ul>
+                <ul class="ulCadastro2">
+    
+                                <li><input type="text" id="cliente" name="cliente" required></li>
+                    
+                                <li>
+                                    <input type="number" id="cpfFake" name="cpfFake" required>
+                                </li>
+                                <li>
+                                    <input type="number" id="rgFake" name="rgFake" required>
+                                </li>
+                                <li>
+                                    <input type="date" id="nascimento" name="nascimento" required>
+                                </li>
+                
+                </ul>
+                <ul class="ulCadastro">
+                    <li>Endereço</li>
+                    <li>Número</li>
+                    <li>Bairro</li>
+                    <li>Cidade</li>
+                    <li>UF</li>
+                </ul>
+                <ul class="ulCadastro2">
+                        <li>
+                            <input type="text" id="endereco" name="endereco" required>
+                        </li>
+                        <li>
+                            <input type="number" id="numero" name="numero" required>
+                        </li>
+                        <li>
+                            <input type="text" id="bairro" name="bairro" required>
+                        </li>
+                        <li>
+                            <input type="text" id="cidade" name="cidade" required>
+                        </li>
+                        <li>
+                            <input type="text" id="uf" name="uf" required>
+                        </li>
+                </ul>
+                <ul  class="ulCadastro">
+                    <li>Telefone</li>
+                    <li>Email</li>
+                    <li>Ocupação</li>
+                </ul>
+                <ul class="ulCadastro2">
+                    <li>
+                        <input type="tel" id="fone" name="fone" required><br>
+                    </li>
+                    <li>
+                        <input type="email" id="email" name="email" required>
+                    </li>
+                    <li>
+                        <input type="text" id="ocupacao" name="ocupacao" required>
+                    </li> 
+                    <li>
+                        <button >Cadastrar</button>
+                    </li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+</table>
         </div>
     </div>
     <script src="../controllers/menu.js"></script>
