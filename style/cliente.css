@@ -1,11 +1,12 @@
 #barraCliente {
-  margin-top: 50px;
-}
-#tableCadastroCliente{
-    margin-top: 16px;
+        margin-top: 50px;
 }
 
-.clienteNome{
+#tableCadastroCliente {
+        margin-top: 16px;
+}
+
+.clienteNome {
         border: 1px solid #ccc;
         height: 17px;
         width: 350px;
@@ -13,13 +14,670 @@
         align-items: center;
         justify-content: center;
         background-color: rgba(255, 255, 255, 0);
+        border-right: none;
+        border-bottom: none;
 }
-.clienteNome:hover{
+
+.clienteNome:hover {
         border: 1px solid #cccccc;
+        border-right: none;
         height: 17px;
+        width: 350px;
+        display: flex;
+        border-bottom: none;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.clienteNome1 {
+        border: 1px solid #ccc;
+        height: 29px;
         width: 350px;
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: rgba(255, 255, 255, 0);
+        border-right: none;
+}
+
+.clienteNome1:hover {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 350px;
+        display: flex;
+        align-items: center;
+        border-right: none;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.cpfCliente {
+        border: 1px solid #cccccc;
+        border-right: none;
+        height: 17px;
+        width: 150px;
+        display: flex;
+        border-bottom: none;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+
+}
+
+.cpfCliente:hover {
+        border: 1px solid #cccccc;
+        height: 17px;
+        border-right: none;
+        border-bottom: none;
+        width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.cpfCliente1 {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 150px;
+        border-right: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.cpfCliente1:hover {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 150px;
+        border-right: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+#cliente {
+        height: 29px;
+}
+
+#cpfFake {
+        height: 24px;
+}
+
+#rgFake {
+        height: 24px;
+}
+#nascimento {
+        height: 24px;
+}
+#endereco{
+height: 29px;
+}
+#numero{
+height: 24px;
+}
+#bairro{
+height: 29px;
+}
+#cidade{
+height: 29px;
+}
+#uf{
+height: 29px;
+}
+#email{
+height: 26px;
+}
+#fone{
+height: 26px;
+}
+#ocupacao{
+height: 29px;
+}
+
+.rgFakeCliente {
+        border: 1px solid #cccccc;
+        height: 17px;
+        border-bottom: none;
+        width: 150px;
+        border-right: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.rgFakeCliente:hover {
+        border: 1px solid #cccccc;
+        height: 17px;
+        border-bottom: none;
+        width: 150px;
+        border-right: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.rgFakeCliente1 {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 150px;
+        border-right: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.rgFakeCliente1:hover {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 150px;
+        border-right: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.nascimentoCliente {
+        border: 1px solid #cccccc;
+        height: 17px;
+        width: 150px;
+        display: flex;
+        border-bottom: none;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.nascimentoCliente:hover {
+        border: 1px solid #cccccc;
+        height: 17px;
+        width: 150px;
+        border-bottom: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.nascimentoCliente1 {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.nascimentoCliente1:hover {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+.enderecoCliente {
+        border: 1px solid #cccccc;
+        height: 17px;
+        width: 350px;
+        display: flex;
+        border-bottom: none;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.enderecoCliente:hover {
+        width: 350px;
+        border: 1px solid #cccccc;
+        height: 17px;
+        border-bottom: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.enderecoCliente1 {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.enderecoCliente1:hover {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+.numeroCliente {
+        border: 1px solid #cccccc;
+        height: 17px;
+        width: 150px;
+        display: flex;
+        border-bottom: none;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+        border-left: none;
+}
+
+.numeroCliente:hover {
+        width: 150px;
+        border: 1px solid #cccccc;
+        height: 17px;
+        border-bottom: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+        border-left: none;
+}
+
+.numeroCliente1 {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+        border-left: none;
+       
+}
+
+.numeroCliente1:hover {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+        border-left: none;
+}
+.bairroCliente {
+        border: 1px solid #cccccc;
+        height: 17px;
+        width: 170px;
+        display: flex;
+        border-bottom: none;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+        border-left: none;
+        border-right: none;
+}
+
+.bairroCliente:hover {
+        width: 170px;
+        border: 1px solid #cccccc;
+        border-right: none;
+        border-left: none;
+        height: 17px;
+        border-bottom: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.bairroCliente1 {
+        border: 1px solid #cccccc;
+        height: 29px;
+        border-left: none;
+        width: 170px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.bairroCliente1:hover {
+        border: 1px solid #cccccc;
+        border-left: none;
+        height: 29px;
+        width: 170px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+.bairroCliente {
+        border: 1px solid #cccccc;
+        height: 17px;
+        width: 170px;
+        display: flex;
+        border-bottom: none;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+        border-left: none;
+        border-right: none;
+}
+
+.bairroCliente:hover {
+        width: 170px;
+        border: 1px solid #cccccc;
+        border-right: none;
+        border-left: none;
+        height: 17px;
+        border-bottom: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.bairroCliente1 {
+        border: 1px solid #cccccc;
+        height: 29px;
+        border-left: none;
+        width: 170px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.bairroCliente1:hover {
+        border: 1px solid #cccccc;
+        border-left: none;
+        height: 29px;
+        width: 170px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+.cidadeCliente {
+        border: 1px solid #cccccc;
+        height: 17px;
+        width: 170px;
+        display: flex;
+        border-bottom: none;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+        border-right: none;
+}
+
+.cidadeCliente:hover {
+        width: 170px;
+        border: 1px solid #cccccc;
+        border-right: none;
+        height: 17px;
+        border-bottom: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.cidadeCliente1 {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 170px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: none;
+        border-right: none;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.cidadeCliente1:hover {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 170px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: none;
+        border-right: none;
+        background-color: rgba(255, 255, 255, 0);
+}
+.UFCliente {
+        border: 1px solid #cccccc;
+        height: 17px;
+        width: 170px;
+        display: flex;
+        border-bottom: none;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.UFCliente:hover {
+        width: 170px;
+        border: 1px solid #cccccc;
+        height: 17px;
+        border-bottom: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.UFCliente1 {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 170px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.UFCliente1:hover {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 170px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+.foneCliente {
+        border: 1px solid #cccccc;
+        height: 17px;
+        width: 170px;
+        display: flex;
+        border-bottom: none;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.foneCliente:hover {
+        width: 170px;
+        border: 1px solid #cccccc;
+        height: 17px;
+        border-bottom: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.foneCliente1 {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 170px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.foneCliente1:hover {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 170px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0);
+}
+.emailCliente {
+        border: 1px solid #cccccc;
+        height: 17px;
+        width: 350px;
+        display: flex;
+        border-bottom: none;
+        align-items: center;
+        justify-content: center;
+        border-left: none;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.emailCliente:hover {
+        width:350px;
+        border: 1px solid #cccccc;
+        height: 17px;
+        border-bottom: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: none;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.emailCliente1 {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: none;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.emailCliente1:hover {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: none;
+        background-color: rgba(255, 255, 255, 0);
+}
+.ocupacaoCliente {
+        border: 1px solid #cccccc;
+        height: 17px;
+        width: 350px;
+        display: flex;
+        border-bottom: none;
+        align-items: center;
+        justify-content: center;
+        border-left: none;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.ocupacaoCliente:hover {
+        width:350px;
+        border: 1px solid #cccccc;
+        height: 17px;
+        border-bottom: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: none;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.ocupacaoCliente1 {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: none;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+.ocupacaoCliente1:hover {
+        border: 1px solid #cccccc;
+        height: 29px;
+        width: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: none;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+
+.liBtn2 {
+        background-color: rgba(255, 255, 255, 0);
+        border: 1px solid rgb(173, 173, 173);
+        width: 310px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-left: none;
+        height: 49px;
+        margin-top: -20px;
+}
+
+.liBtn2:hover {
+        background-color: rgba(255, 255, 255, 0);
+        border: 1px solid rgb(173, 173, 173);
+        width: 270px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-left: none;
+        width: 310px;
+        height: 49px;
+        margin-top: -20px;
+}
+
+#cadastraCliente:active {
+        background-color: #B0C4DE;
+        color: rgb(0, 0, 0);
+        margin: 2px;
+        padding: 10px;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        border-top: 2px solid rgb(48, 48, 48);
+        border-left: 2px solid rgb(48, 48, 48);
+        border-right: 1px solid rgb(143, 143, 143);
+        border-bottom: 1px solid rgb(143, 143, 143);
+        width: 100%;
+}
+#cadastraCliente {
+        width: 100%;
+        background-color: #B0C4DE;
+        color: rgb(0, 0, 0);
+        margin: 2px;
+        padding: 10px;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        border-top: 2px solid rgb(143, 143, 143);
+        border-left: 2px solid rgb(143, 143, 143);
+        border-right: 1px solid rgb(48, 48, 48);
+        border-bottom: 1px solid rgb(48, 48, 48);
 }
