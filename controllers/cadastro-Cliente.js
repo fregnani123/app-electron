@@ -26,6 +26,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     buttonAlert.addEventListener('click', criaAlert)
 
+
+    function limparInput() {
+        clienteCadastrarInput = '';
+        CPFInput = '';
+        RGInput = '';
+        nascimentoInput = '';
+        enderecoInput = '';
+        numeroInput = '';
+        bairroInput = '';
+        cidadeInput = '';
+        ufInput = '';
+        foneInput = '';
+        emailInput = '';
+        ocupacaoInput = '';
+    }
+
     function cadastrarCliente() {
 
         const urlCli = `http://204.216.187.179:3000/criarNovoCliente`;
@@ -80,18 +96,27 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    function limparInput() {
-        const clienteCadastrarInput = '';
-        const CPFInput =  '';
-        const RGInput = '';
-        const nascimentoInput = '';
-        const enderecoInput = '';
-        const numeroInput = '';
-        const bairroInput =  '';
-        const cidadeInput =  '';
-        const ufInput =  '';
-        const foneInput =  '';
-        const emailInput =  '';
-        const ocupacaoInput =  '';
+    class ValidaCPF {
+        constructor(cpfEnviado) {
+            Object.defineProperty(this, 'cpfEnviado', {
+                writable: false,
+                enumerable: false,
+                configurable: false,
+                value: cpfEnviado.replace(/\D+/g, '')
+            });
+        }
+        valida() {
+            if (!this.cpfEnviado) return false;
+            return'cheguei aqui' 
+        }
+
     }
+
+    // CPFInput.addEventListener('input', () => {
+
+    // })
+    cpfEnviado = CPFInput.value;
+    const novoCPF = new ValidaCPF("063.912.989-71")
+    console.log(novoCPF.valida())
+
 });

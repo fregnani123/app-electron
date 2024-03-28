@@ -100,7 +100,7 @@
 }
 
 #cliente {
-        height: 29px;
+        height: 28px;
 }
 
 #cpfFake {
@@ -110,32 +110,45 @@
 #rgFake {
         height: 24px;
 }
+
 #nascimento {
         height: 24px;
 }
-#endereco{
-height: 29px;
+
+#endereco {
+        height: 29px;
 }
-#numero{
-height: 24px;
+
+#numero {
+        height: 24px;
 }
-#bairro{
-height: 29px;
+
+#bairro {
+        height: 29px;
 }
-#cidade{
-height: 29px;
+
+#cidade {
+        height: 29px;
 }
-#uf{
-height: 29px;
+
+#uf {
+        height: 29px;
 }
-#email{
-height: 26px;
+
+#email {
+        height: 24px;
 }
-#fone{
-height: 26px;
+
+#fone {
+        height: 24px;
 }
-#ocupacao{
-height: 29px;
+
+#ocupacao {
+        height: 29px;
+}
+
+#clienteNovo {
+        height: 28px;
 }
 
 .rgFakeCliente {
@@ -225,6 +238,7 @@ height: 29px;
         justify-content: center;
         background-color: rgba(255, 255, 255, 0);
 }
+
 .enderecoCliente {
         border: 1px solid #cccccc;
         height: 17px;
@@ -266,6 +280,7 @@ height: 29px;
         justify-content: center;
         background-color: rgba(255, 255, 255, 0);
 }
+
 .numeroCliente {
         border: 1px solid #cccccc;
         height: 17px;
@@ -299,7 +314,7 @@ height: 29px;
         justify-content: center;
         background-color: rgba(255, 255, 255, 0);
         border-left: none;
-       
+
 }
 
 .numeroCliente1:hover {
@@ -312,6 +327,7 @@ height: 29px;
         background-color: rgba(255, 255, 255, 0);
         border-left: none;
 }
+
 .bairroCliente {
         border: 1px solid #cccccc;
         height: 17px;
@@ -359,6 +375,7 @@ height: 29px;
         justify-content: center;
         background-color: rgba(255, 255, 255, 0);
 }
+
 .bairroCliente {
         border: 1px solid #cccccc;
         height: 17px;
@@ -406,6 +423,7 @@ height: 29px;
         justify-content: center;
         background-color: rgba(255, 255, 255, 0);
 }
+
 .cidadeCliente {
         border: 1px solid #cccccc;
         height: 17px;
@@ -453,6 +471,7 @@ height: 29px;
         border-right: none;
         background-color: rgba(255, 255, 255, 0);
 }
+
 .UFCliente {
         border: 1px solid #cccccc;
         height: 17px;
@@ -494,6 +513,7 @@ height: 29px;
         justify-content: center;
         background-color: rgba(255, 255, 255, 0);
 }
+
 .foneCliente {
         border: 1px solid #cccccc;
         height: 17px;
@@ -535,6 +555,7 @@ height: 29px;
         justify-content: center;
         background-color: rgba(255, 255, 255, 0);
 }
+
 .emailCliente {
         border: 1px solid #cccccc;
         height: 17px;
@@ -548,7 +569,7 @@ height: 29px;
 }
 
 .emailCliente:hover {
-        width:350px;
+        width: 350px;
         border: 1px solid #cccccc;
         height: 17px;
         border-bottom: none;
@@ -580,6 +601,7 @@ height: 29px;
         border-left: none;
         background-color: rgba(255, 255, 255, 0);
 }
+
 .ocupacaoCliente {
         border: 1px solid #cccccc;
         height: 17px;
@@ -593,7 +615,7 @@ height: 29px;
 }
 
 .ocupacaoCliente:hover {
-        width:350px;
+        width: 350px;
         border: 1px solid #cccccc;
         height: 17px;
         border-bottom: none;
@@ -667,6 +689,7 @@ height: 29px;
         border-bottom: 1px solid rgb(143, 143, 143);
         width: 100%;
 }
+
 #cadastraCliente {
         width: 100%;
         background-color: #B0C4DE;
