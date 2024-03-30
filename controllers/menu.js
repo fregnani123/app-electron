@@ -1,4 +1,3 @@
-
 const menuItens = [
     { id: '1', texto: 'Painel de Controle', to: './controllers.html' },
     { id: '2', texto: 'Realizar venda', to: './screenSales.html' },
@@ -10,7 +9,7 @@ const menuItens = [
     { id: '8', texto: 'Entrada de Estoque', to: '../public/controle-entrada.html' },
     { id: '9', texto: 'Agendamentos', to: '../public/agenda.html' },
     // { id: '10', texto: '', to: '/controleES' },
-    { id: 'li-Exit', texto: '', src:'../img/exit.png', to: '../public/index.html' },
+    { id: 'li-Exit', texto: '', src: '../img/exit.png', to: '../public/index.html' },
 ];
 
 const listMenu = document.querySelector('#ul-Menu');
@@ -21,13 +20,13 @@ function criaLi(texto, id, src, to) {
     const li = document.createElement('li');
     a.textContent = texto;
     a.href = to;
-    
-    if (src && typeof src === 'string' && src.trim() !== ''){
+
+    if (src && typeof src === 'string' && src.trim() !== '') {
         const img = document.createElement('img')
-        img.src = src; 
+        img.src = src;
         a.appendChild(img);
     }
-   
+
     li.classList.add('menu-item-' + id);
     a.classList.add('a-menu' + id)
     li.appendChild(a);
@@ -35,7 +34,7 @@ function criaLi(texto, id, src, to) {
 }
 
 menuItens.map(item => {
-    const li = criaLi(item.texto,item.id,item.src,item.to ); 
+    const li = criaLi(item.texto, item.id, item.src, item.to);
     listMenu.appendChild(li);
 });
 

@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 if (Array.isArray(clientes)) {
-                    clienteEncontrado = clientes.find(cliente => Number(cliente.cpfFake) === Number(cpf));
+                    clienteEncontrado = clientes.find(cliente => Number(cliente.cpf) === Number(cpf));
                     if (clienteEncontrado) {
                         clienteADD.value = clienteEncontrado.cliente;
                     } else if (cpf.length > 9 && !clienteEncontrado) {

@@ -24,30 +24,40 @@ document.addEventListener('DOMContentLoaded', function () {
         msgAlert.innerText = msg;
     }
 
-    buttonAlert.addEventListener('click', criaAlert)
-
+    buttonAlert.addEventListener('click', criaAlert);
 
     function limparInput() {
-        clienteCadastrarInput = '';
-        CPFInput = '';
-        RGInput = '';
-        nascimentoInput = '';
-        enderecoInput = '';
-        numeroInput = '';
-        bairroInput = '';
-        cidadeInput = '';
-        ufInput = '';
-        foneInput = '';
-        emailInput = '';
-        ocupacaoInput = '';
+        clienteCadastrarInput.value = '';
+        CPFInput.value = '';
+        RGInput.value = '';
+        nascimentoInput.value = '';
+        enderecoInput.value = '';
+        numeroInput.value = '';
+        bairroInput.value = '';
+        cidadeInput.value = '';
+        ufInput.value = '';
+        foneInput.value = '';
+        emailInput.value = '';
+        ocupacaoInput.value = '';
     }
 
     function cadastrarCliente() {
+        const cpfEnviado = CPFInput.value;
+        const novoCPF = new ValidaCPF(cpfEnviado);
+
+        CPFInput.addEventListener('input', () => {
+            console.log(novoCPF.valida());
+        });
+
+        if (!novoCPF.valida()) {
+            criaAlert('CPF inválido');
+            return;
+        }
 
         const urlCli = `http://204.216.187.179:3000/criarNovoCliente`;
 
         const clienteNome = clienteCadastrarInput.value;
-        const cpf = CPFInput.value;
+        const cpf = String(novoCPF.cpfLimpo);
         const rg = RGInput.value;
         const nascimento = nascimentoInput.value;
         const endereco = enderecoInput.value;
@@ -82,11 +92,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }).then(response => {
             if (response.ok) {
                 const msg = 'Cliente cadastrado com sucesso.';
-                criaAlert(msg)
+                criaAlert(msg);
                 limparInput();
             } else {
-                const msg = 'Erro ao cadastrar Cliente.'
-                criaAlert(msg)
+                const msg = 'Erro ao cadastrar Cliente.';
+                criaAlert(msg);
                 console.error('Erro ao enviar o relatório para o MongoDB');
                 console.error('Status da resposta:', response.status);
             }
@@ -95,28 +105,47 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-
     class ValidaCPF {
         constructor(cpfEnviado) {
-            Object.defineProperty(this, 'cpfEnviado', {
+            Object.defineProperty(this, 'cpfLimpo', {
                 writable: false,
                 enumerable: false,
                 configurable: false,
                 value: cpfEnviado.replace(/\D+/g, '')
             });
         }
-        valida() {
-            if (!this.cpfEnviado) return false;
-            return'cheguei aqui' 
+
+        eSequencia() {
+            return this.cpfLimpo.charAt(0).repeat(this.cpfLimpo.length) === this.cpfLimpo;
         }
 
+        geraDigito(cpfSemDigitos) {
+            let total = 0;
+            let reverso = Number(cpfSemDigitos.length) + 1;
+
+            for (let stringNumerica of cpfSemDigitos) {
+                total += reverso * Number(stringNumerica);
+                reverso--;
+            }
+
+            const digito = 11 - (total % 11);
+            return digito <= 9 ? String(digito) : '0';
+        }
+
+        geraNovoCpf() {
+            const cpfSemDigitos = this.cpfLimpo.slice(0, -2);
+            const digito1 = this.geraDigito(cpfSemDigitos);
+            const digito2 = this.geraDigito(cpfSemDigitos + digito1);
+            this.novoCPFGerado = cpfSemDigitos + digito1 + digito2;
+        }
+
+        valida() {
+            if (!this.cpfLimpo) return false;
+            if (typeof this.cpfLimpo !== 'string') return false;
+            if (this.cpfLimpo.length !== 11) return false;
+            if (this.eSequencia()) return false;
+            this.geraNovoCpf();
+            return this.novoCPFGerado === this.cpfLimpo;
+        }
     }
-
-    // CPFInput.addEventListener('input', () => {
-
-    // })
-    cpfEnviado = CPFInput.value;
-    const novoCPF = new ValidaCPF("063.912.989-71")
-    console.log(novoCPF.valida())
-
 });
