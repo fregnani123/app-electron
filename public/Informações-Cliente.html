@@ -41,6 +41,7 @@
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
         }
+
         .cadastro-produto:hover,
         .a-cadastrar-produto:hover {
             height: 22px;
@@ -51,14 +52,16 @@
 
         #barraCliente {
             background-color: rgb(0, 38, 87);
-             margin-top: -2px;
+            margin-top: -2px;
         }
-        .trTable{
-           margin-top: -40px;
+
+        .trTable {
+            margin-top: -40px;
         }
     </style>
 </head>
 <div class="container">
+
     <body>
         <header>
             <p class="logoMenu"><img id="logo-img" src="../img/logo.png" alt=""></p>
@@ -71,20 +74,20 @@
         <div id="container-sales">
             <div class="container-table">
                 <ul class="menu-secundario" id="menu-secundario">
+                    <li class="li-menu1">
+                        <a class='a1' href="../public/cadastro-cliente.html">Cadastrar Novo Cliente</a>
+                    </li>
                     <li class="cadastro-produto">
-                        <a class="a-cadastrar-produto" href="../public/cadastro-cliente.html">Cadastrar Novo Cliente</a>
+                        <a class="a-cadastrar-produto" href="../public/Informações-Cliente.html">Informações do Cliente</a>
                     </li>
-                    <li class="li-menu2">
-                        <a class="a2" href="../public/Informações-Cliente.html">Informações do Cliente</a>
+                    <li class="li-menu3">
+                        <a class="a3"  href="../public/Alterar-Informações-Cliente.html">Alterar Informações do Cliente</a>
                     </li>
-                    <li class="li-menu2">
-                        <a class="a2" href="../public/Alterar-Informações-Cliente.html">Alterar Informações do Cliente</a>
-                    </li>
-                   
+
                 </ul>
 
                 <div class="barraTopEntrada">
-                    <p class="barraEntrada" id="barraCliente">Cadastro Cliente</p>
+                    <p class="barraEntrada" id="barraCliente">Informações do Cliente</p>
                 </div>
 
                 <table class="tableCadastro" id="tableCadastroCliente">
@@ -102,19 +105,19 @@
                             <div class="divTd">
 
                                 <ul class="ulCadastro">
-                                    <li class="clienteNome">Nome do Cliente</li>
                                     <li class="cpfCliente">CPF</li>
+                                    <li class="clienteNome">Nome do Cliente</li>
                                     <li class="rgFakeCliente">RG</li>
                                     <li class="nascimentoCliente">Data de Nascimento</li>
                                 </ul>
                                 <ul class="ulCadastro2">
-
+                                <li class="cpfCliente1">
+                                     <input type="text" id="cpfFake" name="cpfFake" required>
+                                </li>
                                     <li class="clienteNome1"><input type="text" id="clienteNovo" name="cliente"
                                             required></li>
 
-                                    <li class="cpfCliente1">
-                                        <input type="text" id="cpfFake" name="cpfFake" required>
-                                    </li>
+                                    
                                     <li class="rgFakeCliente1">
                                         <input type="number" id="rgFake" name="rgFake" required>
                                     </li>
@@ -162,9 +165,9 @@
                                     <li class="ocupacaoCliente1">
                                         <input type="text" id="ocupacao" name="ocupacao" required>
                                     </li>
-                                    <li class="liBtn2">
+                                    <!-- <li class="liBtn2">
                                         <button id="cadastraCliente">Cadastrar Cliente</button>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                         </td>
@@ -173,7 +176,7 @@
             </div>
         </div>
         <script src="../controllers/menu.js"></script>
-        <script src="../controllers/cadastro-Cliente.js"></script>
+        <script src="../controllers/informacoesClientes.js"></script>
     </body>
 </div>
 

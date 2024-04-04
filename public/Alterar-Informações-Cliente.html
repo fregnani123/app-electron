@@ -41,6 +41,7 @@
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
         }
+
         .cadastro-produto:hover,
         .a-cadastrar-produto:hover {
             height: 22px;
@@ -51,14 +52,16 @@
 
         #barraCliente {
             background-color: rgb(0, 38, 87);
-             margin-top: -2px;
+            margin-top: -2px;
         }
-        .trTable{
-           margin-top: -40px;
+
+        .trTable {
+            margin-top: -40px;
         }
     </style>
 </head>
 <div class="container">
+
     <body>
         <header>
             <p class="logoMenu"><img id="logo-img" src="../img/logo.png" alt=""></p>
@@ -71,23 +74,23 @@
         <div id="container-sales">
             <div class="container-table">
                 <ul class="menu-secundario" id="menu-secundario">
-                    <li class="cadastro-produto">
-                        <a class="a-cadastrar-produto" href="../public/cadastro-cliente.html">Cadastrar Novo Cliente</a>
+                    <li class="li-menu1">
+                        <a class='a1' href="../public/cadastro-cliente.html">Cadastrar Novo Cliente</a>
                     </li>
                     <li class="li-menu2">
                         <a class="a2" href="../public/Informações-Cliente.html">Informações do Cliente</a>
                     </li>
-                    <li class="li-menu2">
-                        <a class="a2" href="../public/Alterar-Informações-Cliente.html">Alterar Informações do Cliente</a>
+                    <li class="cadastro-produto">
+                        <a class="a-cadastrar-produto" href="../public/Alterar-Informações-Cliente.html">Alterar Informações do Cliente</a>
                     </li>
-                   
+
                 </ul>
 
                 <div class="barraTopEntrada">
-                    <p class="barraEntrada" id="barraCliente">Cadastro Cliente</p>
+                    <p class="barraEntrada" id="barraCliente">Alterar Informações do Cliente</p>
                 </div>
 
-                <table class="tableCadastro" id="tableCadastroCliente">
+                <!-- <table class="tableCadastro" id="tableCadastroCliente">
                     <tr>
                         <span class="alert">
                             <img class="imgLogo" src="../img/suporte.png" alt="">
@@ -169,7 +172,7 @@
                             </div>
                         </td>
                     </tr>
-                </table>
+                </table> -->
             </div>
         </div>
         <script src="../controllers/menu.js"></script>
