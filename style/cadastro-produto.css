@@ -1201,9 +1201,18 @@ button,
 }
 
 .tableProdutos2 {
+   /* display: none; */
+   position: absolute;
+   top: 36px;
+   left: 0px;
+   background-color: white;
+   height: 400px;
+   width: 100%;
+}
+#tableProdutos2 {
    display: none;
    position: absolute;
-   top: 35px;
+   top: 145px;
    left: 0px;
    background-color: white;
    height: 400px;

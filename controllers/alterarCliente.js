@@ -26,20 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     buttonAlert.addEventListener('click', criaAlert);
 
-    function limparInput() {
-        clienteCadastrarInput.value = '';
-        filterCliente = '';
-        RGInput.value = '';
-        nascimentoInput.value = '';
-        enderecoInput.value = '';
-        numeroInput.value = '';
-        bairroInput.value = '';
-        cidadeInput.value = '';
-        ufInput.value = '';
-        foneInput.value = '';
-        emailInput.value = '';
-        ocupacaoInput.value = '';
-    }
+
 
 
     filterCliente.addEventListener('input', () => {
@@ -94,14 +81,25 @@ document.addEventListener('DOMContentLoaded', function () {
         const enderecoInput1 = enderecoInput.value; 
         const numeroInput1 = numeroInput.value; 
         const bairroInput1 = bairroInput.value;  
-        const cidadeInput1 = cidadeInput.value; 
+        const cidadeInput1 = cidadeInput.value;
+        const ufInput1 = ufInput.value;
         const foneInput1 = foneInput.value; 
         const emailInput1 = emailInput.value;  
         const ocupacaoInput1 = ocupacaoInput.value;  
 
 
         const produto = {
-            
+            clienteNome: clienteCadastrarInput1,
+            rg: RGInput1,
+            nascimento: nascimentoInpu1t,
+            endereco: enderecoInput1,
+            numero: numeroInput1,
+            bairro: bairroInput1,
+            cidade: cidadeInput1,
+            uf: ufInput1,
+            fone: foneInput1,
+            email: emailInput1,
+            ocupacao: ocupacaoInput1,
         };
 
 
@@ -119,13 +117,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     const msg = 'Produto atualizado com sucesso!'
                     criaAlert(msg);
-                    limparInputs();
+                    limparInput();
                 }
 
             })
             .catch(error => {
                 console.error('Erro ao atualizar produto:', error);
             });
+    }
+    
+    function limparInput() {
+        clienteCadastrarInput.value = '';
+        filterCliente = '';
+        RGInput.value = '';
+        nascimentoInput.value = '';
+        enderecoInput.value = '';
+        numeroInput.value = '';
+        bairroInput.value = '';
+        cidadeInput.value = '';
+        ufInput.value = '';
+        foneInput.value = '';
+        emailInput.value = '';
+        ocupacaoInput.value = '';
     }
 
 })
