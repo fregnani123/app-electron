@@ -41,19 +41,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
     filtrarProduto.addEventListener('input', function (event) {
         EANDigitado = event.target.value;
+            estoqueCompraInput = estoqueAdd.value;
+    
         if (EANDigitado.trim() !== '' && EANDigitado.trim() && EANDigitado.length >= 9) {
             fetchFiltrar(EANDigitado)
 
         }
         if (EANDigitado === '')
             console.log('Produto não encontrado.');
+        
+        if (EANDigitado.trim() !== '') {
+            limparInputs();
+        }
+
     });
 
     function fetchFiltrar(filtrarEAN) {
 
         const urlGetProdutoDate = 'http://204.216.187.179:3000/findProduto';
-
-
+        
         fetch(urlGetProdutoDate, {
             method: 'GET',
             headers: {
@@ -148,10 +154,15 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Erro ao atualizar produto: ' + response.status);
+                } if (estoqueAdd.value === '') {
+                    const msg = 'Campo Adicionar Estoque não pode estar vazio.'
+                    criaAlert(msg);
+                    return;
                 } else {
                     const msg = 'Produto atualizado com sucesso!'
                     criaAlert(msg);
                     limparInputs();
+                    filtrarProduto.value = ''
                 }
 
             })
@@ -175,7 +186,6 @@ document.addEventListener('DOMContentLoaded', function () {
         medidaMassaValor.value = '';
         medidaMassaDescricao.value = '';
         volumeValor.value = '';
-        filtrarProduto.value = ''
         unidadeMedida.value = ''
     }
 
