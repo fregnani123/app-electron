@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const buttonAlert = document.querySelector('#bottonAlert');
     const date = document.querySelector('.date');
     const vendedor = document.getElementById('vendedor');
+    const desconto = document.getElementById('desconto')
+
 
 
     const divContent = document.querySelector('.divPrint');
@@ -203,8 +205,20 @@ document.addEventListener('DOMContentLoaded', function () {
             lista.appendChild(li);
         });
 
+        const total = calcularTotalCarrinho(carrinho)
 
-        const total = calcularTotalCarrinho(carrinho);
+       
+        desconto.addEventListener('input', calcDesconto);
+
+        function calcDesconto() {
+            const descontoInput = parseFloat(desconto.value);
+            descontoCliente = total * (descontoInput / 100);
+            const totalComDesconto = total - descontoCliente;
+            totalCarrinho.innerHTML = totalComDesconto.toFixed(2); // Atualiza a exibição do total com desconto
+        }
+         
+        let descontoCliente;
+        console.log(descontoCliente)
         totalCarrinho.innerHTML = `${total}`;
 
         dinheiroCliente.addEventListener('input', () => {
@@ -228,11 +242,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 dinheiro += '.00';
             }
 
-
-
-            dinheiroCliente.value = parseFloat(dinheiro).toFixed(2); // Formata para duas casas decimais
-            let trocoSoma = parseFloat(dinheiro) - parseFloat(total);
-
+            dinheiroCliente.value = parseFloat(dinheiro).toFixed(2);
+             // Formata para duas casas decimais
+            let trocoSoma = parseFloat(dinheiro) - parseFloat(totalCarrinho.innerHTML);
 
             return trocoCli.innerText = parseFloat(trocoSoma).toFixed(2) <= 0 ? '0.00' : parseFloat(trocoSoma).toFixed(2);
         });
@@ -246,7 +258,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         return total.toFixed(2);
     }
-
+  
     function limparInputEAN() {
         produtoCodigo.value = ''
         produtoPreco.innerText = ''
@@ -255,6 +267,7 @@ document.addEventListener('DOMContentLoaded', function () {
         produtoNome.innerText = '';
         produtoDescricao.innerText = '';
         inputQtd.value = '1';
+        desconto.value = '0';
     }
 
     buttonLimparEAN.addEventListener('click', limparInputEAN);
@@ -274,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function () {
             dataVenda.forEach((item, index) => {
                 const numeroItem = (index + 1).toString().padStart(3, '0');
                 numeroPedido = Number(numeroItem);
-                console.log(numeroPedido);
+                // console.log(numeroPedido);
             });
         } else {
             console.log(dataVenda);
@@ -354,8 +367,11 @@ document.addEventListener('DOMContentLoaded', function () {
         varImpressao.dinheiroRecebido = dinheiroCliente.value || 0;
         varImpressao.formaPagamento = selectPagamento.value;
         varImpressao.totalCompra = totalCarrinho.innerHTML;
+        varImpressao.subTotal = calcularTotalCarrinho(carrinho);
         varImpressao.vendedorSelecionado = vendedor.value;
         varImpressao.numeroPedidoPrint = numeroPedido + 1;
+        varImpressao.desconto = desconto.value;
+       
 
         const ul = document.createElement('ul');
         ul.classList.add('ulPrint');
@@ -367,7 +383,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <li class='liPrintInfo'>Data Pedido: ${new Date(varImpressao.dateVenda).toLocaleDateString()}</br>
         Cliente: ${varImpressao.cliente}</br>Endereço:</br>CPF:</br>Forma de Pagamento:
         ${varImpressao.formaPagamento}</br>Vendedor: ${varImpressao.vendedorSelecionado}</br><span class="totalVenda">Sub
-            total: R$ ${varImpressao.totalCompra}<br />Desconto total:0.00<br/>Total: R$ ${varImpressao.totalCompra}</span>
+            total: R$ ${varImpressao.subTotal}<br />Desconto total:${varImpressao.desconto}%<br/>Total: R$ ${varImpressao.totalCompra}</span>
              <span class="numero">Data impressão: ${new Date(varImpressao.dateVenda).toLocaleDateString()}<br/> nº Pedido: ${varImpressao.numeroPedidoPrint}</span>
     </li>
     <li class="borderProdutos"></li></br>

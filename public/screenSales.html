@@ -87,7 +87,6 @@
                 <!-- Itens da lista de produtos adicionados ao carrinho vão aqui -->
             </ul>
 
-
             <div class="div-table1">
               
                 <p class="titulo-finalizar">Finalizar Pedido</p>
@@ -95,7 +94,7 @@
                 <ul class="clienteTitulo">
                     <li class="alterarCli">Alterar Cliente</li>
                     <li class="clienteCPF">Cliente</li>
-                    <li class="clienteBuscar">Forma de Pagamento</li>
+                    <li class="clienteBuscar"><p class="formaPaga">Forma de Pagamento</p><p class="desconto">Adicionar Desconto</p></li>
                     <li class="formaPag">Valor Recebido</li>
                 </ul>
 
@@ -106,15 +105,43 @@
                     <li  class="clienteCPF2"><input
                             id="clienteEncontrado" type="text" value="Consumidor" readonly>
                     </li>
-                    <li class="clienteBuscar2"><select id="forma-pagamento">
+                    <li class="clienteBuscar2">
+                        <p class="pag"><select id="forma-pagamento">
                             <option value="Dinheiro">Dinheiro</option>
                             <option value="Cartao">Cartão</option>
                             <option value="PIX">PIX</option>
-                        </select>
+                        </select></p>
+                       <p class="des">
+                        <select id="desconto">
+                        <option value="0">0%</option>
+                        <option value="1">1%</option>
+                        <option value="2">2%</option>
+                        <option value="3">3%</option>
+                        <option value="4">4%</option>
+                        <option value="5">5%</option>
+                        <option value="6">6%</option>
+                        <option value="7">7%</option>
+                        <option value="8">8%</option>
+                        <option value="9">9%</option>
+                        <option value="10">10%</option>
+                        <option value="11">11%</option>
+                        <option value="12">12%</option>
+                        <option value="13">13%</option>
+                        <option value="14">14%</option>
+                        <option value="15">15%</option>
+                        <option value="16">16%</option>
+                        <option value="17">17%</option>
+                        <option value="18">18%</option>
+                        <option value="19">19%</option>
+                        <option value="20">20%</option>
+                        <option value="25">25%</option>
+                        <option value="30">30%</option>
+                        <option value="40">40%</option>
+                        <option value="50">50%</option>
+                    </select></p>      
                     </li>
                     <li class="formaPag2">
                         <input type="text" id="dinheiro-recebido" autocomplete="off" value="">
-
                     </li>
                 </ul>
                 
