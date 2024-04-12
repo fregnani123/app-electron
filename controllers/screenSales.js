@@ -382,8 +382,7 @@ document.addEventListener('DOMContentLoaded', function () {
             48-3432.5672</span></li>
     <li class='liPrintInfo'>Data Pedido: ${new Date(varImpressao.dateVenda).toLocaleDateString()}</br>
         Cliente: ${varImpressao.cliente}</br>Endereço:</br>CPF:</br>Forma de Pagamento:
-        ${varImpressao.formaPagamento}</br>Vendedor: ${varImpressao.vendedorSelecionado}</br><span class="totalVenda">Sub
-            total: R$ ${varImpressao.subTotal}<br />Desconto total:${varImpressao.desconto}%<br/>Total: R$ ${varImpressao.totalCompra}</span>
+        ${varImpressao.formaPagamento}</br>Vendedor: ${varImpressao.vendedorSelecionado}</br><span class="totalVenda">Subtotal: R$ ${varImpressao.subTotal}<br />Desconto total:${varImpressao.desconto}%<br/>Total: R$ ${varImpressao.totalCompra}</span>
              <span class="numero">Data impressão: ${new Date(varImpressao.dateVenda).toLocaleDateString()}<br/> nº Pedido: ${varImpressao.numeroPedidoPrint}</span>
     </li>
     <li class="borderProdutos"></li></br>
