@@ -9,8 +9,8 @@ const menuPainel2 = [
     { id: '6', texto: 'Excluir Produto', src: '../img/remover.png', to: '../public/excluir-produtos.html' },
     { id: '7', texto: 'Cadastro de cliente', src: '../img/cliente.png', to: '../public/cadastro-cliente.html' },
     { id: '8', texto: 'Controle de entrada ', src: '../img/caixa-de-entrada.png', to: '../public/controle-entrada.html' },
-    { id: '9', texto: 'Agendamento', src: '../img/agendar.png', to: '../public/agenda.html' },
-    { id: '11', texto: 'Suporte', src: '../img/suporte.png', to: '../public/suporte' },
+    // { id: '9', texto: 'Agendamento', src: '../img/agendar.png', to: '../public/agenda.html' },
+    { id: '11', texto: 'Suporte', src: '../img/suporte.png', to: 'https://api.whatsapp.com/send?phone=5548996607600' },
 ];
 
 function criaLi(texto, id, src, to) {
@@ -18,6 +18,10 @@ function criaLi(texto, id, src, to) {
     const li = document.createElement('li');
     a.textContent = texto;
     a.href = to;
+
+    if (to.startsWith('http')) {
+        a.target = '_blank';
+    }
 
     if (src && typeof src === 'string' && src.trim() !== '') {
         const img = document.createElement('img')
