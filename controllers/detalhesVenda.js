@@ -1,4 +1,4 @@
-
+document.addEventListener('DOMContentLoaded', function () {
 const urlPedidos = 'http://204.216.187.179:3000/detalhes';
 const inputNumero = document.querySelector('#inputNumero')
 
@@ -234,3 +234,4 @@ function buscarPedido(np) {
         }
     }).catch(err => console.error('mensagem de erro', err));
 }
+})
