@@ -97,8 +97,7 @@
                                     <li class="spanProdutosCadastro2">Descrição do Produto</li>
                                 </ul>
                                 <ul class="ulCadastro2">
-                                    <li class="spanProdutosCodigo2"><input type="number" id="codigoDeBarras"
-                                            name="codigoDeBarras" autocomplete="off" required></li>
+                                    <li class="spanProdutosCodigo2"><input type="text" id="codigoDeBarras" name="codigoDeBarras" autocomplete="off" required maxlength="13"></li>
                                     <li class="spanProdutosCategoria2">
                                         <select id="categoria" name="categoria" required>
                                             <option value="">Selecione uma categoria</option>
@@ -324,6 +323,11 @@
             </div>
             <script src="../controllers/menu.js"></script>
             <script src="../controllers/cadastro-produto.js"></script>
+            <script>
+                window.onload = function () {
+                    document.getElementById("codigoDeBarras").focus();
+                };
+            </script>
         </body>
 
 </html>

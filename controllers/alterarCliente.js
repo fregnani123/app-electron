@@ -16,9 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const buttonAlterar = document.querySelector('#cadastraCliente');
     const buttonAlert = document.querySelector('#bottonAlert');
 
-
-   
-
     function criaAlert(msg) {
         spanAlert.classList.toggle('alertDisplay')
         msgAlert.innerText = msg;

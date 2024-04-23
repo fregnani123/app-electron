@@ -280,6 +280,12 @@ input:hover,
 #estoque1:hover {
    height: 25px;
 }
+#codigoDeBarras{
+   height: 29px;
+}
+#codigoDeBarras:hover{
+   height: 29px;
+}
 
 .divTd {
    width: auto;

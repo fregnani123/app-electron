@@ -65,7 +65,7 @@
                         <span  class="Qtd">Selecionar Qtd</span>
                     </p>
                         <p class="descricaoLista" id="descricaoLista2">
-                        <span class="codigoP" id="codigo"><input id="input-EAN" autocomplete="off" type="number"></span>
+                        <span class="codigoP" id="codigo"><input id="input-EAN" autocomplete="off" required maxlength="13"></span>
                         <span class="produtos" id="produto"></span>
                         <span class="descricaoList"  id="descricao"></span>
                         <span class="precoProduto" id="preco"></span>
@@ -171,6 +171,11 @@
     <script src="../controllers/screenSales.js"></script>
     <script src="../controllers/menu.js"></script>
     <script src="../controllers/print.js"></script>
+    <script>
+        window.onload = function () {
+            document.getElementById("input-EAN").focus();
+        };
+    </script>
 </body>
 
 </html>
