@@ -101,8 +101,7 @@
 
                                 </ul>
                                 <ul class="ulCadastro2">
-                                    <li class="spanProdutosCodigo2"><input type="number" id="codigoDeBarras"
-                                            name="codigoDeBarras" autocomplete="off" required></li>
+                                    <li class="spanProdutosCodigo2"><input  id="codigoDeBarras" name="codigoDeBarras" autocomplete="off" required maxlength="13"></li>
                                     <li class="spanProdutosCategoria2">
                                         <select id="categoria" name="categoria" required>
                                             <option value="">Selecione uma categoria</option>
@@ -297,8 +296,8 @@
                                             <option value="outros">Outros</option>
                                         </select>
                                     </span>
-                                    <span class="filtrarCodigo">Filtrar Produto Código:</span><span><input type="number"
-                                            name="" id="codigoEAN"></span>
+                                    <span class="filtrarCodigo">Filtrar Produto Código:</span><span><input 
+                                            name="" id="codigoEAN" autocomplete="off" required maxlength="13"></span>
                                 </p>
 
                                 <ul id="listaProdutoFilter">
@@ -328,6 +327,14 @@
             </div>
             <script src="../controllers/menu.js"></script>
             <script src="../controllers/cadastro-produto.js"></script>
+            <input id="inputFiltar" autocomplete="off" required maxlength="13">
+            
+            <script>
+                window.onload = function () {
+                    document.getElementById("codigoEAN").focus();
+                };
+            </script>
+
         </body>
 
 </html>

@@ -72,7 +72,7 @@
                         <span id="estoque" class="estoque"></span>
                         <span class="Qtd2" id="spanDescricao"><input type="number" id="input-qtd" min="0" value="1"></span>
                     </p>
-                    <p class="tdEAN"> <button id="buttonAddCarrinho">Adicionar
+                    <p class="tdEAN"> <button id="buttonAddCarrinho" tabindex="0">Adicionar
                             Produto no Carrinho</button><button id="button-clear">Limpar EAN</button></p>
                 </tr>
             </table>
@@ -171,11 +171,13 @@
     <script src="../controllers/screenSales.js"></script>
     <script src="../controllers/menu.js"></script>
     <script src="../controllers/print.js"></script>
-    <script>
+    <!-- <script>
         window.onload = function () {
             document.getElementById("input-EAN").focus();
+
         };
-    </script>
+          
+    </script> -->
 </body>
 
 </html>

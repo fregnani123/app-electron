@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const vendedor = document.getElementById('vendedor');
     const desconto = document.getElementById('desconto')
 
-
+    codigoEANInput.focus()
 
     const divContent = document.querySelector('.divPrint');
     date.innerText = dateVenda = new Date().toLocaleDateString();
@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     codigoEANInput.addEventListener('input', () => {
         const codigoEAN = codigoEANInput.value;
+
         if (codigoEAN.trim() !== '') {
             buscarProduto(codigoEAN);
         } else {
@@ -87,6 +88,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     buttonAddCarrinho.addEventListener('click', () => {
+        adicionarAoCarrinho();
+    });
+
+    function adicionarAoCarrinho() {
+        if (codigoEANInput.value === '') {
+            const msg = 'Código EAN vazio.';
+            criaAlert(msg);
+            return;
+        }
         if (produtoEncontrado) {
             const quantidade = parseInt(inputQtd.value);
             const itemCarrinho = {
@@ -97,13 +107,13 @@ document.addEventListener('DOMContentLoaded', function () {
             carrinho.push(itemCarrinho);
             renderizarLista();
             limparInputEAN();
+            codigoEANInput.focus();
 
         } else {
             const msg = 'Nenhum produto encontrado para adicionar ao carrinho.';
-            criaAlert(msg)
+            criaAlert(msg);
         }
-
-    });
+    }
 
     function buscarProduto(codigoEAN) {
         const urlGetProduto = `http://204.216.187.179:3000/findProduto`;
@@ -122,6 +132,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         produtoDescricao.innerText = `${produtoEncontrado.descricao} `;
                         produtoPreco.innerText = produtoEncontrado.preco.toFixed(2);
                         produtoEstoque.innerText = `${produtoEncontrado.estoque} ${produtoEncontrado.unidadeMedida}`;
+                        produtoEstoque.style.background = produtoEncontrado.estoque === 1 ? 'yellow' : 'white';
+                        produtoEstoque.style.background = produtoEncontrado.estoque === 0 ? 'red' : 'white';
+                        produtoEstoque.style.color = produtoEncontrado.estoque === 0 ? 'white' : 'black';
                     } else {
                         produtoNome.innerText = 'Produto não encontrado';
                         produtoCodigo.value = ''
@@ -207,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const total = calcularTotalCarrinho(carrinho)
 
-       
+
         desconto.addEventListener('input', calcDesconto);
 
         function calcDesconto() {
@@ -216,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const totalComDesconto = total - descontoCliente;
             totalCarrinho.innerHTML = totalComDesconto.toFixed(2); // Atualiza a exibição do total com desconto
         }
-         
+
         let descontoCliente;
         console.log(descontoCliente)
         totalCarrinho.innerHTML = `${total}`;
@@ -243,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             dinheiroCliente.value = parseFloat(dinheiro).toFixed(2);
-             // Formata para duas casas decimais
+            // Formata para duas casas decimais
             let trocoSoma = parseFloat(dinheiro) - parseFloat(totalCarrinho.innerHTML);
 
             return trocoCli.innerText = parseFloat(trocoSoma).toFixed(2) <= 0 ? '0.00' : parseFloat(trocoSoma).toFixed(2);
@@ -258,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         return total.toFixed(2);
     }
-  
+
     function limparInputEAN() {
         produtoCodigo.value = ''
         produtoPreco.innerText = ''
@@ -371,7 +384,7 @@ document.addEventListener('DOMContentLoaded', function () {
         varImpressao.vendedorSelecionado = vendedor.value;
         varImpressao.numeroPedidoPrint = numeroPedido + 1;
         varImpressao.desconto = desconto.value;
-       
+
 
         const ul = document.createElement('ul');
         ul.classList.add('ulPrint');
