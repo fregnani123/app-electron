@@ -132,9 +132,15 @@ document.addEventListener('DOMContentLoaded', function () {
                         produtoDescricao.innerText = `${produtoEncontrado.descricao} `;
                         produtoPreco.innerText = produtoEncontrado.preco.toFixed(2);
                         produtoEstoque.innerText = `${produtoEncontrado.estoque} ${produtoEncontrado.unidadeMedida}`;
-                        produtoEstoque.style.background = produtoEncontrado.estoque === 1 ? 'yellow' : 'white';
-                        produtoEstoque.style.background = produtoEncontrado.estoque === 0 ? 'red' : 'white';
-                        produtoEstoque.style.color = produtoEncontrado.estoque === 0 ? 'white' : 'black';
+                        if (produtoEncontrado.estoque === 1) {
+                            produtoEstoque.style.background = 'yellow'
+                        }
+                        if (produtoEncontrado.estoque === 0) {
+                            produtoEstoque.style.background = 'red';
+                            produtoEstoque.style.color = 'white';
+                        }
+                        
+                       
                     } else {
                         produtoNome.innerText = 'Produto não encontrado';
                         produtoCodigo.value = ''

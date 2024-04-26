@@ -326,6 +326,7 @@ document.addEventListener('DOMContentLoaded', function () {
         telaDeFiltar.classList.toggle('active');
         console.log('clicado')
     })
+
     barraBtn.addEventListener('click', () => {
         telaDeFiltar.classList.toggle('active');
         console.log('clicado')

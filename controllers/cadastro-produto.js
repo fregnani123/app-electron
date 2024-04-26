@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const numeroItemProduto1 = (index + 1).toString().padStart(3, '0')
             const li1 = document.createElement('li');
 
-
             const spanItem1 = document.createElement('span');
             spanItem1.classList.add('spanItem');
             spanItem1.textContent = numeroItemProduto1;
@@ -135,7 +134,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const spanEstoque1 = document.createElement('span');
             spanEstoque1.classList.add('spanEstoque');
-            spanEstoque1.textContent = `${item.estoque} ${item.unidadeMedida}`;
+
+            if (item.estoque === 1) {
+                spanEstoque1.style.background = 'yellow';
+                spanEstoque1.textContent = `${item.estoque} ${item.unidadeMedida}`;
+            } else if (item.estoque === 0) {
+                spanEstoque1.style.background = 'red';
+                spanEstoque1.style.color = 'white';
+                spanEstoque1.textContent = `${item.estoque} ${item.unidadeMedida}`;
+            } else {
+                spanEstoque1.style.background = 'green'; // ou qualquer outra cor para estoque > 1
+                spanEstoque1.style.color = 'white'
+                spanEstoque1.textContent = `${item.estoque} ${item.unidadeMedida}`;
+            }
 
             li1.classList.add('descricaoLista2')
             li1.appendChild(spanItem1);
@@ -319,12 +330,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const telaDeFiltar = document.querySelector('.tableProdutos2');
     const barraBtn = document.querySelector('#btnPesquisa');
-    const barraBtn2 = document.querySelector('#btnPesquisa2');
+    const limparPesquisa = document.querySelector('#btnPesquisa2');
 
 
-    barraBtn2.addEventListener('click', () => {
-        telaDeFiltar.classList.toggle('active');
-        console.log('clicado')
+    limparPesquisa.addEventListener('click', () => {
+        console.log('clicado limpar');
+        limparUlLista();
+        codigoEAN.value = '';
+        filtrarProdutos.value = '';
     })
     barraBtn.addEventListener('click', () => {
         telaDeFiltar.classList.toggle('active');
