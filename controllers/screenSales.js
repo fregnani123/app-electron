@@ -134,15 +134,18 @@ document.addEventListener('DOMContentLoaded', function () {
                         produtoEstoque.innerText = `${produtoEncontrado.estoque} ${produtoEncontrado.unidadeMedida}`;
                         if (produtoEncontrado.estoque === 1) {
                             produtoEstoque.style.background = 'yellow'
+                            produtoEstoque.style.color = 'black';
+
                         }
                         if (produtoEncontrado.estoque === 0) {
                             produtoEstoque.style.background = 'red';
                             produtoEstoque.style.color = 'white';
                         }
-                        
-                       
+
                     } else {
                         produtoNome.innerText = 'Produto não encontrado';
+                        produtoEstoque.style.background = 'white';
+                        produtoEstoque.style.color = 'black';
                         produtoCodigo.value = ''
                         produtoPreco.innerText = ''
                         produtoEstoque.innerText = ''
